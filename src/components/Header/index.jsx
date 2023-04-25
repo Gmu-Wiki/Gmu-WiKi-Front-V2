@@ -44,6 +44,7 @@ function Header() {
               className="faMagnifyingGlass"
             />
           </div>
+          <span>로그인</span>
         </S.searchContent>
       </S.HeaderCenter>
     </S.Header>

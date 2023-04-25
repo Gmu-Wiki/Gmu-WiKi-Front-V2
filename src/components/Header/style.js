@@ -12,10 +12,12 @@ export const HeaderCenter = styled.div`
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 
   .menu {
     display: flex;
     align-items: center;
+    margin-right: 450px;
   }
 
   .header {
@@ -26,9 +28,17 @@ export const HeaderCenter = styled.div`
     span {
       color: white;
       margin-left: 5px;
-      font-weight: 400;
+      font-weight: 700;
       font-family: "Nanum Gothic", sans-serif;
     }
+  }
+  .logoContent {
+    display: flex;
+    align-items: center;
+  }
+
+  .school {
+    margin: 0 23px 0 23px;
   }
 `;
 
@@ -36,6 +46,7 @@ export const Logo = styled.img`
   width: 75px;
   height: 20px;
   cursor: pointer;
+  margin-right: 50px;
 `;
 
 export const noticeImg = styled.img`
@@ -58,7 +69,19 @@ export const searchContent = styled.div`
     .faMagnifyingGlass {
       color: #636363;
       font-weight: 500;
+      cursor: pointer;
     }
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 700;
+    color: white;
+    margin-left: 15px;
+    font-size: 16px;
+    cursor: pointer;
   }
 `;
 
