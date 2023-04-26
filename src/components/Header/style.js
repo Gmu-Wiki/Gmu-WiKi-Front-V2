@@ -1,5 +1,39 @@
 import styled from "styled-components";
 
+export const dropMenu = styled.div`
+  border: none;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  font: "sans-serif";
+  font-size: 18px;
+`;
+
+export const menuLi = styled.li`
+  list-style: none;
+  a {
+    text-decoration-line: none;
+  }
+
+  li {
+    padding: 0px;
+
+    a {
+      background: #666;
+      color: #fff;
+      display: block;
+      line-height: 100px;
+      margin: 0px;
+      padding: 0px 25px;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+      }
+    }
+  }
+`;
+
 export const Header = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 
@@ -44,7 +78,7 @@ export const HeaderCenter = styled.div`
 
 export const Logo = styled.img`
   width: 75px;
-  height: 20px;
+  height: 22px;
   cursor: pointer;
   margin-right: 50px;
 `;
@@ -98,7 +132,7 @@ export const etcImg = styled.img`
 `;
 
 export const searchInput = styled.input`
-  width: 150px;
+  width: 200px;
   height: 30px;
   outline: none;
   border: 1px solid #c0c0c0;
