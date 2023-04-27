@@ -3,6 +3,7 @@ import * as S from "./style.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu/dropMenu.jsx";
+import styled from "styled-components";
 
 function Header() {
   const LogoUrl =
@@ -17,23 +18,25 @@ function Header() {
   const etcImg =
     "https://media.discordapp.net/attachments/956190154454876183/1100337621693124658/image.png?width=88&height=88";
 
-  const menuList = ["공지", "학교", "기타"];
-
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
-  const [dropMenu, setDropMenu] = useState(false);
 
   return (
     <S.dropMenu>
       <S.menuLi>
-        <a
-          onMouseEnter={() => {
-            setDropMenu(true), setShowMenu(true);
-          }}
-          onMouseLeave={() => setShowMenu(false)}
-        >
-          <S.Header>
-            <S.HeaderCenter>
+        <div>
+          <S.Header
+            onMouseLeave={() => {
+              setShowMenu(false);
+              console.log(showMenu);
+            }}
+          >
+            <S.HeaderCenter
+              onMouseEnter={() => {
+                setShowMenu(true);
+                console.log(showMenu);
+              }}
+            >
               <div className="menu">
                 <div className="logoContent">
                   <S.Logo src={LogoUrl}></S.Logo>
@@ -62,12 +65,11 @@ function Header() {
                 <span>로그인</span>
               </S.searchContent>
             </S.HeaderCenter>
+
+            {/* 드롭다운 메뉴 */}
+            {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
           </S.Header>
-        </a>
-        {/* 드롭다운 메뉴 */}
-        {(showMenu || dropMenu) && (
-          <DropMenu onMouseLeave={() => setShowMenu(false)} />
-        )}
+        </div>
       </S.menuLi>
     </S.dropMenu>
   );

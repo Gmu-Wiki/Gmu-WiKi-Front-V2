@@ -40,12 +40,6 @@ export const dropHeader = styled.div`
   }
 `;
 
-export const noticeContent = styled.div``;
-
-export const schoolContent = styled.div``;
-
-export const etcContent = styled.div``;
-
 export const dropMenu = styled.div`
   width: 100%;
   display: flex;

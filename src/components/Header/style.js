@@ -36,17 +36,16 @@ export const menuLi = styled.li`
 
 export const Header = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
-
-  background-color: #007eff;
+  height: 210px;
   width: 100%;
-  height: 60px;
 `;
 
 export const HeaderCenter = styled.div`
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: #007eff;
+  height: 60px;
 
   .menu {
     display: flex;
