@@ -10,7 +10,7 @@ export const dropHeader = styled.div`
   span {
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     cursor: pointer;
     font-size: 16px;
   }
@@ -49,5 +49,10 @@ export const etcContent = styled.div``;
 export const dropMenu = styled.div`
   width: 100%;
   display: flex;
-  margin-left: 16.5%;
+
+  justify-content: space-around;
+  .asd {
+    display: flex;
+    margin-right: 350px;
+  }
 `;

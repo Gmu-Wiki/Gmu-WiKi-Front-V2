@@ -21,14 +21,15 @@ function Header() {
 
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
+  const [dropMenu, setDropMenu] = useState(false);
 
   return (
     <S.dropMenu>
       <S.menuLi>
         <a
-          href="#"
-          id="current"
-          onMouseEnter={() => setShowMenu(true)}
+          onMouseEnter={() => {
+            setDropMenu(true), setShowMenu(true);
+          }}
           onMouseLeave={() => setShowMenu(false)}
         >
           <S.Header>
@@ -64,7 +65,9 @@ function Header() {
           </S.Header>
         </a>
         {/* 드롭다운 메뉴 */}
-        {showMenu && <DropMenu />}
+        {(showMenu || dropMenu) && (
+          <DropMenu onMouseLeave={() => setShowMenu(false)} />
+        )}
       </S.menuLi>
     </S.dropMenu>
   );
