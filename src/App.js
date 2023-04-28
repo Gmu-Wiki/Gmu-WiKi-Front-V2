@@ -6,13 +6,14 @@ import {
 } from "react-router-dom";
 import React from "react";
 import Header from "./components/Header";
+import * as C from "./pages/index"; //Dialog index.jsx import함
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/main" element={<Main />} />
-        <Route path="/student" element={<Student />} />
+        <Route path="/main" element={<C.Main />} />
+        {/* <Route path="/student" element={<Student />} />
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/club" element={<Club />} />
         <Route path="/major" element={<Major />} />
