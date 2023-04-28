@@ -12,8 +12,8 @@ function App() {
   return (
     <Router>
       <Routes>
-//         <Route path="/main" element={<C.Main />} />
-        {/* <Route path="/student" element={<Student />} />
+       {/* \<Route path="/main" element={<C.Main />} />
+        <Route path="/student" element={<Student />} />
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/club" element={<Club />} />
         <Route path="/major" element={<Major />} />
