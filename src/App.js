@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import React from "react";
 import Header from "./components/Header";
-import * as C from "./pages/index"; //Dialog index.jsx import함
+import * as C from "./pages/index";
 
 function App() {
   return (
