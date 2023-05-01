@@ -1,6 +1,12 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
 import React from "react";
 import Header from "./components/Header";
+import * as C from "./pages/index";
 
 function App() {
   return (
