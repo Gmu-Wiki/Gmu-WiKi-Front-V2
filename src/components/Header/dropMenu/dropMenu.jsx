@@ -7,7 +7,7 @@ function DropMenu() {
     <>
       <S.dropHeader>
         <S.dropMenu>
-          <div className="asd">
+          <div className="center">
             <div>
               <div className="notice">
                 <span className="fontMove">공지사항</span>
