@@ -45,7 +45,7 @@ export const dropMenu = styled.div`
   display: flex;
 
   justify-content: space-around;
-  .asd {
+  .center {
     display: flex;
     margin-right: 350px;
   }
