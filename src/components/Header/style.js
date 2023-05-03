@@ -27,9 +27,6 @@ export const menuLi = styled.li`
       padding: 0px 25px;
       text-align: center;
       text-decoration: none;
-
-      &:hover {
-      }
     }
   }
 `;
@@ -72,6 +69,11 @@ export const HeaderCenter = styled.div`
 
   .school {
     margin: 0 23px 0 23px;
+  }
+
+  .menuContent {
+    display: flex;
+    margin-left: 30px;
   }
 `;
 

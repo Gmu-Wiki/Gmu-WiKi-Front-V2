@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import * as S from './style';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as I from '../../image';
-import Button from '../Button';
+import React, { useState } from "react";
+import * as S from "./style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as I from "../../assets";
+import Button from "../Button";
 function Login({ showLogin, setShowLogin }) {
   function showLoginModal() {
-    setShowLogin((prev) => !prev);
+    setShowLogin(prev => !prev);
   }
   return (
     <>
