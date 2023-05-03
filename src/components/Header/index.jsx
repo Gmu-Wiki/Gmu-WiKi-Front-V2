@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import * as S from "./style.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import DropMenu from "./dropMenu/dropMenu.jsx";
-import styled from "styled-components";
-import * as P from "../../image";
+import React, { useState } from 'react';
+import * as S from './style.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import DropMenu from './dropMenu/dropMenu.jsx';
+import styled from 'styled-components';
+import * as P from '../../image/index.js';
+import Login from '../Login/Login.jsx';
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
-
+  const [showLogin, setShowLogin] = useState(false);
   return (
     <S.dropMenu>
       <S.menuLi>
@@ -51,7 +52,13 @@ function Header() {
                     className="faMagnifyingGlass"
                   />
                 </div>
-                <span>로그인</span>
+                <span
+                  onClick={() => {
+                    setShowLogin(true);
+                  }}
+                >
+                  로그인
+                </span>
               </S.searchContent>
             </S.HeaderCenter>
 
@@ -59,6 +66,9 @@ function Header() {
             {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
           </S.Header>
         </div>
+        {showLogin && (
+          <Login showLogin={showLogin} setShowLogin={setShowLogin} />
+        )}
       </S.menuLi>
     </S.dropMenu>
   );
