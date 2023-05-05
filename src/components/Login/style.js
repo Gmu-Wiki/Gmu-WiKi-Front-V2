@@ -63,5 +63,6 @@ export const LoginButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
   gap: 10px;
 `;

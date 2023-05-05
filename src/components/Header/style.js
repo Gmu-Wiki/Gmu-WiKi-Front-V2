@@ -32,7 +32,6 @@ export const menuLi = styled.li`
 `;
 
 export const Header = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
   height: 210px;
   width: 100%;
 `;
@@ -59,7 +58,6 @@ export const HeaderCenter = styled.div`
       color: white;
       margin-left: 5px;
       font-weight: 700;
-      font-family: "Nanum Gothic", sans-serif;
     }
   }
   .logoContent {
@@ -111,7 +109,6 @@ export const searchContent = styled.div`
   span {
     display: flex;
     align-items: center;
-    font-family: "Nanum Gothic", sans-serif;
     font-weight: 700;
     color: white;
     margin-left: 15px;
