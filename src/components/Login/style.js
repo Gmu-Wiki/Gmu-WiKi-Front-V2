@@ -24,7 +24,7 @@ export const ModalBox = styled.div`
 
 export const LoginContainer = styled.div`
   width: 320px;
-  height: 400px;
+  height: 440px;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
