@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const WhiteCotainerContent = styled.div`
-  width: 100%;
+  width: 1200px;
   height: auto;
   /* background-color: white; */
-  margin: 60px 330px 0 0;
+  margin-right: 200px;
+  margin-top: 60px;
   /* border: 1px solid #c0c0c0; */
   border-top: 0;
   display: flex;
@@ -19,7 +20,7 @@ export const WhiteContainer = styled.div`
 `;
 
 export const ContainerCenter = styled.div`
-  width: 1100px;
+  width: 1600px;
   display: flex;
   align-items: center;
   justify-content: center;

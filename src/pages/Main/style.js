@@ -29,7 +29,7 @@ export const DetailContent = styled.div`
 `;
 
 export const DetailCenter = styled.div`
-  width: 94%;
+  width: 89.5%;
 `;
 
 export const Explanation = styled.div`
