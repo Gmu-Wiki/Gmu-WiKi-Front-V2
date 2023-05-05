@@ -46,13 +46,9 @@ export const LoginContainer = styled.div`
   }
 `;
 export const LoginContent = styled.p`
-  font-size: 20px;
-  font-weight: 6ㅇ00;
-`;
-
-export const LoginLogo = styled.img`
-  width: 100px;
-  height: 100px;
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: 600;
 `;
 
 export const LoginTitle = styled.div`
