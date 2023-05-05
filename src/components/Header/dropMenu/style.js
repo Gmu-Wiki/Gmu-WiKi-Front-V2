@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const dropHeader = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
   width: 100%;
   background-color: #3e9dff;
   height: 150px;
   color: white;
 
   span {
-    font-family: "Nanum Gothic", sans-serif;
     font-weight: 700;
     margin-bottom: 15px;
     cursor: pointer;
