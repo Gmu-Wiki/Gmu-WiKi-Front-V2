@@ -19,13 +19,11 @@ function Header() {
           <S.Header
             onMouseLeave={() => {
               setShowMenu(false);
-              console.log(showMenu);
             }}
           >
             <S.HeaderCenter
               onMouseEnter={() => {
                 setShowMenu(true);
-                console.log(showMenu);
               }}
             >
               <div className="menu">

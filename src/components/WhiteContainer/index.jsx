@@ -14,9 +14,6 @@ function WhiteContiner({ title, sort }) {
               분류 : <span>{sort}</span>
             </div>
           </S.ClassIfication>
-          <S.Explanation>
-            <div className="explanationContent">d</div>
-          </S.Explanation>
         </S.ContainerCenter>
       </S.WhiteCotainerContent>
     </S.WhiteContainer>
