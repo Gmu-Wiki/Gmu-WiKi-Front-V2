@@ -47,6 +47,6 @@ export const dropMenu = styled.div`
   justify-content: space-around;
   .center {
     display: flex;
-    margin-right: 350px;
+    margin-right: 380px;
   }
 `;
