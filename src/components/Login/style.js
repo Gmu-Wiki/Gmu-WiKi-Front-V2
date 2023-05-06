@@ -8,18 +8,15 @@ export const ModalOverlay = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
 `;
 
 export const ModalBox = styled.div`
-  width: 100vw;
-  height: 100vh;
   z-index: 101;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const LoginContainer = styled.div`
@@ -28,9 +25,6 @@ export const LoginContainer = styled.div`
   background-color: #fff;
   border-radius: 10px;
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 0) !important;
   display: flex;
   justify-content: center;
   align-items: center;

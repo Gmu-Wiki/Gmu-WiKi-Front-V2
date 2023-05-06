@@ -12,67 +12,67 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   return (
-    <S.dropMenu>
-      <S.menuLi>
-        <div>
-          <S.Header
-            onMouseLeave={() => {
-              setShowMenu(false);
-              console.log(showMenu);
-            }}
-          >
-            <S.HeaderCenter
-              onMouseEnter={() => {
-                setShowMenu(true);
+    <>
+      <S.dropMenu>
+        <S.menuLi>
+          <div>
+            <S.Header
+              onMouseLeave={() => {
+                setShowMenu(false);
                 console.log(showMenu);
               }}
             >
-              <div className="menu">
-                <div className="logoContent">
-                  <I.Logo />
-                </div>
-                <div className="menuContent">
-                  <div className="notice header">
-                    <I.Notice />
-                    <span>공지</span>
+              <S.HeaderCenter
+                onMouseEnter={() => {
+                  setShowMenu(true);
+                  console.log(showMenu);
+                }}
+              >
+                <div className="menu">
+                  <div className="logoContent">
+                    <I.Logo />
                   </div>
-                  <div className="school header">
-                    <I.School />
-                    <span>학교</span>
-                  </div>
-                  <div className="etc header">
-                    <I.Etc />
-                    <span>기타</span>
+                  <div className="menuContent">
+                    <div className="notice header">
+                      <I.Notice />
+                      <span>공지</span>
+                    </div>
+                    <div className="school header">
+                      <I.School />
+                      <span>학교</span>
+                    </div>
+                    <div className="etc header">
+                      <I.Etc />
+                      <span>기타</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <S.searchContent>
-                <S.searchInput placeholder="search" />
-                <div className="searchIcon">
-                  <FontAwesomeIcon
-                    icon={faMagnifyingGlass}
-                    className="faMagnifyingGlass"
-                  />
-                </div>
-                <span
-                  onClick={() => {
-                    setShowLogin(true);
-                  }}
-                >
-                  로그인
-                </span>
-              </S.searchContent>
-            </S.HeaderCenter>
+                <S.searchContent>
+                  <S.searchInput placeholder="search" />
+                  <div className="searchIcon">
+                    <FontAwesomeIcon
+                      icon={faMagnifyingGlass}
+                      className="faMagnifyingGlass"
+                    />
+                  </div>
+                  <span
+                    onClick={() => {
+                      setShowLogin(true);
+                    }}
+                  >
+                    로그인
+                  </span>
+                </S.searchContent>
+              </S.HeaderCenter>
 
-            {/* 드롭다운 메뉴 */}
-            {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
-          </S.Header>
-        </div>
-        {showLogin && (
-          <Login showLogin={showLogin} setShowLogin={setShowLogin} />
-        )}
-      </S.menuLi>
-    </S.dropMenu>
+              {/* 드롭다운 메뉴 */}
+              {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
+            </S.Header>
+          </div>
+        </S.menuLi>
+      </S.dropMenu>
+      {showLogin && <Login showLogin={showLogin} setShowLogin={setShowLogin} />}
+    </>
   );
 }
 
