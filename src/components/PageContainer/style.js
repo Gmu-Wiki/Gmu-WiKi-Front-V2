@@ -26,6 +26,7 @@ export const DetailContent = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 `;
 
 export const DetailCenter = styled.div`
@@ -33,13 +34,9 @@ export const DetailCenter = styled.div`
 `;
 
 export const Explanation = styled.div`
-  padding-top: 30px;
+  padding-top: auto;
   width: 100%;
-
-  .explanationContent {
-    width: 100%;
-    border: 1px solid #c0c0c0;
-    border-left: 0;
-    border-right: 0;
-  }
+  border: 1px solid #c0c0c0;
+  border-left: 0;
+  border-right: 0;
 `;
