@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu/dropMenu.jsx";
 import styled from "styled-components";
-import Login from "../Login/Login.jsx";
+import Login from "../Login/index.jsx";
 import * as I from "../../assets";
 import WhiteContiner from "../WhiteContainer/index.jsx";
 
