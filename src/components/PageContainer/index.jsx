@@ -1,12 +1,12 @@
 import React from "react";
 import * as S from "./style";
-import WhiteContainer from "../WhiteContainer";
+import * as C from "../../components";
 
 function PageContainer({ children }) {
   return (
     <S.PageCenter>
       <S.PageContainer>
-        <WhiteContainer title="대문" sort="G무위키" />
+        <C.WhiteContainer title="대문" sort="G무위키" />
         <S.DetailContent>
           <S.DetailCenter>
             <S.Explanation>{children}</S.Explanation>
