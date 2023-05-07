@@ -9,10 +9,6 @@ export const PageContainer = styled.div`
   border: 1px solid #c0c0c0;
   border-top: 0;
   margin-left: 150px;
-
-  .a {
-    width: 90%;
-  }
 `;
 
 export const PageCenter = styled.div`
