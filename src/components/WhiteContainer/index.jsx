@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "./style.js";
 
-function WhiteContiner({ title, sort }) {
+function WhiteContainer({ title, sort }) {
   return (
     <S.WhiteContainer>
-      <S.WhiteCotainerContent>
+      <S.WhiteContainerContent>
         <S.ContainerCenter>
           <S.Title>
             <span>G무위키:{title}</span>
@@ -15,9 +15,9 @@ function WhiteContiner({ title, sort }) {
             </div>
           </S.ClassIfication>
         </S.ContainerCenter>
-      </S.WhiteCotainerContent>
+      </S.WhiteContainerContent>
     </S.WhiteContainer>
   );
 }
 
-export default WhiteContiner;
+export default WhiteContainer;

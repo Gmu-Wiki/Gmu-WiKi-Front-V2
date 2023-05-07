@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WhiteCotainerContent = styled.div`
+export const WhiteContainerContent = styled.div`
   width: 1200px;
   height: auto;
   /* background-color: white; */
