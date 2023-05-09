@@ -26,25 +26,31 @@ function Header() {
                 setShowMenu(true);
               }}
             >
-              <div className="menu">
-                <div className="logoContent">
-                  <I.Logo />
+              <S.HeaderCenter
+                onMouseEnter={() => {
+                  setShowMenu(true);
+                }}
+              >
+                <div className="menu">
+                  <div className="logoContent">
+                    <I.Logo />
+                  </div>
+                  <div className="menuContent">
+                    <div className="notice header">
+                      <I.Notice />
+                      <span>공지</span>
+                    </div>
+                    <div className="school header">
+                      <I.School />
+                      <span>학교</span>
+                    </div>
+                    <div className="etc header">
+                      <I.Etc />
+                      <span>기타</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="menuContent">
-                  <div className="notice header">
-                    <I.Notice />
-                    <span>공지</span>
-                  </div>
-                  <div className="school header">
-                    <I.School />
-                    <span>학교</span>
-                  </div>
-                  <div className="etc header">
-                    <I.Etc />
-                    <span>기타</span>
-                  </div>
-                </div>
-              </div>
+              </S.HeaderCenter>
               <S.searchContent>
                 <S.searchInput placeholder="search" />
                 <div className="searchIcon">

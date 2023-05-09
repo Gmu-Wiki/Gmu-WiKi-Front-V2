@@ -5,3 +5,4 @@ export { default as School } from "./School";
 export { default as Etc } from "./Etc";
 export { default as Logo } from "./Logo";
 export { default as Notice } from "./Notice";
+export { default as NotFound } from "./NotFound";

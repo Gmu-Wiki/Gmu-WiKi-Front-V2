@@ -8,29 +8,23 @@ export const ModalOverlay = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
 `;
 
 export const ModalBox = styled.div`
-  width: 100vw;
-  height: 100vh;
   z-index: 101;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const LoginContainer = styled.div`
   width: 320px;
-  height: 400px;
+  height: 440px;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 0) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,13 +40,8 @@ export const LoginContainer = styled.div`
   }
 `;
 export const LoginContent = styled.p`
-  font-size: 20px;
-  font-weight: 6ㅇ00;
-`;
-
-export const LoginLogo = styled.img`
-  width: 100px;
-  height: 100px;
+  margin-top: 25px;
+  font-size: 18px;
 `;
 
 export const LoginTitle = styled.div`
@@ -67,5 +56,6 @@ export const LoginButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
   gap: 10px;
 `;
