@@ -5,9 +5,7 @@ function Main() {
   return (
     <>
       <C.Header />
-      <C.PageContainer title="대문" sort="G무위키">
-        asdasd
-      </C.PageContainer>
+      <C.PageContainer title="대문" sort="G무위키"></C.PageContainer>
     </>
   );
 }
