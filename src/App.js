@@ -16,12 +16,12 @@ function App() {
       <Router>
         <Routes>
           {/* <Route path="/main" element={<C.Main />} />
-          <Route path="/student" element={<Student />} />
-          <Route path="/teacher" element={<Teacher />} />
-          <Route path="/club" element={<Club />} />
-          <Route path="/major" element={<Major />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/notice" element={<Notice />} /> */}
+          <Route path="/student" element={<C.Student />} />
+          <Route path="/teacher" element={<C.Teacher />} />
+          <Route path="/club" element={<C.Club />} />
+          <Route path="/major" element={<C.Major />} />
+          <Route path="/event" element={<C.Event />} />
+          <Route path="/notice" element={<C.Notice />} /> */}
           <Route path="*" element={<C.NotFound />} />
         </Routes>
       </Router>
