@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import React from "react";
 import Header from "./components/Header";
-import * as C from "./pages/index";
+import * as P from "./pages/index";
 import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
@@ -15,14 +15,14 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          {/* <Route path="/main" element={<C.Main />} />
-          <Route path="/student" element={<C.Student />} />
-          <Route path="/teacher" element={<C.Teacher />} />
-          <Route path="/club" element={<C.Club />} />
-          <Route path="/major" element={<C.Major />} />
-          <Route path="/event" element={<C.Event />} />
-          <Route path="/notice" element={<C.Notice />} /> */}
-          <Route path="*" element={<C.NotFound />} />
+          <Route path="/main" element={<P.Main />} />
+          {/* <Route path="/student" element={<P.Student />} />
+          <Route path="/teacher" element={<P.TeaPher />} />
+          <Route path="/club" element={<P.Plub />} />
+          <Route path="/major" element={<P.Major />} />
+          <Route path="/event" element={<P.Event />} />
+          <Route path="/notice" element={<P.NotiPe />} />  */}
+          <Route path="*" element={<P.NotFound />} />
         </Routes>
       </Router>
     </>
