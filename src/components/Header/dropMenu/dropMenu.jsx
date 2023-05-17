@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as S from "./style";
 
 function DropMenu() {
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <>
       <S.dropHeader>

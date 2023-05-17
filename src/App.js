@@ -1,12 +1,6 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
-import Header from "./components/Header";
-import * as C from "./pages/index";
+import * as P from "./pages/index";
 import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
@@ -15,15 +9,14 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          <Route path="/" element={<Header />} />
-          {/* <Route path="/main" element={<C.Main />} />
-          <Route path="/student" element={<Student />} />
-          <Route path="/teacher" element={<Teacher />} />
-          <Route path="/club" element={<Club />} />
-          <Route path="/major" element={<Major />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/notice" element={<Notice />} /> */}
-          <Route path="*" element={<C.NotFound />} />
+          <Route path="/main" element={<P.Main />} />
+          {/* <Route path="/student" element={<P.Student />} />
+          <Route path="/teacher" element={<P.TeaPher />} />
+          <Route path="/club" element={<P.Plub />} />
+          <Route path="/major" element={<P.Major />} />
+          <Route path="/event" element={<P.Event />} />
+          <Route path="/notice" element={<P.NotiPe />} />  */}
+          <Route path="*" element={<P.NotFound />} />
         </Routes>
       </Router>
     </>

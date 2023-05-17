@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import * as S from "./style.js";
+import * as C from "..";
+import * as I from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu/dropMenu.jsx";
-import styled from "styled-components";
-import Login from "../Login/Login.jsx";
-import * as I from "../../assets";
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   return (
-    <>
-      <S.dropMenu>
-        <S.menuLi>
-          <div>
-            <S.Header
-              onMouseLeave={() => {
-                setShowMenu(false);
-                console.log(showMenu);
+    <S.dropMenu>
+      <S.menuLi>
+        <div>
+          <S.Header
+            onMouseLeave={() => {
+              setShowMenu(false);
+            }}
+          >
+            <S.HeaderCenter
+              onMouseEnter={() => {
+                setShowMenu(true);
               }}
             >
               <S.HeaderCenter
                 onMouseEnter={() => {
                   setShowMenu(true);
-                  console.log(showMenu);
                 }}
               >
                 <div className="menu">
@@ -47,32 +48,33 @@ function Header() {
                     </div>
                   </div>
                 </div>
-                <S.searchContent>
-                  <S.searchInput placeholder="search" />
-                  <div className="searchIcon">
-                    <FontAwesomeIcon
-                      icon={faMagnifyingGlass}
-                      className="faMagnifyingGlass"
-                    />
-                  </div>
-                  <span
-                    onClick={() => {
-                      setShowLogin(true);
-                    }}
-                  >
-                    로그인
-                  </span>
-                </S.searchContent>
               </S.HeaderCenter>
-
-              {/* 드롭다운 메뉴 */}
-              {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
-            </S.Header>
-          </div>
-        </S.menuLi>
-      </S.dropMenu>
-      {showLogin && <Login showLogin={showLogin} setShowLogin={setShowLogin} />}
-    </>
+              <S.searchContent>
+                <S.searchInput placeholder="search" />
+                <div className="searchIcon">
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    className="faMagnifyingGlass"
+                  />
+                </div>
+                <span
+                  onClick={() => {
+                    setShowLogin(true);
+                  }}
+                >
+                  로그인
+                </span>
+              </S.searchContent>
+            </S.HeaderCenter>
+            {/* 드롭다운 메뉴 */}
+            {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
+          </S.Header>
+        </div>
+        {showLogin && (
+          <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
+        )}
+      </S.menuLi>
+    </S.dropMenu>
   );
 }
 

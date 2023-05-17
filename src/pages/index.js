@@ -1,8 +1,8 @@
-// export { default as Main } from "./Main";
+export { default as Main } from "./Main";
 export { default as NotFound } from "./NotFound";
-// export { default as Main } from "./Club";
-// export { default as Main } from "./Event";
-// export { default as Main } from "./Major";
-// export { default as Main } from "./Notice";
-// export { default as Main } from "./Teacher";
-// export { default as Main } from "./Student";
+// export { default as Club } from "./Club";
+// export { default as Event } from "./Event";
+// export { default as Major } from "./Major";
+// export { default as Notice } from "./Notice";
+// export { default as Teacher } from "./Teacher";
+// export { default as Student } from "./Student";
