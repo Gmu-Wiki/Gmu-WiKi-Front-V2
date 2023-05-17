@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import * as S from "./style.js";
+import * as C from "..";
+import * as I from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu/dropMenu.jsx";
-import styled from "styled-components";
-import Login from "../Login/index.jsx";
-import * as I from "../../assets";
-import WhiteContiner from "../WhiteContainer/index.jsx";
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
@@ -73,7 +71,7 @@ function Header() {
           </S.Header>
         </div>
         {showLogin && (
-          <Login showLogin={showLogin} setShowLogin={setShowLogin} />
+          <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
         )}
       </S.menuLi>
     </S.dropMenu>
