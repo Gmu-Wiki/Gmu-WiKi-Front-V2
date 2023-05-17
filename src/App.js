@@ -1,11 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
-import Header from "./components/Header";
 import * as P from "./pages/index";
 import GlobalStyle from "./styles/GlobalStyle";
 

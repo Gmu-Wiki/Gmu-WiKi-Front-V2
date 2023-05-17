@@ -5,7 +5,6 @@ export const dropMenu = styled.div`
   border: 0px;
   margin: 0px;
   padding: 0px;
-  font: "sans-serif";
   font-size: 18px;
 `;
 
@@ -34,7 +33,6 @@ export const menuLi = styled.li`
 export const Header = styled.div`
   height: 210px;
   width: 100%;
-
   position: fixed;
 `;
 
