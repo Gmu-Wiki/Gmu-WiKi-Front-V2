@@ -23,7 +23,6 @@ function Main() {
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>
-        ㅁㄴㅇㅁㄴㅇ
       </C.PageContainer>
     </>
   );

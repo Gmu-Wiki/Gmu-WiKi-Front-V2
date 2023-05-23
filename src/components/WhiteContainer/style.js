@@ -34,7 +34,7 @@ export const Title = styled.div`
   width: 100%;
 
   span {
-    font-size: 30px;
+    font-size: 40px;
     color: #636363;
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 600;
