@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const Explanation = styled.div`
+export const DetailCenter = styled.div`
   height: auto;
   width: 100%;
+  margin-bottom: 20px;
 
   span {
     color: #636363;
