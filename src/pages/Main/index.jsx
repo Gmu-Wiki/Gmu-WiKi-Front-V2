@@ -75,7 +75,7 @@ function Main() {
               SW개발과, 스마트IOT과. 3학년은 SW개발과, 임베디드 SW과로 운영되고
               있다.
             </div>
-            <S.Department>
+            <div>
               <S.DepartmentTitle>SW개발과</S.DepartmentTitle>
               <S.DepartmentContent>
                 SW 개발의 계획에서부터 분석, 설계, 코딩, 테스팅, 유지 보수까지
@@ -98,7 +98,7 @@ function Main() {
                 <br />
                 인공지능 플랫폼 구현, 인공지능 서비스 기획 전문 인재를 양성한다.
               </S.DepartmentContent>
-            </S.Department>
+            </div>
           </S.DepartmentContainer>
         </C.Detail>
       </C.PageContainer>
