@@ -4,7 +4,7 @@ export const FooterConainer = styled.div`
   width: 100%;
   height: 60px;
   background-color: #dddddd;
-  position: absolute;
+  position: relative;
   bottom: 0;
   border-top: 1px solid #c0c0c0;
   display: flex;

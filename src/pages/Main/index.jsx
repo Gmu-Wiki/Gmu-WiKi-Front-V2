@@ -6,6 +6,7 @@ function Main() {
     <>
       <C.Header />
       <C.PageContainer title="대문" sort="G무위키"></C.PageContainer>
+      <C.Footer />
     </>
   );
 }
