@@ -75,9 +75,9 @@ export const SchoolSonContainer = styled.div`
   text-align: center;
 `;
 
-export const DepartmentContainer = styled.div``;
-
-export const Department = styled.div``;
+export const DepartmentContainer = styled.div`
+  margin-left: 28px;
+`;
 
 export const DepartmentTitle = styled.div`
   font-size: 24px;
