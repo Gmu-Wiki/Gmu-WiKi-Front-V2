@@ -10,7 +10,6 @@ export const WhiteContainerContent = styled.div`
   border-top: 0;
   display: flex;
   justify-content: center;
-  @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 `;
 
 export const WhiteContainer = styled.div`
