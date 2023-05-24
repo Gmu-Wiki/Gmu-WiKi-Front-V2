@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
        font-family: "Nanum Gothic", sans-serif;
+       a {text-decoration: none; outline: none}
     }
 
     body{
