@@ -23,7 +23,7 @@ export const DetailTitle = styled.span`
 `;
 
 export const DetailContent = styled.div`
-  padding-top: 10px;
+  margin-top: 26px;
   line-height: 24px;
 `;
 
