@@ -24,6 +24,7 @@ function Main() {
           </S.DetailCenter>
         </C.Explanation>
       </C.PageContainer>
+      <C.Footer />
     </>
   );
 }
