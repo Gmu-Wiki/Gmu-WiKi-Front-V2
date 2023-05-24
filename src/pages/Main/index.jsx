@@ -15,11 +15,16 @@ function Main() {
             </S.Title>
             <S.Illusion>
               <span className="pointWord">G무위키 </span>
-              <span>에 오신걸 환영합니다.</span>
+              <span>에 오신걸 환영합니다!</span>
             </S.Illusion>
             <S.Content>
-              <span className="pointWord">G무위키는 </span>
-              <span>GSM 학생들을 위한 위키입니다.</span>
+              <div>
+                <span className="pointWord">G무위키&nbsp;</span>
+                <span>GSM 학생들을 위한 위키입니다.</span>
+              </div>
+              <span className="pointContent">
+                검증되지 않았거나 편향된 내용이 있을 수 있습니다.
+              </span>
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>

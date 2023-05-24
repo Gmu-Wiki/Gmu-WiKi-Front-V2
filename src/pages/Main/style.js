@@ -31,19 +31,23 @@ export const Title = styled.div`
 export const Illusion = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 12px;
   font-size: 14px;
 `;
 
 export const Content = styled.div`
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
-
-  .pointContent {
-    color: #007eff;
-  }
+  align-items: center;
+  flex-direction: column;
+  font-size: 14px;
 
   .contentCenter {
     display: flex;
     justify-content: center;
+  }
+
+  .pointContent {
+    margin-top: 5px;
   }
 `;
