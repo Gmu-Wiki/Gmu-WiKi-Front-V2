@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as A from "../../assets";
+import * as I from "../../assets";
 import * as S from "./style";
 
 export default function Detail({ title, hasNumber, children, number }) {
@@ -8,7 +8,7 @@ export default function Detail({ title, hasNumber, children, number }) {
     <S.DetailContainer detailActive={detailActive}>
       <S.DetailTitleContainer>
         <div onClick={() => setDetailActice(prev => !prev)}>
-          <A.Arrow />
+          <I.Arrow />
         </div>
         {hasNumber && (
           <S.DetailNumber detailActive={detailActive}>{number}.</S.DetailNumber>
