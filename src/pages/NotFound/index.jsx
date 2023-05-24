@@ -10,6 +10,7 @@ function NotFound() {
       <S.NotFoundCotainer>
         <I.NotFound />
       </S.NotFoundCotainer>
+      <C.Footer />
     </>
   );
 }

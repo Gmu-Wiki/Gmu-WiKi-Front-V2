@@ -51,3 +51,44 @@ export const Content = styled.div`
     margin-top: 5px;
   }
 `;
+
+export const EmailLink = styled.a`
+  color: #007eff;
+`;
+
+export const Outline = styled.div`
+  margin-left: 28px;
+`;
+
+export const OutlineContent = styled.div`
+  margin-bottom: 30px;
+`;
+
+export const SchoolVideoContainer = styled.div`
+  text-align: center;
+`;
+
+export const Lesson = styled.div`
+  padding: 24px 28px 24px 20px;
+  background-color: #f1f1f5;
+  border-left: 8px solid #007eff;
+  width: 300px;
+`;
+
+export const SchoolSonContainer = styled.div`
+  text-align: center;
+`;
+
+export const DepartmentContainer = styled.div``;
+
+export const Department = styled.div``;
+
+export const DepartmentTitle = styled.div`
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 40px;
+`;
+
+export const DepartmentContent = styled.div`
+  margin-top: 20px;
+`;

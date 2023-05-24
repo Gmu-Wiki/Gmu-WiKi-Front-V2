@@ -6,3 +6,5 @@ export { default as Etc } from "./Etc";
 export { default as Logo } from "./Logo";
 export { default as Notice } from "./Notice";
 export { default as NotFound } from "./NotFound";
+export { default as Arrow } from "./Arrow";
+export { default as SchoolSong } from "./SchoolSong";
