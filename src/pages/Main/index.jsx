@@ -16,11 +16,16 @@ function Main() {
             </S.Title>
             <S.Illusion>
               <span className="pointWord">G무위키 </span>
-              <span>에 오신걸 환영합니다.</span>
+              <span>에 오신걸 환영합니다!</span>
             </S.Illusion>
             <S.Content>
-              <span className="pointWord">G무위키는 </span>
-              <span>GSM 학생들을 위한 위키입니다.</span>
+              <div>
+                <span className="pointWord">G무위키&nbsp;</span>
+                <span>GSM 학생들을 위한 위키입니다.</span>
+              </div>
+              <span className="pointContent">
+                검증되지 않았거나 편향된 내용이 있을 수 있습니다.
+              </span>
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>
@@ -70,7 +75,7 @@ function Main() {
               SW개발과, 스마트IOT과. 3학년은 SW개발과, 임베디드 SW과로 운영되고
               있다.
             </div>
-            <S.Department>
+            <div>
               <S.DepartmentTitle>SW개발과</S.DepartmentTitle>
               <S.DepartmentContent>
                 SW 개발의 계획에서부터 분석, 설계, 코딩, 테스팅, 유지 보수까지
@@ -93,7 +98,7 @@ function Main() {
                 <br />
                 인공지능 플랫폼 구현, 인공지능 서비스 기획 전문 인재를 양성한다.
               </S.DepartmentContent>
-            </S.Department>
+            </div>
           </S.DepartmentContainer>
         </C.Detail>
       </C.PageContainer>
