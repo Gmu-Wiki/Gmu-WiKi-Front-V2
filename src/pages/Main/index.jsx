@@ -102,6 +102,7 @@ function Main() {
           </S.DepartmentContainer>
         </C.Detail>
       </C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
     </>
   );
