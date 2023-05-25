@@ -6,3 +6,4 @@ export { default as PageContainer } from "./PageContainer";
 export { default as Explanation } from "./Explanation";
 export { default as Footer } from "./Footer";
 export { default as Detail } from "./Detail";
+export { default as ScrollButton } from "./ScrollButton";
