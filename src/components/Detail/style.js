@@ -18,7 +18,7 @@ export const DetailNumber = styled.span`
 
 export const DetailTitle = styled.span`
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 10px;
 `;
 

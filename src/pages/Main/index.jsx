@@ -1,7 +1,7 @@
 import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
-import * as A from "../../assets";
+import * as I from "../../assets";
 
 function Main() {
   return (
@@ -65,7 +65,7 @@ function Main() {
         </C.Detail>
         <C.Detail hasNumber={true} number={4} title={"교가"}>
           <S.SchoolSonContainer>
-            <A.SchoolSong />
+            <I.SchoolSong />
           </S.SchoolSonContainer>
         </C.Detail>
         <C.Detail hasNumber={true} number={5} title={"학과운영"}>
@@ -102,6 +102,7 @@ function Main() {
           </S.DepartmentContainer>
         </C.Detail>
       </C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
     </>
   );
