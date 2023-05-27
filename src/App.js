@@ -16,6 +16,7 @@ function App() {
           <Route path="/major" element={<P.Major />} />
           <Route path="/event" element={<P.Event />} />
           <Route path="/notice" element={<P.NotiPe />} />  */}
+          <Route path="/post" element={<P.Post />} />
           <Route path="*" element={<P.NotFound />} />
         </Routes>
       </Router>
