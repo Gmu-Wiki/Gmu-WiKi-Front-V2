@@ -14,7 +14,6 @@ export const WriteBox = styled.div`
 export const CategoryInput = styled.div`
   width: 100%;
   height: 5vh;
-  /* background-color: red; */
   display: flex;
   align-items: center;
 
