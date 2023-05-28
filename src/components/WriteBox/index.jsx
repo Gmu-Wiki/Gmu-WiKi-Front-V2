@@ -1,22 +1,28 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 
-function WriteBox() {
-  const [category, setCategory] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
-  const onChangeCategory = (e) => {
-    setCategory(e.target.value);
+function reducer(state, action) {
+  console.log("으아아아아아")
+  return {
+    ...state,
+    [action.name]: action.value,
   };
+}
 
-  const onChangeTitle = (e) => {
-    setTitle(e.target.value);
-  }
+function WriteBox() {
+  const [edit, setEdit] = useState(true);
+  const [preview, setPreview] = useState(false);
+  const [state, dispatch] = useReducer(reducer, {
+    category: "선택해주세요",
+    title: "",
+    content: "",
+  }) 
 
-  const onChangeContent = (e) => {
-    setContent(e.target.value);
+  const {category, title, content} = state;
+
+  const onChange = (e) => {
+    dispatch(e.target);
   }
 
   return (
@@ -26,7 +32,7 @@ function WriteBox() {
       <S.WriteBox>
         <S.CategoryInput>
           <span>카테고리</span>
-          <select onChange={onChangeCategory} value={category}>
+          <select name="category" onChange={onChange} value={category}>
             <option>선택해주세요</option>
             <option>학생</option>
             <option>선생님</option>
@@ -37,14 +43,14 @@ function WriteBox() {
         </S.CategoryInput>
         <S.TitleInput>
           <span>제목</span>
-          <input type="text" value={title} onChange={onChangeTitle} />
+          <input type="text" name="title" value={title} onChange={onChange} />
         </S.TitleInput>
         <S.ContentInput>
           <div>
             <span>1</span>
             <span>2</span>
           </div>
-            <textarea type="text" value={content} onChange={onChangeContent} />
+            <textarea type="text" name="content" value={content} onChange={onChange} />
         </S.ContentInput>
       </S.WriteBox>
       <S.RegisterButton>등록하기</S.RegisterButton>
