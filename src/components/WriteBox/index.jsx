@@ -1,9 +1,7 @@
 import { useReducer, useState } from "react";
 import * as S from "./style";
-import * as C from "../index";
 
 function reducer(state, action) {
-  console.log("으아아아아아");
   return {
     ...state,
     [action.name]: action.value,
