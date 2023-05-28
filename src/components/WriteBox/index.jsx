@@ -21,6 +21,8 @@ function WriteBox() {
 
   return (
     <>
+      <S.EditButton>편집</S.EditButton>
+      <S.PreviewButton>미리보기</S.PreviewButton>
       <S.WriteBox>
         <S.CategoryInput>
           <span>카테고리</span>
