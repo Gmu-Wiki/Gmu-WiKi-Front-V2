@@ -14,8 +14,8 @@ export const EditButton = styled.button`
   width: 4.6vw;
   height: 5vh;
   background: none;
-  border: ${props => props.checked ? "1px solid #c0c0c0" : "none"};
-  border-bottom: ${props => props.checked ? "none" : "1px solid #c0c0c0"};
+  border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
+  border-bottom: ${props => (props.checked ? "none" : "1px solid #c0c0c0")};
   color: #999999;
   cursor: pointer;
   font-size: 0.9rem;
@@ -26,8 +26,9 @@ export const PreviewButton = styled.button`
   height: 5vh;
   background: none;
   color: #007eff;
-  border: ${props => props.checked ? "1px solid #c0c0c0" : "none"};
-  border-bottom: ${props => props.checked ? "none" : "1px solid #c0c0c0"};  cursor: pointer;
+  border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
+  border-bottom: ${props => (props.checked ? "none" : "1px solid #c0c0c0")};
+  cursor: pointer;
   font-size: 0.9rem;
 `;
 
@@ -45,19 +46,19 @@ export const CategoryInput = styled.div`
   }
 
   select {
-  border: 1px solid #dddddd;
-  width: 16%;
-  outline: 0;
-  background-color: none;
-  color: #999999;
-
-  option {
+    border: 1px solid #dddddd;
+    width: 16%;
+    outline: 0;
     background-color: none;
-    &:hover {
-      background-color: #e4f1ff;
+    color: #999999;
+
+    option {
+      background-color: none;
+      &:hover {
+        background-color: #e4f1ff;
+      }
     }
   }
-}
 `;
 
 export const TitleInput = styled.div`
@@ -100,7 +101,6 @@ export const ContentInput = styled.div`
       margin-top: 6px;
     }
   }
-
 
   textarea {
     border: 1px solid #dddddd;

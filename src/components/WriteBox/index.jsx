@@ -72,11 +72,7 @@ function WriteBox() {
           </S.ContentInput>
         </S.WriteBox>
       )}
-      {preview && (
-        <S.WriteBox>
-
-        </S.WriteBox>
-      )}
+      {preview && <S.WriteBox></S.WriteBox>}
       <S.RegisterButton>등록하기</S.RegisterButton>
     </>
   );
