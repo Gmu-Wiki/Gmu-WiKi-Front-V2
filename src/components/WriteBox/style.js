@@ -14,8 +14,8 @@ export const EditButton = styled.button`
   width: 4.6vw;
   height: 5vh;
   background: none;
-  border: 1px solid #c0c0c0;
-  border-bottom: none;
+  border: ${props => props.checked ? "1px solid #c0c0c0" : "none"};
+  border-bottom: ${props => props.checked ? "none" : "1px solid #c0c0c0"};
   color: #999999;
   cursor: pointer;
   font-size: 0.9rem;
@@ -26,8 +26,8 @@ export const PreviewButton = styled.button`
   height: 5vh;
   background: none;
   color: #007eff;
-  border: 1px solid #c0c0c0;
-  cursor: pointer;
+  border: ${props => props.checked ? "1px solid #c0c0c0" : "none"};
+  border-bottom: ${props => props.checked ? "none" : "1px solid #c0c0c0"};  cursor: pointer;
   font-size: 0.9rem;
 `;
 
