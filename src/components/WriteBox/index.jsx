@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import * as S from "./style";
+import * as C from "../index";
 
 function reducer(state, action) {
   return {
@@ -43,33 +44,7 @@ function WriteBox() {
       </S.PreviewButton>
       {edit && (
         <S.WriteBox>
-          <S.CategoryInput>
-            <span>카테고리</span>
-            <select name="category" onChange={onChange} value={category}>
-              <option>선택해주세요</option>
-              <option>학생</option>
-              <option>선생님</option>
-              <option>전공</option>
-              <option>동아리</option>
-              <option>사건</option>
-            </select>
-          </S.CategoryInput>
-          <S.TitleInput>
-            <span>제목</span>
-            <input type="text" name="title" value={title} onChange={onChange} />
-          </S.TitleInput>
-          <S.ContentInput>
-            <div>
-              <span>1</span>
-              <span>2</span>
-            </div>
-            <textarea
-              type="text"
-              name="content"
-              value={content}
-              onChange={onChange}
-            />
-          </S.ContentInput>
+          <C.EditWriteBox category={category} title={title} content={content} onChange={onChange} />
         </S.WriteBox>
       )}
       {preview && <S.WriteBox></S.WriteBox>}

@@ -8,3 +8,5 @@ export { default as Footer } from "./Footer";
 export { default as Detail } from "./Detail";
 export { default as ScrollButton } from "./ScrollButton";
 export { default as WriteBox } from "./WriteBox";
+export { default as EditWriteBox } from "./WriteBox/EditWriteBox";
+export { default as PreviewWriteBox } from "./WriteBox/PreviewWriteBox";
