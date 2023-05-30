@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import * as S from "./style";
 import * as I from "../../assets";
 import * as C from "../../components";
+import GauthMove from "../../apis/GAuth";
+
 function Login({ showLogin, setShowLogin }) {
   function showLoginModal() {
     setShowLogin(prev => !prev);
   }
+  
   return (
     <>
       <S.ModalOverlay onClick={showLoginModal} />
@@ -17,7 +20,7 @@ function Login({ showLogin, setShowLogin }) {
             <S.LoginContent>GSM학생들이 가꿔나가는 위키</S.LoginContent>
           </S.LoginTitle>
           <C.Button width="268" height="50" backgroundColor="2E80CC">
-            <S.LoginButton>
+            <S.LoginButton onClick={GauthMove}>
               <I.GAuthLogo />
               Continue with GAuth
             </S.LoginButton>
