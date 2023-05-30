@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const EnvConfig = {
-
+  ClientId: process.env.REACT_APP_CLIENT_ID,
+  ClientSecret: process.env.REACT_APP_CLIENT_SECRET,
+  RedirectUri: process.env.REACT_APP_REDIRECT_URI,
+  GAuthPostUrl: process.env.REACT_APP_GAUTH_POST_URL,
 };
 
 export default function GauthMove() {
