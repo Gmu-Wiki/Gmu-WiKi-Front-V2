@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 const EnvConfig = {
   ClientId: process.env.REACT_APP_CLIENT_ID,
