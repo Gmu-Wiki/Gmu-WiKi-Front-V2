@@ -8,7 +8,7 @@ function Login({ showLogin, setShowLogin }) {
   function showLoginModal() {
     setShowLogin(prev => !prev);
   }
-  
+
   return (
     <>
       <S.ModalOverlay onClick={showLoginModal} />

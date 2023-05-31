@@ -14,6 +14,9 @@ export default function GauthMove() {
   
   const getLocation = useLocation();
 
+  const [storeAccessToken, setStoreAccessToken] = useState("");
+  const [storeRefreshToken, setStoreRefreshToken] = useState("");
+
   useEffect(() => {
     const urlParams = new URLSearchParams(getLocation.search);
     const code = urlParams.get("code");
@@ -32,11 +35,8 @@ export default function GauthMove() {
       .catch(err => console.log(err));
   }, [getLocation]);
 
-  const [storeAccessToken, setStoreAccessToken] = useState("");
-  const [storeRefreshToken, setStoreRefreshToken] = useState("");
-
   axios
-    .post("민욱이한테 보낼 URL", {
+    .post("javascript:void(0)", {
       accessToken: storeAccessToken,
       refreshToken: storeRefreshToken,
     })
