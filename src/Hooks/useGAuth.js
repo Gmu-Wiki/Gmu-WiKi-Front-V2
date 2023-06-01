@@ -16,20 +16,22 @@ const useGAuth = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
 
-    console.log(code);
+    if (code) {
+      console.log(code);
 
-    axios
-      .post(EnvConfig.GAUTHCODEPOSTURL, {
-        code: code,
-        clientId: EnvConfig.CLIENTID,
-        clientSecret: EnvConfig.CLIENTSECRET,
-        redirectUri: EnvConfig.REDIRECTURL,
-      })
-      .then(res => {
-        setStoreAccessToken(res.data.accessToken);
-        setStoreRefreshToken(res.data.refreshToken);
-      })
-      .catch(err => toast.error("error"));
+      axios
+        .post(EnvConfig.GAUTHCODEPOSTURL, {
+          code: code,
+          clientId: EnvConfig.CLIENTID,
+          clientSecret: EnvConfig.CLIENTSECRET,
+          redirectUri: EnvConfig.REDIRECTURL,
+        })
+        .then(res => {
+          setStoreAccessToken(res.data.accessToken);
+          setStoreRefreshToken(res.data.refreshToken);
+        })
+        .catch(err => toast.error("error"));
+    }
   }, []);
 
   return {
