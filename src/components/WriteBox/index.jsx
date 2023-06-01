@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 
@@ -15,12 +15,30 @@ function WriteBox() {
   const [state, dispatch] = useReducer(reducer, {
     category: "선택해주세요",
     title: "",
-    content: "",
   });
+  const { category, title } = state;
+  const [content, setContent] = useState("");
+  const textareaRef = useRef(null);
 
-  const { category, title, content } = state;
+  const handleKeyDown = e => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      const textarea = textareaRef.current;
+      const startPos = textarea.selectionStart;
+      const endPos = textarea.selectionEnd;
+      const Tab = "  ";
+
+      const newContent =
+        content.substring(0, startPos) + Tab + content.substring(endPos);
+
+      setContent(newContent);
+    }
+  };
 
   const onChange = e => {
+    if (e.target.name === "content") {
+      setContent(e.target.value);
+    }
     dispatch(e.target);
   };
 
@@ -44,7 +62,14 @@ function WriteBox() {
       </S.PreviewButton>
       {edit && (
         <S.WriteBox>
-          <C.EditWriteBox category={category} title={title} content={content} onChange={onChange} />
+          <C.EditWriteBox
+            category={category}
+            title={title}
+            onChange={onChange}
+            content={content}
+            textareaRef={textareaRef}
+            handleKeyDown={handleKeyDown}
+          />
         </S.WriteBox>
       )}
       {preview && <S.WriteBox></S.WriteBox>}
