@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const EnvConfig = {
   ClientId: process.env.REACT_APP_CLIENT_ID,
@@ -12,9 +12,10 @@ const EnvConfig = {
 
 const GAUTHMOVEURL = `https://gauth.co.kr/login?client_id=${EnvConfig.ClientId}&redirect_uri=${EnvConfig.RedirectUri}`;
 
-const GAuth = () => {
-  window.location.href = GAUTHMOVEURL;
+const useGAuth = () => {
 
+  window.location.href = GAUTHMOVEURL;
+  
   const getLocation = useLocation();
 
   const [storeAccessToken, setStoreAccessToken] = useState("");
@@ -22,7 +23,9 @@ const GAuth = () => {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(getLocation.search);
+
     const code = urlParams.get("code");
+
     console.log(code);
 
     axios
@@ -39,13 +42,20 @@ const GAuth = () => {
       .catch(err => console.log(err));
   }, [getLocation]);
 
-  axios
-    .post(EnvConfig.WritePostUrl, {
-      accessToken: storeAccessToken,
-      refreshToken: storeRefreshToken,
-    })
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err));
+  useEffect(() => {
+    axios
+      .post(EnvConfig.WritePostUrl, {
+        accessToken: storeAccessToken,
+        refreshToken: storeRefreshToken,
+      })
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+  }, [storeAccessToken, storeRefreshToken]);
+
+  return {
+    storeAccessToken,
+    storeRefreshToken,
+  };
 };
 
-export default GAuth;
+export default useGAuth;
