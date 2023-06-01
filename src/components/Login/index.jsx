@@ -8,11 +8,10 @@ function Login({ showLogin, setShowLogin }) {
   function showLoginModal() {
     setShowLogin(prev => !prev);
   }
-  
+
   const { storeAccessToken, storeRefreshToken } = useGAuth();
 
   function handleGAuth() {
-    console.log("GAuth Logic");
     console.log("storeAccessToken:", storeAccessToken);
     console.log("storeRefreshToken:", storeRefreshToken);
   }
