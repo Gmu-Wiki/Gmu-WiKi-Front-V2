@@ -1,9 +1,7 @@
-const EnvConfig = {
+export const EnvConfig = {
   CLIENTID: process.env.REACT_APP_CLIENT_ID,
   CLIENTSECRET: process.env.REACT_APP_CLIENT_SECRET,
   REDIRECTURL: process.env.REACT_APP_REDIRECT_URI,
   GAUTHCODEPOSTURL: process.env.REACT_APP_GAUTH_CODE_POST_URL,
   TOKENPOSTURL: process.env.REACT_APP_TOKEN_POST_URL,
 };
-
-export default EnvConfig;
