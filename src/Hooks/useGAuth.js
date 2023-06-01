@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const GAUTHMOVEURL = `https://gauth.co.kr/login?client_id=${EnvConfig.CLIENTID}&redirect_uri=${EnvConfig.REDIRECTURL}`;
 
@@ -28,7 +29,7 @@ const useGAuth = () => {
         setStoreAccessToken(res.data.accessToken);
         setStoreRefreshToken(res.data.refreshToken);
       })
-      .catch(err => console.log(err));
+      .catch(err => toast.error("error"));
   }, []);
 
   return {
