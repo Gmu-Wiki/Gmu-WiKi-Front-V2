@@ -25,7 +25,13 @@ function MarkDownConverter({ value }) {
       headerIds: false,
     };
 
-    const html = marked(value, options);
+    const convertedValue = value
+    .replace(/>toggle/g, `<details>`)
+    .replace(/>title/g, `<summary>`)
+    .replace(/<title/g, `</summary>`)
+    .replace(/<toggle/g, `</details>`);
+
+    const html = marked(convertedValue, options);
 
     return html;
   };
