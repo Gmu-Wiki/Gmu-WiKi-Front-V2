@@ -1,5 +1,5 @@
 import { marked } from "marked";
-import React from "react";
+import "./style.css";
 
 function MarkDownConverter({ value }) {
   const markdownToHtml = value => {
@@ -11,11 +11,11 @@ function MarkDownConverter({ value }) {
     };
 
     renderer.blockquote = quote => {
-      return `<blockquote class="my-custom-blockquote">${quote}</blockquote>`;
+      return `<blockquote>${quote}</blockquote>`;
     };
 
     renderer.link = (href, title, text) => {
-      return `<a href=${href} target="_blank" title=><strong>${text}<strong></a>`;
+      return `<a href=${href} target="_blank"><strong>${text}<strong></a>`;
     };
 
     const options = {
@@ -26,6 +26,7 @@ function MarkDownConverter({ value }) {
     };
 
     const html = marked(value, options);
+
     return html;
   };
 
