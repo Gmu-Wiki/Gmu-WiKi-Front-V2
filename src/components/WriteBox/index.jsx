@@ -36,10 +36,13 @@ function WriteBox() {
   };
 
   const onChange = e => {
-    if (e.target.name === "content") {
-      setContent(e.target.value);
-    }
     dispatch(e.target);
+  };
+
+  const onChangeTextArea = e => {
+    setContent(e.target.value);
+    textareaRef.current.style.height = "auto";
+    textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
   };
 
   const handleEdit = () => {
@@ -66,6 +69,7 @@ function WriteBox() {
             category={category}
             title={title}
             onChange={onChange}
+            onChangeTextArea={onChangeTextArea}
             content={content}
             textareaRef={textareaRef}
             handleKeyDown={handleKeyDown}
@@ -74,7 +78,7 @@ function WriteBox() {
       )}
       {preview && (
         <S.WriteBox>
-          <C.PreviewWriteBox content={content}/>
+          <C.PreviewWriteBox content={content} />
         </S.WriteBox>
       )}
       <S.RegisterButton>등록하기</S.RegisterButton>

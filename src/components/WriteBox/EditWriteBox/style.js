@@ -71,9 +71,9 @@ export const ContentInput = styled.div`
   }
 
   textarea {
+    box-sizing: border-box;
     border: 1px solid #dddddd;
     width: 92.4%;
-    height: 10vh;
     padding: 10px;
     outline: 0;
     background-color: none;

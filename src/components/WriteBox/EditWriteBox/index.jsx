@@ -1,6 +1,14 @@
 import * as S from "./style";
 
-function EditWriteBox({category, title, onChange, content, textareaRef, handleKeyDown}) {
+function EditWriteBox({
+  category,
+  title,
+  onChange,
+  content,
+  textareaRef,
+  handleKeyDown,
+  onChangeTextArea,
+}) {
   return (
     <>
       <S.CategoryInput>
@@ -25,9 +33,9 @@ function EditWriteBox({category, title, onChange, content, textareaRef, handleKe
         </div>
         <textarea
           type="text"
-          name="content"
+          rows={1}
           value={content}
-          onChange={onChange}
+          onChange={onChangeTextArea}
           onKeyDown={handleKeyDown}
           ref={textareaRef}
         />
