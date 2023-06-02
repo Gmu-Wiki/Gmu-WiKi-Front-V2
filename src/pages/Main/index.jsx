@@ -2,6 +2,7 @@ import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
 import * as I from "../../assets";
+import SchoolImg from "../../assets/img/SchoolImg.png";
 
 function Main() {
   return (
@@ -29,7 +30,6 @@ function Main() {
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>
-        <C.Graph />
         <C.Detail hasNumber={true} number={1} title={"개요"}>
           <S.Outline>
             <S.OutlineContent>

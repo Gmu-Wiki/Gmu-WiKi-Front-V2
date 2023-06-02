@@ -92,3 +92,33 @@ export const DepartmentTitle = styled.div`
 export const DepartmentContent = styled.div`
   margin-top: 20px;
 `;
+
+export const IntroCenter = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const SchoolTitleContent = styled.div`
+  width: 60%;
+  height: 80px;
+  font-weight: 700;
+  background-color: #007eff;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .englishName {
+    font-size: 14px;
+  }
+  .koreanName {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+`;
+
+export const SchoolImg = styled.img`
+  width: 60%;
+`;

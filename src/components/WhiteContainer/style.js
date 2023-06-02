@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WhiteContainerContent = styled.div`
-  width: 1200px;
+  width: 1180px;
   height: auto;
   /* background-color: white; */
   margin-right: 200px;

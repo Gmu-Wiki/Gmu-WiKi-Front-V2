@@ -31,7 +31,6 @@ export const menuLi = styled.li`
 `;
 
 export const Header = styled.div`
-  height: 210px;
   width: 100%;
   position: fixed;
 `;

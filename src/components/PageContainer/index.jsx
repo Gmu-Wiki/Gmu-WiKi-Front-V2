@@ -8,10 +8,7 @@ function PageContainer({ children, title, sort }) {
       <S.PageContainer>
         <C.WhiteContainer title={title} sort={sort} />
         <S.DetailContent>
-          <S.DetailCenter>
-            {children}
-            {/*padding-top: auto; 설정하여 height에 맞게 증가*/}
-          </S.DetailCenter>
+          <S.DetailCenter>{children}</S.DetailCenter>
         </S.DetailContent>
       </S.PageContainer>
     </S.PageCenter>
