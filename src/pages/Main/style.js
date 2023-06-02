@@ -97,6 +97,7 @@ export const IntroCenter = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 35px;
 `;
 
 export const SchoolTitleContent = styled.div`
