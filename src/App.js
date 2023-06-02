@@ -9,7 +9,7 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          <Route path="/main" element={<P.Main />} />
+          <Route path="/" element={<P.Main />} />
           {/* <Route path="/student" element={<P.Student />} />
           <Route path="/teacher" element={<P.TeaPher />} />
           <Route path="/club" element={<P.Plub />} />
