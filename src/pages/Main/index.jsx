@@ -7,7 +7,7 @@ function Main() {
   return (
     <>
       <C.Header />
-      <C.PageContainer title="대문" sort="G무위키">
+      <C.PageContainer title="대문" sort="G무위키" hasButton>
         <C.Explanation>
           <S.DetailCenter>
             <S.Title>
