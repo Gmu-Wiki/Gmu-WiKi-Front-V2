@@ -1693,6 +1693,11 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@msg-team/gauth-react@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@msg-team/gauth-react/-/gauth-react-1.4.1.tgz#b6d89d2ae4599057af2aaa2f1f402533abb770c2"
+  integrity sha512-ryBDMgx+5iLJXQ9IZiPyrT8IaPKRQFGqwsAH3vohzufmOgCCwszgjl0FSTvuaNev/kfKFMOH7ePUEZtscx72dQ==
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.npmjs.org/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz"
