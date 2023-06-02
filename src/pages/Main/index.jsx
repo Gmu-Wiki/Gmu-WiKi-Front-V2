@@ -29,6 +29,7 @@ function Main() {
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>
+        <C.Graph />
         <C.Detail hasNumber={true} number={1} title={"개요"}>
           <S.Outline>
             <S.OutlineContent>
