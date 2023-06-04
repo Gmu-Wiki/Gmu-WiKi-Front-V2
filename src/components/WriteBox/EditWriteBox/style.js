@@ -74,6 +74,7 @@ export const ContentInput = styled.div`
     box-sizing: border-box;
     border: 1px solid #dddddd;
     width: 92.4%;
+    max-height: 260px;
     padding: 10px;
     outline: 0;
     background-color: none;

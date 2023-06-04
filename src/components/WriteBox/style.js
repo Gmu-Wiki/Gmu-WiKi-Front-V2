@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const WriteBox = styled.div`
   background-color: none;
+  overflow-y: auto;
   border: 1px solid #c0c0c0;
   width: 100%;
   height: 50vh;

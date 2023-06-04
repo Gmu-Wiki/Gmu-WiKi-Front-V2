@@ -41,6 +41,7 @@ function WriteBox() {
 
   const onChangeTextArea = e => {
     setContent(e.target.value);
+    // textarea 높이 늘리기
     textareaRef.current.style.height = "auto";
     textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
   };
