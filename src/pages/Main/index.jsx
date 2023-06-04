@@ -21,7 +21,6 @@ function Main() {
         clientId={EnvConfig.CLIENTID}
         onSuccess={async code => {
           setStoreCode(code);
-          console.log("code : ", code);
         }}
       >
         <C.Header />
