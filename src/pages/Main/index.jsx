@@ -69,9 +69,7 @@ function Main() {
                   height="515"
                   src="https://www.youtube.com/embed/FBEBPnWafTk"
                   title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                 ></iframe>
               </S.SchoolVideoContainer>
             </S.Outline>
