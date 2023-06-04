@@ -22,6 +22,7 @@ function App() {
           <Route path="*" element={<P.NotFound />} />
         </Routes>
       </Router>
+      <ToastContainer />
     </>
   );
 }
