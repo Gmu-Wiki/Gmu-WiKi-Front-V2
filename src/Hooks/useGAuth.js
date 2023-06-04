@@ -8,7 +8,7 @@ const useGAuth = storeCode => {
   useEffect(() => {
     if (storeCode) {
       axios
-        .post(EnvConfig.URLCODEPOSTURL, {
+        .post(EnvConfig.CODEPOSTURL, {
           code: storeCode,
         })
         .then(res => toast.success("로그인 성공"))
