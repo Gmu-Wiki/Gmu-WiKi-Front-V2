@@ -5,10 +5,12 @@ import * as I from "../../assets";
 import { GauthProvider } from "@msg-team/gauth-react";
 import EnvConfig from "../../apis/EnvConfig";
 import useGAuth from "../../Hooks/useGAuth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Main() {
   const [storeCode, setStoreCode] = useState("");
+
+  useEffect(() => {}, [storeCode]);
 
   useGAuth(storeCode);
 
@@ -20,7 +22,6 @@ function Main() {
         onSuccess={async code => {
           setStoreCode(code);
           console.log("code : ", code);
-          console.log("storeCode : ", storeCode);
         }}
       >
         <C.Header />
