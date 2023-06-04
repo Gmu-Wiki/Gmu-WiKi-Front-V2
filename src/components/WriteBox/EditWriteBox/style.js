@@ -55,6 +55,7 @@ export const ContentInput = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 
   div {
     display: flex;
@@ -74,7 +75,7 @@ export const ContentInput = styled.div`
     box-sizing: border-box;
     border: 1px solid #dddddd;
     width: 92.4%;
-    max-height: 260px;
+    max-height: 240px;
     padding: 10px;
     outline: 0;
     background-color: none;
