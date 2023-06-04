@@ -10,7 +10,7 @@ function WhiteContainer({ title, sort }) {
             <span>G무위키:{title}</span>
           </S.Title>
           <S.ClassIfication>
-            <div classification>
+            <div>
               분류 : <span>{sort}</span>
             </div>
           </S.ClassIfication>
