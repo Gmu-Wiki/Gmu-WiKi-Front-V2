@@ -12,7 +12,7 @@ const useGAuth = storeCode => {
           code: storeCode,
         })
         .then(res => toast.success("로그인 성공"))
-        .catch(err => toast.error("로그인 실패"));
+        .catch(toast.error("로그인 실패"));
     }
   }, [storeCode]);
 

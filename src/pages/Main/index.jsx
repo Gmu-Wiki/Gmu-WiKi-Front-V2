@@ -7,6 +7,8 @@ import EnvConfig from "../../apis/EnvConfig";
 import useGAuth from "../../Hooks/useGAuth";
 import { useState, useEffect } from "react";
 
+document.cookie = "crossCookie=bar; SameSite=None; Secure";
+
 function Main() {
   const [storeCode, setStoreCode] = useState("");
 
@@ -21,6 +23,7 @@ function Main() {
         clientId={EnvConfig.CLIENTID}
         onSuccess={async code => {
           setStoreCode(code);
+          console.log(code);
         }}
       >
         <C.Header />
