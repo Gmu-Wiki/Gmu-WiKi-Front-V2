@@ -26,10 +26,10 @@ function MarkDownConverter({ value }) {
     };
 
     const convertedValue = value
-    .replace(/>toggle/g, `<details>`)
-    .replace(/>title/g, `<summary>`)
-    .replace(/<title/g, `</summary>`)
-    .replace(/<toggle/g, `</details>`);
+    .replace(/>>/g, `<details>`)
+    .replace(/>==/g, `<summary>`)
+    .replace(/==</g, `</summary>`)
+    .replace(/<</g, `</details>`);
 
     const html = marked(convertedValue, options);
 
