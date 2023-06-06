@@ -11,7 +11,7 @@ function WhiteContainer({ title, sort, children }) {
             {children}
           </S.Title>
           <S.ClassIfication>
-            <div classification>
+            <div>
               분류 : <span>{sort}</span>
             </div>
           </S.ClassIfication>
