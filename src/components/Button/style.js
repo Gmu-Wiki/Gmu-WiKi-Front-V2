@@ -9,5 +9,7 @@ export const Button = styled.button`
   color: ${props => props.color};
   border-radius: ${props => props.borderRadius}px;
   font-weight: ${props => props.fontWeight};
+  float: ${props => props.float};
+  margin: ${props => props.margin};
   cursor: pointer;
 `;

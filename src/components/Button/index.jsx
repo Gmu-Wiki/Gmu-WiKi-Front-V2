@@ -9,6 +9,8 @@ function Button({
   borderRadius,
   color,
   fontWeight,
+  float,
+  margin,
 }) {
   return (
     <S.Button
@@ -18,6 +20,8 @@ function Button({
       borderRadius={borderRadius}
       color={color}
       fontWeight={fontWeight}
+      float={float}
+      margin={margin}
     >
       {children}
     </S.Button>
