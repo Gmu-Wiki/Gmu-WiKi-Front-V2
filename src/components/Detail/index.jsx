@@ -3,7 +3,7 @@ import * as I from "../../assets";
 import * as S from "./style";
 
 export default function Detail({ title, hasNumber, children, number }) {
-  const [detailActive, setDetailActice] = useState(false);
+  const [detailActive, setDetailActice] = useState(true);
   return (
     <S.DetailContainer detailActive={detailActive}>
       <S.DetailTitleContainer>
