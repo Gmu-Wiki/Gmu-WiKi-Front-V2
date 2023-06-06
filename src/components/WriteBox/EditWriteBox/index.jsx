@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import * as S from "./style";
 
 function EditWriteBox({
@@ -6,9 +7,14 @@ function EditWriteBox({
   onChange,
   content,
   textareaRef,
-  handleKeyDown,
   onChangeTextArea,
+  handleKeyDown,
 }) {
+
+  useEffect(()=>{
+    textareaRef.current.style.height =  textareaRef.current.scrollHeight + "px";
+  },[textareaRef]);
+
   return (
     <>
       <S.CategoryInput>
