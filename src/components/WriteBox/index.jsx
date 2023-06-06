@@ -1,6 +1,7 @@
 import { useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
+import useWrite from "../../Hooks/useWrite";
 
 function reducer(state, action) {
   return {
@@ -56,6 +57,9 @@ function WriteBox() {
     setPreview(true);
   };
 
+  
+  const writePost = useWrite(category, title, content);
+
   return (
     <>
       <S.EditButton checked={edit} onClick={handleEdit}>
@@ -82,7 +86,7 @@ function WriteBox() {
           <C.PreviewWriteBox content={content} />
         </S.WriteBox>
       )}
-      <S.RegisterButton>등록하기</S.RegisterButton>
+      <S.RegisterButton onClick={writePost}>등록하기</S.RegisterButton>
     </>
   );
 }
