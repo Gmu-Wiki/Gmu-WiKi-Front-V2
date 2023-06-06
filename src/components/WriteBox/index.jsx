@@ -20,6 +20,7 @@ function WriteBox() {
   const { category, title } = state;
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
+  const [imgSrc, setImgSrc] = useState("");
 
   const handleKeyDown = e => {
     if (e.key === "Tab") {
@@ -34,6 +35,27 @@ function WriteBox() {
 
       setContent(newContent);
     }
+  };
+
+  const handleUpload = e => {
+    const imgObj = {
+      src: `![](${e.target.value})`,
+    };
+
+    setImgSrc(e.target.value);
+
+    const textarea = textareaRef.current;
+    const startPos = textarea.selectionStart;
+    const endPos = textarea.selectionEnd;
+
+    const newValue =
+      content.substring(0, startPos) + imgObj.src + content.substring(endPos);
+
+    setContent(newValue);
+    textarea.setSelectionRange(
+      startPos + imgObj.length,
+      startPos + imgSrc.length
+    );
   };
 
   const onChange = e => {
@@ -57,7 +79,6 @@ function WriteBox() {
     setPreview(true);
   };
 
-  
   const writePost = useWrite(category, title, content);
 
   return (
@@ -86,7 +107,15 @@ function WriteBox() {
           <C.PreviewWriteBox content={content} />
         </S.WriteBox>
       )}
-      <S.RegisterButton onClick={writePost}>등록하기</S.RegisterButton>
+      <S.ButtonContainer>
+        {edit && (
+          <S.FileButtonContainer>
+            <label htmlFor="file">파일첨부</label>
+            <input accept="image/*" multiple type="file" id="file" onChange={handleUpload} />
+          </S.FileButtonContainer>
+        )}
+        <S.RegisterButton onClick={writePost}>등록하기</S.RegisterButton>
+      </S.ButtonContainer>
     </>
   );
 }

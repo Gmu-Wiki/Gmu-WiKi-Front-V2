@@ -80,5 +80,9 @@ export const ContentInput = styled.div`
     outline: 0;
     background-color: none;
     resize: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;

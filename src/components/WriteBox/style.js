@@ -33,6 +33,33 @@ export const PreviewButton = styled.button`
   font-size: 0.9rem;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+export const FileButtonContainer = styled.div`
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  label {
+    padding: 7px 30px;
+    border: 1px solid #007eff;
+    background-color: none;
+    color: #007eff;
+    cursor: pointer;
+  }
+
+  input {
+    display: none;
+  }
+`;
+
 export const RegisterButton = styled.button`
   border: none;
   outline: none;
@@ -41,8 +68,7 @@ export const RegisterButton = styled.button`
   width: 8vw;
   height: 5vh;
   font-size: 1rem;
-  margin-top: 20px;
-  float: right;
+  margin-left: 16px;
 
   &:hover {
     cursor: pointer;
