@@ -13,9 +13,9 @@ function X({ onClick }) {
       <path
         d="M1 15L15 1M1 1L15 15"
         stroke="#999999"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

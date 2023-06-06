@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const useGAuth = storeCode => {
   useEffect(() => {

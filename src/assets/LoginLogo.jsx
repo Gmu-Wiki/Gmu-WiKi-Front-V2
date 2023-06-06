@@ -14,7 +14,7 @@ function LoginLogo() {
         height="106"
         rx="10"
         fill="#007EFF"
-        fill-opacity="0.2"
+        fillOpacity="0.2"
       />
       <g clipPath="url(#clip0_1072_1047)">
         <path
