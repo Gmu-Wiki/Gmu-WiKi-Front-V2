@@ -83,12 +83,14 @@ function WriteBox() {
 
   return (
     <>
-      <S.EditButton checked={edit} onClick={handleEdit}>
-        편집
-      </S.EditButton>
-      <S.PreviewButton checked={preview} onClick={handlePreview}>
-        미리보기
-      </S.PreviewButton>
+      <S.ChangeButtonContainer>
+        <S.EditButton checked={edit} onClick={handleEdit}>
+          편집
+        </S.EditButton>
+        <S.PreviewButton checked={preview} onClick={handlePreview}>
+          미리보기
+        </S.PreviewButton>
+      </S.ChangeButtonContainer>
       {edit && (
         <S.WriteBox>
           <C.EditWriteBox
@@ -111,7 +113,13 @@ function WriteBox() {
         {edit && (
           <S.FileButtonContainer>
             <label htmlFor="file">파일첨부</label>
-            <input accept="image/*" multiple type="file" id="file" onChange={handleUpload} />
+            <input
+              accept="image/*"
+              multiple
+              type="file"
+              id="file"
+              onChange={handleUpload}
+            />
           </S.FileButtonContainer>
         )}
         <S.RegisterButton onClick={writePost}>등록하기</S.RegisterButton>

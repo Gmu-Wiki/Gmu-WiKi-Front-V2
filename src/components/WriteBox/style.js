@@ -1,5 +1,36 @@
 import styled from "styled-components";
 
+export const ChangeButtonContainer = styled.div`
+  position: absolute;
+  top: 39%;
+  display: flex;
+  align-items: center;
+`;
+
+export const EditButton = styled.button`
+  width: 4.6vw;
+  height: 5vh;
+  background: ${props => (props.checked ? "#ffffff" : "none")};
+  border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
+  border-bottom: ${props => (props.checked ? "none" : "")};
+  color: #999999;
+  cursor: pointer;
+  font-size: 0.9rem;
+  outline: none;
+`;
+
+export const PreviewButton = styled.button`
+  width: 5vw;
+  height: 5vh;
+  color: #007eff;
+  background: ${props => (props.checked ? "#ffffff" : "none")};
+  border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
+  border-bottom: ${props => (props.checked && "1px solid #ffffff")};
+  cursor: pointer;
+  font-size: 0.9rem;
+  outline: none;
+`;
+
 export const WriteBox = styled.div`
   background-color: none;
   overflow-y: auto;
@@ -9,29 +40,9 @@ export const WriteBox = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin-top: 40px;
 `;
 
-export const EditButton = styled.button`
-  width: 4.6vw;
-  height: 5vh;
-  background: none;
-  border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
-  border-bottom: ${props => (props.checked ? "none" : "1px solid #c0c0c0")};
-  color: #999999;
-  cursor: pointer;
-  font-size: 0.9rem;
-`;
-
-export const PreviewButton = styled.button`
-  width: 5vw;
-  height: 5vh;
-  background: none;
-  color: #007eff;
-  border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
-  border-bottom: ${props => (props.checked ? "none" : "1px solid #c0c0c0")};
-  cursor: pointer;
-  font-size: 0.9rem;
-`;
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -39,6 +50,7 @@ export const ButtonContainer = styled.div`
   float: right;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20%;
 `;
 
 export const FileButtonContainer = styled.div`
