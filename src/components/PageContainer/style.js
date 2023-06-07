@@ -16,7 +16,7 @@ export const PageCenter = styled.div`
   margin-right: 470px;
   justify-content: center;
   padding-top: 60px;
-  margin-bottom: 31px;
+  margin-bottom: 30px;
 `;
 
 export const DetailContent = styled.div`
