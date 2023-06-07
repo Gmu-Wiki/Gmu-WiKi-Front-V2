@@ -71,7 +71,6 @@ export const FileButtonContainer = styled.div`
     display: none;
   }
 `;
-
 export const RegisterButton = styled.button`
   border: none;
   outline: none;
