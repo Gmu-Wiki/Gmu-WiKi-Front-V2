@@ -20,7 +20,6 @@ function Footer() {
           </a>
         </li>
       </ul>
-
       <span>Copyright 2023. &mpersand All rights reserved.</span>
     </S.FooterConainer>
   );

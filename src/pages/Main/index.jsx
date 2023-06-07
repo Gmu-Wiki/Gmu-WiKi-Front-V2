@@ -3,11 +3,31 @@ import * as C from "../../components";
 import * as S from "./style";
 import * as I from "../../assets";
 
+import SchoolImg from "../../assets/img/SchoolImg.png";
+
+import { GauthProvider } from "@msg-team/gauth-react";
+import EnvConfig from "../../apis/EnvConfig";
+import useGAuth from "../../Hooks/useGAuth";
+import { useState, useEffect } from "react";
+
+
 function Main() {
+  const [storeCode, setStoreCode] = useState("");
+
+  useEffect(() => {}, [storeCode]);
+
+  useGAuth(storeCode);
+
   return (
-    <>
+    <GauthProvider
+      redirectUri={EnvConfig.REDIRECTURL}
+      clientId={EnvConfig.CLIENTID}
+      onSuccess={async code => {
+        setStoreCode(code);
+      }}
+    >
       <C.Header />
-      <C.PageContainer title="대문" sort="G무위키">
+      <C.PageContainer title="대문" sort="G무위키" hasButton>
         <C.Explanation>
           <S.DetailCenter>
             <S.Title>
@@ -29,6 +49,15 @@ function Main() {
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>
+        <S.IntroCenter>
+          <S.SchoolTitleContent>
+            <div className="koreanName">광주소프트웨어마이스터고등학교</div>
+            <div className="englishName">
+              Gwangju Software Meister High School
+            </div>
+          </S.SchoolTitleContent>
+          <S.SchoolImg src={SchoolImg} />
+        </S.IntroCenter>
         <C.Detail hasNumber={true} number={1} title={"개요"}>
           <S.Outline>
             <S.OutlineContent>
@@ -52,9 +81,7 @@ function Main() {
                 height="515"
                 src="https://www.youtube.com/embed/FBEBPnWafTk"
                 title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
               ></iframe>
             </S.SchoolVideoContainer>
           </S.Outline>
@@ -102,8 +129,9 @@ function Main() {
           </S.DepartmentContainer>
         </C.Detail>
       </C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
-    </>
+    </GauthProvider>
   );
 }
 

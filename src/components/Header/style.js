@@ -31,7 +31,6 @@ export const menuLi = styled.li`
 `;
 
 export const Header = styled.div`
-  height: 210px;
   width: 100%;
   position: fixed;
 `;
@@ -63,6 +62,7 @@ export const HeaderCenter = styled.div`
   .logoContent {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   .school {

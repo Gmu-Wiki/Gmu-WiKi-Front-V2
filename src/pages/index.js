@@ -6,3 +6,4 @@ export { default as NotFound } from "./NotFound";
 // export { default as Notice } from "./Notice";
 // export { default as Teacher } from "./Teacher";
 // export { default as Student } from "./Student";
+export {default as Post} from "./Post";

@@ -8,7 +8,7 @@ export const dropHeader = styled.div`
 
   span {
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 1.5vh;
     cursor: pointer;
     font-size: 16px;
   }
@@ -34,7 +34,7 @@ export const dropHeader = styled.div`
   }
 
   .fontMove {
-    margin-top: 15px;
+    margin-top: 1.5vh;
   }
 `;
 
