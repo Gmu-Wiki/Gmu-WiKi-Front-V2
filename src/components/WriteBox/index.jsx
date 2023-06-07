@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import * as S from "./style";
+import * as C from "../index";
 
 function reducer(state, action) {
   return {
@@ -73,7 +74,16 @@ function WriteBox() {
         </S.WriteBox>
       )}
       {preview && <S.WriteBox></S.WriteBox>}
-      <S.RegisterButton>등록하기</S.RegisterButton>
+      <C.Button
+        width={"120"}
+        height={"38"}
+        backgroundColor={"#007eff"}
+        borderRadius={"0"}
+        color={"#ffffff"}
+        fontWeight={"400"}
+        float={"right"}
+        margin={"20px 0 0 0"}
+      >등록하기</C.Button>
     </>
   );
 }

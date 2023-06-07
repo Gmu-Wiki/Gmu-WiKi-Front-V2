@@ -62,6 +62,7 @@ export const HeaderCenter = styled.div`
   .logoContent {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   .school {

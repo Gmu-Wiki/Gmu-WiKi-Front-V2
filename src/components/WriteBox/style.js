@@ -112,19 +112,3 @@ export const ContentInput = styled.div`
     resize: none;
   }
 `;
-
-export const RegisterButton = styled.button`
-  border: none;
-  outline: none;
-  color: #ffffff;
-  background-color: #007eff;
-  width: 8vw;
-  height: 5vh;
-  font-size: 1rem;
-  margin-top: 20px;
-  float: right;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
