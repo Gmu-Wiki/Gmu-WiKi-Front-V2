@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WhiteContainerContent = styled.div`
-  width: 1200px;
+  width: 1180px;
   height: auto;
   /* background-color: white; */
   margin-right: 200px;
@@ -10,7 +10,6 @@ export const WhiteContainerContent = styled.div`
   border-top: 0;
   display: flex;
   justify-content: center;
-  @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 `;
 
 export const WhiteContainer = styled.div`
@@ -30,11 +29,12 @@ export const ContainerCenter = styled.div`
 
 export const Title = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 
   span {
-    font-size: 30px;
+    font-size: 40px;
     color: #636363;
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 600;
