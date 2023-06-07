@@ -40,17 +40,21 @@ function WriteBox() {
   };
   const [imgLink, setImgLink] = useState("");
 
+  const getImgLink = async () => {
+    await axios
+      .post(EnvConfig.IMGPOSTURL, { file: imgSrc })
+      .then(res => setImgLink(res.data))
+      .catch(err => setImgLink("변환 실패"));
+  };
+
   const handleUpload = e => {
     setImgSrc(e.target.value);
+
+    getImgLink();
 
     const imgObj = {
       src: `![](${imgLink})`,
     };
-
-    axios
-      .post(EnvConfig.IMGPOSTURL, { file: imgSrc })
-      .then(res => setImgLink(res.data))
-      .catch(err => setImgLink("변환 실패"));
 
     const textarea = textareaRef.current;
     const startPos = textarea.selectionStart;
