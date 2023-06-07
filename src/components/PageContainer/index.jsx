@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import * as C from "../../components";
+import { Link } from "react-router-dom";
 
 function PageContainer({ children, title, sort, hasButton }) {
   return (
@@ -11,9 +12,15 @@ function PageContainer({ children, title, sort, hasButton }) {
             <S.ContentsButtonContainer>
               {hasButton && (
                 <>
-                  <C.ContentsButton>편집</C.ContentsButton>
-                  <C.ContentsButton>추가</C.ContentsButton>
-                  <C.ContentsButton>역사</C.ContentsButton>
+                  <Link to="/edit">
+                    <C.ContentsButton>편집</C.ContentsButton>
+                  </Link>
+                  <Link to="/post">
+                    <C.ContentsButton>추가</C.ContentsButton>
+                  </Link>
+                  <Link to="/history">
+                    <C.ContentsButton>역사</C.ContentsButton>
+                  </Link>
                 </>
               )}
             </S.ContentsButtonContainer>
