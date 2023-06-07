@@ -31,6 +31,7 @@ export const menuLi = styled.li`
 `;
 
 export const Header = styled.div`
+  left: 0;
   width: 100%;
   position: fixed;
 `;
