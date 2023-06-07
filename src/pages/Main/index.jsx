@@ -10,7 +10,6 @@ import EnvConfig from "../../apis/EnvConfig";
 import useGAuth from "../../Hooks/useGAuth";
 import { useState, useEffect } from "react";
 
-
 function Main() {
   const [storeCode, setStoreCode] = useState("");
 
@@ -57,6 +56,14 @@ function Main() {
             </div>
           </S.SchoolTitleContent>
           <S.SchoolImg src={SchoolImg} />
+          <C.Graph
+            graphWidth="60%"
+            titleWidth="24%"
+            contentWidth="76%"
+            titleChild="개교"
+            contentChild="1954년 6월"
+            backgroundColor="#DFE464"
+          />
         </S.IntroCenter>
         <C.Detail hasNumber={true} number={1} title={"개요"}>
           <S.Outline>
