@@ -32,14 +32,10 @@ export const DetailCenter = styled.div`
 
 export const ContentsButtonContainer = styled.div`
   display: flex;
+  gap: 1px;
 
   button {
     border: 2px solid #dddddd;
-
-    :nth-child(2) {
-      border-left: none;
-      border-right: none;
-    }
   }
 `;
 
