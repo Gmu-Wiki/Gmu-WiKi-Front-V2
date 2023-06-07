@@ -2,10 +2,14 @@ import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
 import * as I from "../../assets";
+
+import SchoolImg from "../../assets/img/SchoolImg.png";
+
 import { GauthProvider } from "@msg-team/gauth-react";
 import EnvConfig from "../../apis/EnvConfig";
 import useGAuth from "../../Hooks/useGAuth";
 import { useState, useEffect } from "react";
+
 
 function Main() {
   const [storeCode, setStoreCode] = useState("");
@@ -45,6 +49,15 @@ function Main() {
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>
+        <S.IntroCenter>
+          <S.SchoolTitleContent>
+            <div className="koreanName">광주소프트웨어마이스터고등학교</div>
+            <div className="englishName">
+              Gwangju Software Meister High School
+            </div>
+          </S.SchoolTitleContent>
+          <S.SchoolImg src={SchoolImg} />
+        </S.IntroCenter>
         <C.Detail hasNumber={true} number={1} title={"개요"}>
           <S.Outline>
             <S.OutlineContent>
