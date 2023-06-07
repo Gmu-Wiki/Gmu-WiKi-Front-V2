@@ -49,3 +49,11 @@ a {
     text-decoration: none;
     color: #007eff
 }
+
+hr {
+    margin-bottom: 20px;
+}
+
+li {
+    margin-left: 20px;
+}
