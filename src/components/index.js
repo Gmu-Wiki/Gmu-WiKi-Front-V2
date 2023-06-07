@@ -11,3 +11,4 @@ export { default as WriteBox } from "./WriteBox";
 export { default as EditWriteBox } from "./WriteBox/EditWriteBox";
 export { default as PreviewWriteBox } from "./WriteBox/PreviewWriteBox";
 export {default as MarkDownConverter} from "./WriteBox/PreviewWriteBox/MarkdownConverter";
+export { default as ContentsButton } from "./ContentsButton";
