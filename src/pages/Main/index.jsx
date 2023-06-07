@@ -30,7 +30,6 @@ function Main() {
             </S.Content>
           </S.DetailCenter>
         </C.Explanation>
-<<<<<<< HEAD
         <S.IntroCenter>
           <S.SchoolTitleContent>
             <div className="koreanName">광주소프트웨어마이스터고등학교</div>
@@ -48,9 +47,6 @@ function Main() {
             backgroundColor="#DFE464"
           />
         </S.IntroCenter>
-
-=======
->>>>>>> 31199396f9b19a9c41a24f1dc1b4c9b58b18849e
         <C.Detail hasNumber={true} number={1} title={"개요"}>
           <S.Outline>
             <S.OutlineContent>
