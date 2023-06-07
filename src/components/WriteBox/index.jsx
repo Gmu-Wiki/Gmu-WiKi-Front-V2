@@ -2,6 +2,8 @@ import { useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import useWrite from "../../Hooks/useWrite";
+import axios from "axios";
+import EnvConfig from "../../apis/EnvConfig";
 
 function reducer(state, action) {
   return {
@@ -36,13 +38,19 @@ function WriteBox() {
       setContent(newContent);
     }
   };
+  const [imgLink, setImgLink] = useState("");
 
   const handleUpload = e => {
+    setImgSrc(e.target.value);
+
     const imgObj = {
-      src: `![](${e.target.value})`,
+      src: `![](${imgLink})`,
     };
 
-    setImgSrc(e.target.value);
+    axios
+      .post(EnvConfig.IMGPOSTURL, { file: imgSrc })
+      .then(res => setImgLink(res.data))
+      .catch(err => setImgLink("변환 실패"));
 
     const textarea = textareaRef.current;
     const startPos = textarea.selectionStart;
