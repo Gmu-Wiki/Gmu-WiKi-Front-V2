@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const ChangeButtonContainer = styled.div`
-  position: absolute;
-  top: 39%;
-  display: flex;
-  align-items: center;
+  position: relative;
+  top: 0.2%;
 `;
 
 export const EditButton = styled.button`
@@ -40,7 +38,6 @@ export const WriteBox = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  margin-top: 40px;
 `;
 
 
