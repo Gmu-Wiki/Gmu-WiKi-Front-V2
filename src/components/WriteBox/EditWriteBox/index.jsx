@@ -5,15 +5,15 @@ function EditWriteBox({
   category,
   title,
   onChange,
+  numArr,
   content,
   textareaRef,
   onChangeTextArea,
   handleKeyDown,
 }) {
-
-  useEffect(()=>{
-    textareaRef.current.style.height =  textareaRef.current.scrollHeight + "px";
-  },[textareaRef]);
+  useEffect(() => {
+    textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
+  }, [textareaRef]);
 
   return (
     <>
@@ -34,8 +34,9 @@ function EditWriteBox({
       </S.TitleInput>
       <S.ContentInput>
         <div>
-          <span>1</span>
-          <span>2</span>
+          {numArr.map((num, index) => (
+            <span key={index}>{num}</span>
+          ))}
         </div>
         <textarea
           type="text"

@@ -34,7 +34,7 @@ export const WriteBox = styled.div`
   overflow-y: auto;
   border: 1px solid #c0c0c0;
   width: 100%;
-  height: 50vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;

@@ -1,4 +1,4 @@
-import { useReducer, useRef, useState } from "react";
+import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import useWrite from "../../Hooks/useWrite";
@@ -20,9 +20,12 @@ function WriteBox() {
     title: "",
   });
   const { category, title } = state;
+  const [numArr, setNumArr] = useState([]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
   const [imgSrc, setImgSrc] = useState("");
+  
+  let save = [];
 
   const handleKeyDown = e => {
     if (e.key === "Tab") {
@@ -31,47 +34,58 @@ function WriteBox() {
       const startPos = textarea.selectionStart;
       const endPos = textarea.selectionEnd;
       const Tab = "  ";
-
+      
       const newContent =
         content.substring(0, startPos) + Tab + content.substring(endPos);
 
       setContent(newContent);
-    }
-  };
+    } else if (e.key === "Enter") {
+      setNumArr([]);
+        for(let i = 1; i <= content.split("\n").length + 1; i++) {
+          save.push(i);
+          setNumArr(save);
+        }
+      }
+    };
 
   const fileRef = useRef(null);
-  const [loading, setLoading] = useState(Boolean);
+  const [loading, setLoading] = useState(false);
 
-  const handleUpload = async e => {
-    setLoading(true);
+  // console.log(content.split("\n").length);
+
+  const handleUpload = useCallback(async(e) => {
+
+    setLoading(false);
+
     const fileName = e.target.files[0];
     const formData = new FormData();
     formData.append("file", fileName);
 
-    console.log(fileName);
-
-    // const response = await axios.post(EnvConfig.IMGPOSTURL, formData);
+    // await axios.post(EnvConfig.IMGPOSTURL, formData);
     // const responseData = response.data();
     // console.log(responseData);
 
     const imgObj = {
-      src: `![](${fileName.name})`,
+      src: loading ? "![업로드 중..](...)" : `![](${fileName.name})`,
     };
+    
+    setLoading(true);
 
     const textarea = textareaRef.current;
     const startPos = textarea.selectionStart;
     const endPos = textarea.selectionEnd;
-
+    
     const newValue =
-      content.substring(0, startPos) + imgObj.src + content.substring(endPos);
+    content.substring(0, startPos) + imgObj.src + content.substring(endPos);
 
     setContent(newValue);
     textarea.setSelectionRange(
       startPos + imgObj.length,
       startPos + imgSrc.length
     );
-    setLoading(false);
-  };
+    
+
+  }, [content, imgSrc.length, loading]);
 
   const onChange = e => {
     dispatch(e.target);
@@ -81,7 +95,8 @@ function WriteBox() {
     setContent(e.target.value);
     // textarea 높이 늘리기
     textareaRef.current.style.height = "auto";
-    textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
+    textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    console.log(textareaRef.current.style.height)
   };
 
   const handleEdit = () => {
@@ -113,6 +128,7 @@ function WriteBox() {
             title={title}
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
+            numArr={numArr}
             content={content}
             textareaRef={textareaRef}
             handleKeyDown={handleKeyDown}

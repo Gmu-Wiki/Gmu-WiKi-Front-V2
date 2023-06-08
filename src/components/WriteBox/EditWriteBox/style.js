@@ -63,11 +63,12 @@ export const ContentInput = styled.div`
     align-items: center;
     justify-content: center;
     align-content: space-between;
+
     span {
       color: #999999;
       font-size: 1rem;
       font-weight: 600;
-      margin-top: 6px;
+      margin-top: 4px;
     }
   }
 
@@ -75,11 +76,11 @@ export const ContentInput = styled.div`
     box-sizing: border-box;
     border: 1px solid #dddddd;
     width: 92.4%;
-    max-height: 240px;
-    padding: 10px;
+    /* padding: 0 10px; */
     outline: 0;
     background-color: none;
     resize: none;
+    line-height: 26px;
 
     &::-webkit-scrollbar {
       display: none;
