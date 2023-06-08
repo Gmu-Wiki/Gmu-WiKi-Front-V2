@@ -25,7 +25,7 @@ function WriteBox() {
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
   const [imgSrc, setImgSrc] = useState("");
-  
+
   let save = [];
 
   const handleKeyDown = e => {
@@ -35,58 +35,66 @@ function WriteBox() {
       const startPos = textarea.selectionStart;
       const endPos = textarea.selectionEnd;
       const Tab = "  ";
-      
+
       const newContent =
         content.substring(0, startPos) + Tab + content.substring(endPos);
 
       setContent(newContent);
     } else if (e.key === "Enter") {
       setNumArr([]);
-        for(let i = 1; i <= content.split("\n").length + 1; i++) {
-          save.push(i);
-          setNumArr(save);
-        }
-      } else if (e.key === "Backspace") {
-        
+      for (let i = 1; i <= content.split("\n").length + 1; i++) {
+        save.push(i);
+        setNumArr(save);
       }
-    };
+    } else if (e.key === "Backspace") {
+    }
+  };
 
   const fileRef = useRef(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const handleUpload = useCallback(async(e) => {
+  const handleUpload = useCallback(
+    async e => {
+      const fileName = e.target.files[0];
+      const formData = new FormData();
+      formData.append("file", fileName);
 
-    setLoading(false);
+      const config = {
+        Headers: {
+          "content-type": "multipart/form-data",
+        },
+      };
 
-    const fileName = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", fileName);
+      await axios
+        .post(EnvConfig.IMGPOSTURL, formData, config)
+        .then(res => {
+          console.log(res.data);
+          setLoading(false);
+        })
+        .catch(err => {
+          toast.error("이미지를 불러오는데 실패했습니다.");
+          setLoading(true);
+        });
 
-    // await axios.post(EnvConfig.IMGPOSTURL, formData);
-    // const responseData = response.data();
-    // console.log(responseData);
+      const imgObj = {
+        src: loading ? "![업로드 중..](...)" : `![](${fileName.name})`,
+      };
 
-    const imgObj = {
-      src: loading ? "![업로드 중..](...)" : `![](${fileName.name})`,
-    };
-    
-    setLoading(true);
+      const textarea = textareaRef.current;
+      const startPos = textarea.selectionStart;
+      const endPos = textarea.selectionEnd;
 
-    const textarea = textareaRef.current;
-    const startPos = textarea.selectionStart;
-    const endPos = textarea.selectionEnd;
-    
-    const newValue =
-    content.substring(0, startPos) + imgObj.src + content.substring(endPos);
+      const newValue =
+        content.substring(0, startPos) + imgObj.src + content.substring(endPos);
 
-    setContent(newValue);
-    textarea.setSelectionRange(
-      startPos + imgObj.length,
-      startPos + imgSrc.length
-    );
-    
-
-  }, [content, imgSrc.length, loading]);
+      setContent(newValue);
+      textarea.setSelectionRange(
+        startPos + imgObj.length,
+        startPos + imgSrc.length
+      );
+    },
+    [content, imgSrc.length, loading]
+  );
 
   const onChange = e => {
     dispatch(e.target);
@@ -97,7 +105,7 @@ function WriteBox() {
     // textarea 높이 늘리기
     textareaRef.current.style.height = "auto";
     textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-    console.log(textareaRef.current.style.height)
+    console.log(textareaRef.current.style.height);
   };
 
   const handleEdit = () => {
