@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function PageContainer({ children, title, sort, hasButton }) {
   return (
     <S.PageCenter>
-      d으악
       <S.PageContainer>
         <S.TitleContainer>
           <C.WhiteContainer title={title} sort={sort}>
