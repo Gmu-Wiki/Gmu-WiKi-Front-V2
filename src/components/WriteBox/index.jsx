@@ -38,22 +38,24 @@ function WriteBox() {
       setContent(newContent);
     }
   };
-  const [imgLink, setImgLink] = useState("");
 
-  const getImgLink = async () => {
-    await axios
-      .post(EnvConfig.IMGPOSTURL, { file: imgSrc })
-      .then(res => setImgLink(res.data))
-      .catch(err => setImgLink("변환 실패"));
-  };
+  const fileRef = useRef(null);
+  const [loading, setLoading] = useState(Boolean);
 
-  const handleUpload = e => {
-    setImgSrc(e.target.value);
+  const handleUpload = async e => {
+    setLoading(true);
+    const fileName = e.target.files[0];
+    const formData = new FormData();
+    formData.append("file", fileName);
 
-    getImgLink();
+    console.log(fileName);
+
+    // const response = await axios.post(EnvConfig.IMGPOSTURL, formData);
+    // const responseData = response.data();
+    // console.log(responseData);
 
     const imgObj = {
-      src: `![](${imgLink})`,
+      src: `![](${fileName.name})`,
     };
 
     const textarea = textareaRef.current;
@@ -68,6 +70,7 @@ function WriteBox() {
       startPos + imgObj.length,
       startPos + imgSrc.length
     );
+    setLoading(false);
   };
 
   const onChange = e => {
@@ -130,6 +133,7 @@ function WriteBox() {
               multiple
               type="file"
               id="file"
+              ref={fileRef}
               onChange={handleUpload}
             />
           </S.FileButtonContainer>
