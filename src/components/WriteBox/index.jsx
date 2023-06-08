@@ -39,7 +39,7 @@ function WriteBox() {
         content.substring(0, startPos) + Tab + content.substring(endPos);
 
       setContent(newContent);
-    } else if (e.key === "Enter") {
+    } else if (e.key === "Enter" || e.key === "Backspace") {
       setNumArr([]);
       for (let i = 1; i <= content.split("\n").length + 1; i++) {
         save.push(i);

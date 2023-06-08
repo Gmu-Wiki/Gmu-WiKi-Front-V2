@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ChangeButtonContainer = styled.div`
   position: relative;
-  top: 0.2%;
+  top: 0.3%;
 `;
 
 export const EditButton = styled.button`
