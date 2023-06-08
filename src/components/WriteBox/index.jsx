@@ -24,7 +24,6 @@ function WriteBox() {
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
-  const [imgSrc, setImgSrc] = useState("");
 
   let save = [];
 
@@ -54,7 +53,6 @@ function WriteBox() {
 
   const handleUpload = useCallback(
     async e => {
-
       const fileName = e.target.files[0];
       const formData = new FormData();
       formData.append("file", fileName);
@@ -88,12 +86,9 @@ function WriteBox() {
         content.substring(0, startPos) + imgObj.src + content.substring(endPos);
 
       setContent(newValue);
-      textarea.setSelectionRange(
-        startPos + imgObj.length,
-        startPos + imgSrc.length
-      );
+      textarea.setSelectionRange(startPos + imgObj.length);
     },
-    [content, imgSrc.length, loading]
+    [content, loading]
   );
 
   const onChange = e => {
