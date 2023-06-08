@@ -50,8 +50,14 @@ function WriteBox() {
 
     console.log(fileName);
 
+    const config = {
+      Headers: {
+        "content-type": "multipart/form-data"
+      },
+    };
+
     await axios
-      .post(EnvConfig.IMGPOSTURL, formData)
+      .post(EnvConfig.IMGPOSTURL, formData, config)
       .then(res => {
         //fileName(res.data);
         console.log(res.data);
@@ -78,7 +84,6 @@ function WriteBox() {
       startPos + imgObj.length,
       startPos + imgSrc.length
     );
-    setLoading(false);
   };
 
   const onChange = e => {
