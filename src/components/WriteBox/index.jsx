@@ -50,7 +50,7 @@ function WriteBox() {
   };
 
   const fileRef = useRef(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleUpload = useCallback(
     async e => {
@@ -60,15 +60,26 @@ function WriteBox() {
       const formData = new FormData();
       formData.append("file", fileName);
 
-      // await axios.post(EnvConfig.IMGPOSTURL, formData);
-      // const responseData = response.data();
-      // console.log(responseData);
+      const config = {
+        Headers: {
+          "content-type": "multipart/form-data",
+        },
+      };
+
+      await axios
+        .post(EnvConfig.IMGPOSTURL, formData, config)
+        .then(res => {
+          console.log(res.data);
+          setLoading(false);
+        })
+        .catch(err => {
+          toast.error("이미지를 불러오는데 실패했습니다.");
+          setLoading(true);
+        });
 
       const imgObj = {
         src: loading ? "![업로드 중..](...)" : `![](${fileName.name})`,
       };
-
-      setLoading(true);
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
