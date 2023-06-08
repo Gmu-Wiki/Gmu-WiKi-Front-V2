@@ -1,18 +1,19 @@
 import React from "react";
 import * as S from "./style";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <S.FooterConainer>
       <ul>
         <li>
-          <a href="">NOTIFICATION</a>
+          <Link to="/notice">NOTIFICATION</Link>
         </li>
         <li>
-          <a href="">SCHOOL</a>
+          <Link to="/student">SCHOOL</Link>
         </li>
         <li>
-          <a href="">ETC</a>
+          <Link to="/event">ETC</Link>
         </li>
         <li>
           <a href="https://github.com/Team-Ampersand" target="__blank">
