@@ -54,7 +54,6 @@ function WriteBox() {
 
   const handleUpload = useCallback(
     async e => {
-      setLoading(false);
 
       const fileName = e.target.files[0];
       const formData = new FormData();
