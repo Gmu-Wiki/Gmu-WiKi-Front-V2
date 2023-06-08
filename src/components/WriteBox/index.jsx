@@ -4,6 +4,7 @@ import * as C from "../index";
 import useWrite from "../../Hooks/useWrite";
 import axios from "axios";
 import EnvConfig from "../../apis/EnvConfig";
+import { toast } from "react-toastify";
 
 function reducer(state, action) {
   return {
@@ -28,9 +29,9 @@ function WriteBox() {
   let save = [];
 
   const handleKeyDown = e => {
+    const textarea = textareaRef.current;
     if (e.key === "Tab") {
       e.preventDefault();
-      const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
       const endPos = textarea.selectionEnd;
       const Tab = "  ";
@@ -45,13 +46,13 @@ function WriteBox() {
           save.push(i);
           setNumArr(save);
         }
+      } else if (e.key === "Backspace") {
+        
       }
     };
 
   const fileRef = useRef(null);
   const [loading, setLoading] = useState(false);
-
-  // console.log(content.split("\n").length);
 
   const handleUpload = useCallback(async(e) => {
 
