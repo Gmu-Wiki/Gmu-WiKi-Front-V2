@@ -42,6 +42,9 @@ function DropMenu() {
                 <Link to="/schedule">
                   <span>학사일정</span>
                 </Link>
+                <a href="https://github.com/Team-Ampersand" target="_blank">
+                  <span>깃허브</span>
+                </a>
               </div>
             </div>
           </div>
