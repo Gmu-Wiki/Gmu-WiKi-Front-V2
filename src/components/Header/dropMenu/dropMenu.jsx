@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./style";
+import { Link } from "react-router-dom";
 
 function DropMenu() {
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <>
       <S.dropHeader>
@@ -10,22 +10,38 @@ function DropMenu() {
           <div className="center">
             <div>
               <div className="notice">
-                <span className="fontMove">공지사항</span>
-                <span>문의</span>
+                <Link to="/notice">
+                  <span className="fontMove">공지사항</span>
+                </Link>
+                <Link to="/inquiry">
+                  <span>문의</span>
+                </Link>
               </div>
             </div>
             <div>
               <div className="school">
-                <span className="fontMove">학생</span>
-                <span>선생님</span>
-                <span>동아리</span>
-                <span>전공</span>
+                <Link to="/student">
+                  <span className="fontMove">학생</span>
+                </Link>
+                <Link to="/teacher">
+                  <span>선생님</span>
+                </Link>
+                <Link to="/club">
+                  <span>동아리</span>
+                </Link>
+                <Link to="/major">
+                  <span>전공</span>
+                </Link>
               </div>
             </div>
             <div>
               <div className="etc">
-                <span className="fontMove">사건</span>
-                <span>학사일정 </span>
+                <Link to="/event">
+                  <span className="fontMove">사건</span>
+                </Link>
+                <Link to="/schedule">
+                  <span>학사일정</span>
+                </Link>
               </div>
             </div>
           </div>

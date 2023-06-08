@@ -5,9 +5,10 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import React from "react";
-import Header from "./components/Header";
-import * as C from "./pages/index";
+import * as P from "./pages/index";
 import GlobalStyle from "./styles/GlobalStyle";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -15,16 +16,20 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          <Route path="/main" element={<C.Main />} />
-          {/* <Route path="/student" element={<Student />} />
-          <Route path="/teacher" element={<Teacher />} />
-          <Route path="/club" element={<Club />} />
-          <Route path="/major" element={<Major />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/notice" element={<Notice />} />
-          <Route path="*" element={<C.NotFound />} /> */}
+          <Route path="/" element={<P.Main />} />
+          <Route path="/student" element={<P.Student />} />
+          <Route path="/teacher" element={<P.Teacher />} />
+          <Route path="/club" element={<P.Club />} />
+          <Route path="/major" element={<P.Major />} />
+          <Route path="/event" element={<P.Event />} />
+          <Route path="/notice" element={<P.Notice />} />
+          <Route path="/post" element={<P.Post />} />
+          <Route path="/inquiry" element={<P.Inquiry />} />
+          <Route path="/schedule" element={<P.Schedule />} />
+          <Route path="*" element={<P.NotFound />} />
         </Routes>
       </Router>
+      <ToastContainer />
     </>
   );
 }

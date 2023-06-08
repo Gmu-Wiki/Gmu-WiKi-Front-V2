@@ -1,15 +1,16 @@
 import React from "react";
-import Header from "../../components/Header";
+import * as C from "../../components";
 import * as I from "../../assets";
 import * as S from "./style";
 
 function NotFound() {
   return (
     <>
-      <Header />
+      <C.Header />
       <S.NotFoundCotainer>
         <I.NotFound />
       </S.NotFoundCotainer>
+      <C.Footer />
     </>
   );
 }
