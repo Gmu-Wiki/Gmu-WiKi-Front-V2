@@ -4,6 +4,7 @@ import * as C from "../index";
 import useWrite from "../../Hooks/useWrite";
 import axios from "axios";
 import EnvConfig from "../../apis/EnvConfig";
+import { toast } from "react-toastify";
 
 function reducer(state, action) {
   return {
@@ -40,19 +41,26 @@ function WriteBox() {
   };
 
   const fileRef = useRef(null);
-  const [loading, setLoading] = useState(Boolean);
+  const [loading, setLoading] = useState(true);
 
   const handleUpload = async e => {
-    setLoading(true);
     const fileName = e.target.files[0];
     const formData = new FormData();
     formData.append("file", fileName);
 
     console.log(fileName);
 
-    // const response = await axios.post(EnvConfig.IMGPOSTURL, formData);
-    // const responseData = response.data();
-    // console.log(responseData);
+    await axios
+      .post(EnvConfig.IMGPOSTURL, formData)
+      .then(res => {
+        //fileName(res.data);
+        console.log(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setLoading(true);
+        toast.error("실패!");
+      });
 
     const imgObj = {
       src: `![](${fileName.name})`,
