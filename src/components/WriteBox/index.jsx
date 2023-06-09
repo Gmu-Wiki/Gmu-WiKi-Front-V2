@@ -59,30 +59,36 @@ function WriteBox() {
   };
 
   const fileRef = useRef(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [urlFile, setUrlFile] = useState("");
 
   const handleUpload = useCallback(
     async e => {
       const fileName = e.target.files[0];
       const formData = new FormData();
       formData.append("file", fileName);
+      setUrlFile(fileName.name);
 
-      const config = {
-        Headers: {
-          "content-type": "multipart/form-data",
-        },
-      };
+      console.log(fileName.name);
+      console.log(urlFile);
 
-      await axios
-        .post(EnvConfig.IMGPOSTURL, formData, config)
-        .then(res => {
-          console.log(res.data);
-          setLoading(false);
-        })
-        .catch(err => {
-          toast.error("이미지를 불러오는데 실패했습니다.");
-          setLoading(true);
-        });
+      // const config = {
+      //   Headers: {
+      //     "content-type": "multipart/form-data",
+      //   },
+      // };
+      // await axios
+      //   .post(EnvConfig.IMGPOSTURL, formData, config)
+      //   .then(res => {
+      //     console.log(res.data);
+      //     setLoading(false);
+      //     urlFile(res.data.url);
+      //   })
+      //   .catch(err => {
+      //     toast.error("이미지를 불러오는데 실패했습니다.");
+      //     setLoading(true);
+      //     urlFile("이미지를 불러오는데 실패했습니다.");
+      //   });
 
       const imgObj = {
         src: loading ? "![업로드 중..](...)" : `![](${fileName.name})`,
@@ -96,9 +102,8 @@ function WriteBox() {
         content.substring(0, startPos) + imgObj.src + content.substring(endPos);
 
       setContent(newValue);
-      textarea.setSelectionRange(startPos + imgObj.length);
     },
-    [content, loading]
+    [content, loading, urlFile]
   );
 
   const onChange = e => {
@@ -110,7 +115,6 @@ function WriteBox() {
     const textarea = textareaRef.current;
     textarea.style.height = "auto";
     textarea.style.height = `${textareaRef.current.scrollHeight}px`;
-    
   };
 
   const handleEdit = () => {
