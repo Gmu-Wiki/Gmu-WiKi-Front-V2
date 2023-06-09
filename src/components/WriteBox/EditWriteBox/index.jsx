@@ -11,9 +11,6 @@ function EditWriteBox({
   onChangeTextArea,
   handleKeyDown,
 }) {
-  useEffect(() => {
-    textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
-  }, [textareaRef]);
 
   return (
     <>

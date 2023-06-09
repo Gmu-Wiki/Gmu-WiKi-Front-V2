@@ -39,11 +39,21 @@ function WriteBox() {
         content.substring(0, startPos) + Tab + content.substring(endPos);
 
       setContent(newContent);
-    } else if (e.key === "Enter" || e.key === "Backspace") {
+    } else if (e.key === "Enter") {
       setNumArr([]);
       for (let i = 1; i <= content.split("\n").length + 1; i++) {
         save.push(i);
         setNumArr(save);
+      }
+    } else if (e.key === "Backspace") {
+      setNumArr([]);
+      if (content.split("\n").length === 1) {
+        setNumArr([1]);
+      } else {
+        for (let i = 1; i <= content.split("\n").length - 1; i++) {
+          save.push(i);
+          setNumArr(save);
+        }
       }
     }
   };
@@ -97,9 +107,10 @@ function WriteBox() {
 
   const onChangeTextArea = e => {
     setContent(e.target.value);
-    // textarea 높이 늘리기
-    textareaRef.current.style.height = "auto";
-    textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    const textarea = textareaRef.current;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textareaRef.current.scrollHeight}px`;
+    
   };
 
   const handleEdit = () => {

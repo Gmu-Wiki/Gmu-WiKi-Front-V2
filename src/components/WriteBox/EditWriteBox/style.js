@@ -60,7 +60,6 @@ export const ContentInput = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     align-content: space-between;
 
@@ -68,7 +67,7 @@ export const ContentInput = styled.div`
       color: #999999;
       font-size: 1rem;
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 30%;
     }
   }
 
@@ -76,7 +75,7 @@ export const ContentInput = styled.div`
     box-sizing: border-box;
     border: 1px solid #dddddd;
     width: 92.4%;
-    /* padding: 0 10px; */
+    padding: 0 10px;
     outline: 0;
     background-color: none;
     resize: none;
