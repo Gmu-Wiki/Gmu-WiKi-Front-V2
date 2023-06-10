@@ -19,9 +19,10 @@ function WriteBox() {
   const [preview, setPreview] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     category: "선택해주세요",
+    yearCategory: "선택해주세요",
     title: "",
   });
-  const { category, title } = state;
+  const { category, title, yearCategory } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
@@ -114,6 +115,7 @@ function WriteBox() {
         <S.WriteBox>
           <C.EditWriteBox
             category={category}
+            yearCategory={yearCategory}
             title={title}
             textareaRef={textareaRef}
             onChange={onChange}

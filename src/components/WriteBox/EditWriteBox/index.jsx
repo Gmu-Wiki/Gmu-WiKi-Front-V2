@@ -3,6 +3,7 @@ import * as S from "./style";
 
 function EditWriteBox({
   category,
+  yearCategory,
   title,
   onChange,
   numArr,
@@ -15,12 +16,17 @@ function EditWriteBox({
       <S.CategoryInput>
         <span>카테고리</span>
         <select name="category" onChange={onChange} value={category}>
-          <option>선택해주세요</option>
-          <option>학생</option>
-          <option>선생님</option>
-          <option>전공</option>
-          <option>동아리</option>
-          <option>사건</option>
+          <option value="">선택해주세요</option>
+          <option value="student">학생</option>
+          <option value="teacher">선생님</option>
+          <option value="major">전공</option>
+          <option value="club">동아리</option>
+          <option value="event">사건</option>
+        </select>
+        <select name="yearCategory" onChange={onChange} value={yearCategory}>
+          <option value="">선택해주세요</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
         </select>
       </S.CategoryInput>
       <S.TitleInput>

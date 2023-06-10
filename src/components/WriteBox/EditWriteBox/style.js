@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CategoryInput = styled.div`
-  width: 100%;
+  width: 50%;
   height: 5vh;
   display: flex;
   align-items: center;
@@ -9,23 +9,18 @@ export const CategoryInput = styled.div`
   span {
     color: #999999;
     font-size: 1rem;
-    margin-right: 10px;
+    margin-right: 9px;
     font-weight: 600;
   }
 
   select {
     border: 1px solid #dddddd;
-    width: 16%;
+    width: 139.3px;
+    height: 26px;
     outline: 0;
-    background-color: none;
     color: #999999;
-
-    option {
-      background-color: none;
-      &:hover {
-        background-color: #e4f1ff;
-      }
-    }
+    margin-right: 13px;
+    cursor: pointer;
   }
 `;
 
