@@ -54,32 +54,32 @@ export const TitleInput = styled.div`
 export const ContentInput = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 10px;
 
   div {
+    width: 1%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: space-between;
+    align-items: center;
 
     span {
       color: #999999;
       font-size: 1rem;
       font-weight: 600;
-      margin-top: 30%;
+      margin-bottom: 4%;
     }
   }
 
   textarea {
-    box-sizing: border-box;
     border: 1px solid #dddddd;
-    width: 92.4%;
-    padding: 0 10px;
+    width: 90.2%;
+    padding: 10px 10px;
     outline: 0;
     background-color: none;
     resize: none;
-    line-height: 26px;
+    line-height: 22px;
 
     &::-webkit-scrollbar {
       display: none;

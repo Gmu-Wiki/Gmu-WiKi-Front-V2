@@ -8,10 +8,8 @@ function EditWriteBox({
   numArr,
   content,
   textareaRef,
-  onChangeTextArea,
-  handleKeyDown,
+  onChangeTextArea
 }) {
-
   return (
     <>
       <S.CategoryInput>
@@ -39,9 +37,8 @@ function EditWriteBox({
           type="text"
           rows={1}
           value={content}
-          onChange={onChangeTextArea}
-          onKeyDown={handleKeyDown}
           ref={textareaRef}
+          onChange={onChangeTextArea}
         />
       </S.ContentInput>
     </>

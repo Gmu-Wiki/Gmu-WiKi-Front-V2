@@ -27,37 +27,6 @@ function WriteBox() {
 
   let save = [];
 
-  const handleKeyDown = e => {
-    const textarea = textareaRef.current;
-    if (e.key === "Tab") {
-      e.preventDefault();
-      const startPos = textarea.selectionStart;
-      const endPos = textarea.selectionEnd;
-      const Tab = "  ";
-
-      const newContent =
-        content.substring(0, startPos) + Tab + content.substring(endPos);
-
-      setContent(newContent);
-    } else if (e.key === "Enter") {
-      setNumArr([]);
-      for (let i = 1; i <= content.split("\n").length + 1; i++) {
-        save.push(i);
-        setNumArr(save);
-      }
-    } else if (e.key === "Backspace") {
-      setNumArr([]);
-      if (content.split("\n").length === 1) {
-        setNumArr([1]);
-      } else {
-        for (let i = 1; i <= content.split("\n").length - 1; i++) {
-          save.push(i);
-          setNumArr(save);
-        }
-      }
-    }
-  };
-
   const fileRef = useRef(null);
   const [loading, setLoading] = useState(true);
 
@@ -96,7 +65,6 @@ function WriteBox() {
         content.substring(0, startPos) + imgObj.src + content.substring(endPos);
 
       setContent(newValue);
-      textarea.setSelectionRange(startPos + imgObj.length);
     },
     [content, loading]
   );
@@ -111,6 +79,11 @@ function WriteBox() {
     textarea.style.height = "auto";
     textarea.style.height = `${textareaRef.current.scrollHeight}px`;
     
+    setNumArr([]);
+    for (let i = 1; i <= textarea.value.split("\n").length; i++) {
+      save.push(i);
+      setNumArr(save);
+    }
   };
 
   const handleEdit = () => {
@@ -140,12 +113,11 @@ function WriteBox() {
           <C.EditWriteBox
             category={category}
             title={title}
+            textareaRef={textareaRef}
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
             content={content}
-            textareaRef={textareaRef}
-            handleKeyDown={handleKeyDown}
           />
         </S.WriteBox>
       )}
