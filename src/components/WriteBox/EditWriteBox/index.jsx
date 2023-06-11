@@ -3,7 +3,7 @@ import * as S from "./style";
 
 function EditWriteBox({
   category,
-  yearCategory,
+  detailCategory,
   title,
   onChange,
   numArr,
@@ -23,7 +23,7 @@ function EditWriteBox({
           <option value="club">동아리</option>
           <option value="event">사건</option>
         </select>
-        <select name="yearCategory" onChange={onChange} value={yearCategory}>
+        <select name="detailCategory" onChange={onChange} value={detailCategory}>
           <option value="">선택해주세요</option>
           <option value="2022">2022</option>
           <option value="2023">2023</option>
