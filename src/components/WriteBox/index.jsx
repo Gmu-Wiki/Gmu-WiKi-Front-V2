@@ -40,27 +40,25 @@ function WriteBox() {
       formData.append("file", fileName);
       setUrlFile(fileName.name);
 
-      console.log(fileName.name);
-      console.log(urlFile);
-
-      await axios
-        .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
-        .then(res => {
-          console.log(res.data);
-          setLoading(false);
-          urlFile(res.data.url);
-        })
-        .catch(err => {
-          toast.error("이미지를 불러오는데 실패했습니다.");
-          setLoading(true);
-          urlFile("이미지를 불러오는데 실패했습니다.");
-        });
+      // await axios
+      //   .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
+      //   .then(res => {
+      //     console.log(res.data);
+      //     setLoading(false);
+      //     setUrlFile(res.data.url);
+      //   })
+      //   .catch(err => {
+      //     toast.error("이미지를 불러오는데 실패했습니다.");
+      //     setLoading(true);
+      //     setUrlFile("이미지를 불러오는데 실패했습니다.");
+      //   });
 
       const imgObj = {
-        src: loading ? "![업로드 중..](...)" : `![](${fileName.name})`,
+        src: loading ? "![업로드 중..](...)" : `![](${urlFile})`,
       };
 
       const textarea = textareaRef.current;
+
       const startPos = textarea.selectionStart;
       const endPos = textarea.selectionEnd;
 
@@ -72,6 +70,8 @@ function WriteBox() {
     [content, loading, urlFile]
   );
 
+  console.log(urlFile);
+
   const onChange = e => {
     dispatch(e.target);
   };
@@ -81,7 +81,7 @@ function WriteBox() {
     const textarea = textareaRef.current;
     textarea.style.height = "auto";
     textarea.style.height = `${textareaRef.current.scrollHeight}px`;
-    
+
     setNumArr([]);
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
@@ -99,7 +99,7 @@ function WriteBox() {
     setPreview(true);
   };
 
-  const writePost = useWrite(category, title, content);
+  const writePost = useWrite(category, yearCategory, title, content);
 
   return (
     <>
