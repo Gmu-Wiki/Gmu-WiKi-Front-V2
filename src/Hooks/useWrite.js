@@ -2,13 +2,14 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import EnvConfig from "../apis/EnvConfig";
 
-const useWrite = (category, title, content, imgSrc) => {
+const useWrite = (category, yearCategory, title, content) => {
   const writePost = () => {
     axios
       .post(EnvConfig.WRITEPOSTURL, {
-        category: category,
         title: title,
         content: content,
+        boardType: category,
+        yearCategory: yearCategory,
       })
       .then(res => toast.success("글이 등록되었습니다!"))
       .catch(err => toast.error("글 등록에 실패하였습니다!"));

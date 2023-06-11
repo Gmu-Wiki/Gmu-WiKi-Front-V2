@@ -37,18 +37,21 @@ function WriteBox() {
     const fileName = e.target.files[0];
     const formData = new FormData();
     formData.append("file", fileName);
+    setUrlFile(fileName.name);
+    console.log(fileName.name);
+    console.log(urlFile);
 
     await axios
       .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
       .then(res => {
         console.log(res.data);
         setLoading(false);
-        setUrlFile(res.data.url);
+        // setUrlFile(res.data.url);
       })
       .catch(err => {
         toast.error("이미지를 불러오는데 실패했습니다.");
         setLoading(true);
-        setUrlFile("이미지를 불러오는데 실패했습니다.");
+        // setUrlFile("이미지를 불러오는데 실패했습니다.");
       });
 
     const imgObj = loading ? "![업로드 중..](...)" : `![](${urlFile})`;
@@ -62,6 +65,8 @@ function WriteBox() {
 
     setContent(newValue);
   },[content, loading, urlFile]);
+
+  console.log(urlFile);
 
   const onChange = e => {
     dispatch(e.target);
@@ -91,7 +96,7 @@ function WriteBox() {
     setPreview(true);
   };
 
-  const writePost = useWrite(category, title, content);
+  const writePost = useWrite(category, detailCategory, title, content);
 
   return (
     <>
