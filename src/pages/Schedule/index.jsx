@@ -7,6 +7,7 @@ export default function Schedule() {
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title="학사일정" sort="학사일정"></C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
     </>
   );

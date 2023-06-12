@@ -7,6 +7,7 @@ export default function Teacher() {
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title="선생님" sort="선생님"></C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
     </>
   );
