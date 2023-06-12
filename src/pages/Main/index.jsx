@@ -25,6 +25,7 @@ function Main() {
         setStoreCode(code);
       }}
     >
+      <C.RecentModified />
       <C.Header />
       <C.PageContainer title="대문" sort="G무위키" hasButton>
         <C.Explanation>
