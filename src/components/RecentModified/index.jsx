@@ -53,16 +53,6 @@ export default function RecentModified() {
       title: "한준",
       latestTime: "9시간",
     },
-    {
-      id: 11,
-      title: "최민욱",
-      latestTime: "9시간",
-    },
-    {
-      id: 12,
-      title: "김하온",
-      latestTime: "9시간",
-    },
   ]);
   return (
     <S.RecentModifiedContainer>

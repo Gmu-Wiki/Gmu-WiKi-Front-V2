@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const RecentModifiedContainer = styled.div`
   position: fixed;
-  right: 3%;
-  top: 10%;
+  right: 5%;
+  top: 13%;
   text-align: center;
   display: flex;
   flex-direction: column;
