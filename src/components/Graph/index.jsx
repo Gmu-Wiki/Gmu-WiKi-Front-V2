@@ -1,23 +1,14 @@
 import React from "react";
 import * as S from "./style";
 
-function Graph({
-  graphWidth,
-  titleWidth,
-  contentWidth,
-  titleChild,
-  contentChild,
-  backgroundColor,
-}) {
+function Graph({ titleChild, contentChild, backgroundColor }) {
   return (
     <>
-      <S.GraphCenter graphWidth={graphWidth}>
-        <S.TitleGraph titleWidth={titleWidth} backgroundColor={backgroundColor}>
+      <S.GraphCenter>
+        <S.TitleGraph backgroundColor={backgroundColor}>
           {titleChild}
         </S.TitleGraph>
-        <S.ContentGraph contentWidth={contentWidth}>
-          {contentChild}
-        </S.ContentGraph>
+        <S.ContentGraph>{contentChild}</S.ContentGraph>
       </S.GraphCenter>
     </>
   );

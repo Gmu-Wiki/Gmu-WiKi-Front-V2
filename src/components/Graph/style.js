@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const GraphCenter = styled.div`
-  width: ${props => props.graphWidth};
+  width: 60%;
   display: flex;
 `;
 
 export const TitleGraph = styled.div`
-  width: ${props => props.titleWidth};
-  border: 1px solid #dddddd;
+  width: 24%;
+  border: 1px solid #c0c0c0;
   display: flex;
   height: 40px;
   justify-content: center;
@@ -18,7 +18,7 @@ export const TitleGraph = styled.div`
 `;
 
 export const ContentGraph = styled.div`
-  width: ${props => props.contentWidth};
+  width: 76%;
   border: 1px solid #dddddd;
   border-left: 0;
   display: flex;

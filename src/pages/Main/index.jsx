@@ -13,6 +13,96 @@ import { useState, useEffect } from "react";
 function Main() {
   const [storeCode, setStoreCode] = useState("");
 
+  const schoolGraphData = [
+    {
+      titleChild: "성별",
+      contentChild: "1954년 6월",
+      backgroundColor: "#DFE464",
+    },
+    {
+      titleChild: "마이스터 지정",
+      contentChild: "2017년 3월",
+      backgroundColor: "#DFE464",
+    },
+    {
+      titleChild: "성별",
+      contentChild: "남녀공학",
+      backgroundColor: "#DFE464",
+    },
+    {
+      titleChild: "유형",
+      contentChild: "마이스터고등학교",
+      backgroundColor: "#DFE464",
+    },
+    {
+      titleChild: "교장",
+      contentChild: "최홍진",
+      backgroundColor: "#DFE464",
+    },
+    {
+      titleChild: "교감",
+      contentChild: "김광진",
+      backgroundColor: "#62ADE0",
+    },
+    {
+      titleChild: "학생 수",
+      contentChild: "215명(2023명 기준)",
+      backgroundColor: "#62ADE0",
+    },
+    {
+      titleChild: "교휸",
+      contentChild: "더불어 살아가는 사람다운 미래 인재",
+      backgroundColor: "#62ADE0",
+    },
+    {
+      titleChild: "교화",
+      contentChild: "동백꽃",
+      backgroundColor: "#62ADE0",
+    },
+    {
+      titleChild: "교목",
+      contentChild: "소나무",
+      backgroundColor: "#62ADE0",
+    },
+    {
+      titleChild: "교색",
+      contentChild: "파란색",
+      backgroundColor: "#123262",
+    },
+    {
+      titleChild: "교직원 수",
+      contentChild: "55명(2023년 기준)",
+      backgroundColor: "#123262",
+    },
+    {
+      titleChild: "설립형태",
+      contentChild: "공립",
+      backgroundColor: "#123262",
+    },
+    {
+      titleChild: "주소",
+      contentChild: "광주광역시 광산구 상무대로 312",
+      backgroundColor: "#123262",
+    },
+  ];
+
+  const historyGraphData = [
+    {
+      titleChild: "성별",
+      contentChild: "1954년 6월",
+      backgroundColor: "#DFE464",
+    },
+  ];
+
+  const schoolGraphs = schoolGraphData.map((data, index) => (
+    <C.Graph
+      key={index}
+      titleChild={data.titleChild}
+      contentChild={data.contentChild}
+      backgroundColor={data.backgroundColor}
+    />
+  ));
+
   useEffect(() => {}, [storeCode]);
 
   useGAuth(storeCode);
@@ -56,14 +146,7 @@ function Main() {
             </div>
           </S.SchoolTitleContent>
           <S.SchoolImg src={SchoolImg} />
-          <C.Graph
-            graphWidth="60%"
-            titleWidth="24%"
-            contentWidth="76%"
-            titleChild="개교"
-            contentChild="1954년 6월"
-            backgroundColor="#DFE464"
-          />
+          {schoolGraphs}
         </S.IntroCenter>
         <C.Detail hasNumber={true} number={1} title={"개요"}>
           <S.Outline>
