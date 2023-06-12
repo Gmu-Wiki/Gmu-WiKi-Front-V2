@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const RecentModifiedContainer = styled.div`
   position: fixed;
-  right: 5%;
-  top: 13%;
+  right: 4.5%;
+  top: 12.5%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   padding-left: 28px;
-  font-size: 19px;
+  font-size: 1.2rem;
 `;
 
 export const ModifiedContents = styled.div``;
@@ -37,13 +37,13 @@ export const ModifiedItem = styled.div`
 `;
 
 export const ModifiedItemTitle = styled.h3`
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   padding: 4px;
 `;
 
 export const ModifiedItemTime = styled.p`
-  font-size: 12px;
+  font-size: 0.8rem;
   color: #999999;
 `;
