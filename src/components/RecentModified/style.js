@@ -18,7 +18,7 @@ export const Title = styled.div`
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-left: 28px;
 `;
 
 export const ModifiedContents = styled.div``;
