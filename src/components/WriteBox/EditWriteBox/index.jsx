@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import * as S from "./style";
 
 function EditWriteBox({
