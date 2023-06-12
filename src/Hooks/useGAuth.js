@@ -11,7 +11,10 @@ const useGAuth = storeCode => {
         .post(EnvConfig.CODEPOSTURL, {
           code: storeCode,
         })
-        .then(res => toast.success("로그인 성공"))
+        .then(res => {
+          toast.success("로그인 성공");
+          console.log(res.data);
+        })
         .catch(err => toast.error("로그인 실패"));
     }
   }, [storeCode]);
