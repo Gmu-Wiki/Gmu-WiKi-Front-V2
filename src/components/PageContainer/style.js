@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const PageContainer = styled.div`
   width: 1120px;
+  min-height: 80vh;
   height: auto;
   display: flex;
   background-color: white;
