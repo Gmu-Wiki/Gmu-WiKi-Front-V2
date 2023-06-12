@@ -19,6 +19,7 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   padding-left: 28px;
+  font-size: 19px;
 `;
 
 export const ModifiedContents = styled.div``;
