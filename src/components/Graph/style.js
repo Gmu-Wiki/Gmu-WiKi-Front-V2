@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const GraphCenter = styled.div`
-  width: 60%;
+  width: 65%;
   display: flex;
 `;
 
