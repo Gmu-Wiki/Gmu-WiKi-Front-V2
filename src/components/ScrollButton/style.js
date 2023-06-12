@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ScrollButtonContainer = styled.div`
   display: flex;
   position: fixed;
-  right: 8%;
+  right: 3%;
   bottom: 13%;
 
   svg {
