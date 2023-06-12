@@ -69,7 +69,7 @@ export default function RecentModified() {
       <S.Title>최근 수정된 글</S.Title>
       <S.ModifiedContents>
         {test.map(({ id, title, latestTime }) => (
-          <S.ModifiedItem id={id}>
+          <S.ModifiedItem key={id}>
             <S.ModifiedItemTitle>{title}</S.ModifiedItemTitle>
             <S.ModifiedItemTime>{latestTime}</S.ModifiedItemTime>
           </S.ModifiedItem>

@@ -7,6 +7,7 @@ export default function Club() {
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title="동아리" sort="동아리"></C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
     </>
   );
