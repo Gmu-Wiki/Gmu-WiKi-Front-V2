@@ -6,6 +6,7 @@ import * as S from "./style";
 function NotFound() {
   return (
     <>
+      <C.RecentModified />
       <C.Header />
       <S.NotFoundCotainer>
         <I.NotFound />
