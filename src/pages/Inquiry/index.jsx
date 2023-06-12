@@ -7,6 +7,7 @@ export default function Inquiry() {
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title="문의" sort="문의"></C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
     </>
   );

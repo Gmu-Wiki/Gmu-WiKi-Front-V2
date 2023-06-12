@@ -7,6 +7,7 @@ export default function Student() {
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title="학생" sort="학생"></C.PageContainer>
+      <C.ScrollButton />
       <C.Footer />
     </>
   );
