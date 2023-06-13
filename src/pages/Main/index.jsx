@@ -207,6 +207,7 @@ function Main() {
       titleChild={data.titleChild}
       contentChild={data.contentChild}
       backgroundColor={data.backgroundColor}
+      style={{ marginTop: "300px" }}
     />
   ));
 
@@ -305,6 +306,7 @@ function Main() {
           number={2}
           title={"역사"}
           detailContent={true}
+          style={{ marginTop: "300px" }}
         >
           {historyGraphs}
         </C.Detail>
