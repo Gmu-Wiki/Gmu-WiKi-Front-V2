@@ -91,6 +91,8 @@ function Main() {
       titleChild: "날짜",
       contentChild: "내용",
       backgroundColor: "#007EFF",
+      color: true,
+      contentColor: true,
     },
     {
       titleChild: "1954년 5월 29일",
@@ -214,6 +216,8 @@ function Main() {
       titleChild={data.titleChild}
       contentChild={data.contentChild}
       backgroundColor={data.backgroundColor}
+      color={data.color}
+      contentColor={data.color}
     />
   ));
 
