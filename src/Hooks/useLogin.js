@@ -3,7 +3,8 @@ import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
 import { toast } from "react-toastify";
 
-const useGAuth = storeCode => {
+const useLogin = storeCode => {
+  
   useEffect(() => {
     if (storeCode) {
       axios
@@ -18,4 +19,4 @@ const useGAuth = storeCode => {
   return null;
 };
 
-export default useGAuth;
+export default useLogin;

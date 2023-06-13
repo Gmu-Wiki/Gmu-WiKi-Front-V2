@@ -4,7 +4,7 @@ import * as S from "./style";
 import * as I from "../../assets";
 import { GauthProvider } from "@msg-team/gauth-react";
 import EnvConfig from "../../apis/EnvConfig";
-import useGAuth from "../../Hooks/useGAuth";
+import useLogin from "../../Hooks/useLogin";
 import { useState, useEffect } from "react";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
@@ -14,7 +14,7 @@ function Main() {
 
   useEffect(() => {}, [storeCode]);
 
-  useGAuth(storeCode);
+  useLogin(storeCode);
 
   return (
     <>
@@ -22,7 +22,6 @@ function Main() {
         redirectUri={EnvConfig.REDIRECTURL}
         clientId={EnvConfig.CLIENTID}
         onSuccess={async code => {
-          setStoreCode(code);
           console.log(code);
         }}
       >
