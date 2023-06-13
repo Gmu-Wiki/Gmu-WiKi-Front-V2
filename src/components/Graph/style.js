@@ -14,8 +14,8 @@ export const TitleGraph = styled.div`
   align-items: center;
   background-color: ${props => props.backgroundColor};
   color: white;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: bold;
+  font-size: 0.98rem;
 `;
 
 export const ContentGraph = styled.div`
@@ -25,7 +25,7 @@ export const ContentGraph = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${props => (props.contentColor ? "0.9rem" : "0.82rem")};
+  font-size: ${props => (props.contentColor ? "0.98rem" : "0.85rem")};
   color: ${props => (props.color ? "white" : "black")};
   font-weight: ${props => (props.contentColor ? "700" : true)};
   background-color: ${props => (props.contentColor ? "#007EFF" : "white")};
