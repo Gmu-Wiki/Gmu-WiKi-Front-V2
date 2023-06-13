@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const ScrollButtonContainer = styled.div`
   display: flex;
   position: fixed;
-  right: 4%;
-  bottom: 10%;
+  right: 4.5%;
+  bottom: 13%;
+  z-index: 999;
 
   svg {
     cursor: pointer;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const PageContainer = styled.div`
   width: 1120px;
+  min-height: 80vh;
   height: auto;
   display: flex;
   background-color: white;
@@ -9,6 +10,7 @@ export const PageContainer = styled.div`
   border: 1px solid #c0c0c0;
   border-top: 0;
   margin-left: 150px;
+  padding-bottom: 100px;
 `;
 
 export const PageCenter = styled.div`
