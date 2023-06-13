@@ -36,7 +36,6 @@ export const Title = styled.div`
   span {
     font-size: 40px;
     color: #636363;
-    font-family: "Nanum Gothic", sans-serif;
     font-weight: 600;
   }
 `;

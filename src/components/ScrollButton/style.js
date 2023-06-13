@@ -4,7 +4,7 @@ export const ScrollButtonContainer = styled.div`
   display: flex;
   position: fixed;
   right: 4.5%;
-  bottom: 14%;
+  bottom: 13%;
   z-index: 999;
 
   svg {
