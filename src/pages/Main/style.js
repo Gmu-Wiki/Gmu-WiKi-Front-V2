@@ -66,6 +66,7 @@ export const OutlineContent = styled.div`
 
 export const SchoolVideoContainer = styled.div`
   text-align: center;
+  width: 950px;
 `;
 
 export const Lesson = styled.div`
@@ -101,7 +102,7 @@ export const IntroCenter = styled.div`
 `;
 
 export const SchoolTitleContent = styled.div`
-  width: 60%;
+  width: 65%;
   height: 80px;
   font-weight: 700;
   background-color: #007eff;
@@ -121,5 +122,5 @@ export const SchoolTitleContent = styled.div`
 `;
 
 export const SchoolImg = styled.img`
-  width: 60%;
+  width: 65%;
 `;

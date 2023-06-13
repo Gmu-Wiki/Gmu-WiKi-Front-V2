@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import * as I from "../../assets";
 import * as S from "./style";
 
-export default function Detail({ title, hasNumber, children, number }) {
+export default function Detail({
+  title,
+  hasNumber,
+  children,
+  number,
+  detailContent,
+}) {
   const [detailActive, setDetailActice] = useState(true);
   return (
     <S.DetailContainer detailActive={detailActive}>
@@ -16,7 +22,11 @@ export default function Detail({ title, hasNumber, children, number }) {
         <S.DetailTitle>{title}</S.DetailTitle>
       </S.DetailTitleContainer>
       <S.DetailBorder />
-      {detailActive && <S.DetailContent>{children}</S.DetailContent>}
+      {detailActive && (
+        <S.DetailContent detailContent={detailContent}>
+          {children}
+        </S.DetailContent>
+      )}
     </S.DetailContainer>
   );
 }

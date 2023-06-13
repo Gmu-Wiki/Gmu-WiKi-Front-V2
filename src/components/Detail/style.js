@@ -25,6 +25,9 @@ export const DetailTitle = styled.span`
 export const DetailContent = styled.div`
   margin-top: 26px;
   line-height: 24px;
+  display: flex;
+  align-items: ${props => (props.detailContent ? "center" : "initial")};
+  flex-direction: column;
 `;
 
 export const DetailTitleContainer = styled.div`
