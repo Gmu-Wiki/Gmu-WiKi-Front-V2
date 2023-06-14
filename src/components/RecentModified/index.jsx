@@ -54,12 +54,12 @@ export default function RecentModified() {
       latestTime: "9시간",
     },
     {
-      id: 10,
+      id: 11,
       title: "한준",
       latestTime: "9시간",
     },
     {
-      id: 10,
+      id: 12,
       title: "한준",
       latestTime: "9시간",
     },
