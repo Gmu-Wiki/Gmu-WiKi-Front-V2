@@ -9,6 +9,7 @@ function EditWriteBox({
   content,
   textareaRef,
   onChangeTextArea,
+  handleKeyDown
 }) {
   return (
     <>
@@ -77,6 +78,7 @@ function EditWriteBox({
           value={content}
           ref={textareaRef}
           onChange={onChangeTextArea}
+          onKeyDown={handleKeyDown}
         />
       </S.ContentInput>
     </>

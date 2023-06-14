@@ -25,6 +25,7 @@ function WriteBox() {
   const { category, title, detailCategory } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
+  const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
 
   let save = [];
@@ -33,38 +34,41 @@ function WriteBox() {
   const [loading, setLoading] = useState(false);
   const [urlFile, setUrlFile] = useState("");
 
-  const handleUpload = useCallback( async e => {
-    const fileName = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", fileName);
-    setUrlFile(fileName.name);
-    console.log(fileName.name);
-    console.log(urlFile);
+  const handleUpload = useCallback(
+    async e => {
+      const fileName = e.target.files[0];
+      const formData = new FormData();
+      formData.append("file", fileName);
+      setUrlFile(fileName.name);
+      console.log(fileName.name);
+      console.log(urlFile);
 
-    await axios
-      .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
-      .then(res => {
-        console.log(res.data);
-        setLoading(false);
-        // setUrlFile(res.data.url);
-      })
-      .catch(err => {
-        toast.error("이미지를 불러오는데 실패했습니다.");
-        setLoading(true);
-        // setUrlFile("이미지를 불러오는데 실패했습니다.");
-      });
+      await axios
+        .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
+        .then(res => {
+          console.log(res.data);
+          setLoading(false);
+          // setUrlFile(res.data.url);
+        })
+        .catch(err => {
+          toast.error("이미지를 불러오는데 실패했습니다.");
+          setLoading(true);
+          // setUrlFile("이미지를 불러오는데 실패했습니다.");
+        });
 
-    const imgObj = loading ? "![업로드 중..](...)" : `![](${urlFile})`;
+      const imgObj = loading ? "![업로드 중..](...)" : `![](${urlFile})`;
 
-    const textarea = textareaRef.current;
-    const startPos = textarea.selectionStart;
-    const endPos = textarea.selectionEnd;
+      const textarea = textareaRef.current;
+      const startPos = textarea.selectionStart;
+      const endPos = textarea.selectionEnd;
 
-    const newValue =
-      content.substring(0, startPos) + imgObj + content.substring(endPos);
+      const newValue =
+        content.substring(0, startPos) + imgObj + content.substring(endPos);
 
-    setContent(newValue);
-  },[content, loading, urlFile]);
+      setContent(newValue);
+    },
+    [content, loading, urlFile]
+  );
 
   console.log(urlFile);
 
@@ -76,14 +80,35 @@ function WriteBox() {
     setContent(e.target.value);
     const textarea = textareaRef.current;
     textarea.style.height = "auto";
-    textarea.style.height = `${textareaRef.current.scrollHeight}px`;
-
+    if(isAll) {
+      textarea.style.height = "42px";
+      setIsAll(false);
+    } else {
+      textarea.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+    
     setNumArr([]);
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
       setNumArr(save);
     }
-    console.log(numArr);
+  };
+
+  const handleKeyDown = e => {
+    const textarea = textareaRef.current;
+    const selectionStart = textarea.selectionStart;
+    const selectionEnd = textarea.selectionEnd;
+
+    if (e.ctrlKey && e.key === "a") {
+      e.target.select();
+    } else if (
+      e.key === "Backspace" &&
+      textarea.value &&
+      selectionStart === 0 &&
+      selectionEnd === textarea.value.length
+    ) {
+      setIsAll(true);
+    }
   };
 
   const handleEdit = () => {
@@ -119,6 +144,7 @@ function WriteBox() {
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
             content={content}
+            handleKeyDown={handleKeyDown}
           />
         </S.WriteBox>
       )}
