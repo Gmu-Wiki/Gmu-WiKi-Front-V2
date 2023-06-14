@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  BrowserRouter,
 } from "react-router-dom";
 import React from "react";
 import * as P from "./pages/index";
@@ -24,6 +23,7 @@ function App() {
           <Route path="/event" element={<P.Event />} />
           <Route path="/notice" element={<P.Notice />} />
           <Route path="/post" element={<P.Post />} />
+          <Route path="/history" element={<P.History />} />
           <Route path="/inquiry" element={<P.Inquiry />} />
           <Route path="/schedule" element={<P.Schedule />} />
           <Route path="*" element={<P.NotFound />} />
