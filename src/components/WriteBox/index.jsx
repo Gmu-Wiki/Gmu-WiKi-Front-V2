@@ -125,6 +125,7 @@ function WriteBox() {
 
   return (
     <>
+    <S.WriteOptions>
       <S.ChangeButtonContainer>
         <S.EditButton checked={edit} onClick={handleEdit}>
           편집
@@ -133,6 +134,8 @@ function WriteBox() {
           미리보기
         </S.PreviewButton>
       </S.ChangeButtonContainer>
+      {edit && <C.WriteOption />}
+      </S.WriteOptions>
       {edit && (
         <S.WriteBox>
           <C.EditWriteBox
