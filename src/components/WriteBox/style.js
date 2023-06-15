@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
-export const ChangeButtonContainer = styled.div`
+export const WriteOptions = styled.div`
   position: relative;
-  top: 0.3%;
+  top: 0.6%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ChangeButtonContainer = styled.div`
+  display: flex;
 `;
 
 export const EditButton = styled.button`
