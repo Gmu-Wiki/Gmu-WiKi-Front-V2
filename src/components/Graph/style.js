@@ -27,6 +27,6 @@ export const ContentGraph = styled.div`
   align-items: center;
   font-size: ${props => (props.contentColor ? "0.98rem" : "0.85rem")};
   color: ${props => (props.color ? "white" : "black")};
-  font-weight: ${props => (props.contentColor ? "700" : true)};
+  font-weight: ${props => (props.contentColor ? "bold" : true)};
   background-color: ${props => (props.contentColor ? "#007EFF" : "white")};
 `;
