@@ -38,7 +38,7 @@ export const dropHeader = styled.div`
   }
 
   .fontMove {
-    margin-top: 1.5vh;
+    margin-top: 15px;
   }
 `;
 

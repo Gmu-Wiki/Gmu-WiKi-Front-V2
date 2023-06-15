@@ -6,7 +6,7 @@ export default function Event() {
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title="사건" sort="사건"></C.PageContainer>
+      <C.PageContainer title="사건" sort="사건" hasPostButton></C.PageContainer>
       <C.ScrollButton />
       <C.Footer />
     </>

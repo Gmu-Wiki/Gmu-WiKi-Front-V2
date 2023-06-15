@@ -6,7 +6,7 @@ export default function Major() {
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title="전공" sort="전공"></C.PageContainer>
+      <C.PageContainer title="전공" sort="전공" hasPostButton></C.PageContainer>
       <C.ScrollButton />
       <C.Footer />
     </>

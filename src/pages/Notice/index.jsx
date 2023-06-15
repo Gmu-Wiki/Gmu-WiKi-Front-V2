@@ -6,7 +6,7 @@ export default function Notice() {
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title="공지" sort="공지"></C.PageContainer>
+      <C.PageContainer title="공지" sort="공지" hasPostButton></C.PageContainer>
       <C.ScrollButton />
       <C.Footer />
     </>

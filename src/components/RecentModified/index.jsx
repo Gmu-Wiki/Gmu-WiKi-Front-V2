@@ -55,12 +55,12 @@ export default function RecentModified() {
     },
     {
       id: 11,
-      title: "최민욱",
+      title: "한준",
       latestTime: "9시간",
     },
     {
       id: 12,
-      title: "김하온",
+      title: "한준",
       latestTime: "9시간",
     },
   ]);
