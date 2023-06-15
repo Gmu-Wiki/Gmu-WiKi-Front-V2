@@ -14,4 +14,5 @@ export { default as MarkDownConverter } from "./WriteBox/PreviewWriteBox/Markdow
 export { default as Graph } from "./Graph";
 export { default as ContentsButton } from "./ContentsButton";
 export { default as RecentModified } from "./RecentModified";
+export {default as WriteOption} from "./WriteOption";
 export { default as HistoryItem } from "./HistoryItem";

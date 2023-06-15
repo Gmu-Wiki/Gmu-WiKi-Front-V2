@@ -70,8 +70,6 @@ function WriteBox() {
     [content, loading, urlFile]
   );
 
-  console.log(urlFile);
-
   const onChange = e => {
     dispatch(e.target);
   };
@@ -92,6 +90,7 @@ function WriteBox() {
       save.push(i);
       setNumArr(save);
     }
+    console.log(textarea.style.height);
   };
 
   const handleKeyDown = e => {
@@ -125,6 +124,7 @@ function WriteBox() {
 
   return (
     <>
+    <S.WriteOptions>
       <S.ChangeButtonContainer>
         <S.EditButton checked={edit} onClick={handleEdit}>
           편집
@@ -133,6 +133,8 @@ function WriteBox() {
           미리보기
         </S.PreviewButton>
       </S.ChangeButtonContainer>
+      {edit && <C.WriteOption content={content} setContent={setContent} textareaRef={textareaRef} numArr={numArr} setNumArr={setNumArr} />}
+      </S.WriteOptions>
       {edit && (
         <S.WriteBox>
           <C.EditWriteBox
