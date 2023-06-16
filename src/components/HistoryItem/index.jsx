@@ -7,7 +7,7 @@ const HistoryItem = ({ dummyData }) => {
     <>
       {dummyData.map((item) => (
         <S.Container key={item.id}>
-          <Link to={`history/${item.id}`}><S.SubTitle>{item.subTitle}</S.SubTitle></Link>
+          <Link to="/historydetail"><S.SubTitle>{item.subTitle}</S.SubTitle></Link>
           <S.Editor>수정자: {item.editor}</S.Editor>
         </S.Container>
       ))}

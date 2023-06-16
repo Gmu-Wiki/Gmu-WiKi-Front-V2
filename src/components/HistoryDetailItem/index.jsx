@@ -5,7 +5,7 @@ import * as C from "../index";
 const HistoryDetailItem = () => {
   return (
     <>
-      <C.Detail hasNumber={true} title={"개요"}>
+      <C.Detail hasNumber={false} title={"개요"}>
         <S.Content>
           어느 새벽, 김새미는 목이 말라 물을 뜨러 정수기에 갔다. 물을 뜨는데
           멀리서 백혜인 언니로 추정되는 사람이 걸어왔다. 김새미는 반가움에
@@ -15,7 +15,7 @@ const HistoryDetailItem = () => {
         </S.Content>
       </C.Detail>
 
-      <C.Detail hasNumber={true} title={"여담"}>
+      <C.Detail hasNumber={false} title={"여담"}>
         <S.Content>
           어느 새벽, 김새미는 목이 말라 물을 뜨러 정수기에 갔다. 물을 뜨는데
           멀리서 백혜인 언니로 추정되는 사람이 걸어왔다. 김새미는 반가움에
