@@ -20,7 +20,7 @@ const useHistory = () => {
       })
       .catch(err => toast.error("무언가가 잘못됬다 "));
   }, []);
-  return title, content, createDate, editDate;
+  return (title, content, createDate, editDate);
 };
 
 export default useHistory;
