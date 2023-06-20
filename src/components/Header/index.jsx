@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import * as S from "./style.js";
 import * as C from "..";
 import * as I from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import DropMenu from "./dropMenu/dropMenu.jsx";
+import DropMenu from "./dropMenu";
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
@@ -31,7 +32,9 @@ function Header() {
               >
                 <div className="menu">
                   <div className="logoContent">
-                    <I.Logo />
+                    <Link to="/">
+                      <I.Logo />
+                    </Link>
                   </div>
                   <div className="menuContent">
                     <div className="notice header">

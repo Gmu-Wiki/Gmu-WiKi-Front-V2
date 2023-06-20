@@ -6,7 +6,7 @@ export const DetailContainer = styled.div`
     cursor: pointer;
   }
   color: ${props => !props.detailActive && "rgba(0, 0, 0, 0.5)"};
-  margin: 30px 0 38px 0;
+  margin: 38px 0 38px 0;
 `;
 
 export const DetailNumber = styled.span`
@@ -18,13 +18,16 @@ export const DetailNumber = styled.span`
 
 export const DetailTitle = styled.span`
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
 `;
 
 export const DetailContent = styled.div`
-  margin-top: 26px;
+  margin-top: 28px;
   line-height: 24px;
+  display: flex;
+  align-items: ${props => (props.detailContent ? "center" : "initial")};
+  flex-direction: column;
 `;
 
 export const DetailTitleContainer = styled.div`

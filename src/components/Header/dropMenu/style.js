@@ -4,13 +4,17 @@ export const dropHeader = styled.div`
   width: 100%;
   background-color: #3e9dff;
   height: 150px;
-  color: white;
+  color: ffffff;
 
   span {
     font-weight: 700;
-    margin-bottom: 15px;
     cursor: pointer;
     font-size: 16px;
+  }
+
+  a {
+    color: #fff;
+    margin: 0.8vh 0;
   }
 
   .notice {
