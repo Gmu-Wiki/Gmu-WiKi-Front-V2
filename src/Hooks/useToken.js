@@ -14,7 +14,6 @@ const useToken = storeCode => {
           code: storeCode,
         })
         .then(res => {
-          toast.success("로그인 성공");
           setAccessToken(res.data.accessToken);
           setRefreshToken(res.data.refreshToken);
         })
@@ -22,7 +21,7 @@ const useToken = storeCode => {
     }
   }, [storeCode]);
 
-  return (accessToken, refreshToken);
+  return { accessToken, refreshToken };
 };
 
 export default useToken;
