@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const WriteOptions = styled.div`
-  position: relative;
-  top: 0.6%;
-  width: 100%;
+  position: absolute;
+  top: 38.1%;
+  width: 66%;
   display: flex;
   justify-content: space-between;
 `;
@@ -38,13 +38,13 @@ export const PreviewButton = styled.button`
 
 export const WriteBox = styled.div`
   background-color: none;
-  overflow-y: auto;
   border: 1px solid #c0c0c0;
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin-top: 35px;
 `;
 
 
@@ -75,6 +75,7 @@ export const FileButtonContainer = styled.div`
     display: none;
   }
 `;
+
 export const RegisterButton = styled.button`
   border: none;
   outline: none;
