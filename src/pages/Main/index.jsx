@@ -7,7 +7,7 @@ import SchoolImg from "../../assets/img/SchoolImg.png";
 
 import { GauthProvider } from "@msg-team/gauth-react";
 import EnvConfig from "../../apis/EnvConfig";
-import useLogin from "../../Hooks/useLogin";
+import useToken from "../../Hooks/useToken";
 import { useState, useEffect } from "react";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
@@ -226,7 +226,7 @@ function Main() {
 
   useEffect(() => {}, [storeCode]);
 
-  useLogin(storeCode);
+  useToken(storeCode);
 
   return (
     <GauthProvider
