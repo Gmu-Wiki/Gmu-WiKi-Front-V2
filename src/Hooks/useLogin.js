@@ -10,6 +10,11 @@ const useLogin = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [grade, setGrade] = useState("");
+  const [classNum, setClassNum] = useState("");
+  const [num, setNum] = useState("");
+  const [gender, setGender] = useState("");
+  const [profileUrl, setProfileUrl] = useState("");
+  const [role, setRole] = useState("");
 
   useEffect(() => {
     axios
@@ -21,11 +26,16 @@ const useLogin = () => {
         setEmail(res.data.email);
         setName(res.data.name);
         setGrade(res.data.grade);
+        setNum(res.data.num);
+        setRole(res.data.role);
+        setGender(res.data.gender);
+        setClassNum(res.data.classNum);
+        setProfileUrl(res.data.profileUrl);
       })
       .catch(err => toast.error("로그인 실패"));
   }, [accessToken]);
 
-  return { name, grade, email };
+  return { name, grade, email, classNum, num, gender, profileUrl, role };
 };
 
 export default useLogin;
