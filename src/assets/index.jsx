@@ -20,3 +20,4 @@ export { default as DrawIcon } from "./DrawIcon";
 export { default as QuoteIcon } from "./QuoteIcon";
 export { default as LinkIcon } from "./LinkIcon";
 export { default as CodeIcon } from "./CodeIcon";
+export { default as Toggle } from "./Toggle";

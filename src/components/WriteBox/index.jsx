@@ -90,7 +90,6 @@ function WriteBox() {
       save.push(i);
       setNumArr(save);
     }
-    console.log(textarea.style.height);
   };
 
   const handleKeyDown = e => {

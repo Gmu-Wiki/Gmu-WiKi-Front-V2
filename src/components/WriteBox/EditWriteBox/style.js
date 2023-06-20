@@ -75,6 +75,7 @@ export const ContentInput = styled.div`
     background-color: none;
     resize: none;
     line-height: 22px;
+    overflow-y: hidden;
 
     &::-webkit-scrollbar {
       display: none;
