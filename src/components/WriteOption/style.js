@@ -12,6 +12,9 @@ export const OptionContainer = styled.div`
   svg {
     margin-left: 12px;
     cursor: pointer;
+     &:hover {
+      transform: scale(1.275);
+     }
   }
 `;
 
