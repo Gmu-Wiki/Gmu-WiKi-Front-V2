@@ -31,6 +31,7 @@ const useLogin = () => {
         setGender(res.data.gender);
         setClassNum(res.data.classNum);
         setProfileUrl(res.data.profileUrl);
+        toast.success("로그인 성공");
       })
       .catch(err => toast.error("로그인 실패"));
   }, [accessToken]);
