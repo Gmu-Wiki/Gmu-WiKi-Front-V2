@@ -18,13 +18,12 @@ const useLogin = () => {
 
   useEffect(() => {
     if (accessToken) {
-      axios
-        .post(EnvConfig.TOKENPOSTURL, {
-          Authorization: accessToken,
-        })
-        .then(res => {
-          console.log(res.data);
-          const userData = res.data;
+      const fetchData = async () => {
+        try {
+          const response = await axios.post(EnvConfig.TOKENPOSTURL, {
+            Authorization: accessToken,
+          });
+          const userData = response.data;
           setEmail(userData.email);
           setName(userData.name);
           setGrade(userData.grade);
@@ -34,11 +33,14 @@ const useLogin = () => {
           setClassNum(userData.classNum);
           setProfileUrl(userData.profileUrl);
           toast.success("로그인 성공");
-        })
-        .catch(err => {
-          const errorMessage = err.response?.data?.message || "로그인 실패";
+        } catch (error) {
+          const errorMessage =
+            error.response?.data?.message || "로그인 실패";
           toast.error(errorMessage);
-        });
+        }
+      };
+
+      fetchData();
     }
   }, [accessToken]);
 

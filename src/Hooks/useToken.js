@@ -6,27 +6,31 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useNavigate } from "react-router-dom";
 
-const useToken = storeCode => {
+const useToken = (storeCode) => {
   const [accessToken, setAccessToken] = useState("");
   const [refreshToken, setRefreshToken] = useState("");
-  const replace = useNavigate();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (storeCode) {
-      axios
-        .post(EnvConfig.CODEPOSTURL, {
-          code: storeCode,
-        })
-        .then(res => {
-          setAccessToken(res.data.accessToken);
-          setRefreshToken(res.data.refreshToken);
-          replace("/");
-        })
-        .catch(err => {
-          toast.error("로그인 실패");
-          replace("/");
-        });
-    }
-  }, [storeCode, replace]);
+    const fetchToken = async () => {
+      try {
+        if (storeCode) {
+          const response = await axios.post(EnvConfig.CODEPOSTURL, {
+            code: storeCode,
+          });
+          setAccessToken(response.data.accessToken);
+          setRefreshToken(response.data.refreshToken);
+          toast.success("로그인 성공");
+          navigate("/");
+        }
+      } catch (error) {
+        toast.error("로그인 실패");
+        navigate("/");
+      }
+    };
+
+    fetchToken();
+  }, [storeCode, navigate]);
 
   return { accessToken, refreshToken };
 };
