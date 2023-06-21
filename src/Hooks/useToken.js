@@ -3,10 +3,9 @@ import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { useNavigate } from "react-router-dom";
 
-const useToken = (storeCode) => {
+const useToken = storeCode => {
   const [accessToken, setAccessToken] = useState("");
   const [refreshToken, setRefreshToken] = useState("");
   const navigate = useNavigate();
@@ -32,7 +31,31 @@ const useToken = (storeCode) => {
     fetchToken();
   }, [storeCode, navigate]);
 
-  return { accessToken, refreshToken };
+  const refreshAccessToken = async () => {
+    try {
+      const response = await axios.patch(
+        "url",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${refreshToken}`,
+          },
+        }
+      );
+      setAccessToken(response.data.accessToken);
+      setRefreshToken(response.data.refreshToken);
+    } catch (error) {
+      toast.error("토큰 재발급 실패");
+    }
+  };
+
+  return {
+    accessToken,
+    refreshToken,
+    refreshAccessToken,
+    setAccessToken,
+    setRefreshToken,
+  };
 };
 
 export default useToken;
