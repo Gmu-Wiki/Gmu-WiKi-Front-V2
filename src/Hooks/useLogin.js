@@ -17,23 +17,29 @@ const useLogin = () => {
   const [role, setRole] = useState("");
 
   useEffect(() => {
-    axios
-      .post(EnvConfig.TOKENPOSTURL, {
-        Authorization: accessToken,
-      })
-      .then(res => {
-        console.log(res.data);
-        setEmail(res.data.email);
-        setName(res.data.name);
-        setGrade(res.data.grade);
-        setNum(res.data.num);
-        setRole(res.data.role);
-        setGender(res.data.gender);
-        setClassNum(res.data.classNum);
-        setProfileUrl(res.data.profileUrl);
-        toast.success("로그인 성공");
-      })
-      .catch(err => toast.error("로그인 실패"));
+    if (accessToken) {
+      axios
+        .post(EnvConfig.TOKENPOSTURL, {
+          Authorization: accessToken,
+        })
+        .then(res => {
+          console.log(res.data);
+          const userData = res.data;
+          setEmail(userData.email);
+          setName(userData.name);
+          setGrade(userData.grade);
+          setNum(userData.num);
+          setRole(userData.role);
+          setGender(userData.gender);
+          setClassNum(userData.classNum);
+          setProfileUrl(userData.profileUrl);
+          toast.success("로그인 성공");
+        })
+        .catch(err => {
+          const errorMessage = err.response?.data?.message || "로그인 실패";
+          toast.error(errorMessage);
+        });
+    }
   }, [accessToken]);
 
   return { name, grade, email, classNum, num, gender, profileUrl, role };
