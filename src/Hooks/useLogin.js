@@ -21,10 +21,11 @@ const useLogin = () => {
       try {
         const response = await axios.post(
           EnvConfig.TOKENPOSTURL,
+          {},
           {
             headers: {
-              Authorization: accessToken,
-            }
+              Authorization: `Bearer ${accessToken}`,
+            },
           }
         );
         const userData = response.data;
