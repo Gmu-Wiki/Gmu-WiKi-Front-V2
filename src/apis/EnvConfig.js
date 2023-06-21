@@ -5,7 +5,8 @@ const EnvConfig = {
   CODEPOSTURL: process.env.REACT_APP_URL_CODE_POST_URL,
   WRITEPOSTURL: process.env.REACT_APP_WRITE_POST_URL,
   IMGPOSTURL: process.env.REACT_APP_IMG_POST_URL,
-  TOKENPOSTURL: process.env.REACT_APP_TOKEN_POST_URL
+  TOKENPOSTURL: process.env.REACT_APP_TOKEN_POST_URL,
+  LOGOUTURL: process.env.REACT_APP_LOGOUT_URL,
 };
 
 export default EnvConfig;
