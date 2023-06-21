@@ -7,11 +7,15 @@ const useLogout = () => {
   const { accessToken } = useToken();
   const Logout = async () => {
     try {
-      await axios.delete(EnvConfig.LOGOUTURL, {
-        headers: {
-          Authorization: accessToken,
-        },
-      });
+      await axios.delete(
+        EnvConfig.LOGOUTURL,
+        {},
+        {
+          headers: {
+            Authorization: accessToken,
+          },
+        }
+      );
       toast.success("로그아웃 성공");
     } catch (error) {
       const errorMessage = error.response?.data?.message || "로그아웃 실패";
