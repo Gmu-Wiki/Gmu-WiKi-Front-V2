@@ -15,6 +15,8 @@ document.cookie = "crossCookie=bar; SameSite=None; Secure";
 function Main() {
   const [storeCode, setStoreCode] = useState("");
 
+  console.log(storeCode);
+
   const schoolGraphData = [
     {
       titleChild: "성별",
