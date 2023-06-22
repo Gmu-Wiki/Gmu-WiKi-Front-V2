@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const dropMenu = styled.div`
+export const DropMenu = styled.div`
   border: none;
   border: 0px;
   margin: 0px;
@@ -8,7 +8,7 @@ export const dropMenu = styled.div`
   font-size: 18px;
 `;
 
-export const menuLi = styled.li`
+export const MenuLi = styled.li`
   list-style: none;
   a {
     text-decoration-line: none;
