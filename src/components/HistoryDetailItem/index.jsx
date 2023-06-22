@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "./style";
 import * as C from "../index";
-import useHistory from "../../Hooks/useHistory";
+import useHistoryDetail from "../../Hooks/useHistoryDetail";
 
 const HistoryDetailItem = () => {
-  const { title, content, createDate, editDate } = useHistory();
+  const { title, content, createDate, editDate } = useHistoryDetail();
   return (
     <>
       <S.DateBox>
