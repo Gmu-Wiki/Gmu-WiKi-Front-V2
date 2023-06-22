@@ -1,42 +1,30 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import EnvConfig from "../apis/EnvConfig";
-import { toast } from "react-toastify";
+import { useState, useEffect } from "react";
 import useToken from "./useToken";
+import { toast } from "react-toastify";
 
 const useHistory = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [createDate, setCreateDate] = useState("");
-  const [editDate, setEditDate] = useState("");
   const { accessToken } = useToken();
+  const [boardRecordList, setBoardRecordList] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          EnvConfig.GETHISTORYDETAIL,
-          {},
-          {
-            headers: {
-              Authorization: `${accessToken}`,
-            },
-          }
-        );
-        const historyData = response.data;
-        setTitle(historyData.title);
-        setContent(historyData.content);
-        setCreateDate(historyData.createdDate);
-        setEditDate(historyData.editedDate);
+        const response = await axios.get("url", {
+          headers: {
+            Authorization: accessToken,
+          },
+        });
+        setBoardRecordList(response.data.boardRecordList);
       } catch (error) {
-        toast.error("글을 불러오는데 실패했습니다.");
+        toast.error("리스트를 불러오지 못함");
       }
     };
 
     fetchData();
   }, [accessToken]);
 
-  return { title, content, createDate, editDate };
+  return { boardRecordList };
 };
 
 export default useHistory;

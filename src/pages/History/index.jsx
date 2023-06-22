@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as C from "../../components";
+import useHistory from "../../Hooks/useHistory";
 
 const History = () => {
   const [dummyData, setDummyData] = useState([
@@ -82,6 +83,8 @@ const History = () => {
       editor: "그녀",
     },
   ]);
+
+  const { boardRecordList } = useHistory();
 
   return (
     <>
