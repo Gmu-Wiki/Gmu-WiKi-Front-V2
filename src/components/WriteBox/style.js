@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const WriteOptions = styled.div`
   position: relative;
-  top: 0.6%;
+  top: 3px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -75,6 +75,7 @@ export const FileButtonContainer = styled.div`
     display: none;
   }
 `;
+
 export const RegisterButton = styled.button`
   border: none;
   outline: none;

@@ -7,11 +7,15 @@ import SchoolImg from "../../assets/img/SchoolImg.png";
 
 import { GauthProvider } from "@msg-team/gauth-react";
 import EnvConfig from "../../apis/EnvConfig";
-import useGAuth from "../../Hooks/useGAuth";
+import useToken from "../../Hooks/useToken";
 import { useState, useEffect } from "react";
+
+document.cookie = "crossCookie=bar; SameSite=None; Secure";
 
 function Main() {
   const [storeCode, setStoreCode] = useState("");
+
+  console.log(storeCode);
 
   const schoolGraphData = [
     {
@@ -91,8 +95,8 @@ function Main() {
       titleChild: "날짜",
       contentChild: "내용",
       backgroundColor: "#007EFF",
-      color: true,
-      contentColor: true,
+      color: "true",
+      contentColor: "true",
     },
     {
       titleChild: "1954년 5월 29일",
@@ -224,7 +228,7 @@ function Main() {
 
   useEffect(() => {}, [storeCode]);
 
-  useGAuth(storeCode);
+  useToken(storeCode);
 
   return (
     <GauthProvider

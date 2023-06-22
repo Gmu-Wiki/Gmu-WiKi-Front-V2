@@ -6,14 +6,18 @@ import * as I from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu";
+import useLogin from "../../Hooks/useLogin.js";
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+
+  const { name } = useLogin();
+
   return (
-    <S.dropMenu>
-      <S.menuLi>
+    <S.DropMenu>
+      <S.MenuLi>
         <div>
           <S.Header
             onMouseLeave={() => {
@@ -65,7 +69,7 @@ function Header() {
                     setShowLogin(true);
                   }}
                 >
-                  로그인
+                  {name ? name : "로그인"}
                 </span>
               </S.searchContent>
             </S.HeaderCenter>
@@ -76,8 +80,8 @@ function Header() {
         {showLogin && (
           <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
         )}
-      </S.menuLi>
-    </S.dropMenu>
+      </S.MenuLi>
+    </S.DropMenu>
   );
 }
 

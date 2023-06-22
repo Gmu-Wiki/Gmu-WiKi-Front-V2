@@ -28,13 +28,29 @@ function WriteOption({ content, setContent, textareaRef, numArr, setNumArr }) {
       addOption("_텍스트_");
     } else if (option === "draw") {
       addOption("~~텍스트~~");
+    } else if (option === "details") {
+      textareaRef.current.style.height = `${
+        textareaRef.current.scrollHeight + 132
+      }px`;
+      setNumArr(numArr => [
+        ...numArr, numArr.length + 1, numArr.length + 2, numArr.length + 3, numArr.length + 4, numArr.length + 5, numArr.length + 6
+      ]);
+      addOption(
+        ">>\n" +
+          ">==제목==<\n" +
+          "\n___\n" +
+          "\n#### 텍스트 (한 줄의 공백을 각 줄마다 적용해주세요!)\n" +
+          "<<"
+      );
     } else if (option === "quote") {
       addOption("> 텍스트");
     } else if (option === "a") {
       addOption("[텍스트](링크를 입력해주세요)");
     } else if (option === "code") {
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight + 44}px`;
-      setNumArr((numArr) => [...numArr, numArr.length + 1, numArr.length + 2]);
+      textareaRef.current.style.height = `${
+        textareaRef.current.scrollHeight + 44
+      }px`;
+      setNumArr(numArr => [...numArr, numArr.length + 1, numArr.length + 2]);
       addOption("```\n" + "텍스트\n" + "```");
     }
   };
@@ -48,31 +64,34 @@ function WriteOption({ content, setContent, textareaRef, numArr, setNumArr }) {
         <div onClick={() => passOption("h2")}>
           <I.H2Icon />
         </div>
-        <div onClick={()=> passOption("h3")}>
-            <I.H3Icon />
+        <div onClick={() => passOption("h3")}>
+          <I.H3Icon />
         </div>
-        <div onClick={() => passOption("h4")} >
-            <I.H4Icon />
+        <div onClick={() => passOption("h4")}>
+          <I.H4Icon />
         </div>
         <I.DivideLineIcon />
         <div onClick={() => passOption("b")}>
           <I.BoldIcon />
         </div>
         <div onClick={() => passOption("i")}>
-        <I.InclineIcon />
+          <I.InclineIcon />
         </div>
         <div onClick={() => passOption("draw")}>
-        <I.DrawIcon />
+          <I.DrawIcon />
         </div>
         <I.DivideLineIcon />
+        <div onClick={() => passOption("details")}>
+          <I.Toggle />
+        </div>
         <div onClick={() => passOption("quote")}>
-            <I.QuoteIcon />
+          <I.QuoteIcon />
         </div>
         <div onClick={() => passOption("a")}>
-            <I.LinkIcon />
+          <I.LinkIcon />
         </div>
         <div onClick={() => passOption("code")}>
-            <I.CodeIcon />
+          <I.CodeIcon />
         </div>
       </S.OptionContainer>
     </>
