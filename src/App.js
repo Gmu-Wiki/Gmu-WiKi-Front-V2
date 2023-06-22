@@ -24,6 +24,7 @@ function App() {
           <Route path="/notice" element={<P.Notice />} />
           <Route path="/post" element={<P.Post />} />
           <Route path="/history" element={<P.History />} />
+          <Route path="/historydetail" element={<P.HistoryDetail />} />
           <Route path="/inquiry" element={<P.Inquiry />} />
           <Route path="/schedule" element={<P.Schedule />} />
           <Route path="*" element={<P.NotFound />} />
