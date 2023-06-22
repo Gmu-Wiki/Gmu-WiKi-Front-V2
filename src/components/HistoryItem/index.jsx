@@ -7,8 +7,8 @@ const HistoryItem = ({ boardRecordList }) => {
     <>
       {boardRecordList.map((item) => (
         <S.Container key={item.id}>
-          <Link to="/historydetail"><S.SubTitle>{item.subTitle}</S.SubTitle></Link>
-          <S.Editor>수정자: {item.editor}</S.Editor>
+          <Link to="/historydetail"><S.SubTitle>{item.createdDate}</S.SubTitle></Link>
+          <S.Editor>수정자: {item.name}</S.Editor>
         </S.Container>
       ))}
     </>
