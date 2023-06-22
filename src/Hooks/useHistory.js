@@ -2,17 +2,27 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import EnvConfig from "../apis/EnvConfig";
 import { toast } from "react-toastify";
+import useToken from "./useToken";
 
 const useHistory = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [createDate, setCreateDate] = useState("");
   const [editDate, setEditDate] = useState("");
+  const { accessToken } = useToken();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(EnvConfig.GETHISTORY);
+        const response = await axios.get(
+          EnvConfig.GETHISTORY,
+          {},
+          {
+            headers: {
+              Authorization: `${accessToken}`,
+            },
+          }
+        );
         const historyData = response.data;
         setTitle(historyData.title);
         setContent(historyData.content);
@@ -24,7 +34,7 @@ const useHistory = () => {
     };
 
     fetchData();
-  }, []);
+  }, [accessToken]);
 
   return { title, content, createDate, editDate };
 };
