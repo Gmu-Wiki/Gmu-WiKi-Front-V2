@@ -15,7 +15,7 @@ const useHistory = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          EnvConfig.GETHISTORY,
+          EnvConfig.GETHISTORYDETAIL,
           {},
           {
             headers: {

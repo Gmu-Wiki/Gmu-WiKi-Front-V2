@@ -4,9 +4,14 @@ import * as C from "../index";
 import useHistory from "../../Hooks/useHistory";
 
 const HistoryDetailItem = () => {
-  const { title, content, creatDate, editDate } = useHistory();
+  const { title, content, createDate, editDate } = useHistory();
   return (
     <>
+      <S.DateBox>
+        <S.CreateDate>생성 일자: 2023-06-12 08:11:11</S.CreateDate>
+        <S.EditDate>최근 수정 시각: 2023-06-12 08:11:11</S.EditDate>
+      </S.DateBox>
+
       <C.Detail hasNumber={false} title={"개요"}>
         <S.Content>
           어느 새벽, <a>김새미</a>는 목이 말라 물을 뜨러 정수기에 갔다. 물을
