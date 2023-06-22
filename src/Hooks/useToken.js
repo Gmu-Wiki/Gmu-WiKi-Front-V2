@@ -54,7 +54,7 @@ const useToken = storeCode => {
   useEffect(() => {
     const checkTokenExpiration = () => {
       if (accessToken && accessExp) {
-        const currentTime = Math.floor(Date.now() / 1000); // 현재 시간 (단위: 초)
+        const currentTime = Math.floor(Date.now() / 1000);
         const timeUntilExpiration = accessExp - currentTime;
 
         if (timeUntilExpiration <= 0) {
@@ -63,7 +63,7 @@ const useToken = storeCode => {
       }
     };
 
-    const interval = setInterval(checkTokenExpiration, 60000); // 1분 (60초)마다 토큰 만료 확인
+    const interval = setInterval(checkTokenExpiration, 60000); // 1분마다 토큰 만료 확인
 
     return () => {
       clearInterval(interval);
@@ -71,7 +71,6 @@ const useToken = storeCode => {
   }, [accessToken, accessExp, refreshAccessToken]);
 
   useEffect(() => {
-    // 토큰과 만료 시간이 존재하면 로그인 성공 후 "/" 경로로 이동
     if (accessToken && accessExp) {
       navigate("/");
     }
