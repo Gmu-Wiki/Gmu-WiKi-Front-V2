@@ -12,7 +12,7 @@ const HistoryDetailItem = () => {
         <S.EditDate>최근 수정 시각: {editDate}</S.EditDate>
       </S.DateBox>
 
-      <C.Detail hasNumber={false} title={{title}}>
+      <C.Detail hasNumber={false} title={title}>
         <S.Content>
           {content}
         </S.Content>
