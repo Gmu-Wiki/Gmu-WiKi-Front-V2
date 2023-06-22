@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
 import { toast } from "react-toastify";
@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 const useToken = storeCode => {
   const [accessToken, setAccessToken] = useState("");
   const [refreshToken, setRefreshToken] = useState("");
+  const [accessExp, setAccessExp] = useState(null);
+  const [refreshExp, setRefreshExp] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,22 +21,22 @@ const useToken = storeCode => {
           });
           setAccessToken(response.data.accessToken);
           setRefreshToken(response.data.refreshToken);
+          setAccessExp(response.data.accessExp);
+          setRefreshExp(response.data.refreshExp);
           toast.success("로그인 성공");
-          navigate("/");
         }
       } catch (error) {
         toast.error("로그인 실패");
-        navigate("/");
       }
     };
 
     fetchToken();
-  }, [storeCode, navigate]);
+  }, [storeCode]);
 
-  const refreshAccessToken = async () => {
+  const refreshAccessToken = useCallback(async () => {
     try {
       const response = await axios.patch(
-        "url",
+        EnvConfig.REFRESHTOKENPATCHURL,
         {},
         {
           headers: {
@@ -47,7 +49,33 @@ const useToken = storeCode => {
     } catch (error) {
       toast.error("토큰 재발급 실패");
     }
-  };
+  }, [refreshToken]);
+
+  useEffect(() => {
+    const checkTokenExpiration = () => {
+      if (accessToken && accessExp) {
+        const currentTime = Math.floor(Date.now() / 1000); // 현재 시간 (단위: 초)
+        const timeUntilExpiration = accessExp - currentTime;
+
+        if (timeUntilExpiration <= 0) {
+          refreshAccessToken();
+        }
+      }
+    };
+
+    const interval = setInterval(checkTokenExpiration, 60000); // 1분 (60초)마다 토큰 만료 확인
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [accessToken, accessExp, refreshAccessToken]);
+
+  useEffect(() => {
+    // 토큰과 만료 시간이 존재하면 로그인 성공 후 "/" 경로로 이동
+    if (accessToken && accessExp) {
+      navigate("/");
+    }
+  }, [accessToken, accessExp, navigate]);
 
   return {
     accessToken,
