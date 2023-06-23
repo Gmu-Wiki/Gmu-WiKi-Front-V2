@@ -2,7 +2,7 @@ import axios from "axios";
 import EnvConfig from "./EnvConfig";
 
 const API = axios.create({
-  baseURL: EnvConfig.GMUIKISERVERURL,
+  baseURL: EnvConfig.GMUIKI_SERVER_URL,
   withCredentials: true,
 });
 

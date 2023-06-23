@@ -4,10 +4,10 @@ import * as S from "./style";
 import * as I from "../../assets";
 
 import SchoolImg from "../../assets/img/SchoolImg.png";
+import { useLogin } from "../../Hooks/index";
 
 import { GauthProvider } from "@msg-team/gauth-react";
 import EnvConfig from "../../apis/EnvConfig";
-import useToken from "../../Hooks/useToken";
 import { useState, useEffect } from "react";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
@@ -228,7 +228,7 @@ function Main() {
 
   useEffect(() => {}, [storeCode]);
 
-  useToken(storeCode);
+  useLogin(storeCode);
 
   return (
     <GauthProvider

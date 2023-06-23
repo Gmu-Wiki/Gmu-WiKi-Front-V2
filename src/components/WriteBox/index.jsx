@@ -3,8 +3,6 @@ import * as S from "./style";
 import * as C from "../index";
 import useWrite from "../../Hooks/useWrite";
 import axios from "axios";
-import EnvConfig from "../../apis/EnvConfig";
-import HeaderConfig from "../../apis/HeaderConfig";
 import { toast } from "react-toastify";
 
 function reducer(state, action) {
@@ -43,18 +41,18 @@ function WriteBox() {
       console.log(fileName.name);
       console.log(urlFile);
 
-      await axios
-        .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
-        .then(res => {
-          console.log(res.data);
-          setLoading(false);
-          // setUrlFile(res.data.url);
-        })
-        .catch(err => {
-          toast.error("이미지를 불러오는데 실패했습니다.");
-          setLoading(true);
-          // setUrlFile("이미지를 불러오는데 실패했습니다.");
-        });
+      // await axios
+      //   .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
+      //   .then(res => {
+      //     console.log(res.data);
+      //     setLoading(false);
+      //     // setUrlFile(res.data.url);
+      //   })
+      //   .catch(err => {
+      //     toast.error("이미지를 불러오는데 실패했습니다.");
+      //     setLoading(true);
+      //     // setUrlFile("이미지를 불러오는데 실패했습니다.");
+      //   });
 
       const imgObj = loading ? "![업로드 중..](...)" : `![](${urlFile})`;
 
