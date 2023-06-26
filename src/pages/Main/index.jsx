@@ -4,18 +4,10 @@ import * as S from "./style";
 import * as I from "../../assets";
 
 import SchoolImg from "../../assets/img/SchoolImg.png";
-import { useLogin } from "../../Hooks/index";
-
-import { GauthProvider } from "@msg-team/gauth-react";
-import EnvConfig from "../../apis/EnvConfig";
-import { useState, useEffect } from "react";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
 
 function Main() {
-  const [storeCode, setStoreCode] = useState("");
-
-  console.log(storeCode);
 
   const schoolGraphData = [
     {
@@ -226,18 +218,8 @@ function Main() {
     />
   ));
 
-  useEffect(() => {}, [storeCode]);
-
-  useLogin(storeCode);
-
   return (
-    <GauthProvider
-      redirectUri={EnvConfig.REDIRECTURL}
-      clientId={EnvConfig.CLIENTID}
-      onSuccess={async code => {
-        setStoreCode(code);
-      }}
-    >
+    <>
       <C.RecentModified />
       <C.Header />
       <C.PageContainer
@@ -363,7 +345,7 @@ function Main() {
       </C.PageContainer>
       <C.ScrollButton />
       <C.Footer />
-    </GauthProvider>
+    </>
   );
 }
 
