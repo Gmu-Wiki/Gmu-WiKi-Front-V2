@@ -13,7 +13,7 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
-  const { name } = useLogin();
+  //const { name } = useLogin();
 
   return (
     <S.DropMenu>
@@ -69,7 +69,7 @@ function Header() {
                     setShowLogin(true);
                   }}
                 >
-                  {name ? name : "로그인"}
+                  {"로그인"}
                 </span>
               </S.searchContent>
             </S.HeaderCenter>
