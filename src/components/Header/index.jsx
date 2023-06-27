@@ -1,19 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as S from "./style.js";
 import * as C from "..";
 import * as I from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu";
-import useLogin from "../../Hooks/useLogin.js";
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
-  //const { name } = useLogin();
+  const navigate = useNavigate();
+
+
+  const [accessToken, setAccessToken] = useState(false);
+  const [queryState, setQueryState] = useState({
+    title: '',
+    message: '',
+    url: '',
+    method: '',
+  })
+
+  
 
   return (
     <S.DropMenu>
@@ -64,13 +74,23 @@ function Header() {
                     className="faMagnifyingGlass"
                   />
                 </div>
-                <span
-                  onClick={() => {
-                    setShowLogin(true);
-                  }}
-                >
-                  {"로그인"}
-                </span>
+                {!accessToken ? (
+                  <span
+                    onClick={() => {
+                      setShowLogin(true);
+                    }}
+                  >
+                    로그인
+                  </span>
+                ) : (
+                  <span
+                    onClick={() => {
+                      setShowLogin(true);
+                    }}
+                  >
+                    로그아웃
+                  </span>
+                )}
               </S.searchContent>
             </S.HeaderCenter>
             {/* 드롭다운 메뉴 */}
