@@ -1,6 +1,5 @@
 import { Routes, Route} from "react-router-dom";
 import * as P from "../pages";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function Router() {
   return (
