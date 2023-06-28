@@ -21,7 +21,7 @@ function WriteOption({ content, setContent, textareaRef, numArr, setNumArr }) {
     } else if (option === "h3") {
       addOption("### 텍스트");
     } else if (option === "h4") {
-      addOption("### 텍스트");
+      addOption("#### 텍스트");
     } else if (option === "b") {
       addOption("__텍스트__");
     } else if (option === "i") {
