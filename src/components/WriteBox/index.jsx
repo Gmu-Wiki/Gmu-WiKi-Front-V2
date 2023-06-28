@@ -1,8 +1,6 @@
 import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
-import axios from "axios";
-import { toast } from "react-toastify";
 
 function reducer(state, action) {
   return {

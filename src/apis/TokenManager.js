@@ -1,3 +1,4 @@
+import { accessToken, refreshToken, accessExp, refreshExp } from "@/lib/token";
 
 class TokenManager {
   constructor() {
@@ -21,11 +22,11 @@ class TokenManager {
   }
 
   initToken() {
-    if (typeof window === 'undefined') return;
-    this._accessToken = localStorage.getItem('accessToken');
-    this._refreshToken = localStorage.getItem('refreshToken');
-    this._accessExp = localStorage.getItem('accessExp');
-    this._refreshExp = localStorage.getItem('refreshExp');
+    if (typeof window === "undefined") return;
+    this._accessToken = localStorage.getItem(accessToken);
+    this._refreshToken = localStorage.getItem(refreshToken);
+    this._accessExp = localStorage.getItem(accessExp);
+    this._refreshExp = localStorage.getItem(refreshExp);
   }
 
   setTokens(tokens) {
@@ -34,23 +35,23 @@ class TokenManager {
     this._accessExp = tokens.accessExp;
     this._refreshExp = tokens.refreshExp;
 
-    localStorage.setItem('accessToken', tokens.accessToken);
-    localStorage.setItem('refreshToken', tokens.refreshToken);
-    localStorage.setItem('accessExp', tokens.accessExp);
-    localStorage.setItem('refreshExp', tokens.refreshExp);
+    localStorage.setItem(accessToken, tokens.accessToken);
+    localStorage.setItem(refreshToken, tokens.refreshToken);
+    localStorage.setItem(accessExp, tokens.accessExp);
+    localStorage.setItem(refreshExp, tokens.refreshExp);
   }
 
   removeTokens() {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
     this._accessToken = null;
     this._refreshToken = null;
     this._accessExp = null;
     this._refreshExp = null;
 
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    localStorage.removeItem('accessExp');
-    localStorage.removeItem('refreshExp');
+    localStorage.removeItem(accessToken);
+    localStorage.removeItem(refreshToken);
+    localStorage.removeItem(accessExp);
+    localStorage.removeItem(refreshExp);
   }
 
   get accessToken() {

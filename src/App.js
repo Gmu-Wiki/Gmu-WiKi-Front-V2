@@ -17,16 +17,19 @@ function App() {
       clientId={EnvConfig.CLIENTID}
       onSuccess={async code => {
         const {
-          data: { accessToken, refreshToken },
+          data: { accessToken, refreshToken, accessExp, refreshExp },
         } = await API.post("/auth", {
           code,
         });
 
         localStorage.setItem("GMUWIKI_accessToken", accessToken);
         localStorage.setItem("GMUWIKI_refreshToken", refreshToken);
+        localStorage.setItem("GMUWIKI_accessExp", accessExp);
+        localStorage.setItem("GMUWIKI_refreshExp", refreshExp);
 
         navigate("/");
-      }}
+      }
+    }
     >
       <GlobalStyle />
       <Router />
