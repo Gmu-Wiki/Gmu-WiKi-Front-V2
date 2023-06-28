@@ -1,7 +1,6 @@
 import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
-import useWrite from "../../Hooks/useWrite";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -40,19 +39,6 @@ function WriteBox() {
       setUrlFile(fileName.name);
       console.log(fileName.name);
       console.log(urlFile);
-
-      // await axios
-      //   .post(EnvConfig.IMGPOSTURL, formData, HeaderConfig.Headers)
-      //   .then(res => {
-      //     console.log(res.data);
-      //     setLoading(false);
-      //     // setUrlFile(res.data.url);
-      //   })
-      //   .catch(err => {
-      //     toast.error("이미지를 불러오는데 실패했습니다.");
-      //     setLoading(true);
-      //     // setUrlFile("이미지를 불러오는데 실패했습니다.");
-      //   });
 
       const imgObj = loading ? "![업로드 중..](...)" : `![](${urlFile})`;
 
@@ -117,8 +103,6 @@ function WriteBox() {
     setPreview(true);
   };
 
-  const writePost = useWrite(category, detailCategory, title, content);
-
   return (
     <>
     <S.WriteOptions>
@@ -166,7 +150,7 @@ function WriteBox() {
             />
           </S.FileButtonContainer>
         )}
-        <S.RegisterButton onClick={writePost}>등록하기</S.RegisterButton>
+        <S.RegisterButton>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );
