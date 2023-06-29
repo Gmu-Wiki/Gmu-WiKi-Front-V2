@@ -13,3 +13,22 @@ export const Content = styled.p`
     color: #007eff;
   }
 `;
+
+export const DateBox = styled.div`
+  margin-top: 10px;
+  margin-left: 70%;
+`;
+
+export const CreateDate = styled.p`
+  text-align: right;
+  font-size: 1rem;
+  color: #636363;
+  font-weight: 400;
+`;
+
+export const EditDate = styled.p`
+  text-align: right;
+  font-size: 1rem;
+  color: #636363;
+  font-weight: 400;
+`;
