@@ -63,7 +63,7 @@ export const ContentInput = styled.div`
       color: #999999;
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 0.4px;
+      line-height: 22px;
     }
   }
 
