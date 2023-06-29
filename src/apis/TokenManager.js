@@ -6,6 +6,7 @@ class TokenManager {
     this._refreshToken = null;
     this._accessExp = null;
     this._refreshExp = null;
+    this.initToken();
   }
 
   validateToken(expiredString, token) {
