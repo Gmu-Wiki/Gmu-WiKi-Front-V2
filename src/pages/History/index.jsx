@@ -4,7 +4,7 @@ import useHistory from "../../Hooks/useHistory";
 import useHistoryDetail from "../../Hooks/useHistoryDetail";
 
 const History = () => {
-  const { boardRecordList } = useHistory();
+  const { historyRecordList } = useHistory();
   const { title } = useHistoryDetail();
 
   return (
@@ -12,7 +12,7 @@ const History = () => {
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title={title} sort="역사">
-        <C.HistoryItem boardRecordList={boardRecordList} />
+        <C.HistoryItem boardRecordList={historyRecordList} />
       </C.PageContainer>
     </>
   );

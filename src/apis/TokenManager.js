@@ -1,4 +1,4 @@
-import { accessToken, refreshToken, accessExp, refreshExp } from "@/lib/token";
+import { accessToken, refreshToken, accessExp, refreshExp } from "../lib/token";
 
 class TokenManager {
   constructor() {
