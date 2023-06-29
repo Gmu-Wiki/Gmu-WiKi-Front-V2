@@ -21,7 +21,7 @@ API.interceptors.request.use(async config => {
     )
   ) {
     //   await reissueToken()
-    //   tokenManager.initToken()
+    tokenManager.initToken()
   } else if (
     !tokenManager.validateToken(
       tokenManager.accessExp,

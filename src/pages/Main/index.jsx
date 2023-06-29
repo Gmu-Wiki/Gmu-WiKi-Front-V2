@@ -8,6 +8,7 @@ import EnvConfig from "../../apis/EnvConfig";
 import { useNavigate } from "react-router-dom";
 import SchoolImg from "../../assets/img/SchoolImg.png";
 import { schoolGraphData, historyGraphData } from "../../lib/mainData";
+import TokenManager from "../../apis/TokenManager";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
 
@@ -41,16 +42,14 @@ function Main() {
         redirectUri={EnvConfig.REDIRECTURL}
         clientId={EnvConfig.CLIENTID}
         onSuccess={async code => {
-          const {
-            data: { accessToken, refreshToken, accessExp, refreshExp },
-          } = await API.post("/auth", {
+          const { data } = await API.post("/auth", {
             code,
           });
 
-          localStorage.setItem("GMUWIKI_accessToken", accessToken);
-          localStorage.setItem("GMUWIKI_refreshToken", refreshToken);
-          localStorage.setItem("GMUWIKI_accessExp", accessExp);
-          localStorage.setItem("GMUWIKI_refreshExp", refreshExp);
+          if (typeof window !== "undefined") {
+            const tokenManager = new TokenManager();
+            tokenManager.setTokens(data);
+          }
 
           navigate("/");
         }}
