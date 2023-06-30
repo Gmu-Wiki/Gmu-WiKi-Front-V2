@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as S from "./style.js";
 import * as C from "..";
 import * as I from "../../assets";
@@ -7,11 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu";
 import TokenManager from "../../apis/TokenManager.js";
-import useFetch from "../../Hooks/useFetch.js";
 
 function Header() {
-  const navigate = useNavigate();
-
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -20,31 +17,6 @@ function Header() {
   const tokenManager = new TokenManager();
 
   const accessToken = tokenManager.accessToken;
-
-  const [queryState, setQueryState] = useState({
-    url: "",
-    method: "",
-    title: "",
-  });
-
-  const { fetch } = useFetch({
-    url: queryState.url,
-    method: queryState.method,
-    onSuccess: () => {
-      tokenManager.removeTokens();
-
-      navigate("/");
-    },
-  });
-
-  const onDelete = ({ url, method, title }) => {
-    setQueryState({
-      url,
-      method,
-      title,
-    });
-    setIsShow(true);
-  };
 
   return (
     <S.DropMenu>
@@ -99,11 +71,6 @@ function Header() {
                   <span
                     onClick={() => {
                       setIsShow(true);
-                      onDelete({
-                        url: "/auth",
-                        method: "delete",
-                        title: "로그아웃 하시겠습니까?",
-                      });
                     }}
                   >
                     로그아웃

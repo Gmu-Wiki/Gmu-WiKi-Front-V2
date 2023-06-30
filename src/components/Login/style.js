@@ -59,3 +59,22 @@ export const LoginButton = styled.div`
   font-weight: 600;
   gap: 10px;
 `;
+
+export const GAuthLoginButton = styled.button`
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  width: 17rem !important;
+  height: 3.125rem !important;
+  white-space: nowrap !important;
+  background: #2e80cc;
+  color: white;
+  cursor: pointer !important;
+  font-size: 1rem !important;
+  border-radius: 0.5rem;
+  padding: 0.7rem 0 !important;
+  font-weight: 600 !important;
+  outline: none !important;
+  border: none;
+`;

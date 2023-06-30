@@ -1,10 +1,9 @@
 import React from "react";
 import * as S from "./style";
 import * as I from "../../assets";
-import "@msg-team/gauth-react/dist/index.css";
-import GAuthLoginButton from "../GAuthButton.js";
+import { gauthLoginUrl } from "../../lib/GAuthLoginUrl";
 
-function Login({ showLogin, setShowLogin }) {
+function Login({ setShowLogin }) {
   function showLoginModal() {
     setShowLogin(prev => !prev);
   }
@@ -19,7 +18,12 @@ function Login({ showLogin, setShowLogin }) {
             <I.LoginLogo />
             <S.LoginContent>GSM학생들이 가꿔나가는 위키</S.LoginContent>
           </S.LoginTitle>
-          <GAuthLoginButton />
+          <S.GAuthLoginButton
+            onClick={() => window.location.replace(gauthLoginUrl)}
+          >
+            <I.GAuthLogo />
+            Continue with GAuth
+          </S.GAuthLoginButton>
         </S.LoginContainer>
       </S.ModalBox>
     </>

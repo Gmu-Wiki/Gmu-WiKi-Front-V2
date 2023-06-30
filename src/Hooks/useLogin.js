@@ -1,12 +1,12 @@
 import TokenManager from "../apis/TokenManager";
 import { useEffect } from "react";
 import useFetch from "./useFetch";
-import { useLocation } from "react-router-dom";
 
 const useLogin = () => {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
+  const searchParams = new URLSearchParams(window.location.search);
   const gauthCode = searchParams.get("code");
+
+  console.log(gauthCode);
 
   const { fetch } = useFetch({
     url: "/auth",
