@@ -13,6 +13,7 @@ const useFetch = (
 ) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(url);
 
   const fetch = useCallback(
     async body => {
@@ -29,8 +30,9 @@ const useFetch = (
         setData(data);
         if (onSuccess) await onSuccess(data);
       } catch (e) {
-        if (!AxiosError(e)) {
+        if (!(e instanceof AxiosError)) {
           toast.error("알 수 없는 에러가 발생하였습니다.");
+          console.log(e);
           return;
         }
 

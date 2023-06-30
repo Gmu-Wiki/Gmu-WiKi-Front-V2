@@ -3,7 +3,7 @@ import EnvConfig from "./EnvConfig";
 import TokenManager from "./TokenManager";
 
 const API = axios.create({
-  baseURL: EnvConfig.GMUIKI_SERVER_URL,
+  baseURL: EnvConfig.GMUWIKI_SERVER_URL,
   withCredentials: true,
 });
 
@@ -21,7 +21,7 @@ API.interceptors.request.use(async config => {
     )
   ) {
     //   await reissueToken()
-    tokenManager.initToken()
+    tokenManager.initToken();
   } else if (
     !tokenManager.validateToken(
       tokenManager.accessExp,

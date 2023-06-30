@@ -4,7 +4,7 @@ import * as S from "./style";
 import * as I from "../../assets";
 import SchoolImg from "../../assets/img/SchoolImg.png";
 import { schoolGraphData, historyGraphData } from "../../lib/mainData";
-import useLogin from "../../Hooks/useLogin";
+import { useLogin } from "../../Hooks";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
 

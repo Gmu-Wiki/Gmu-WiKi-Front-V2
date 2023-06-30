@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import * as I from "../../assets";
-import { gauthLoginUrl } from "../../lib/GAuthLoginUrl";
+import { gauthLoginUri } from "../../lib/GAuthLoginUrl";
 
 function Login({ setShowLogin }) {
   function showLoginModal() {
@@ -19,7 +19,7 @@ function Login({ setShowLogin }) {
             <S.LoginContent>GSM학생들이 가꿔나가는 위키</S.LoginContent>
           </S.LoginTitle>
           <S.GAuthLoginButton
-            onClick={() => window.location.replace(gauthLoginUrl)}
+            onClick={() => window.location.replace(gauthLoginUri)}
           >
             <I.GAuthLogo />
             Continue with GAuth
