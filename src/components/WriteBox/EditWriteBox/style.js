@@ -63,14 +63,14 @@ export const ContentInput = styled.div`
       color: #999999;
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 4%;
+      line-height: 22px;
     }
   }
 
   textarea {
     border: 1px solid #dddddd;
     width: 90.2%;
-    padding: 10px 10px;
+    padding: 10px;
     outline: 0;
     background-color: none;
     resize: none;
