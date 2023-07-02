@@ -54,24 +54,26 @@ export const WriteBox = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  float: right;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20%;
+  margin: 20px 15px;
+  float: right;
 `;
 
 export const FileButtonContainer = styled.div`
-  
   display: flex;
   justify-content: center;
   align-items: center;
 
   label {
-    padding: 7px 30px;
+    width: 8vw;
+    height: 5vh;
     border: 1px solid #007eff;
     background-color: none;
     color: #007eff;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   input {
