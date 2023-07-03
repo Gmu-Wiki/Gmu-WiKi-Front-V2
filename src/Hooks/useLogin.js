@@ -11,6 +11,7 @@ const useLogin = () => {
   const { fetch } = useFetch({
     url: "/auth",
     method: "post",
+    skipLogin: true,
     onSuccess: data => {
       if (typeof window !== "undefined") {
         const tokenManager = new TokenManager();
@@ -24,6 +25,16 @@ const useLogin = () => {
   });
 
   useEffect(() => {
+    const checkLoggedIn = () => {
+      const tokenManager = new TokenManager();
+      return tokenManager.initToken();
+    };
+
+    if (checkLoggedIn()) {
+      navigate("/");
+      return;
+    }
+
     if (!gauthCode) return;
     fetch({ code: gauthCode });
   }, [gauthCode]);

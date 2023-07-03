@@ -3,17 +3,17 @@ import * as S from "./style";
 import * as I from "../../assets";
 import { gauthLoginUri } from "../../lib/GAuthLoginUrl";
 
-function Login({ onClose }) {
-  const onClick = () => {
-    onClose();
-  };
+function Login({ setShowLogin }) {
+  function showLoginModal() {
+    setShowLogin(prev => !prev);
+  }
 
   return (
     <>
-      <S.ModalOverlay onClick={onClose} />
+      <S.ModalOverlay onClick={showLoginModal} />
       <S.ModalBox>
         <S.LoginContainer>
-          <I.X onClick={onClose} />
+          <I.X onClick={showLoginModal} />
           <S.LoginTitle>
             <I.LoginLogo />
             <S.LoginContent>GSM학생들이 가꿔나가는 위키</S.LoginContent>

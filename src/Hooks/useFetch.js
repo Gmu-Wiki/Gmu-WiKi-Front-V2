@@ -2,16 +2,23 @@ import { useCallback, useState } from "react";
 import API from "../apis";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import TokenManager from "../apis/TokenManager";
 
 const useFetch = options => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(options);
-  console.log(options.url);
-  console.log(options.method);
+
+  const isLoggedIn = () => {
+    const tokenManager = new TokenManager();
+    return tokenManager.initToken();
+  };
 
   const fetch = useCallback(
     async body => {
+      if (options.skipIfLoggedIn && isLoggedIn()) {
+        return;
+      }
+
       setIsLoading(true);
       try {
         const { data } = await API({
@@ -49,13 +56,13 @@ const useFetch = options => {
       }
     },
     [
-      options,
       options.url,
       options.method,
       options.onSuccess,
       options.onFailure,
       options.successMessage,
       options.errors,
+      options.skipIfLoggedIn,
     ]
   );
 

@@ -15,7 +15,7 @@ function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [isShow, setIsShow] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
 
   const tokenManager = new TokenManager();
 
@@ -48,7 +48,7 @@ function Header() {
       url,
       method,
     });
-    setIsShow(true);
+    setShowLogout(true);
   };
 
   const onConfirm = () => {
@@ -107,7 +107,11 @@ function Header() {
                 {accessToken ? (
                   <span
                     onClick={() => {
-                      setIsShow(true);
+                      setShowLogout(true);
+                      onDelete({
+                        url: "/auth",
+                        method: "delete",
+                      });
                     }}
                   >
                     로그아웃
@@ -116,10 +120,6 @@ function Header() {
                   <span
                     onClick={() => {
                       setShowLogin(true);
-                      onDelete({
-                        url: "/auth",
-                        method: "delete",
-                      });
                     }}
                   >
                     로그인
@@ -131,9 +131,15 @@ function Header() {
             {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
           </S.Header>
         </div>
-        {showLogin && <C.Login onClose={() => setIsShow(false)} />}
-        {isShow && (
-          <C.Logout onConfirm={onConfirm} onClose={() => setIsShow(false)} />
+        {showLogin && (
+          <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
+        )}
+        {showLogout && (
+          <C.Logout
+            showLogout={showLogout}
+            setShowLogout={setShowLogout}
+            onConfirm={onConfirm}
+          />
         )}
       </S.MenuLi>
     </S.DropMenu>
