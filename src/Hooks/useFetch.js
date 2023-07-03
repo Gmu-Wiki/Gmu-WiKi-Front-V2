@@ -49,6 +49,7 @@ const useFetch = options => {
       }
     },
     [
+      options,
       options.url,
       options.method,
       options.onSuccess,

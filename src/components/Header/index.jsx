@@ -6,7 +6,10 @@ import * as I from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu";
-import TokenManager from "../../apis/TokenManager.js";
+import { useFetch } from "../../Hooks";
+import TokenManager from "../../apis/TokenManager";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
@@ -17,6 +20,40 @@ function Header() {
   const tokenManager = new TokenManager();
 
   const accessToken = tokenManager.accessToken;
+
+  const navigate = useNavigate();
+
+  const [queryState, setQueryState] = useState({
+    url: "",
+    method: "",
+  });
+
+  const { fetch: deleteQuery } = useFetch({
+    url: queryState.url,
+    method: queryState.method,
+    onSuccess: () => {
+      const tokenManager = new TokenManager();
+      tokenManager.removeTokens();
+
+      navigate("/");
+      toast.success("로그아웃 성공");
+    },
+    onFailure: () => {
+      toast.error("로그아웃 실패");
+    },
+  });
+
+  const onDelete = ({ url, method }) => {
+    setQueryState({
+      url,
+      method,
+    });
+    setIsShow(true);
+  };
+
+  const onConfirm = () => {
+    deleteQuery();
+  };
 
   return (
     <S.DropMenu>
@@ -79,6 +116,10 @@ function Header() {
                   <span
                     onClick={() => {
                       setShowLogin(true);
+                      onDelete({
+                        url: "/auth",
+                        method: "delete",
+                      });
                     }}
                   >
                     로그인
@@ -93,7 +134,13 @@ function Header() {
         {showLogin && (
           <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
         )}
-        {isShow && <C.Logout isShow={isShow} setIsShow={setIsShow} />}
+        {isShow && (
+          <C.Logout
+            isShow={isShow}
+            setIsShow={setIsShow}
+            onConfirm={onConfirm}
+          />
+        )}
       </S.MenuLi>
     </S.DropMenu>
   );
