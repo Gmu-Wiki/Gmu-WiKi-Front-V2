@@ -1,6 +1,7 @@
 import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
+import useFile from "../../Hooks/useFile";
 
 function reducer(state, action) {
   return {
@@ -17,28 +18,23 @@ function WriteBox() {
     yearCategory: "선택해주세요",
     title: "",
   });
+  let save = [];
+
   const { category, title, detailCategory } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
-
-  let save = [];
-
   const fileRef = useRef(null);
-  const [loading, setLoading] = useState(false);
-  const [urlFile, setUrlFile] = useState("");
+
+  const { upload, isLoading, imgUrl } = useFile();
 
   const handleUpload = useCallback(
     async e => {
-      const fileName = e.target.files[0];
-      const formData = new FormData();
-      formData.append("file", fileName);
-      setUrlFile(fileName.name);
-      console.log(fileName.name);
-      console.log(urlFile);
+      const file = Array.from(e.target.files);
+      await upload(file);
 
-      const imgObj = loading ? "![업로드 중..](...)" : `![](${urlFile})`;
+      const imgObj = isLoading ? `![업로드 중..](...)` : `![](${imgUrl})`;
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
@@ -49,7 +45,7 @@ function WriteBox() {
 
       setContent(newValue);
     },
-    [content, loading, urlFile]
+    [content, isLoading, imgUrl, upload]
   );
 
   const onChange = e => {
@@ -60,13 +56,13 @@ function WriteBox() {
     setContent(e.target.value);
     const textarea = textareaRef.current;
     textarea.style.height = "auto";
-    if(isAll) {
+    if (isAll) {
       textarea.style.height = "42px";
       setIsAll(false);
     } else {
       textarea.style.height = `${textareaRef.current.scrollHeight}px`;
     }
-    
+
     setNumArr([]);
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
@@ -103,16 +99,24 @@ function WriteBox() {
 
   return (
     <>
-    <S.WriteOptions>
-      <S.ChangeButtonContainer>
-        <S.EditButton checked={edit} onClick={handleEdit}>
-          편집
-        </S.EditButton>
-        <S.PreviewButton checked={preview} onClick={handlePreview}>
-          미리보기
-        </S.PreviewButton>
-      </S.ChangeButtonContainer>
-      {edit && <C.WriteOption content={content} setContent={setContent} textareaRef={textareaRef} numArr={numArr} setNumArr={setNumArr} />}
+      <S.WriteOptions>
+        <S.ChangeButtonContainer>
+          <S.EditButton checked={edit} onClick={handleEdit}>
+            편집
+          </S.EditButton>
+          <S.PreviewButton checked={preview} onClick={handlePreview}>
+            미리보기
+          </S.PreviewButton>
+        </S.ChangeButtonContainer>
+        {edit && (
+          <C.WriteOption
+            content={content}
+            setContent={setContent}
+            textareaRef={textareaRef}
+            numArr={numArr}
+            setNumArr={setNumArr}
+          />
+        )}
       </S.WriteOptions>
       {edit && (
         <S.WriteBox>
