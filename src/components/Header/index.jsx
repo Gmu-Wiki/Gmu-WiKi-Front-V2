@@ -131,15 +131,9 @@ function Header() {
             {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
           </S.Header>
         </div>
-        {showLogin && (
-          <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
-        )}
+        {showLogin && <C.Login onClose={() => setIsShow(false)} />}
         {isShow && (
-          <C.Logout
-            isShow={isShow}
-            setIsShow={setIsShow}
-            onConfirm={onConfirm}
-          />
+          <C.Logout onConfirm={onConfirm} onClose={() => setIsShow(false)} />
         )}
       </S.MenuLi>
     </S.DropMenu>
