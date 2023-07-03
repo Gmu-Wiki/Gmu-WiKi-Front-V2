@@ -1,21 +1,17 @@
 import React from "react";
 import * as S from "./style";
 import * as C from "../index";
-import useHistoryDetail from "../../Hooks/useHistoryDetail";
 
 const HistoryDetailItem = () => {
-  const { title, content, createDate, editDate } = useHistoryDetail();
   return (
     <>
       <S.DateBox>
-        <S.CreateDate>생성 일자: {createDate}</S.CreateDate>
-        <S.EditDate>최근 수정 시각: {editDate}</S.EditDate>
+        <S.CreateDate>생성 일자: 11111111</S.CreateDate>
+        <S.EditDate>최근 수정 시각: 11111111</S.EditDate>
       </S.DateBox>
 
-      <C.Detail hasNumber={false} title={title}>
-        <S.Content>
-          {content}
-        </S.Content>
+      <C.Detail hasNumber={false} title={"제목이요"}>
+        <S.Content>ㄴ용이요</S.Content>
       </C.Detail>
     </>
   );

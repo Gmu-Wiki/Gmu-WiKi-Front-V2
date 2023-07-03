@@ -1,30 +1,28 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
-import useToken from "./useToken";
-import { toast } from "react-toastify";
+import useFetch from "./useFetch";
 
 const useHistory = () => {
-  const { accessToken } = useToken();
-  const [boardRecordList, setBoardRecordList] = useState([]);
+  const [historyRecordList, setHistoryRecordList] = useState([]);
+
+  const { fetch } = useFetch({
+    url: "/user/board",
+    method: "get",
+    onSuccess: data => {
+      setHistoryRecordList(data);
+    },
+    errors: {
+      403: "글 목록을 볼 권한이 없습니다.",
+      401: "로그인을 다시 해주세요.",
+      404: "글 역사를 찾을 수 없습니다.",
+      500: "서버에 문제가 생겼습니다.",
+    },
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("url", {
-          headers: {
-            Authorization: accessToken,
-          },
-        });
-        setBoardRecordList(response.data.boardRecordList);
-      } catch (error) {
-        toast.error("리스트를 불러오지 못함");
-      }
-    };
+    fetch();
+  }, [fetch]);
 
-    fetchData();
-  }, [accessToken]);
-
-  return { boardRecordList };
+  return { historyRecordList };
 };
 
 export default useHistory;
