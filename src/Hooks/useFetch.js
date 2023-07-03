@@ -8,9 +8,17 @@ const useFetch = options => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [isLogIn, setIsLogIn] = useState(false);
+
   const isLoggedIn = () => {
     const tokenManager = new TokenManager();
     return tokenManager.initToken();
+  };
+
+  const checkLoggedIn = () => {
+    const tokenManager = new TokenManager();
+    const loggedIn = tokenManager.initToken();
+    setIsLogIn(loggedIn);
   };
 
   const fetch = useCallback(
@@ -65,6 +73,13 @@ const useFetch = options => {
       options.skipIfLoggedIn,
     ]
   );
+
+  const handleFetch = () => {
+    if (!isLogIn) {
+      toast.error("권한이 없습니다. 로그인이 필요합니다.");
+      return;
+    }
+  };
 
   return { fetch, isLoading, data };
 };

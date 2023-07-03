@@ -11,6 +11,7 @@ const useLogin = () => {
   const { fetch } = useFetch({
     url: "/auth",
     method: "post",
+    successMessage: "로그인 성공",
     skipLogin: true,
     onSuccess: data => {
       if (typeof window !== "undefined") {
