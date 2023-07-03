@@ -3,32 +3,27 @@ import API from "../apis";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 
-const useFetch = (
-  url,
-  method,
-  successMessage,
-  errors,
-  onSuccess,
-  onFailure
-) => {
+const useFetch = options => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(url);
+  console.log(options);
+  console.log(options.url);
+  console.log(options.method);
 
   const fetch = useCallback(
     async body => {
       setIsLoading(true);
       try {
         const { data } = await API({
-          url,
-          method,
+          url: options.url,
+          method: options.method,
           data: body,
         });
 
-        if (successMessage) toast.success(successMessage);
+        if (options.successMessage) toast.success(options.successMessage);
 
         setData(data);
-        if (onSuccess) await onSuccess(data);
+        if (options.onSuccess) await options.onSuccess(data);
       } catch (e) {
         if (!(e instanceof AxiosError)) {
           toast.error("알 수 없는 에러가 발생하였습니다.");
@@ -39,17 +34,28 @@ const useFetch = (
         if (e.response && e.response.status >= 500) {
           toast.error("알 수 없는 에러가 발생했습니다");
         } else if (typeof errors === "string") {
-          toast.error(errors);
-        } else if (errors && e.response && errors[e.response.status]) {
-          toast.error(errors[e.response.status]);
+          toast.error(options.errors);
+        } else if (
+          options.errors &&
+          e.response &&
+          options.oerrors[e.response.status]
+        ) {
+          toast.error(options.errors[e.response.status]);
         }
 
-        if (onFailure) await onFailure(e);
+        if (options.onFailure) await options.onFailure(e);
       } finally {
         setIsLoading(false);
       }
     },
-    [url, method, onSuccess, onFailure, successMessage, errors]
+    [
+      options.url,
+      options.method,
+      options.onSuccess,
+      options.onFailure,
+      options.successMessage,
+      options.errors,
+    ]
   );
 
   return { fetch, isLoading, data };
