@@ -26,7 +26,7 @@ const useLogin = () => {
   useEffect(() => {
     if (!gauthCode) return;
     fetch({ code: gauthCode });
-  }, [gauthCode, fetch]);
+  }, [gauthCode]);
 };
 
 export default useLogin;
