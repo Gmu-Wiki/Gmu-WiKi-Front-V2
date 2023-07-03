@@ -36,10 +36,6 @@ function Header() {
       tokenManager.removeTokens();
 
       navigate("/");
-      toast.success("로그아웃 성공");
-    },
-    onFailure: () => {
-      toast.error("로그아웃 실패");
     },
   });
 

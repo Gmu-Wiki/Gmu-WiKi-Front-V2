@@ -1,6 +1,8 @@
 import axios from "axios";
 import EnvConfig from "./EnvConfig";
 import TokenManager from "./TokenManager";
+import { reissueToken } from "../store/reissue";
+import { store } from "../store";
 
 const API = axios.create({
   baseURL: EnvConfig.GMUWIKI_SERVER_URL,
@@ -20,7 +22,7 @@ API.interceptors.request.use(async config => {
       tokenManager.refreshToken
     )
   ) {
-    //   await reissueToken()
+    await store.dispatch(reissueToken());
     tokenManager.initToken();
   } else if (
     !tokenManager.validateToken(

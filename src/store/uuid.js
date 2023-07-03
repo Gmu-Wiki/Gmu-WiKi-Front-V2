@@ -15,6 +15,6 @@ const uuidSlice = createSlice({
   },
 });
 
-export const { setUuid, removeUuid } = uuidSlice.actions();
+export const { setUuid, removeUuid } = uuidSlice.actions;
 
 export default uuidSlice;

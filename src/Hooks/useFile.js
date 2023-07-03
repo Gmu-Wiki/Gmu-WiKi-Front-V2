@@ -14,7 +14,7 @@ const useFile = () => {
     });
 
     try {
-      const { data } = await API.post("/image", formData, {
+      const { data } = await API.post("/file", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setIsLoading(false);

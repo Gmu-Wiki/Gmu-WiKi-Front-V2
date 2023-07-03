@@ -1,14 +1,16 @@
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import uuidSlice from "./uuid";
 import userSlice from "./user";
-import { combineReducers } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
+import reissueSlice from "./reissue";
 
 const NODE_ENV = process.env.NODE_ENV === "development";
 
 const rootReducer = combineReducers({
   user: userSlice.reducer,
   uuid: uuidSlice.reducer,
+  reissue: reissueSlice.reducer,
 });
+
 const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
