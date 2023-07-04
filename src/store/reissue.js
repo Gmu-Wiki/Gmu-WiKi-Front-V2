@@ -60,6 +60,7 @@ const reissueSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(reissueToken.fulfilled, state => {
       state.isLoading = false;
+      console.log("토큰 발급됨");
     });
     builder.addCase(reissueToken.rejected, state => {
       const tokenManager = new TokenManager();

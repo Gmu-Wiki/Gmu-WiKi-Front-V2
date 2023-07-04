@@ -38,7 +38,7 @@ function WriteBox() {
       const file = e.currentTarget.files?.item(0);
 
       if (!file) return;
-      const data = await upload(file);
+      const data = await upload([file]);
 
       if (!data) return;
 

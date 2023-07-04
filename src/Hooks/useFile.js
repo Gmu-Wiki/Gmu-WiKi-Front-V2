@@ -8,6 +8,7 @@ const useFile = () => {
 
   const upload = useCallback(async file => {
     setIsLoading(true);
+    console.log(file);
 
     const formData = new FormData();
     file.forEach(f => {
