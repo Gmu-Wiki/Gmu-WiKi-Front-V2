@@ -1,16 +1,16 @@
 import { useCallback, useState } from "react";
 import API from "../apis";
 import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 const useFile = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [imgUrl, setImgUrl] = useState("");
 
   const upload = useCallback(async file => {
-    setIsLoading(true);
-
     const formData = new FormData();
     file.forEach(f => {
-      formData.append(f);
+      formData.append("key", f);
     });
 
     try {
@@ -20,14 +20,20 @@ const useFile = () => {
       setIsLoading(false);
 
       toast.success("이미지 변환 성공");
-      return data.images;
+      setImgUrl(data.awsUrl);
     } catch (e) {
-      toast.error("이미지 변환 실패");
-      setIsLoading(false);
+      if (!(e instanceof AxiosError)) {
+        toast.error("이미지를 변환할 수 없습니다.");
+        return;
+      }
+      if (e.response && e.response.status >= 500) {
+        toast.error("서버에 문제가 생겼습니다.");
+      }
+      setIsLoading(true);
     }
   }, []);
 
-  return { upload, isLoading };
+  return { upload, isLoading, imgUrl };
 };
 
 export default useFile;
