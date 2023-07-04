@@ -3,6 +3,7 @@ import TokenManager from "../apis/TokenManager";
 import observable from "../lib/Observable";
 import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
+import { toast } from "react-toastify";
 
 export const reissueToken = createAsyncThunk(
   "reissue/reissueToken",
@@ -66,6 +67,7 @@ const reissueSlice = createSlice({
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
       console.log("토큰 발급 실패");
+      toast.error("다시 로그인 해주세요");
 
       state.isLoading = false;
       if (window.location.pathname !== "/") window.location.href = "/";
