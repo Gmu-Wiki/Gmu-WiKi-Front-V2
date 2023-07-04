@@ -4,13 +4,10 @@ import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 
 const useFile = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [imgUrl, setImgUrl] = useState("");
 
   const upload = useCallback(async file => {
-    setIsLoading(true);
-    console.log(file);
-
     const formData = new FormData();
     file.forEach(f => {
       formData.append("key", f);
@@ -27,13 +24,12 @@ const useFile = () => {
     } catch (e) {
       if (!(e instanceof AxiosError)) {
         toast.error("이미지를 변환할 수 없습니다.");
-        console.log(e);
         return;
       }
       if (e.response && e.response.status >= 500) {
         toast.error("서버에 문제가 생겼습니다.");
       }
-      setIsLoading(false);
+      setIsLoading(true);
     }
   }, []);
 
