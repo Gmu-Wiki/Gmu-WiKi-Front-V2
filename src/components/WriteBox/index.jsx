@@ -29,10 +29,18 @@ function WriteBox() {
 
   const { upload, isLoading, imgUrl } = useFile();
 
+  const onChange = e => {
+    dispatch(e.target);
+  };
+
   const handleUpload = useCallback(
     async e => {
-      const file = Array.from(e.target.files);
-      await upload(file);
+      const file = e.currentTarget.files?.item(0);
+
+      if (!file) return;
+      const data = await upload(file);
+
+      if (!data) return;
 
       const imgObj = isLoading ? `![업로드 중..](...)` : `![](${imgUrl})`;
 
@@ -47,10 +55,6 @@ function WriteBox() {
     },
     [content, isLoading, imgUrl, upload]
   );
-
-  const onChange = e => {
-    dispatch(e.target);
-  };
 
   const onChangeTextArea = e => {
     setContent(e.target.value);

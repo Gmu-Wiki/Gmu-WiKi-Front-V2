@@ -64,6 +64,7 @@ const reissueSlice = createSlice({
     builder.addCase(reissueToken.rejected, state => {
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
+      console.log("토큰 발급 실패");
 
       state.isLoading = false;
       if (window.location.pathname !== "/") window.location.href = "/";
