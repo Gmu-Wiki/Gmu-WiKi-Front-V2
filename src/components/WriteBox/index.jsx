@@ -41,7 +41,9 @@ function WriteBox() {
       if (!file) return toast.error("이미지 파일이 아닙니다.");
       await upload([file]);
 
-      const imgObj = isLoading ? `![업로드 중..](...)` : `![](${imgUrl})`;
+      const imgObj = isLoading
+        ? `![Uploading img.png...]()`
+        : `![image](${imgUrl})`;
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
