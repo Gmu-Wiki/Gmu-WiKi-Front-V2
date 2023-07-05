@@ -10,18 +10,19 @@ const useFile = () => {
   const upload = useCallback(async file => {
     const formData = new FormData();
     file.forEach(f => {
-      formData.append("key", f);
+      formData.append("file", f);
     });
 
     try {
       const { data } = await API.post("/file", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        header: { "Content-Type": "multipart/form-data" },
       });
       setIsLoading(false);
 
       toast.success("이미지 변환 성공");
       setImgUrl(data.awsUrl);
     } catch (e) {
+      toast.error("이미지를 변환할 수 없습니다.");
       if (!(e instanceof AxiosError)) {
         toast.error("이미지를 변환할 수 없습니다.");
         return;

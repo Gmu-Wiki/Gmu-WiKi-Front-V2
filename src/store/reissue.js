@@ -67,6 +67,8 @@ const reissueSlice = createSlice({
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
       console.log("리이슈 작동 안됨");
+      toast.error("다시 시도해주세요.");
+
       state.isLoading = false;
       if (window.location.pathname !== "/") window.location.href = "/";
     });
