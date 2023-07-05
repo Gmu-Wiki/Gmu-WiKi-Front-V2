@@ -25,20 +25,21 @@ export const CategoryInput = styled.div`
 `;
 
 export const TitleInput = styled.div`
-  width: 38%;
+  width: 100%;
   height: 5vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
   span {
     color: #999999;
     font-size: 1rem;
     font-weight: 600;
+    margin-right: 40px;
   }
 
   input {
     border: 1px solid #dddddd;
-    width: 80%;
+    width: 90%;
     height: 26px;
     padding-left: 10px;
     outline: 0;

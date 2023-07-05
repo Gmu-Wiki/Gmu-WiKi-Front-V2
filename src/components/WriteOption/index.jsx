@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import * as I from "../../assets/index";
 
-function WriteOption({ content, setContent, textareaRef, numArr, setNumArr }) {
+function WriteOption({ content, setContent, textareaRef, setNumArr }) {
   const addOption = text => {
     console.log(text);
     const startPos = textareaRef.current.selectionStart;
