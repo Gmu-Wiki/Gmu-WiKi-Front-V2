@@ -9,7 +9,6 @@ import DropMenu from "./dropMenu";
 import { useFetch } from "../../Hooks";
 import TokenManager from "../../apis/TokenManager";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 function Header() {
   // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.

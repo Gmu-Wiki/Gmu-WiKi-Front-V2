@@ -5,10 +5,13 @@ import useFile from "../../Hooks/useFile";
 import { toast } from "react-toastify";
 
 function reducer(state, action) {
-  return {
+  const newState = {
     ...state,
     [action.name]: action.value,
   };
+
+  localStorage.setItem(action.name, action.value);
+  return newState;
 }
 
 function WriteBox() {
@@ -16,17 +19,23 @@ function WriteBox() {
   const [preview, setPreview] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     category: "선택해주세요",
-    yearCategory: "선택해주세요",
+    detailCategory: "선택해주세요",
     title: "",
   });
+
   let save = [];
 
-  const { category, title, detailCategory } = state;
+  const { category } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
   const fileRef = useRef(null);
+
+  const categoryCurrent = localStorage.getItem("category");
+  const detailCategoryCurrent = localStorage.getItem("detailCategory");
+  const titleCurrent = localStorage.getItem("title");
+  const contentCurrent = localStorage.getItem("content");
 
   const { upload, isLoading, imgUrl } = useFile();
 
@@ -41,7 +50,9 @@ function WriteBox() {
       if (!file) return toast.error("이미지 파일이 아닙니다.");
       await upload([file]);
 
-      const imgObj = isLoading ? `![업로드 중..](...)` : `![](${imgUrl})`;
+      const imgObj = isLoading
+      ? `![Uploading img.png...]()`
+      : `![image](${imgUrl})`;
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
@@ -71,6 +82,7 @@ function WriteBox() {
       save.push(i);
       setNumArr(save);
     }
+    localStorage.setItem("content", textarea.value);
   };
 
   const handleKeyDown = e => {
@@ -124,14 +136,14 @@ function WriteBox() {
       {edit && (
         <S.WriteBox>
           <C.EditWriteBox
-            category={category}
-            detailCategory={detailCategory}
-            title={title}
+            categoryCurrent={categoryCurrent}
+            detailCategoryCurrent={detailCategoryCurrent}
+            titleCurrent={titleCurrent}
+            contentCurrent={contentCurrent}
             textareaRef={textareaRef}
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
-            content={content}
             handleKeyDown={handleKeyDown}
           />
         </S.WriteBox>

@@ -5,11 +5,11 @@ import { toast } from "react-toastify";
 const useFile = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const post = useCallback(async () => {
+  const post = useCallback(async props => {
     setIsLoading(true);
 
     try {
-      const { data } = await API.post("/user/board");
+      await API.post("/admin/board", props);
       setIsLoading(false);
 
       toast.success("글  성공");
