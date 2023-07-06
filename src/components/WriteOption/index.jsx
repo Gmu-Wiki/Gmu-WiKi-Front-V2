@@ -4,7 +4,6 @@ import * as I from "../../assets/index";
 
 function WriteOption({ content, setContent, textareaRef, setNumArr }) {
   const addOption = text => {
-    console.log(text);
     const startPos = textareaRef.current.selectionStart;
     const endPos = textareaRef.current.selectionEnd;
 
@@ -33,7 +32,13 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         textareaRef.current.scrollHeight + 132
       }px`;
       setNumArr(numArr => [
-        ...numArr, numArr.length + 1, numArr.length + 2, numArr.length + 3, numArr.length + 4, numArr.length + 5, numArr.length + 6
+        ...numArr,
+        numArr.length + 1,
+        numArr.length + 2,
+        numArr.length + 3,
+        numArr.length + 4,
+        numArr.length + 5,
+        numArr.length + 6,
       ]);
       addOption(
         ">>\n" +
