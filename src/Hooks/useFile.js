@@ -14,7 +14,7 @@ const useFile = () => {
 
     try {
       const { data } = await API.post("/file", formData, {
-        header: { "Content-Type": "multipart/form-data" },
+        header: { "Content-Type": "multipart/form-data" }
       });
       toast.success("이미지 변환 성공");
       setImgUrl(data.awsUrl);
