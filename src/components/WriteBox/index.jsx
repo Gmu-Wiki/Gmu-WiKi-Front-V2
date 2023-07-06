@@ -43,16 +43,16 @@ function WriteBox() {
     dispatch(e.target);
   };
 
+  const imgObj = isLoading
+    ? `![Uploading img.png...]()`
+    : `![image](${imgUrl})`;
+
   const handleUpload = useCallback(
     async e => {
       const file = e.currentTarget.files?.item(0);
 
       if (!file) return toast.error("이미지 파일이 아닙니다.");
       await upload([file]);
-
-      const imgObj = isLoading
-      ? `![Uploading img.png...]()`
-      : `![image](${imgUrl})`;
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
@@ -63,7 +63,7 @@ function WriteBox() {
 
       setContent(newValue);
     },
-    [content, isLoading, imgUrl, upload]
+    [upload, content, imgObj]
   );
 
   const onChangeTextArea = e => {
