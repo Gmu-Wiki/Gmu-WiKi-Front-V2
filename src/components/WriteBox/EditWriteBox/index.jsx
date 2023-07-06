@@ -1,22 +1,26 @@
 import * as S from "./style";
 
 function EditWriteBox({
-  categoryCurrent,
-  detailCategoryCurrent,
-  titleCurrent,
-  contentCurrent,
+  category,
+  detailCategory,
+  title,
+  content,
   onChange,
-  numArr,
   textareaRef,
   onChangeTextArea,
   handleKeyDown,
+  numArr,
 }) {
   return (
     <>
       <S.CategoryInput>
         <span>카테고리</span>
-        <select name="category" onChange={onChange} value={categoryCurrent}>
-          <option value="">선택해주세요</option>
+        <select
+          name="category"
+          onChange={onChange}
+          value={category}
+        >
+          <option value="select">선택해주세요</option>
           <option value="student">학생</option>
           <option value="teacher">선생님</option>
           <option value="major">전공</option>
@@ -26,35 +30,35 @@ function EditWriteBox({
         <select
           name="detailCategory"
           onChange={onChange}
-          value={detailCategoryCurrent}
+          value={detailCategory}
         >
-          <option value="">선택해주세요</option>
-          {categoryCurrent === "student" && (
+          <option value="select">선택해주세요</option>
+          {category === "student" && (
             <>
               <option value="7grade">7기</option>
               <option value="6grade">6기</option>
               <option value="5grade">5기</option>
             </>
           )}
-          {categoryCurrent === "teacher" && (
+          {category === "teacher" && (
             <>
               <option value="normal">일반교과</option>
               <option value="professional">전문교과</option>
               <option value="professionalEdu">전문교육부</option>
             </>
           )}
-          {categoryCurrent === "major" && (
+          {category === "major" && (
             <>
               <option value="major">전공</option>
             </>
           )}
-          {categoryCurrent === "club" && (
+          {category === "club" && (
             <>
               <option value="major-club">전공동아리</option>
               <option value="autonomy-club">자율동아리</option>
             </>
           )}
-          {categoryCurrent === "event" && (
+          {category === "event" && (
             <>
               <option value="2022">2022</option>
               <option value="2023">2023</option>
@@ -67,20 +71,20 @@ function EditWriteBox({
         <input
           type="text"
           name="title"
-          value={titleCurrent}
+          value={title}
           onChange={onChange}
         />
       </S.TitleInput>
       <S.ContentInput>
         <div>
-          {numArr.map((num, index) => (
-            <span key={index}>{num}</span>
+          {numArr.map((num, idx) => (
+            <span key={idx}>{num}</span>
           ))}
         </div>
         <textarea
           type="text"
           rows={1}
-          value={contentCurrent}
+          value={content}
           ref={textareaRef}
           onChange={onChangeTextArea}
           onKeyDown={handleKeyDown}

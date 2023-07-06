@@ -59,28 +59,6 @@ export const ButtonContainer = styled.div`
   float: right;
 `;
 
-export const FileButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  label {
-    width: 8vw;
-    height: 5vh;
-    border: 1px solid #007eff;
-    background-color: none;
-    color: #007eff;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  input {
-    display: none;
-  }
-`;
-
 export const RegisterButton = styled.button`
   border: none;
   outline: none;

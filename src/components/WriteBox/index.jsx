@@ -10,7 +10,6 @@ function reducer(state, action) {
     [action.name]: action.value,
   };
 
-  localStorage.setItem(action.name, action.value);
   return newState;
 }
 
@@ -25,22 +24,20 @@ function WriteBox() {
 
   let save = [];
 
-  const { category } = state;
+  const {category, detailCategory, title} = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
-  const fileRef = useRef(null);
-
-  const categoryCurrent = localStorage.getItem("category");
-  const detailCategoryCurrent = localStorage.getItem("detailCategory");
-  const titleCurrent = localStorage.getItem("title");
-  const contentCurrent = localStorage.getItem("content");
 
   const { upload, isLoading, imgUrl } = useFile();
 
   const onChange = e => {
     dispatch(e.target);
+  };
+
+  window.onbeforeunload = () => {
+    return "reloadEvent";
   };
 
   const handleUpload = useCallback(
@@ -65,7 +62,7 @@ function WriteBox() {
     },
     [content, isLoading, imgUrl, upload]
   );
-
+  
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
@@ -74,16 +71,14 @@ function WriteBox() {
       textarea.style.height = "42px";
       setIsAll(false);
     } else {
-      textarea.style.height = `${textareaRef.current.scrollHeight}px`;
+      textarea.style.height = `${textarea.scrollHeight}px`;
     }
 
-    setNumArr([]);
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
       setNumArr(save);
     }
-    localStorage.setItem("content", textarea.value);
-  };
+  };  
 
   const handleKeyDown = e => {
     const textarea = textareaRef.current;
@@ -136,10 +131,10 @@ function WriteBox() {
       {edit && (
         <S.WriteBox>
           <C.EditWriteBox
-            categoryCurrent={categoryCurrent}
-            detailCategoryCurrent={detailCategoryCurrent}
-            titleCurrent={titleCurrent}
-            contentCurrent={contentCurrent}
+            category={category}
+            detailCategory={detailCategory}
+            title={title}
+            content={content}
             textareaRef={textareaRef}
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
@@ -154,19 +149,6 @@ function WriteBox() {
         </S.WriteBox>
       )}
       <S.ButtonContainer>
-        {edit && (
-          <S.FileButtonContainer>
-            <label htmlFor="file">파일첨부</label>
-            <input
-              accept="image/*"
-              multiple
-              type="file"
-              id="file"
-              ref={fileRef}
-              onChange={handleUpload}
-            />
-          </S.FileButtonContainer>
-        )}
         <S.RegisterButton>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>

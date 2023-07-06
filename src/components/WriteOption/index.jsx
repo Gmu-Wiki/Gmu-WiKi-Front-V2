@@ -90,6 +90,9 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         <div onClick={() => passOption("a")}>
           <I.LinkIcon />
         </div>
+        <div onClick={() => passOption("img")}>
+          <I.ImageIcon />
+        </div>
         <div onClick={() => passOption("code")}>
           <I.CodeIcon />
         </div>
