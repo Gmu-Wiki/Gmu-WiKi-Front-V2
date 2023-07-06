@@ -2,7 +2,6 @@ import { useCallback, useState } from "react";
 import API from "../apis";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
-import TokenManager from "../apis/TokenManager";
 
 const useFetch = options => {
   const [data, setData] = useState(null);

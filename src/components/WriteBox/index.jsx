@@ -1,12 +1,17 @@
 import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
+import useFile from "../../Hooks/useFile";
+import { toast } from "react-toastify";
 
 function reducer(state, action) {
-  return {
+  const newState = {
     ...state,
     [action.name]: action.value,
   };
+
+  localStorage.setItem(action.name, action.value);
+  return newState;
 }
 
 function WriteBox() {
@@ -14,31 +19,40 @@ function WriteBox() {
   const [preview, setPreview] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     category: "선택해주세요",
-    yearCategory: "선택해주세요",
+    detailCategory: "선택해주세요",
     title: "",
   });
-  const { category, title, detailCategory } = state;
+
+  let save = [];
+
+  const { category } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
-
-  let save = [];
-
   const fileRef = useRef(null);
-  const [loading, setLoading] = useState(false);
-  const [urlFile, setUrlFile] = useState("");
+
+  const categoryCurrent = localStorage.getItem("category");
+  const detailCategoryCurrent = localStorage.getItem("detailCategory");
+  const titleCurrent = localStorage.getItem("title");
+  const contentCurrent = localStorage.getItem("content");
+
+  const { upload, isLoading, imgUrl } = useFile();
+
+  const onChange = e => {
+    dispatch(e.target);
+  };
 
   const handleUpload = useCallback(
     async e => {
-      const fileName = e.target.files[0];
-      const formData = new FormData();
-      formData.append("file", fileName);
-      setUrlFile(fileName.name);
-      console.log(fileName.name);
-      console.log(urlFile);
+      const file = e.currentTarget.files?.item(0);
 
-      const imgObj = loading ? "![업로드 중..](...)" : `![](${urlFile})`;
+      if (!file) return toast.error("이미지 파일이 아닙니다.");
+      await upload([file]);
+
+      const imgObj = isLoading
+      ? `![Uploading img.png...]()`
+      : `![image](${imgUrl})`;
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
@@ -49,29 +63,26 @@ function WriteBox() {
 
       setContent(newValue);
     },
-    [content, loading, urlFile]
+    [content, isLoading, imgUrl, upload]
   );
-
-  const onChange = e => {
-    dispatch(e.target);
-  };
 
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
     textarea.style.height = "auto";
-    if(isAll) {
+    if (isAll) {
       textarea.style.height = "42px";
       setIsAll(false);
     } else {
       textarea.style.height = `${textareaRef.current.scrollHeight}px`;
     }
-    
+
     setNumArr([]);
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
       setNumArr(save);
     }
+    localStorage.setItem("content", textarea.value);
   };
 
   const handleKeyDown = e => {
@@ -103,28 +114,36 @@ function WriteBox() {
 
   return (
     <>
-    <S.WriteOptions>
-      <S.ChangeButtonContainer>
-        <S.EditButton checked={edit} onClick={handleEdit}>
-          편집
-        </S.EditButton>
-        <S.PreviewButton checked={preview} onClick={handlePreview}>
-          미리보기
-        </S.PreviewButton>
-      </S.ChangeButtonContainer>
-      {edit && <C.WriteOption content={content} setContent={setContent} textareaRef={textareaRef} numArr={numArr} setNumArr={setNumArr} />}
+      <S.WriteOptions>
+        <S.ChangeButtonContainer>
+          <S.EditButton checked={edit} onClick={handleEdit}>
+            편집
+          </S.EditButton>
+          <S.PreviewButton checked={preview} onClick={handlePreview}>
+            미리보기
+          </S.PreviewButton>
+        </S.ChangeButtonContainer>
+        {edit && (
+          <C.WriteOption
+            content={content}
+            setContent={setContent}
+            textareaRef={textareaRef}
+            numArr={numArr}
+            setNumArr={setNumArr}
+          />
+        )}
       </S.WriteOptions>
       {edit && (
         <S.WriteBox>
           <C.EditWriteBox
-            category={category}
-            detailCategory={detailCategory}
-            title={title}
+            categoryCurrent={categoryCurrent}
+            detailCategoryCurrent={detailCategoryCurrent}
+            titleCurrent={titleCurrent}
+            contentCurrent={contentCurrent}
             textareaRef={textareaRef}
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
-            content={content}
             handleKeyDown={handleKeyDown}
           />
         </S.WriteBox>
