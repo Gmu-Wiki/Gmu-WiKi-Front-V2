@@ -16,6 +16,7 @@ export { default as Graph } from "./Graph";
 export { default as ContentsButton } from "./ContentsButton";
 export { default as RecentModified } from "./RecentModified";
 export { default as InquiryItem } from "./InquiryItem";
+export { default as InquiryWrite } from "./InquiryWrite";
 export { default as WriteOption } from "./WriteOption";
 export { default as HistoryItem } from "./HistoryItem";
 export { default as HistoryDetail } from "./HistoryDetailItem";
