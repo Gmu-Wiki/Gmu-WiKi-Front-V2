@@ -3,7 +3,6 @@ import TokenManager from "../apis/TokenManager";
 import observable from "../lib/Observable";
 import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
-import { refreshToken } from "../lib/token";
 
 export const reissueToken = createAsyncThunk(
   "reissue/reissueToken",
