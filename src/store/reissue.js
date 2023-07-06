@@ -3,6 +3,7 @@ import TokenManager from "../apis/TokenManager";
 import observable from "../lib/Observable";
 import axios from "axios";
 import EnvConfig from "../apis/EnvConfig";
+import { refreshToken } from "../lib/token";
 
 export const reissueToken = createAsyncThunk(
   "reissue/reissueToken",
@@ -30,7 +31,7 @@ export const reissueToken = createAsyncThunk(
         baseURL: EnvConfig.GMUWIKI_SERVER_URL,
         withCredentials: true,
         headers: {
-          refreshToken:
+          "Refresh-Token":
             tokenManager.refreshToken && `Bearer ${tokenManager.refreshToken}`,
         },
       }
