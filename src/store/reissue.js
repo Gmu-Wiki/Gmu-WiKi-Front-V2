@@ -30,8 +30,8 @@ export const reissueToken = createAsyncThunk(
       {
         baseURL: EnvConfig.GMUWIKI_SERVER_URL,
         withCredentials: true,
-        header: {
-          refreshToken:
+        headers: {
+          "Refresh-Token":
             tokenManager.refreshToken && `Bearer ${tokenManager.refreshToken}`,
         },
       }
@@ -61,13 +61,11 @@ const reissueSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(reissueToken.fulfilled, state => {
       state.isLoading = false;
-      console.log("리이슈 작동 됨");
     });
     builder.addCase(reissueToken.rejected, state => {
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
-      console.log("리이슈 작동 안됨");
-      toast.error("다시 시도해주세요.");
+      toast.error("다시 로그인 해주세요.");
 
       state.isLoading = false;
       if (window.location.pathname !== "/") window.location.href = "/";

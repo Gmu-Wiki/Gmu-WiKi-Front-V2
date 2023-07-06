@@ -1,25 +1,28 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import API from "../apis";
 import { toast } from "react-toastify";
 
-const useFile = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const post = useCallback(async props => {
-    setIsLoading(true);
-
+const useUpload = () => {
+  const title = "운린이";
+  const content = "히히";
+  const boardType = "STUDENT";
+  const boardDetailType = "FIFTH";
+  const uploadHandler = useCallback(async () => {
     try {
-      await API.post("/admin/board", props);
-      setIsLoading(false);
+      await API.post("/user/board", {
+        title: title,
+        content: content,
+        boardType: boardType,
+        boardDetailType: boardDetailType
+      });
 
       toast.success("글  성공");
     } catch (e) {
       toast.error("글 등록 실패");
-      setIsLoading(false);
     }
   }, []);
 
-  return { post, isLoading };
+  return { uploadHandler };
 };
 
-export default useFile;
+export default useUpload;

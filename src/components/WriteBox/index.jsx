@@ -1,13 +1,14 @@
 import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
-import useFile from "../../Hooks/useFile";
 import { toast } from "react-toastify";
+import { useUpload } from "../../Hooks";
+import { useFile } from "../../Hooks";
 
 function reducer(state, action) {
   const newState = {
     ...state,
-    [action.name]: action.value,
+    [action.name]: action.value
   };
 
   return newState;
@@ -19,7 +20,7 @@ function WriteBox() {
   const [state, dispatch] = useReducer(reducer, {
     category: "선택해주세요",
     detailCategory: "선택해주세요",
-    title: "",
+    title: ""
   });
 
   let save = [];
@@ -39,6 +40,9 @@ function WriteBox() {
   window.onbeforeunload = () => {
     return "reloadEvent";
   };
+  const imgObj = isLoading
+    ? `![Uploading img.png...]()`
+    : `![image](${imgUrl})`;
 
   const handleUpload = useCallback(
     async e => {
@@ -46,10 +50,6 @@ function WriteBox() {
 
       if (!file) return toast.error("이미지 파일이 아닙니다.");
       await upload([file]);
-
-      const imgObj = isLoading
-      ? `![Uploading img.png...]()`
-      : `![image](${imgUrl})`;
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
@@ -60,7 +60,7 @@ function WriteBox() {
 
       setContent(newValue);
     },
-    [content, isLoading, imgUrl, upload]
+    [upload, content, imgObj]
   );
   
   const onChangeTextArea = e => {
@@ -107,6 +107,12 @@ function WriteBox() {
     setPreview(true);
   };
 
+  const { uploadHandler } = useUpload();
+
+  const post = () => {
+    uploadHandler();
+  };
+
   return (
     <>
       <S.WriteOptions>
@@ -149,7 +155,7 @@ function WriteBox() {
         </S.WriteBox>
       )}
       <S.ButtonContainer>
-        <S.RegisterButton>등록하기</S.RegisterButton>
+        <S.RegisterButton onClick={post}>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );
