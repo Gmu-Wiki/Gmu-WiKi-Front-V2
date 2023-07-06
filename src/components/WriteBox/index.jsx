@@ -1,13 +1,14 @@
 import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
-import useFile from "../../Hooks/useFile";
 import { toast } from "react-toastify";
+import { useUpload } from "../../Hooks";
+import { useFile } from "../../Hooks";
 
 function reducer(state, action) {
   const newState = {
     ...state,
-    [action.name]: action.value,
+    [action.name]: action.value
   };
 
   localStorage.setItem(action.name, action.value);
@@ -20,7 +21,7 @@ function WriteBox() {
   const [state, dispatch] = useReducer(reducer, {
     category: "선택해주세요",
     detailCategory: "선택해주세요",
-    title: "",
+    title: ""
   });
 
   let save = [];
@@ -112,6 +113,12 @@ function WriteBox() {
     setPreview(true);
   };
 
+  const { uploadHandler } = useUpload();
+
+  const post = () => {
+    uploadHandler();
+  };
+
   return (
     <>
       <S.WriteOptions>
@@ -167,7 +174,7 @@ function WriteBox() {
             />
           </S.FileButtonContainer>
         )}
-        <S.RegisterButton>등록하기</S.RegisterButton>
+        <S.RegisterButton onClick={post}>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );
