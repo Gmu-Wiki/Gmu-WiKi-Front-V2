@@ -1,11 +1,12 @@
 import { useState, useReducer, useRef, useCallback } from "react";
 import * as S from "./style";
 import * as C from "../index";
+import { useInquiry } from "../../Hooks";
 
 function reducer(state, action) {
   const newState = {
     ...state,
-    [action.name]: action.value,
+    [action.name]: action.value
   };
 
   return newState;
@@ -16,7 +17,7 @@ export default function InquiryWrite() {
   const [preview, setPreview] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     purpose: "선택해주세요",
-    title: "",
+    title: ""
   });
 
   let save = [];
@@ -76,6 +77,12 @@ export default function InquiryWrite() {
     setPreview(true);
   };
 
+  const { inquiryUpload } = useInquiry();
+
+  const postInquiry = () => {
+    inquiryUpload();
+  };
+
   return (
     <>
       <S.WriteOptions>
@@ -116,7 +123,7 @@ export default function InquiryWrite() {
         </S.WriteBox>
       )}
       <S.ButtonContainer>
-        <S.RegisterButton>등록하기</S.RegisterButton>
+        <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );
