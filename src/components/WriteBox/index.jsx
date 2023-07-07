@@ -4,12 +4,10 @@ import * as C from "../index";
 import { useUpload } from "../../Hooks";
 
 function reducer(state, action) {
-  const newState = {
+  return {
     ...state,
     [action.name]: action.value
   };
-
-  return newState;
 }
 
 function WriteBox() {
@@ -24,6 +22,7 @@ function WriteBox() {
   let save = [];
 
   const { category, detailCategory, title } = state;
+  console.log(category);
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
@@ -94,6 +93,7 @@ function WriteBox() {
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
+            type="글쓰기"
           />
         </S.WriteBox>
       )}

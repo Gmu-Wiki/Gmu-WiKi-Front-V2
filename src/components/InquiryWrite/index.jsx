@@ -1,14 +1,12 @@
-import { useState, useReducer, useRef, useCallback } from "react";
+import { useState, useReducer, useRef } from "react";
 import * as S from "./style";
 import * as C from "../index";
 
 function reducer(state, action) {
-  const newState = {
+  return {
     ...state,
-    [action.name]: action.value,
+    [action.name]: action.value
   };
-
-  return newState;
 }
 
 export default function InquiryWrite() {
@@ -16,15 +14,14 @@ export default function InquiryWrite() {
   const [preview, setPreview] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     purpose: "선택해주세요",
-    title: "",
+    title: ""
   });
 
   let save = [];
 
-  const { category } = state;
+  const { title, purpose } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
-  const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
 
   const onChange = e => {
@@ -34,35 +31,11 @@ export default function InquiryWrite() {
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
-    textarea.style.height = "auto";
-    if (isAll) {
-      textarea.style.height = "42px";
-      setIsAll(false);
-    } else {
-      textarea.style.height = `${textareaRef.current.scrollHeight}px`;
-    }
 
     setNumArr([]);
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
       setNumArr(save);
-    }
-  };
-
-  const handleKeyDown = e => {
-    const textarea = textareaRef.current;
-    const selectionStart = textarea.selectionStart;
-    const selectionEnd = textarea.selectionEnd;
-
-    if (e.ctrlKey && e.key === "a") {
-      e.target.select();
-    } else if (
-      e.key === "Backspace" &&
-      textarea.value &&
-      selectionStart === 0 &&
-      selectionEnd === textarea.value.length
-    ) {
-      setIsAll(true);
     }
   };
 
@@ -106,7 +79,7 @@ export default function InquiryWrite() {
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
-            handleKeyDown={handleKeyDown}
+            type="문의목적"
           />
         </S.WriteBox>
       )}
