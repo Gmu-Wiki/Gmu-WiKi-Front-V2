@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const ChangeButtonContainer = styled.div`
   display: flex;
   margin-left: 15px;
+  margin-top: 4px;
 `;
 
 export const EditButton = styled.button`
@@ -20,13 +21,13 @@ export const EditButton = styled.button`
 
 export const PreviewButton = styled.button`
   width: 5vw;
-  height: 5vh;
+  height: 4.7vh;
   color: #007eff;
   background: ${props => (props.checked ? "#ffffff" : "none")};
   border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
   border-bottom: ${props => (props.checked && "1px solid #ffffff")};
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   outline: none;
   `;
 

@@ -4,7 +4,7 @@ export const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #c0c0c0;
-  width: 42%;
+  width: 25rem;
   background-color: none;
   margin-bottom: 8px;
   padding: 3px 10px;
