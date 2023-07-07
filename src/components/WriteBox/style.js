@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-
 export const ChangeButtonContainer = styled.div`
   display: flex;
   margin-left: 15px;
+  margin-top: 4px;
 `;
 
 export const EditButton = styled.button`
@@ -20,15 +20,15 @@ export const EditButton = styled.button`
 
 export const PreviewButton = styled.button`
   width: 5vw;
-  height: 5vh;
+  height: 4.7vh;
   color: #007eff;
   background: ${props => (props.checked ? "#ffffff" : "none")};
   border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
-  border-bottom: ${props => (props.checked && "1px solid #ffffff")};
+  border-bottom: ${props => props.checked && "1px solid #ffffff"};
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   outline: none;
-  `;
+`;
 
 export const WriteOptions = styled.div`
   position: relative;
@@ -48,8 +48,7 @@ export const WriteBox = styled.div`
   flex-direction: column;
   padding: 20px;
   margin-left: 15px;
-  `;
-
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -57,28 +56,6 @@ export const ButtonContainer = styled.div`
   align-items: center;
   margin: 20px 15px;
   float: right;
-`;
-
-export const FileButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  label {
-    width: 8vw;
-    height: 5vh;
-    border: 1px solid #007eff;
-    background-color: none;
-    color: #007eff;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  input {
-    display: none;
-  }
 `;
 
 export const RegisterButton = styled.button`
