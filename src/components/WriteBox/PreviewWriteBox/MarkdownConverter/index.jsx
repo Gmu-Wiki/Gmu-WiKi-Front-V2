@@ -22,14 +22,14 @@ function MarkDownConverter({ value }) {
       renderer,
       // marked 경고 메시지를 해제하는 옵션이다.
       mangle: false,
-      headerIds: false,
+      headerIds: false
     };
 
     const convertedValue = value
-    .replace(/>>/g, `<details>`)
-    .replace(/>==/g, `<summary>`)
-    .replace(/==</g, `</summary>`)
-    .replace(/<</g, `</details>`);
+      .replace(/>>/g, `<details>`)
+      .replace(/>==/g, `<summary>`)
+      .replace(/==</g, `</summary>`)
+      .replace(/<</g, `</details>`);
 
     const html = marked(convertedValue, options);
 

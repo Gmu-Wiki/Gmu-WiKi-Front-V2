@@ -22,3 +22,4 @@ export { default as LinkIcon } from "./LinkIcon";
 export { default as CodeIcon } from "./CodeIcon";
 export { default as Toggle } from "./Toggle";
 export { default as Logout } from "./Logout";
+export { default as ImageIcon } from "./ImageIcon";
