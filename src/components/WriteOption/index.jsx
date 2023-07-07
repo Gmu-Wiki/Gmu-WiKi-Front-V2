@@ -1,8 +1,38 @@
 import React from "react";
 import * as S from "./style";
 import * as I from "../../assets/index";
+import { useRef } from "react";
+import { useCallback } from "react";
+import { toast } from "react-toastify";
+import { useFile } from "../../Hooks";
 
 function WriteOption({ content, setContent, textareaRef, setNumArr }) {
+  const { upload, isLoading, imgUrl } = useFile();
+  const fileRef = useRef(null);
+
+  const imgObj = isLoading
+    ? `![Uploading img.png...]()`
+    : `![image](${imgUrl})`;
+
+  const handleUpload = useCallback(
+    async e => {
+      const file = e.currentTarget.files?.item(0);
+
+      if (!file) return toast.error("이미지 파일이 아닙니다.");
+      await upload([file]);
+
+      const textarea = textareaRef.current;
+      const startPos = textarea.selectionStart;
+      const endPos = textarea.selectionEnd;
+
+      const newValue =
+        content.substring(0, startPos) + imgObj + content.substring(endPos);
+
+      setContent(newValue);
+    },
+    [upload, content, imgObj]
+  );
+
   const addOption = text => {
     const startPos = textareaRef.current.selectionStart;
     const endPos = textareaRef.current.selectionEnd;
@@ -32,13 +62,13 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         textareaRef.current.scrollHeight + 132
       }px`;
       setNumArr(numArr => [
-        ...numArr, 
+        ...numArr,
         numArr.length + 1,
-        numArr.length + 2, 
-        numArr.length + 3, 
-        numArr.length + 4, 
-        numArr.length + 5, 
-        numArr.length + 6,
+        numArr.length + 2,
+        numArr.length + 3,
+        numArr.length + 4,
+        numArr.length + 5,
+        numArr.length + 6
       ]);
       addOption(
         ">>\n" +
@@ -52,7 +82,6 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
     } else if (option === "a") {
       addOption("[텍스트](링크를 입력해주세요)");
     } else if (option === "img") {
-      
     } else if (option === "code") {
       textareaRef.current.style.height = `${
         textareaRef.current.scrollHeight + 44
@@ -102,7 +131,15 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
           <I.LinkIcon />
         </div>
         <div onClick={() => passOption("img")}>
-          <I.ImageIcon />
+          <label htmlFor="file"><I.ImageIcon /></label>
+          <input
+            accept="image/*"
+            multiple
+            type="file"
+            id="file"
+            ref={fileRef}
+            onChange={handleUpload}
+          />
         </div>
         <div onClick={() => passOption("code")}>
           <I.CodeIcon />

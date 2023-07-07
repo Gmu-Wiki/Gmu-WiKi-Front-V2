@@ -1,7 +1,6 @@
 import { useCallback, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
-import { toast } from "react-toastify";
 import { useUpload } from "../../Hooks";
 import { useFile } from "../../Hooks";
 
@@ -40,28 +39,6 @@ function WriteBox() {
   window.onbeforeunload = () => {
     return "reloadEvent";
   };
-  const imgObj = isLoading
-    ? `![Uploading img.png...]()`
-    : `![image](${imgUrl})`;
-
-  const handleUpload = useCallback(
-    async e => {
-      const file = e.currentTarget.files?.item(0);
-
-      if (!file) return toast.error("이미지 파일이 아닙니다.");
-      await upload([file]);
-
-      const textarea = textareaRef.current;
-      const startPos = textarea.selectionStart;
-      const endPos = textarea.selectionEnd;
-
-      const newValue =
-        content.substring(0, startPos) + imgObj + content.substring(endPos);
-
-      setContent(newValue);
-    },
-    [upload, content, imgObj]
-  );
   
   const onChangeTextArea = e => {
     setContent(e.target.value);

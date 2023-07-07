@@ -27,5 +27,14 @@ export const OptionContainer = styled.div`
       }
     }
   }
-`;
 
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input {
+    display: none;
+  }
+`;
