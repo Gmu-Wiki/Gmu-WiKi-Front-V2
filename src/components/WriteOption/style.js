@@ -4,7 +4,7 @@ export const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #c0c0c0;
-  width: 25rem;
+  width: 25.4rem;
   background-color: none;
   margin-bottom: 8px;
   padding: 3px 10px;
@@ -21,6 +21,7 @@ export const OptionContainer = styled.div`
     svg {
       margin-left: 12px;
       cursor: default;
+      width: 5px;
 
       &:hover {
         transform: scale(1);

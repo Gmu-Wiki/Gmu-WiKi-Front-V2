@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CategoryInput = styled.div`
-  width: 50%;
+  width: 100%;
   height: 5vh;
   display: flex;
   align-items: center;

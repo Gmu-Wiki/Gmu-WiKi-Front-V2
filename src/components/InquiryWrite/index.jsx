@@ -1,7 +1,7 @@
-import { useReducer, useRef, useState } from "react";
+import { useState, useReducer, useRef } from "react";
 import * as S from "./style";
 import * as C from "../index";
-import { useUpload } from "../../Hooks";
+import { useInquiry } from "../../Hooks";
 
 function reducer(state, action) {
   return {
@@ -10,19 +10,17 @@ function reducer(state, action) {
   };
 }
 
-function WriteBox() {
+export default function InquiryWrite() {
   const [edit, setEdit] = useState(true);
   const [preview, setPreview] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
-    category: "선택해주세요",
-    detailCategory: "선택해주세요",
+    purpose: "선택해주세요",
     title: ""
   });
 
   let save = [];
 
-  const { category, detailCategory, title } = state;
-  console.log(category);
+  const { title, category } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
@@ -31,14 +29,11 @@ function WriteBox() {
     dispatch(e.target);
   };
 
-  window.onbeforeunload = () => {
-    return "reloadEvent";
-  };
-
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
 
+    setNumArr([]);
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
       setNumArr(save);
@@ -55,12 +50,10 @@ function WriteBox() {
     setPreview(true);
   };
 
-  const { uploadHandler } = useUpload({
-    props: { title, content, category, detailCategory }
-  });
+  const { inquiryUpload } = useInquiry({ props: { title, content, category } });
 
-  const post = () => {
-    uploadHandler();
+  const postInquiry = () => {
+    inquiryUpload();
   };
 
   return (
@@ -87,15 +80,14 @@ function WriteBox() {
       {edit && (
         <S.WriteBox>
           <C.EditWriteBox
-            category={category}
-            detailCategory={detailCategory}
             title={title}
             content={content}
             textareaRef={textareaRef}
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
-            type="글쓰기"
+            category={category}
+            type="문의목적"
           />
         </S.WriteBox>
       )}
@@ -105,10 +97,8 @@ function WriteBox() {
         </S.WriteBox>
       )}
       <S.ButtonContainer>
-        <S.RegisterButton onClick={post}>등록하기</S.RegisterButton>
+        <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );
 }
-
-export default WriteBox;

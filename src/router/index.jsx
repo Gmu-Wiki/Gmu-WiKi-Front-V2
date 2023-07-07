@@ -1,4 +1,4 @@
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import * as P from "../pages";
 
 export default function Router() {
@@ -15,6 +15,7 @@ export default function Router() {
       <Route path="/history" element={<P.History />} />
       <Route path="/historydetail" element={<P.HistoryDetail />} />
       <Route path="/inquiry" element={<P.Inquiry />} />
+      <Route path="/inquiryWrite" element={<P.InquiryWrite />} />
       <Route path="/schedule" element={<P.Schedule />} />
       <Route path="*" element={<P.NotFound />} />
     </Routes>

@@ -8,6 +8,7 @@ export { default as Teacher } from "./Teacher";
 export { default as Student } from "./Student";
 export { default as Post } from "./Post";
 export { default as Inquiry } from "./Inquiry";
+export { default as InquiryWrite } from "./InquiryWrite";
 export { default as Schedule } from "./Schedule";
 export { default as History } from "./History";
 export { default as HistoryDetail } from "./HistoryDetail";
