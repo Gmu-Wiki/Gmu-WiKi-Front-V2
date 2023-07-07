@@ -24,7 +24,7 @@ function WriteBox() {
 
   let save = [];
 
-  const {category, detailCategory, title} = state;
+  const { category, detailCategory, title } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const [isAll, setIsAll] = useState(false);
@@ -37,7 +37,7 @@ function WriteBox() {
   window.onbeforeunload = () => {
     return "reloadEvent";
   };
-  
+
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
@@ -46,7 +46,7 @@ function WriteBox() {
       save.push(i);
       setNumArr(save);
     }
-  };  
+  };
 
   const handleEdit = () => {
     setEdit(true);

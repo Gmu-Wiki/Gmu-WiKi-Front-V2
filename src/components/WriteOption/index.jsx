@@ -7,19 +7,20 @@ import { toast } from "react-toastify";
 import { useFile } from "../../Hooks";
 
 function WriteOption({ content, setContent, textareaRef, setNumArr }) {
-  const { upload, isLoading, imgUrl } = useFile();
+  const { upload, isLoading } = useFile();
   const fileRef = useRef(null);
-
-  const imgObj = isLoading
-    ? `![Uploading img.png...]()`
-    : `![image](${imgUrl})`;
 
   const handleUpload = useCallback(
     async e => {
       const file = e.currentTarget.files?.item(0);
 
       if (!file) return toast.error("이미지 파일이 아닙니다.");
-      await upload([file]);
+      const url = await upload([file]);
+      if (!url) return;
+
+      const imgObj = isLoading
+        ? `![Uploading img.png...]()`
+        : `![image](${url})`;
 
       const textarea = textareaRef.current;
       const startPos = textarea.selectionStart;
@@ -29,8 +30,10 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         content.substring(0, startPos) + imgObj + content.substring(endPos);
 
       setContent(newValue);
+      console.log("newvalue", newValue);
+      console.log("imgobj", imgObj);
     },
-    [upload, content, imgObj]
+    [upload, content, setContent, textareaRef, isLoading]
   );
 
   const addOption = text => {
@@ -131,7 +134,9 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
           <I.LinkIcon />
         </div>
         <div>
-          <label htmlFor="file"><I.ImageIcon /></label>
+          <label htmlFor="file">
+            <I.ImageIcon />
+          </label>
           <input
             accept="image/*"
             multiple
