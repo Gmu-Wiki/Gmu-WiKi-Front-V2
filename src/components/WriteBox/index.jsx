@@ -30,8 +30,6 @@ function WriteBox() {
   const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
 
-  const { upload, isLoading, imgUrl } = useFile();
-
   const onChange = e => {
     dispatch(e.target);
   };
@@ -43,36 +41,12 @@ function WriteBox() {
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
-    textarea.style.height = "auto";
-    if (isAll) {
-      textarea.style.height = "42px";
-      setIsAll(false);
-    } else {
-      textarea.style.height = `${textarea.scrollHeight}px`;
-    }
 
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
       setNumArr(save);
     }
   };  
-
-  const handleKeyDown = e => {
-    const textarea = textareaRef.current;
-    const selectionStart = textarea.selectionStart;
-    const selectionEnd = textarea.selectionEnd;
-
-    if (e.ctrlKey && e.key === "a") {
-      e.target.select();
-    } else if (
-      e.key === "Backspace" &&
-      textarea.value &&
-      selectionStart === 0 &&
-      selectionEnd === textarea.value.length
-    ) {
-      setIsAll(true);
-    }
-  };
 
   const handleEdit = () => {
     setEdit(true);
@@ -122,7 +96,6 @@ function WriteBox() {
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
-            handleKeyDown={handleKeyDown}
           />
         </S.WriteBox>
       )}

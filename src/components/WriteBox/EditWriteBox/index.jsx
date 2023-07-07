@@ -1,3 +1,4 @@
+import TextareaAutosize from 'react-textarea-autosize';
 import * as S from "./style";
 
 function EditWriteBox({
@@ -8,7 +9,6 @@ function EditWriteBox({
   onChange,
   textareaRef,
   onChangeTextArea,
-  handleKeyDown,
   numArr,
 }) {
   return (
@@ -81,13 +81,10 @@ function EditWriteBox({
             <span key={idx}>{num}</span>
           ))}
         </div>
-        <textarea
-          type="text"
-          rows={1}
+        <TextareaAutosize
           value={content}
           ref={textareaRef}
           onChange={onChangeTextArea}
-          onKeyDown={handleKeyDown}
         />
       </S.ContentInput>
     </>
