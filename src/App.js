@@ -1,10 +1,6 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
-import * as P from "./pages/index";
+import * as P from "./pages";
 import GlobalStyle from "./styles/GlobalStyle";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,6 +23,7 @@ function App() {
           <Route path="/historydetail" element={<P.HistoryDetail />} />
           <Route path="/inquiry" element={<P.Inquiry />} />
           <Route path="/schedule" element={<P.Schedule />} />
+          <Route path="/admin/role" element={<P.Role />} />
           <Route path="*" element={<P.NotFound />} />
         </Routes>
       </Router>

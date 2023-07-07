@@ -11,3 +11,4 @@ export { default as Inquiry } from "./Inquiry";
 export { default as Schedule } from "./Schedule";
 export { default as History } from "./History";
 export { default as HistoryDetail } from "./HistoryDetail";
+export { default as Role } from "./Role";
