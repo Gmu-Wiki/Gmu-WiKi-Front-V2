@@ -30,8 +30,6 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         content.substring(0, startPos) + imgObj + content.substring(endPos);
 
       setContent(newValue);
-      console.log("newvalue", newValue);
-      console.log("imgobj", imgObj);
     },
     [upload, content, setContent, textareaRef, isLoading]
   );

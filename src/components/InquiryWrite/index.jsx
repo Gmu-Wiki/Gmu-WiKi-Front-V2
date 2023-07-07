@@ -1,6 +1,7 @@
 import { useState, useReducer, useRef } from "react";
 import * as S from "./style";
 import * as C from "../index";
+import { useInquiry } from "../../Hooks";
 
 function reducer(state, action) {
   return {
@@ -49,6 +50,12 @@ export default function InquiryWrite() {
     setPreview(true);
   };
 
+  const { inquiryUpload } = useInquiry();
+
+  const postInquiry = () => {
+    inquiryUpload();
+  };
+
   return (
     <>
       <S.WriteOptions>
@@ -89,7 +96,7 @@ export default function InquiryWrite() {
         </S.WriteBox>
       )}
       <S.ButtonContainer>
-        <S.RegisterButton>등록하기</S.RegisterButton>
+        <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );
