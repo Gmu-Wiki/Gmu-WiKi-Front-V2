@@ -32,12 +32,12 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         textareaRef.current.scrollHeight + 132
       }px`;
       setNumArr(numArr => [
-        ...numArr,
+        ...numArr, 
         numArr.length + 1,
-        numArr.length + 2,
-        numArr.length + 3,
-        numArr.length + 4,
-        numArr.length + 5,
+        numArr.length + 2, 
+        numArr.length + 3, 
+        numArr.length + 4, 
+        numArr.length + 5, 
         numArr.length + 6,
       ]);
       addOption(
@@ -51,6 +51,8 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
       addOption("> 텍스트");
     } else if (option === "a") {
       addOption("[텍스트](링크를 입력해주세요)");
+    } else if (option === "img") {
+      
     } else if (option === "code") {
       textareaRef.current.style.height = `${
         textareaRef.current.scrollHeight + 44
@@ -75,7 +77,9 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         <div onClick={() => passOption("h4")}>
           <I.H4Icon />
         </div>
-        <I.DivideLineIcon />
+        <div className="unFunctionIcon">
+          <I.DivideLineIcon />
+        </div>
         <div onClick={() => passOption("b")}>
           <I.BoldIcon />
         </div>
@@ -85,7 +89,9 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         <div onClick={() => passOption("draw")}>
           <I.DrawIcon />
         </div>
-        <I.DivideLineIcon />
+        <div className="unFunctionIcon">
+          <I.DivideLineIcon />
+        </div>
         <div onClick={() => passOption("details")}>
           <I.Toggle />
         </div>
