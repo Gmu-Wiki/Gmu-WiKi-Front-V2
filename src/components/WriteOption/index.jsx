@@ -130,7 +130,7 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         <div onClick={() => passOption("a")}>
           <I.LinkIcon />
         </div>
-        <div onClick={() => passOption("img")}>
+        <div>
           <label htmlFor="file"><I.ImageIcon /></label>
           <input
             accept="image/*"
