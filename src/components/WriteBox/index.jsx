@@ -56,7 +56,9 @@ function WriteBox() {
     setPreview(true);
   };
 
-  const { uploadHandler } = useUpload();
+  const { uploadHandler } = useUpload({
+    props: { title, content, category, detailCategory }
+  });
 
   const post = () => {
     uploadHandler();
