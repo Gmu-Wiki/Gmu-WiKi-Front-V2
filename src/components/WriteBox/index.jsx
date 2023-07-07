@@ -1,8 +1,7 @@
-import { useCallback, useReducer, useRef, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import { useUpload } from "../../Hooks";
-import { useFile } from "../../Hooks";
 
 function reducer(state, action) {
   const newState = {
@@ -27,7 +26,6 @@ function WriteBox() {
   const { category, detailCategory, title } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
-  const [isAll, setIsAll] = useState(false);
   const textareaRef = useRef(null);
 
   const onChange = e => {

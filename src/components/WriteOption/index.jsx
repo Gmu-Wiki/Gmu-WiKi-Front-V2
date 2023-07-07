@@ -90,7 +90,7 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         textareaRef.current.scrollHeight + 44
       }px`;
       setNumArr(numArr => [...numArr, numArr.length + 1, numArr.length + 2]);
-      addOption("```\n" + "텍스트\n" + "```");
+      addOption(`\`\`\`\n텍스트\n\`\`\``);
     }
   };
 
