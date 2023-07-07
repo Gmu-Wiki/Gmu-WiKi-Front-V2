@@ -20,7 +20,7 @@ export default function InquiryWrite() {
 
   let save = [];
 
-  const { title, purpose } = state;
+  const { title, category } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
@@ -50,7 +50,7 @@ export default function InquiryWrite() {
     setPreview(true);
   };
 
-  const { inquiryUpload } = useInquiry();
+  const { inquiryUpload } = useInquiry({ props: { title, content, category } });
 
   const postInquiry = () => {
     inquiryUpload();
@@ -86,6 +86,7 @@ export default function InquiryWrite() {
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
+            category={category}
             type="문의목적"
           />
         </S.WriteBox>

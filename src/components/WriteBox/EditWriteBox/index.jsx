@@ -20,9 +20,9 @@ function EditWriteBox({
             <span>문의목적</span>
             <select name="category" onChange={onChange} value={category}>
               <option value="select">선택해주세요</option>
-              <option value="report">신고</option>
-              <option value="remove">삭제요청</option>
-              <option value="question">질문사항</option>
+              <option value="DELETE">삭제요청</option>
+              <option value="QUESTION">질문사항</option>
+              <option value="REPORT">신고</option>
             </select>
           </>
         )}
