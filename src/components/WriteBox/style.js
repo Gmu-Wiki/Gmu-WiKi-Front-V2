@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ChangeButtonContainer = styled.div`
   display: flex;
   margin-left: 15px;
@@ -25,11 +24,11 @@ export const PreviewButton = styled.button`
   color: #007eff;
   background: ${props => (props.checked ? "#ffffff" : "none")};
   border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
-  border-bottom: ${props => (props.checked && "1px solid #ffffff")};
+  border-bottom: ${props => props.checked && "1px solid #ffffff"};
   cursor: pointer;
   font-size: 0.8rem;
   outline: none;
-  `;
+`;
 
 export const WriteOptions = styled.div`
   position: relative;
@@ -49,8 +48,7 @@ export const WriteBox = styled.div`
   flex-direction: column;
   padding: 20px;
   margin-left: 15px;
-  `;
-
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;

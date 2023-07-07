@@ -1,4 +1,4 @@
-import TextareaAutosize from 'react-textarea-autosize';
+import TextareaAutosize from "react-textarea-autosize";
 import * as S from "./style";
 
 function EditWriteBox({
@@ -9,17 +9,13 @@ function EditWriteBox({
   onChange,
   textareaRef,
   onChangeTextArea,
-  numArr,
+  numArr
 }) {
   return (
     <>
       <S.CategoryInput>
         <span>카테고리</span>
-        <select
-          name="category"
-          onChange={onChange}
-          value={category}
-        >
+        <select name="category" onChange={onChange} value={category}>
           <option value="select">선택해주세요</option>
           <option value="student">학생</option>
           <option value="teacher">선생님</option>
@@ -68,12 +64,7 @@ function EditWriteBox({
       </S.CategoryInput>
       <S.TitleInput>
         <span>제목</span>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={onChange}
-        />
+        <input type="text" name="title" value={title} onChange={onChange} />
       </S.TitleInput>
       <S.ContentInput>
         <div>

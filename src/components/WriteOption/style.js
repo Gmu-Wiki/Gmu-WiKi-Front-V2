@@ -12,16 +12,16 @@ export const OptionContainer = styled.div`
   svg {
     margin-left: 12px;
     cursor: pointer;
-      &:hover {
-        transform: scale(1.275);
-      }
+    &:hover {
+      transform: scale(1.275);
+    }
   }
 
   .unFunctionIcon {
     svg {
       margin-left: 12px;
       cursor: default;
-      
+
       &:hover {
         transform: scale(1);
       }
