@@ -11,6 +11,7 @@ export default function Router() {
       <Route path="/major" element={<P.Major />} />
       <Route path="/event" element={<P.Event />} />
       <Route path="/notice" element={<P.Notice />} />
+      <Route path="noticeWrite" element={<P.NoticeWrite />} />
       <Route path="/post" element={<P.Post />} />
       <Route path="/history" element={<P.History />} />
       <Route path="/historydetail" element={<P.HistoryDetail />} />

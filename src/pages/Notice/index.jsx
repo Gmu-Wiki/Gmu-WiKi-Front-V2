@@ -2,16 +2,12 @@ import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
 import API from "../../apis";
-import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import useNotice from "../../Hooks/useNotice";
-import { setUuid } from "../../store/uuid";
 
 export default function Notice() {
-  const dispatch = useDispatch();
-
   const [noticeList, setNoticeList] = useState([]);
 
   const getNoticeList = async () => {
@@ -28,14 +24,6 @@ export default function Notice() {
     getNoticeList();
   }, []);
 
-  console.log(noticeList);
-
-  const { uploadNotice } = useNotice();
-
-  const handleNotice = () => {
-    uploadNotice();
-  };
-
   return (
     <>
       <C.RecentModified />
@@ -50,7 +38,6 @@ export default function Notice() {
             </S.NoticeBox>
           </>
         ))}
-        <button onClick={handleNotice}>테스트 버튼</button>
       </C.PageContainer>
       <C.Footer />
     </>

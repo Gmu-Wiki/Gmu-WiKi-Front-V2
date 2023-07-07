@@ -20,3 +20,4 @@ export { default as InquiryWrite } from "./InquiryWrite";
 export { default as WriteOption } from "./WriteOption";
 export { default as HistoryItem } from "./HistoryItem";
 export { default as HistoryDetail } from "./HistoryDetailItem";
+export { default as NoticeWrite } from "./NoticeWrite";
