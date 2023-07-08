@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const useInquiry = ({ props }) => {
   const inquiryUpload = useCallback(async () => {
     try {
-      await API.post("/user/inquiry", {
+      await API.post("/admin/inquiry", {
         title: props.title,
         content: props.content,
         inquiryType: props.category
