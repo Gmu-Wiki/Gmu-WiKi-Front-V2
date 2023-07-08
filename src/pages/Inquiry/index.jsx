@@ -18,8 +18,6 @@ export default function Inquiry() {
     }
   });
 
-  console.log(inquiryList);
-
   useEffect(() => {
     fetch();
   }, []);
