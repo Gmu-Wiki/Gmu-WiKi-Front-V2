@@ -17,6 +17,7 @@ export default function Router() {
       <Route path="/inquiry" element={<P.Inquiry />} />
       <Route path="/inquiryWrite" element={<P.InquiryWrite />} />
       <Route path="/schedule" element={<P.Schedule />} />
+      <Route path="admin/role" element={<P.Role />} />
       <Route path="*" element={<P.NotFound />} />
     </Routes>
   );
