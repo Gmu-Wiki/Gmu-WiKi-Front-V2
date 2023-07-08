@@ -14,7 +14,7 @@ const useFetch = options => {
         const { data } = await API({
           url: options.url,
           method: options.method,
-          data: body,
+          data: body
         });
 
         if (options.successMessage) toast.success(options.successMessage);
@@ -35,7 +35,7 @@ const useFetch = options => {
         } else if (
           options.errors &&
           e.response &&
-          options.oerrors[e.response.status]
+          options.errors[e.response.status]
         ) {
           toast.error(options.errors[e.response.status]);
         }
@@ -52,7 +52,7 @@ const useFetch = options => {
       options.onFailure,
       options.successMessage,
       options.errors,
-      options.skipIfLoggedIn,
+      options.skipIfLoggedIn
     ]
   );
 

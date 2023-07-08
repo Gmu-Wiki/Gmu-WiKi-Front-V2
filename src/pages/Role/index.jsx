@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import * as C from "../../components";
 import RoleImg1 from "../../imgs/RoleImg1.png";
 import RoleImg2 from "../../imgs/RoleImg2.png";
+import { useFetch } from "../../Hooks";
 
 export default function Role() {
+  const [formData, setFormData] = useState({});
+  const { fetch, data } = useFetch({
+    url: `/admin/role/${formData.role === "admin" ? "grant" : "revoke"}`,
+    method: "patch",
+    successMessage: "권한 부여에 성공했습니다."
+  });
+
+  console.log(data);
+
   return (
     <>
       <C.RecentModified />
@@ -14,9 +24,20 @@ export default function Role() {
         <S.RoleContainer>
           <S.InputContainer>
             <S.RoleTitle>이메일</S.RoleTitle>
-            <S.RoleInput type="text" />
+            <S.RoleInput
+              type="text"
+              onChange={e =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
             <S.RoleTitle>권한</S.RoleTitle>
-            <S.Select name="role" defaultValue="none">
+            <S.Select
+              name="role"
+              defaultValue="none"
+              onChange={e => {
+                setFormData({ ...formData, role: e.target.value });
+              }}
+            >
               <option value="none">선택해주세요</option>
               <option value="admin">관리자</option>
               <option value="user">사용자</option>
@@ -27,6 +48,9 @@ export default function Role() {
             height="40"
             backgroundColor="#007EFF"
             color="#fff"
+            onClick={() => {
+              fetch({ email: formData.email });
+            }}
           >
             부여하기
           </C.Button>

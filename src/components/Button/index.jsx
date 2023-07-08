@@ -11,6 +11,7 @@ function Button({
   fontWeight,
   float,
   margin,
+  onClick
 }) {
   return (
     <S.Button
@@ -22,6 +23,7 @@ function Button({
       fontWeight={fontWeight}
       float={float}
       margin={margin}
+      onClick={onClick}
     >
       {children}
     </S.Button>
