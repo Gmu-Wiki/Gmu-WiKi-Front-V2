@@ -31,7 +31,7 @@ export default function Notice() {
         <C.ScrollButton />
         {noticeList.map(item => (
           <>
-            <S.NoticeBox>
+            <S.NoticeBox key={item.id}>
               <S.NoticeTitle>{item.title}</S.NoticeTitle>
               <S.NoticeDay>{item.createdDate.substring(0, 10)}</S.NoticeDay>
             </S.NoticeBox>
