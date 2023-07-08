@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 const InquiryDetail = () => {
   const [state, setState] = useState({
+    id: "",
     content: "",
     title: "",
     name: "",
@@ -35,6 +36,7 @@ const InquiryDetail = () => {
       <C.PageContainer title={state.title} sort="문의">
         <C.Explanation>
           <C.InquiryDetailItem
+            id={state.id}
             title={state.title}
             name={state.name}
             content={state.content}
