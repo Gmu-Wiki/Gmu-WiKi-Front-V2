@@ -1,6 +1,7 @@
 export { default as Button } from "./Button";
 export { default as Header } from "./Header";
 export { default as Login } from "./Login";
+export { default as Logout } from "./Logout";
 export { default as WhiteContainer } from "./WhiteContainer";
 export { default as PageContainer } from "./PageContainer";
 export { default as Explanation } from "./Explanation";
@@ -15,6 +16,7 @@ export { default as Graph } from "./Graph";
 export { default as ContentsButton } from "./ContentsButton";
 export { default as RecentModified } from "./RecentModified";
 export { default as InquiryItem } from "./InquiryItem";
-export {default as WriteOption} from "./WriteOption";
+export { default as InquiryWrite } from "./InquiryWrite";
+export { default as WriteOption } from "./WriteOption";
 export { default as HistoryItem } from "./HistoryItem";
 export { default as HistoryDetail } from "./HistoryDetailItem";

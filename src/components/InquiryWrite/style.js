@@ -26,7 +26,7 @@ export const PreviewButton = styled.button`
   border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
   border-bottom: ${props => props.checked && "1px solid #ffffff"};
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   outline: none;
 `;
 

@@ -19,7 +19,7 @@ export const ModalBox = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const LoginContainer = styled.div`
+export const LogoutContainer = styled.div`
   width: 320px;
   height: 440px;
   background-color: #fff;
@@ -39,12 +39,13 @@ export const LoginContainer = styled.div`
     cursor: pointer;
   }
 `;
-export const LoginContent = styled.p`
+export const LogoutContent = styled.p`
   margin-top: 25px;
   font-size: 18px;
+  text-align: center;
 `;
 
-export const LoginTitle = styled.div`
+export const LogoutTitle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,29 +53,29 @@ export const LoginTitle = styled.div`
   margin-bottom: 120px;
 `;
 
-export const LoginButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  gap: 10px;
+export const BtnContainer = styled.div`
+  position: absolute;
+  bottom: 20px;
+  left: 38px;
 `;
 
-export const GAuthLoginButton = styled.button`
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 1rem !important;
-  width: 17rem !important;
-  height: 3.125rem !important;
-  white-space: nowrap !important;
-  background: #2e80cc;
-  color: white;
-  cursor: pointer !important;
-  font-size: 1rem !important;
-  border-radius: 0.5rem;
-  padding: 0.7rem 0 !important;
-  font-weight: 600 !important;
-  outline: none !important;
+export const NoButton = styled.button`
+  color: #fff;
+  background-color: #007eff;
+  cursor: pointer;
+  width: 16vw;
+  height: 7vh;
+  border-radius: 8px;
   border: none;
+`;
+
+export const YesButton = styled.button`
+  color: #007eff;
+  background: none;
+  cursor: pointer;
+  width: 16vw;
+  height: 7vh;
+  border-radius: 8px;
+  border: 1px solid #007eff;
+  margin-top: 12px;
 `;
