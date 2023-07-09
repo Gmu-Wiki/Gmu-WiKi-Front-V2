@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import { useMail } from "../../Hooks";
 
 const InquiryDetailItem = ({ id, title, content, name, inquiryType }) => {
-  const { postApproveMail, postRefusalMail } = useMail({ props: { id } });
+  const { postApproveMail } = useMail({ props: { id } });
+
+  const [showRefusal, setShowRefusal] = useState(false);
 
   const handleApproveMail = () => {
     postApproveMail();
   };
 
   const handleRefusalMail = () => {
-    postRefusalMail();
+    setShowRefusal(true);
   };
 
   return (
@@ -35,6 +37,9 @@ const InquiryDetailItem = ({ id, title, content, name, inquiryType }) => {
           거부
         </button>
       </C.Detail>
+      {showRefusal && (
+        <C.Refusal showLogout={showRefusal} setShowLogout={setShowRefusal} />
+      )}
     </>
   );
 };
