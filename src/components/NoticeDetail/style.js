@@ -28,7 +28,7 @@ export const Content = styled.p`
 
 export const NTBox = styled.div`
   display: flex;
-  margin-left: 70%;
+  margin-left: 68%;
   width: 80%;
 `;
 
@@ -39,7 +39,7 @@ export const Date = styled.p`
 
 export const BtnBox = styled.div`
   display: flex;
-  margin-left: 84%;
+  margin-left: 90%;
 `;
 
 export const DeleteBtn = styled.button`

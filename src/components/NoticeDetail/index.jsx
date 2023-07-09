@@ -24,7 +24,6 @@ const InquiryDetailItem = ({ id, content, createdDate, editedDate }) => {
         <S.Date>작성일 : {createdDate}</S.Date>
         <S.Date>수정일 : {editedDate}</S.Date>
       </S.NTBox>
-      <S.Content dangerouslySetInnerHTML={{ __html: html }} />
       <S.BtnBox>
         <S.DeleteBtn
           onClick={() => {
