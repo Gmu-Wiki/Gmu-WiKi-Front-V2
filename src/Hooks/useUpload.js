@@ -3,6 +3,7 @@ import API from "../apis";
 import { toast } from "react-toastify";
 
 const useUpload = ({ props }) => {
+  console.log(props);
   const uploadHandler = useCallback(async () => {
     try {
       await API.post("/user/board", {

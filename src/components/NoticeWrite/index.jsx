@@ -1,8 +1,7 @@
 import { useState, useReducer, useRef } from "react";
 import * as S from "./style";
 import * as C from "../index";
-import { useInquiry } from "../../Hooks";
-
+import { useNotice } from "../../Hooks";
 function reducer(state, action) {
   return {
     ...state,
@@ -10,17 +9,16 @@ function reducer(state, action) {
   };
 }
 
-export default function InquiryWrite() {
+export default function NoticeWrite() {
   const [edit, setEdit] = useState(true);
   const [preview, setPreview] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
-    purpose: "선택해주세요",
     title: ""
   });
 
   let save = [];
 
-  const { title, category } = state;
+  const { title } = state;
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);
@@ -50,14 +48,10 @@ export default function InquiryWrite() {
     setPreview(true);
   };
 
-  window.onbeforeunload = () => {
-    return "reloadEvent";
-  };
+  const { uploadNotice } = useNotice({ props: { title, content } });
 
-  const { inquiryUpload } = useInquiry({ props: { title, content, category } });
-
-  const postInquiry = () => {
-    inquiryUpload();
+  const handleNotice = () => {
+    uploadNotice();
   };
 
   return (
@@ -90,8 +84,6 @@ export default function InquiryWrite() {
             onChange={onChange}
             onChangeTextArea={onChangeTextArea}
             numArr={numArr}
-            category={category}
-            type="문의목적"
           />
         </S.WriteBox>
       )}
@@ -101,7 +93,7 @@ export default function InquiryWrite() {
         </S.WriteBox>
       )}
       <S.ButtonContainer>
-        <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
+        <S.RegisterButton onClick={handleNotice}>등록하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );

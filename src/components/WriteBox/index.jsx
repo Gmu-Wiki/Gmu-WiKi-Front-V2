@@ -22,7 +22,6 @@ function WriteBox() {
   let save = [];
 
   const { category, detailCategory, title } = state;
-  console.log(category);
   const [numArr, setNumArr] = useState([1]);
   const [content, setContent] = useState("");
   const textareaRef = useRef(null);

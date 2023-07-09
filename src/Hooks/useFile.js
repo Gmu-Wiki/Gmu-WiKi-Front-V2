@@ -17,7 +17,6 @@ const useFile = () => {
       const { data } = await API.post("/file", formData, {
         header: { "Content-Type": "multipart/form-data" }
       });
-      toast.success("이미지 업로드에 성공했습니다.");
 
       setIsLoading(false);
 
