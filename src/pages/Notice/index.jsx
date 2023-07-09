@@ -4,6 +4,7 @@ import * as S from "./style";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useFetch } from "../../Hooks";
+import { Link } from "react-router-dom";
 
 export default function Notice() {
   const [noticeList, setNoticeList] = useState([]);
@@ -31,10 +32,12 @@ export default function Notice() {
         <C.ScrollButton />
         {noticeList.map(item => (
           <>
-            <S.NoticeBox key={item.id}>
-              <S.NoticeTitle>{item.title}</S.NoticeTitle>
-              <S.NoticeDay>{item.createdDate.substring(0, 10)}</S.NoticeDay>
-            </S.NoticeBox>
+            <Link to={`/notice/${item.id}`}>
+              <S.NoticeBox key={item.id}>
+                <S.NoticeTitle>{item.title}</S.NoticeTitle>
+                <S.NoticeDay>{item.createdDate.substring(0, 10)}</S.NoticeDay>
+              </S.NoticeBox>
+            </Link>
           </>
         ))}
       </C.PageContainer>
