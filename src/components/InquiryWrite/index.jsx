@@ -50,6 +50,10 @@ export default function InquiryWrite() {
     setPreview(true);
   };
 
+  window.onbeforeunload = () => {
+    return "reloadEvent";
+  };
+
   const { inquiryUpload } = useInquiry({ props: { title, content, category } });
 
   const postInquiry = () => {

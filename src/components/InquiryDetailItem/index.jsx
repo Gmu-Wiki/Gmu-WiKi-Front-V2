@@ -1,15 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
+import { useMail } from "../../Hooks";
+import useMarkdown from "../../Hooks/useMarkdown";
 
-const InquiryDetailItem = ({ title, content, name, inquiryType }) => {
+const InquiryDetailItem = ({ id, title, content, name, inquiryType }) => {
+  const { postApproveMail } = useMail({ props: { id } });
+
+  const [showRefusal, setShowRefusal] = useState(false);
+
+  const handleApproveMail = () => {
+    postApproveMail();
+  };
+
+  const handleRefusalMail = () => {
+    setShowRefusal(true);
+  };
+
+  const { markdownToHtml } = useMarkdown();
+
+  const html = markdownToHtml(content);
+
   return (
     <>
       <C.Detail hasNumber={false} title={title}>
-        <S.Content>{content}</S.Content>
-        <p>{name}</p>
-        <p>{inquiryType}</p>
+        <S.NTBox>
+          <S.Name>작성자 : {name}</S.Name>
+          <S.InquiryType>문의 종류 : {inquiryType}</S.InquiryType>
+        </S.NTBox>
+        <S.BtnBox>
+          <S.ApproveBtn
+            onClick={() => {
+              handleApproveMail();
+            }}
+          >
+            승인
+          </S.ApproveBtn>
+          <S.RefusalBtn
+            onClick={() => {
+              handleRefusalMail();
+            }}
+          >
+            거부
+          </S.RefusalBtn>
+        </S.BtnBox>
+        <S.Content dangerouslySetInnerHTML={{ __html: html }} />
       </C.Detail>
+      {showRefusal && (
+        <C.Refusal
+          id={id}
+          showLogout={showRefusal}
+          setShowLogout={setShowRefusal}
+        />
+      )}
     </>
   );
 };

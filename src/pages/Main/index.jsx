@@ -2,7 +2,7 @@ import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
 import * as I from "../../assets";
-import SchoolImg from "../../assets/img/SchoolImg.png";
+import SchoolImg from "../../imgs/SchoolImg.png";
 import { schoolGraphData, historyGraphData } from "../../lib/mainPageData";
 import { useLogin } from "../../Hooks";
 
@@ -70,7 +70,7 @@ function Main() {
               Gwangju Software Meister High School
             </div>
           </S.SchoolTitleContent>
-          <S.SchoolImg src={SchoolImg} />
+          <S.SchoolImg src={SchoolImg} alt="학교 이미지" />
           {schoolGraphs}
         </S.IntroCenter>
         <C.Detail hasNumber={true} number={1} title={"개요"}>
