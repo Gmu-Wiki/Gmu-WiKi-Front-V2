@@ -3,7 +3,7 @@ import * as S from "./style";
 import * as I from "../../assets";
 import { useMail } from "../../Hooks";
 
-function Refusal({ showLogout, setShowLogout }) {
+function Refusal({ showLogout, setShowLogout, id }) {
   function showLogoutModal() {
     setShowLogout(prev => !prev);
   }
@@ -14,7 +14,7 @@ function Refusal({ showLogout, setShowLogout }) {
     setRefusalReason(e.target.value);
   };
 
-  const { postRefusalMail } = useMail({ props: { refusalReason } });
+  const { postRefusalMail } = useMail({ props: { refusalReason, id } });
 
   const onClick = () => {
     setShowLogout(prev => !prev);

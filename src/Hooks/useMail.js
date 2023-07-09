@@ -16,7 +16,7 @@ const useMail = ({ props }) => {
       console.log(e);
       toast.error("메일 발송 실패");
     }
-  }, [props.id]);
+  }, [props.id, navigate]);
 
   const postRefusalMail = useCallback(async () => {
     try {

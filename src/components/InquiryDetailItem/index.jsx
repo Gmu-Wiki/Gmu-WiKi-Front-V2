@@ -38,7 +38,11 @@ const InquiryDetailItem = ({ id, title, content, name, inquiryType }) => {
         </button>
       </C.Detail>
       {showRefusal && (
-        <C.Refusal showLogout={showRefusal} setShowLogout={setShowRefusal} />
+        <C.Refusal
+          id={id}
+          showLogout={showRefusal}
+          setShowLogout={setShowRefusal}
+        />
       )}
     </>
   );
