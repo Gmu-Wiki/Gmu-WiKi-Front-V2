@@ -41,8 +41,17 @@ export const RefusalContainer = styled.div`
 `;
 export const RefusalContent = styled.p`
   margin-top: 25px;
-  font-size: 18px;
+  font-size: 1.2rem;
   text-align: center;
+  font-weight: 600;
+`;
+
+export const InputRefusal = styled.textarea`
+  height: 20%;
+  width: 80%;
+  outline: none;
+  margin-bottom: 100px;
+  resize: none;
 `;
 
 export const RefusalTitle = styled.div`

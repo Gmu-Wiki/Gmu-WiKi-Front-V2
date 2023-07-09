@@ -29,7 +29,7 @@ function Refusal({ showLogout, setShowLogout, id }) {
           <S.RefusalTitle>
             <S.RefusalContent>거부 사유 입력</S.RefusalContent>
           </S.RefusalTitle>
-          <input onChange={changeRefusal} />
+          <S.InputRefusal onChange={changeRefusal} />
           <S.BtnContainer>
             <S.YesButton onClick={onClick}>메일 보내기</S.YesButton>
           </S.BtnContainer>
