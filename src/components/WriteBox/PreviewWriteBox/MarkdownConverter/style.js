@@ -1,3 +1,6 @@
+import styled from "styled-components";
+
+export const MarkdownContainer = styled.div`
 details summary {
   font-weight: 600;
   font-size: 1.5rem;
@@ -59,3 +62,6 @@ hr {
 li {
   margin-left: 20px;
 }
+
+`;
+
