@@ -12,6 +12,11 @@ export const Content = styled.p`
   a {
     color: #007eff;
   }
+
+  img {
+    width: 64vw;
+    height: 80vh;
+  }
 `;
 
 export const NTBox = styled.div`

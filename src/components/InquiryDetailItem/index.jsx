@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import { useMail } from "../../Hooks";
+import useMarkdown from "../../Hooks/useMarkdown";
 
 const InquiryDetailItem = ({ id, title, content, name, inquiryType }) => {
   const { postApproveMail } = useMail({ props: { id } });
@@ -15,6 +16,10 @@ const InquiryDetailItem = ({ id, title, content, name, inquiryType }) => {
   const handleRefusalMail = () => {
     setShowRefusal(true);
   };
+
+  const { markdownToHtml } = useMarkdown();
+
+  const html = markdownToHtml(content);
 
   return (
     <>
@@ -39,7 +44,7 @@ const InquiryDetailItem = ({ id, title, content, name, inquiryType }) => {
             거부
           </S.RefusalBtn>
         </S.BtnBox>
-        <S.Content>{content}</S.Content>
+        <S.Content dangerouslySetInnerHTML={{ __html: html }} />
       </C.Detail>
       {showRefusal && (
         <C.Refusal
