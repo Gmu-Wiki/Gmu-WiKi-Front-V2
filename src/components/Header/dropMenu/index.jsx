@@ -12,8 +12,11 @@ function DropMenu() {
               <Link to="/notice">
                 <span className="fontMove">공지사항</span>
               </Link>
-              <Link to="/inquiry">
+              <Link to="/inquiryWrite">
                 <span>문의</span>
+              </Link>
+              <Link to="/inquiry">
+                <span>문의 리스트</span>
               </Link>
             </div>
           </div>

@@ -11,10 +11,12 @@ export default function Router() {
       <Route path="/major" element={<P.Major />} />
       <Route path="/event" element={<P.Event />} />
       <Route path="/notice" element={<P.Notice />} />
+      <Route path="noticeWrite" element={<P.NoticeWrite />} />
       <Route path="/post" element={<P.Post />} />
       <Route path="/history" element={<P.History />} />
       <Route path="/historydetail" element={<P.HistoryDetail />} />
       <Route path="/inquiry" element={<P.Inquiry />} />
+      <Route path="/inquiry/:id" element={<P.InquiryDetail />} />
       <Route path="/inquiryWrite" element={<P.InquiryWrite />} />
       <Route path="/schedule" element={<P.Schedule />} />
       <Route path="admin/role" element={<P.Role />} />
