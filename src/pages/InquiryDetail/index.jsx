@@ -15,7 +15,7 @@ const InquiryDetail = () => {
   let { id } = useParams();
 
   const { fetch } = useFetch({
-    url: `/user/inquiry/${id}`,
+    url: `/admin/inquiry/${id}`,
     method: "get",
     onSuccess: data => {
       setState(data);
