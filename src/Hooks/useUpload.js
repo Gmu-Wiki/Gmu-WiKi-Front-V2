@@ -2,9 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 import API from "../apis";
 import { toast } from "react-toastify";
 import GetRole from "../lib/GetRole";
+import { useNavigate } from "react-router-dom";
 
 const useUpload = ({ props }) => {
   const data = GetRole();
+  const navigate = useNavigate();
 
   const [roleUrl, setRoleUrl] = useState("");
 
@@ -26,6 +28,7 @@ const useUpload = ({ props }) => {
       });
 
       toast.success("글  성공");
+      navigate("/");
     } catch (e) {
       toast.error("글 등록 실패");
     }

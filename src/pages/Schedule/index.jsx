@@ -1,9 +1,16 @@
 import React from "react";
 import * as C from "../../components";
+import * as S from "./style";
 import GetRole from "../../lib/GetRole";
+import useBoard from "../../Hooks/useBoard";
+import { Link } from "react-router-dom";
 
-export default function Schedule() {
+export default function Student() {
   const data = GetRole();
+  const { boardList, roleUrl } = useBoard({ boardType: "SCHEDULE" });
+
+  if (!boardList) return;
+
   return (
     <>
       <C.RecentModified />
@@ -16,7 +23,18 @@ export default function Schedule() {
           ? { hasPostButton: true }
           : { hasPostButton: false })}
         url="/post"
-      ></C.PageContainer>
+      >
+        {boardList.map(item => (
+          <React.Fragment key={item.id}>
+            <S.Box>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.Title>{item.title}</S.Title>
+              </Link>
+            </S.Box>
+          </React.Fragment>
+        ))}
+      </C.PageContainer>
+
       <C.ScrollButton />
       <C.Footer />
     </>

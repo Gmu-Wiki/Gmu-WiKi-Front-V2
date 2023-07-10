@@ -52,14 +52,14 @@ export default function Notice() {
       >
         <C.ScrollButton />
         {noticeList.map(item => (
-          <>
+          <React.Fragment key={item.id}>
             <Link to={`/notice/${item.id}`}>
-              <S.NoticeBox key={item.id}>
+              <S.NoticeBox>
                 <S.NoticeTitle>{item.title}</S.NoticeTitle>
                 <S.NoticeDay>{item.createdDate.substring(0, 10)}</S.NoticeDay>
               </S.NoticeBox>
             </Link>
-          </>
+          </React.Fragment>
         ))}
       </C.PageContainer>
       <C.Footer />

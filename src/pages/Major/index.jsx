@@ -1,9 +1,16 @@
 import React from "react";
 import * as C from "../../components";
+import * as S from "./style";
 import GetRole from "../../lib/GetRole";
+import useBoard from "../../Hooks/useBoard";
+import { Link } from "react-router-dom";
 
-export default function Major() {
+export default function Student() {
   const data = GetRole();
+  const { boardList, roleUrl } = useBoard({ boardType: "MAJOR" });
+
+  if (!boardList) return;
+
   return (
     <>
       <C.RecentModified />
@@ -16,7 +23,18 @@ export default function Major() {
           ? { hasPostButton: true }
           : { hasPostButton: false })}
         url="/post"
-      ></C.PageContainer>
+      >
+        {boardList.map(item => (
+          <React.Fragment key={item.id}>
+            <S.MajorBox>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.MajorTitle>{item.title}</S.MajorTitle>
+              </Link>
+            </S.MajorBox>
+          </React.Fragment>
+        ))}
+      </C.PageContainer>
+
       <C.ScrollButton />
       <C.Footer />
     </>

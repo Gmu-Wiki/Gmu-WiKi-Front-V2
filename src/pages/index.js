@@ -7,6 +7,7 @@ export { default as Notice } from "./Notice";
 export { default as NoticeWrite } from "./NoticeWrite";
 export { default as Teacher } from "./Teacher";
 export { default as Student } from "./Student";
+export { default as StudentDetail } from "./StudentDetail";
 export { default as Post } from "./Post";
 export { default as Inquiry } from "./Inquiry";
 export { default as InquiryDetail } from "./InquiryDetail";

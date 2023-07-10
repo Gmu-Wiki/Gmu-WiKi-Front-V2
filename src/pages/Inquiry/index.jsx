@@ -28,14 +28,16 @@ export default function Inquiry() {
       <C.Header />
       <C.PageContainer title="문의" sort="문의">
         {inquiryList.map(item => (
-          <C.InquiryItem key={item.id}>
-            <Link to={`/inquiry/${item.id}`}>
-              <S.InquiryTitleContainer>
-                <S.StyledTitle>{item.title}</S.StyledTitle>
-                <S.Sort>{item.inquiryType}</S.Sort>
-              </S.InquiryTitleContainer>
-            </Link>
-          </C.InquiryItem>
+          <React.Fragment key={item.id}>
+            <C.InquiryItem>
+              <Link to={`/inquiry/${item.id}`}>
+                <S.InquiryTitleContainer>
+                  <S.StyledTitle>{item.title}</S.StyledTitle>
+                  <S.Sort>{item.inquiryType}</S.Sort>
+                </S.InquiryTitleContainer>
+              </Link>
+            </C.InquiryItem>
+          </React.Fragment>
         ))}
       </C.PageContainer>
       <C.ScrollButton />

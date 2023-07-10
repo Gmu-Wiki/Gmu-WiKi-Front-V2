@@ -6,6 +6,7 @@ export default function Router() {
     <Routes>
       <Route path="/" element={<P.Main />} />
       <Route path="/student" element={<P.Student />} />
+      <Route path="/student/:id" element={<P.StudentDetail />} />
       <Route path="/teacher" element={<P.Teacher />} />
       <Route path="/club" element={<P.Club />} />
       <Route path="/major" element={<P.Major />} />
