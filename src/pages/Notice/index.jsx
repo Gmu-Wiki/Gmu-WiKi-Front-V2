@@ -45,7 +45,9 @@ export default function Notice() {
       <C.PageContainer
         title="공지"
         sort="공지"
-        {...(data === "admin" ? { hasPostButton: true } : null)}
+        {...(data === "관리자"
+          ? { hasPostButton: true }
+          : { hasPostButton: false })}
         url="/noticeWrite"
       >
         <C.ScrollButton />
