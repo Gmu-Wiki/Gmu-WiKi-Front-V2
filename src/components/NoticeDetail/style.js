@@ -28,25 +28,21 @@ export const Content = styled.p`
 
 export const NTBox = styled.div`
   display: flex;
-  margin-left: 70%;
+  margin-left: 68%;
+  width: 80%;
 `;
 
-export const Name = styled.p`
+export const Date = styled.p`
   font-size: 1rem;
-`;
-
-export const InquiryType = styled.p`
-  font-size: 0.8rem;
-  margin-left: 20px;
-  color: #999;
+  margin-left: 10px;
 `;
 
 export const BtnBox = styled.div`
   display: flex;
-  margin-left: 84%;
+  margin-left: 90%;
 `;
 
-export const ApproveBtn = styled.button`
+export const DeleteBtn = styled.button`
   color: #999;
   border: 1px solid #999;
   background: none;

@@ -10,6 +10,7 @@ function PageContainer({
   hasEditButton,
   hasPostButton,
   hasHistoryButton,
+  url
 }) {
   return (
     <S.PageCenter>
@@ -24,7 +25,7 @@ function PageContainer({
                   </Link>
                 )}
                 {hasPostButton && (
-                  <Link to="/post">
+                  <Link to={url}>
                     <C.ContentsButton>추가</C.ContentsButton>
                   </Link>
                 )}

@@ -15,3 +15,4 @@ export { default as Schedule } from "./Schedule";
 export { default as History } from "./History";
 export { default as HistoryDetail } from "./HistoryDetail";
 export { default as Role } from "./Role";
+export { default as NoticeDetail } from "./NoticeDetail";

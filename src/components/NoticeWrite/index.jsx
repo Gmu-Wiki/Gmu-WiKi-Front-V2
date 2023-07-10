@@ -48,6 +48,10 @@ export default function NoticeWrite() {
     setPreview(true);
   };
 
+  window.onbeforeunload = () => {
+    return "reloadEvent";
+  };
+
   const { uploadNotice } = useNotice({ props: { title, content } });
 
   const handleNotice = () => {
