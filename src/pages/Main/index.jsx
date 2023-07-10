@@ -5,11 +5,14 @@ import * as I from "../../assets";
 import SchoolImg from "../../imgs/SchoolImg.png";
 import { schoolGraphData, historyGraphData } from "../../lib/mainPageData";
 import { useLogin } from "../../Hooks";
+import GetRole from "../../lib/GetRole";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
 
 function Main() {
   useLogin();
+  const data = GetRole();
+  console.log(data);
 
   const schoolGraphs = schoolGraphData.map((data, index) => (
     <C.Graph
