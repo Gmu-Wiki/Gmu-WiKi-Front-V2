@@ -11,8 +11,18 @@ export default function Notice() {
   const data = GetRole();
   const [noticeList, setNoticeList] = useState([]);
 
+  const [roleUrl, setRoleUrl] = useState("");
+
+  useEffect(() => {
+    if (data === "관리자") {
+      setRoleUrl("admin");
+    } else if (data === "사용자") {
+      setRoleUrl("user");
+    }
+  }, [data]);
+
   const { fetch } = useFetch({
-    url: `/user/notice`,
+    url: `/${roleUrl}/notice`,
     method: "get",
     onSuccess: data => {
       setNoticeList(data.noticeList);
@@ -23,8 +33,10 @@ export default function Notice() {
   });
 
   useEffect(() => {
-    fetch();
-  }, []);
+    if (roleUrl) {
+      fetch();
+    }
+  }, [roleUrl]);
 
   return (
     <>

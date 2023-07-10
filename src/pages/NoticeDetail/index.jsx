@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import * as C from "../../components";
 import { useFetch } from "../../Hooks";
 import { useParams } from "react-router-dom";
+import GetRole from "../../lib/GetRole";
 
 const InquiryDetail = () => {
+  const data = GetRole();
+
   const [state, setState] = useState({
     id: "",
     content: "",
@@ -14,8 +17,18 @@ const InquiryDetail = () => {
 
   let { id } = useParams();
 
+  const [roleUrl, setRoleUrl] = useState("");
+
+  useEffect(() => {
+    if (data === "관리자") {
+      setRoleUrl("admin");
+    } else if (data === "사용자") {
+      setRoleUrl("user");
+    }
+  }, [data]);
+
   const { fetch } = useFetch({
-    url: `/user/notice/${id}`,
+    url: `/${roleUrl}/notice/${id}`,
     method: "get",
     onSuccess: data => {
       setState(data);
@@ -26,8 +39,10 @@ const InquiryDetail = () => {
   });
 
   useEffect(() => {
-    fetch();
-  }, []);
+    if (roleUrl) {
+      fetch();
+    }
+  }, [roleUrl]);
 
   return (
     <>
