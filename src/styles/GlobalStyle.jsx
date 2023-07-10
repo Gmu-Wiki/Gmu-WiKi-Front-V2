@@ -30,12 +30,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   details summary::marker {
-    content: url("../../../../imgs/closeToggle.png");
+    content: url("../imgs/closeToggle.png");
     font-size: 1.8rem;
   }
 
   details[open] summary::marker {
-    content: url("../../../../imgs/openToggle.png");
+    content: url("../imgs/openToggle.png");
     font-size: 1.8rem;
   }
 
