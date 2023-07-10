@@ -6,7 +6,7 @@ const History = () => {
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title="문의" sort="G무위키">
+      <C.PageContainer title="공지" sort="공지">
         <C.NoticeWrite />
       </C.PageContainer>
     </>

@@ -18,7 +18,11 @@ function Refusal({ showLogout, setShowLogout, id }) {
 
   const onClick = () => {
     setShowLogout(prev => !prev);
-    postRefusalMail();
+    const shouldRefusal = window.confirm("정말로 거부하시겠습니까?");
+
+    if (shouldRefusal) {
+      postRefusalMail();
+    }
   };
   return (
     <>
