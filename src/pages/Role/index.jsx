@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import * as C from "../../components";
 import RoleImg1 from "../../imgs/RoleImg1.png";
 import RoleImg2 from "../../imgs/RoleImg2.png";
 import { useFetch } from "../../Hooks";
+import { useNavigate } from "react-router-dom";
+import GetRole from "../../lib/GetRole";
+import { toast } from "react-toastify";
 
 export default function Role() {
+  const navigate = useNavigate();
+  const role = GetRole();
+
+  useEffect(() => {
+    if (role !== "관리자") {
+      toast.error("권한이 없습니다.");
+      navigate("/");
+    }
+  }, [role, navigate]);
+
   const [formData, setFormData] = useState({});
-  const { fetch, data } = useFetch({
+  const { fetch } = useFetch({
     url: `/admin/role/${formData.role === "admin" ? "grant" : "revoke"}`,
     method: "patch",
-    successMessage: "권한 부여에 성공했습니다."
+    successMessage: "권한 부여에 성공했습니다.",
+    errors: "권한이 없습니다."
   });
-
-  console.log(data);
 
   return (
     <>

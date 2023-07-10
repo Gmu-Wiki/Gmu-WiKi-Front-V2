@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import * as C from "../../components";
 import * as S from "./style";
 import { useFetch } from "../../Hooks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import GetRole from "../../lib/GetRole";
+import { toast } from "react-toastify";
 
 export default function Inquiry() {
   const [inquiryList, setInquiryList] = useState([]);
@@ -21,6 +23,16 @@ export default function Inquiry() {
   useEffect(() => {
     fetch();
   }, []);
+
+  const navigate = useNavigate();
+  const role = GetRole();
+
+  useEffect(() => {
+    if (role !== "관리자") {
+      toast.error("권한이 없습니다.");
+      navigate("/");
+    }
+  }, [role, navigate]);
 
   return (
     <>
