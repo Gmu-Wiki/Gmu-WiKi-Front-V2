@@ -36,12 +36,7 @@ function Main() {
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer
-        title="대문"
-        sort="G무위키"
-        hasEditButton
-        hasHistoryButton
-      >
+      <C.PageContainer title="대문" sort="G무위키">
         <C.Explanation>
           <S.DetailCenter>
             <S.Title>
