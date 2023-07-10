@@ -1,12 +1,24 @@
 import { Routes, Route } from "react-router-dom";
 import * as P from "../pages";
+import GetRole from "../lib/GetRole";
+import { useEffect, useState } from "react";
 
 export default function Router() {
+  const role = GetRole();
+  const [roleUrl, setRoleUrl] = useState("");
+
+  useEffect(() => {
+    if (role === "관리자") {
+      setRoleUrl("admin");
+    } else if (role === "사용자") {
+      setRoleUrl("user");
+    }
+  }, [role]);
   return (
     <Routes>
       <Route path="/" element={<P.Main />} />
       <Route path="/student" element={<P.Student />} />
-      <Route path="/student/:id" element={<P.StudentDetail />} />
+      <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
       <Route path="/teacher" element={<P.Teacher />} />
       <Route path="/club" element={<P.Club />} />
       <Route path="/major" element={<P.Major />} />
