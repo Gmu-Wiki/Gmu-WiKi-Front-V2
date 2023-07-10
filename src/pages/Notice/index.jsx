@@ -10,7 +10,7 @@ export default function Notice() {
   const [noticeList, setNoticeList] = useState([]);
 
   const { fetch } = useFetch({
-    url: `/admin/notice`,
+    url: `/user/notice`,
     method: "get",
     onSuccess: data => {
       setNoticeList(data.noticeList);
