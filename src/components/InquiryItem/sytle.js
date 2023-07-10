@@ -10,6 +10,9 @@ export const InquiryItemWrapper = styled.div`
   padding: 10px 18px;
   line-height: 24px;
   cursor: pointer;
+  a {
+    color: #000;
+  }
 
   &:hover {
     background-color: rgba(25, 25, 25, 0.04);
