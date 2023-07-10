@@ -5,12 +5,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useFetch } from "../../Hooks";
 import { Link } from "react-router-dom";
+import GetRole from "../../lib/GetRole";
 
 export default function Notice() {
+  const data = GetRole();
   const [noticeList, setNoticeList] = useState([]);
 
   const { fetch } = useFetch({
-    url: `/admin/notice`,
+    url: `/user/notice`,
     method: "get",
     onSuccess: data => {
       setNoticeList(data.noticeList);
@@ -31,7 +33,7 @@ export default function Notice() {
       <C.PageContainer
         title="공지"
         sort="공지"
-        hasPostButton
+        {...(data === "admin" ? { hasPostButton: true } : null)}
         url="/noticeWrite"
       >
         <C.ScrollButton />

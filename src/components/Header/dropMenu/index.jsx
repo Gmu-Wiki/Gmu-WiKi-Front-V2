@@ -1,8 +1,11 @@
 import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
+import GetRole from "../../../lib/GetRole";
 
 function DropMenu() {
+  const data = GetRole();
+
   return (
     <S.dropHeader>
       <S.dropMenu>
@@ -15,9 +18,11 @@ function DropMenu() {
               <Link to="/inquiryWrite">
                 <span>문의</span>
               </Link>
-              <Link to="/inquiry">
-                <span>문의 리스트</span>
-              </Link>
+              {data === "관리자" ? (
+                <Link to="/inquiry">
+                  <span>문의 리스트</span>
+                </Link>
+              ) : null}
             </div>
           </div>
           <div>
