@@ -6,7 +6,7 @@ import { store } from "../store";
 
 const API = axios.create({
   baseURL: EnvConfig.GMUWIKI_SERVER_URL,
-  withCredentials: true,
+  withCredentials: true
 });
 
 API.interceptors.request.use(async config => {
