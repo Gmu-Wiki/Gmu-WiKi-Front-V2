@@ -1,11 +1,10 @@
 import React from "react";
 import * as S from "./style";
-import * as C from "../index";
 import useMarkdown from "../../Hooks/useMarkdown";
 import { useNotice } from "../../Hooks";
 import GetRole from "../../lib/GetRole";
 
-const InquiryDetailItem = ({ id, content, createdDate, editedDate }) => {
+const NoticeDetailItem = ({ id, content, createdDate, editedDate }) => {
   const data = GetRole();
   const { deleteNotice } = useNotice({ props: { id } });
   const { markdownToHtml } = useMarkdown();
@@ -43,4 +42,4 @@ const InquiryDetailItem = ({ id, content, createdDate, editedDate }) => {
   );
 };
 
-export default InquiryDetailItem;
+export default NoticeDetailItem;

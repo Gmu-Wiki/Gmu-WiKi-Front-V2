@@ -36,7 +36,7 @@ function EditWriteBox({
               <option value="MAJOR">전공</option>
               <option value="CLUB">동아리</option>
               <option value="INCIDENT">사건</option>
-              <option value="SCHEDULE">달</option>
+              <option value="SCHEDULE">학사일정</option>
             </select>
             <select
               name="detailCategory"
