@@ -1,35 +1,19 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  BrowserRouter,
-} from "react-router-dom";
-import React from "react";
-import * as P from "./pages/index";
 import GlobalStyle from "./styles/GlobalStyle";
+import React from "react";
+import Router from "./router";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Router>
-        <Routes>
-          <Route path="/" element={<P.Main />} />
-          <Route path="/student" element={<P.Student />} />
-          <Route path="/teacher" element={<P.Teacher />} />
-          <Route path="/club" element={<P.Club />} />
-          <Route path="/major" element={<P.Major />} />
-          <Route path="/event" element={<P.Event />} />
-          <Route path="/notice" element={<P.Notice />} />
-          <Route path="/post" element={<P.Post />} />
-          <Route path="/inquiry" element={<P.Inquiry />} />
-          <Route path="/schedule" element={<P.Schedule />} />
-          <Route path="*" element={<P.NotFound />} />
-        </Routes>
-      </Router>
-      <ToastContainer />
+      <Provider store={store}>
+        <GlobalStyle />
+        <Router />
+        <ToastContainer />
+      </Provider>
     </>
   );
 }

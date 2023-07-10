@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CategoryInput = styled.div`
-  width: 50%;
+  width: 100%;
   height: 5vh;
   display: flex;
   align-items: center;
@@ -25,20 +25,21 @@ export const CategoryInput = styled.div`
 `;
 
 export const TitleInput = styled.div`
-  width: 38%;
+  width: 100%;
   height: 5vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
   span {
     color: #999999;
     font-size: 1rem;
     font-weight: 600;
+    margin-right: 40px;
   }
 
   input {
     border: 1px solid #dddddd;
-    width: 80%;
+    width: 90%;
     height: 26px;
     padding-left: 10px;
     outline: 0;
@@ -63,18 +64,19 @@ export const ContentInput = styled.div`
       color: #999999;
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 4%;
+      line-height: 22px;
     }
   }
 
   textarea {
     border: 1px solid #dddddd;
     width: 90.2%;
-    padding: 10px 10px;
+    padding: 10px;
     outline: 0;
     background-color: none;
     resize: none;
     line-height: 22px;
+    overflow-y: hidden;
 
     &::-webkit-scrollbar {
       display: none;

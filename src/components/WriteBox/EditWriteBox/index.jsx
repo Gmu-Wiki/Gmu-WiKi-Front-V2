@@ -1,65 +1,99 @@
+import TextareaAutosize from "react-textarea-autosize";
 import * as S from "./style";
 
 function EditWriteBox({
   category,
   detailCategory,
   title,
-  onChange,
-  numArr,
   content,
+  onChange,
   textareaRef,
   onChangeTextArea,
+  numArr,
+  type
 }) {
   return (
     <>
       <S.CategoryInput>
-        <span>카테고리</span>
-        <select name="category" onChange={onChange} value={category}>
-          <option value="">선택해주세요</option>
-          <option value="student">학생</option>
-          <option value="teacher">선생님</option>
-          <option value="major">전공</option>
-          <option value="club">동아리</option>
-          <option value="event">사건</option>
-        </select>
-        <select
-          name="detailCategory"
-          onChange={onChange}
-          value={detailCategory}
-        >
-          <option value="">선택해주세요</option>
-          {category === "student" && (
-            <>
-              <option value="7grade">7기</option>
-              <option value="6grade">6기</option>
-              <option value="5grade">5기</option>
-            </>
-          )}
-          {category === "teacher" && (
-            <>
-              <option value="normal">일반교과</option>
-              <option value="professional">전문교과</option>
-              <option value="professionalEdu">전문교육부</option>
-            </>
-          )}
-          {category === "major" && (
-            <>
-              <option value="major">전공</option>
-            </>
-          )}
-          {category === "club" && (
-            <>
-              <option value="major-club">전공동아리</option>
-              <option value="autonomy-club">자율동아리</option>
-            </>
-          )}
-          {category === "event" && (
-            <>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-            </>
-          )}
-        </select>
+        {type === "문의목적" && (
+          <>
+            <span>문의목적</span>
+            <select name="category" onChange={onChange} value={category}>
+              <option value="select">선택해주세요</option>
+              <option value="DELETE">삭제요청</option>
+              <option value="QUESTION">질문사항</option>
+              <option value="REPORT">신고</option>
+            </select>
+          </>
+        )}
+        {type === "글쓰기" && (
+          <>
+            <span>카테고리</span>
+            <select name="category" onChange={onChange} value={category}>
+              <option value="select">선택해주세요</option>
+              <option value="STUDENT">학생</option>
+              <option value="TEACHER">선생님</option>
+              <option value="MAJOR">전공</option>
+              <option value="CLUB">동아리</option>
+              <option value="INCIDENT">사건</option>
+              <option value="SCHEDULE">학사일정</option>
+            </select>
+            <select
+              name="detailCategory"
+              onChange={onChange}
+              value={detailCategory}
+            >
+              <option value="select">선택해주세요</option>
+              {category === "STUDENT" && (
+                <>
+                  <option value="SEVENTH">7기</option>
+                  <option value="SIXTH">6기</option>
+                  <option value="FIFTH">5기</option>
+                </>
+              )}
+              {category === "TEACHER" && (
+                <>
+                  <option value="GENERAL">일반교과</option>
+                  <option value="SPECIALITY">전문교과</option>
+                  <option value="OTHER">전문교육부</option>
+                </>
+              )}
+              {category === "MAJOR" && (
+                <>
+                  <option value="MAJORS">전공</option>
+                </>
+              )}
+              {category === "CLUB" && (
+                <>
+                  <option value="MAJOR">전공동아리</option>
+                  <option value="CA">자율동아리</option>
+                </>
+              )}
+              {category === "INCIDENT" && (
+                <>
+                  <option value="TWENTY_SECOND">2022</option>
+                  <option value="TWENTY_THIRD">2023</option>
+                </>
+              )}
+              {category === "SCHEDULE" && (
+                <>
+                  <option value="JAN">1</option>
+                  <option value="FEB">2</option>
+                  <option value="MAR">3</option>
+                  <option value="APR">4</option>
+                  <option value="MAY">5</option>
+                  <option value="JUN">6</option>
+                  <option value="JUL">7</option>
+                  <option value="AUG">8</option>
+                  <option value="SEPT">9</option>
+                  <option value="OCT">10</option>
+                  <option value="NOV">11</option>
+                  <option value="DEC">12</option>
+                </>
+              )}
+            </select>
+          </>
+        )}
       </S.CategoryInput>
       <S.TitleInput>
         <span>제목</span>
@@ -67,13 +101,11 @@ function EditWriteBox({
       </S.TitleInput>
       <S.ContentInput>
         <div>
-          {numArr.map((num, index) => (
-            <span key={index}>{num}</span>
+          {numArr.map((num, idx) => (
+            <span key={idx}>{num}</span>
           ))}
         </div>
-        <textarea
-          type="text"
-          rows={1}
+        <TextareaAutosize
           value={content}
           ref={textareaRef}
           onChange={onChangeTextArea}

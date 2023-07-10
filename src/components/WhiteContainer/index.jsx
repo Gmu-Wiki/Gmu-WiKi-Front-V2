@@ -7,7 +7,7 @@ function WhiteContainer({ title, sort, children }) {
       <S.WhiteContainerContent>
         <S.ContainerCenter>
           <S.Title>
-            <span>G무위키:{title}</span>
+            <span>G무위키: {title}</span>
             {children}
           </S.Title>
           <S.ClassIfication>
