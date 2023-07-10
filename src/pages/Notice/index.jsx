@@ -4,11 +4,12 @@ import * as S from "./style";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useFetch } from "../../Hooks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GetRole from "../../lib/GetRole";
 
 export default function Notice() {
   const data = GetRole();
+
   const [noticeList, setNoticeList] = useState([]);
 
   const [roleUrl, setRoleUrl] = useState("");

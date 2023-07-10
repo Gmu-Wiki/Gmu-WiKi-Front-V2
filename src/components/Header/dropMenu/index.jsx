@@ -23,6 +23,11 @@ function DropMenu() {
                   <span>문의 리스트</span>
                 </Link>
               ) : null}
+              {data === "관리자" ? (
+                <Link to="/role">
+                  <span>권한 부여</span>
+                </Link>
+              ) : null}
             </div>
           </div>
           <div>
