@@ -76,6 +76,9 @@ const NoticeDetail = () => {
           />
         </C.Explanation>
       </C.PageContainer>
+
+      <C.ScrollButton />
+      <C.Footer />
     </>
   );
 };

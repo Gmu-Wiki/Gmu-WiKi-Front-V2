@@ -93,6 +93,8 @@ const BoardDetail = () => {
           />
         </C.Explanation>
       </C.PageContainer>
+      <C.ScrollButton />
+      <C.Footer />
     </>
   );
 };
