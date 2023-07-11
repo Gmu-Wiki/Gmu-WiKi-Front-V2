@@ -27,10 +27,10 @@ const useUpload = ({ props }) => {
         boardDetailType: props.detailCategory
       });
 
-      toast.success("글  성공");
+      toast.success("글 등록에 성공하였습니다.");
       navigate("/");
     } catch (e) {
-      toast.error("글 등록 실패");
+      toast.error("글 등록에 실패하였습니다.");
     }
   }, [
     props.title,
