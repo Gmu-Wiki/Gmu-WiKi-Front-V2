@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as C from "../../components";
-import { useFetch } from "../../Hooks";
+import { useFetch, useNotice } from "../../Hooks";
 import { useParams } from "react-router-dom";
 import GetRole from "../../lib/GetRole";
 
@@ -44,11 +44,28 @@ const NoticeDetail = () => {
     }
   }, [roleUrl]);
 
+  const { deleteNotice } = useNotice({ props: { id } });
+
+  const handleDelete = () => {
+    const shouldDelete = window.confirm("정말로 삭제하시겠습니까?");
+
+    if (shouldDelete) {
+      deleteNotice();
+    }
+  };
+
   return (
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title={state.title} sort="공지">
+      <C.PageContainer
+        title={state.title}
+        {...(data === "관리자"
+          ? { hasDeleteButton: true }
+          : { hasDeleteButton: false })}
+        onClick={handleDelete}
+        sort="공지"
+      >
         <C.Explanation>
           <C.NoticeDetail
             id={state.id}
