@@ -29,7 +29,6 @@ export const LogoutContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 50px;
   z-index: 101;
 
   & > svg {
@@ -40,42 +39,46 @@ export const LogoutContainer = styled.div`
   }
 `;
 export const LogoutContent = styled.p`
-  margin-top: 25px;
   font-size: 18px;
   text-align: center;
+  margin-top: 24px;
 `;
 
 export const LogoutTitle = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 120px;
+
+  & > svg {
+    margin-top: 20px;
+  }
 `;
 
 export const BtnContainer = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 38px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 52px;
 `;
 
 export const NoButton = styled.button`
   color: #fff;
   background-color: #007eff;
   cursor: pointer;
-  width: 16vw;
-  height: 7vh;
-  border-radius: 8px;
+  width: 15vw;
+  height: 6vh;
+  border-radius: 10px;
   border: none;
+  font-size: 16px;
 `;
 
 export const YesButton = styled.button`
   color: #007eff;
   background: none;
   cursor: pointer;
-  width: 16vw;
-  height: 7vh;
-  border-radius: 8px;
+  width: 15vw;
+  height: 6vh;
+  border-radius: 10px;
   border: 1px solid #007eff;
   margin-top: 12px;
+  font-size: 16px;
 `;
