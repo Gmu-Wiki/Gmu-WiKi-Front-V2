@@ -27,14 +27,15 @@ export const Content = styled.p`
 `;
 
 export const NTBox = styled.div`
-  display: flex;
+  margin-top: 10px;
   margin-left: 68%;
-  width: 60%;
 `;
 
 export const Date = styled.p`
+  text-align: right;
   font-size: 1rem;
-  margin-left: 10px;
+  color: #636363;
+  font-weight: 400;
 `;
 
 export const BtnBox = styled.div`
