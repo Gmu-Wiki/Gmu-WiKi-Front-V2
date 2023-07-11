@@ -37,7 +37,8 @@ const useUpload = ({ props }) => {
     props.content,
     props.category,
     props.detailCategory,
-    roleUrl
+    roleUrl,
+    navigate
   ]);
 
   return { uploadHandler };

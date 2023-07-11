@@ -11,8 +11,6 @@ export default function Student() {
 
   if (!boardList) return null;
 
-  console.log(boardList);
-
   const fifthGen = boardList.filter(item => item.boardDetailType === "FIFTH");
   const sixthGen = boardList.filter(item => item.boardDetailType === "SIXTH");
   const seventhGen = boardList.filter(

@@ -11,6 +11,12 @@ export default function Student() {
 
   if (!boardList) return;
 
+  const general = boardList.filter(item => item.boardDetailType === "GENERAL");
+  const speciality = boardList.filter(
+    item => item.boardDetailType === "SPECIALITY"
+  );
+  const other = boardList.filter(item => item.boardDetailType === "OTHER");
+
   return (
     <>
       <C.RecentModified />
@@ -24,15 +30,39 @@ export default function Student() {
           : { hasPostButton: false })}
         url="/post"
       >
-        {boardList.map(item => (
-          <React.Fragment key={item.id}>
-            <S.TeacherBox>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.TeacherTitle>{item.title}</S.TeacherTitle>
-              </Link>
-            </S.TeacherBox>
-          </React.Fragment>
-        ))}
+        <C.Detail hasNumber={false} title={"일반 교과 선생님"}>
+          {general.map(item => (
+            <React.Fragment key={item.id}>
+              <S.Box>
+                <Link to={`/${roleUrl}/board/${item.id}`}>
+                  <S.Title>{item.title}</S.Title>
+                </Link>
+              </S.Box>
+            </React.Fragment>
+          ))}
+        </C.Detail>
+        <C.Detail hasNumber={false} title={"전문 교과 선생님"}>
+          {speciality.map(item => (
+            <React.Fragment key={item.id}>
+              <S.Box>
+                <Link to={`/${roleUrl}/board/${item.id}`}>
+                  <S.Title>{item.title}</S.Title>
+                </Link>
+              </S.Box>
+            </React.Fragment>
+          ))}
+        </C.Detail>
+        <C.Detail hasNumber={false} title={"기타 부서 선생님"}>
+          {other.map(item => (
+            <React.Fragment key={item.id}>
+              <S.Box>
+                <Link to={`/${roleUrl}/board/${item.id}`}>
+                  <S.Title>{item.title}</S.Title>
+                </Link>
+              </S.Box>
+            </React.Fragment>
+          ))}
+        </C.Detail>
       </C.PageContainer>
 
       <C.ScrollButton />
