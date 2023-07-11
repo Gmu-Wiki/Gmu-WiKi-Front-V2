@@ -11,6 +11,13 @@ export default function Student() {
 
   if (!boardList) return;
 
+  const twentysecond = boardList.filter(
+    item => item.boardDetailType === "TWENTY_SECOND"
+  );
+  const twentythird = boardList.filter(
+    item => item.boardDetailType === "TWENTY_THIRD"
+  );
+
   return (
     <>
       <C.RecentModified />
@@ -24,15 +31,28 @@ export default function Student() {
           : { hasPostButton: false })}
         url="/post"
       >
-        {boardList.map(item => (
-          <React.Fragment key={item.id}>
-            <S.Box>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.Title>{item.title}</S.Title>
-              </Link>
-            </S.Box>
-          </React.Fragment>
-        ))}
+        <C.Detail hasNumber={false} title={"2023"}>
+          {twentythird.map(item => (
+            <React.Fragment key={item.id}>
+              <S.Box>
+                <Link to={`/${roleUrl}/board/${item.id}`}>
+                  <S.Title>{item.title}</S.Title>
+                </Link>
+              </S.Box>
+            </React.Fragment>
+          ))}
+        </C.Detail>
+        <C.Detail hasNumber={false} title={"2022"}>
+          {twentysecond.map(item => (
+            <React.Fragment key={item.id}>
+              <S.Box>
+                <Link to={`/${roleUrl}/board/${item.id}`}>
+                  <S.Title>{item.title}</S.Title>
+                </Link>
+              </S.Box>
+            </React.Fragment>
+          ))}
+        </C.Detail>
       </C.PageContainer>
 
       <C.ScrollButton />
