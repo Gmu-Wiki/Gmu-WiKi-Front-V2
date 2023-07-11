@@ -44,3 +44,8 @@ export const ContentsButtonContainer = styled.div`
 export const TitleContainer = styled.div`
   display: flex;
 `;
+
+export const DeleteBtn = styled.button`
+  border: none;
+  outline: none;
+`;
