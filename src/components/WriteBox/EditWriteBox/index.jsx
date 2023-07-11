@@ -55,7 +55,7 @@ function EditWriteBox({
                 <>
                   <option value="GENERAL">일반교과</option>
                   <option value="SPECIALITY">전문교과</option>
-                  <option value="OTHER">전문교육부</option>
+                  <option value="OTHER">기타 부서</option>
                 </>
               )}
               {category === "MAJOR" && (

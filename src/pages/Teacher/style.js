@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const TeacherBox = styled.div`
+export const Box = styled.div`
   display: flex;
   margin-bottom: 16px;
   align-items: center;
   margin-left: 26px;
 `;
 
-export const TeacherTitle = styled.p`
+export const Title = styled.p`
   font-size: 1rem;
   font-weight: 600;
   color: #007eff;

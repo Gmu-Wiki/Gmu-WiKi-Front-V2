@@ -14,8 +14,9 @@ export const Content = styled.p`
   }
 
   img {
-    width: 25vw;
-    height: 30vh;
+    align-items: center;
+    width: 30vw;
+    height: 45vh;
   }
 
   h1,
@@ -29,28 +30,10 @@ export const Content = styled.p`
 export const NTBox = styled.div`
   display: flex;
   margin-left: 68%;
-  width: 80%;
+  width: 60%;
 `;
 
 export const Date = styled.p`
   font-size: 1rem;
   margin-left: 10px;
-`;
-
-export const BtnBox = styled.div`
-  display: flex;
-  margin-left: 90%;
-`;
-
-export const DeleteBtn = styled.button`
-  color: #999;
-  border: 1px solid #999;
-  background: none;
-  width: 60px;
-  height: 30px;
-  cursor: pointer;
-
-  :hover {
-    border: 1px dotted #999;
-  }
 `;
