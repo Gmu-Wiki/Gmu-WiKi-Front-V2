@@ -11,6 +11,7 @@ function PageContainer({
   hasEditButton,
   hasPostButton,
   hasHistoryButton,
+  hasDeleteButton,
   url
 }) {
   const { id } = useParams();
@@ -48,6 +49,7 @@ function PageContainer({
                     <C.ContentsButton>역사</C.ContentsButton>
                   </Link>
                 )}
+                {hasDeleteButton && <C.ContentsButton>삭제</C.ContentsButton>}
               </>
             </S.ContentsButtonContainer>
           </C.WhiteContainer>

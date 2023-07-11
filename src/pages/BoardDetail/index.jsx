@@ -32,7 +32,6 @@ const BoardDetail = () => {
     method: "get",
     onSuccess: data => {
       setState(data);
-      console.log(data);
     },
     erros: {
       400: "글을 불러오지 못했습니다."
@@ -49,7 +48,15 @@ const BoardDetail = () => {
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title={state.title} hasHistoryButton={true} sort="글">
+      <C.PageContainer
+        title={state.title}
+        hasHistoryButton={true}
+        hasEditButton={true}
+        {...(data === "관리자"
+          ? { hasDeleteButton: true }
+          : { hasDeleteButton: false })}
+        sort="글"
+      >
         <C.Explanation>
           <C.BoardDetail
             id={state.id}
