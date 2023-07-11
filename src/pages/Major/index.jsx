@@ -24,15 +24,17 @@ export default function Student() {
           : { hasPostButton: false })}
         url="/post"
       >
-        {boardList.map(item => (
-          <React.Fragment key={item.id}>
-            <S.MajorBox>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.MajorTitle>{item.title}</S.MajorTitle>
-              </Link>
-            </S.MajorBox>
-          </React.Fragment>
-        ))}
+        <C.Detail hasNumber={false} title={"전공"}>
+          {boardList.map(item => (
+            <React.Fragment key={item.id}>
+              <S.MajorBox>
+                <Link to={`/${roleUrl}/board/${item.id}`}>
+                  <S.MajorTitle>{item.title}</S.MajorTitle>
+                </Link>
+              </S.MajorBox>
+            </React.Fragment>
+          ))}
+        </C.Detail>
       </C.PageContainer>
 
       <C.ScrollButton />
