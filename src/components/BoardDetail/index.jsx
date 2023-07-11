@@ -12,8 +12,8 @@ const BoardDetailItem = ({ content, createdDate, editedDate }) => {
   return (
     <>
       <S.NTBox>
-        <S.Date>작성일 : {createdDate}</S.Date>
-        <S.Date>수정일 : {editedDate}</S.Date>
+        <S.Date>생성 일자 : {createdDate}</S.Date>
+        <S.Date>최근 수정 시각 : {editedDate}</S.Date>
       </S.NTBox>
 
       <S.Content dangerouslySetInnerHTML={{ __html: html }} />

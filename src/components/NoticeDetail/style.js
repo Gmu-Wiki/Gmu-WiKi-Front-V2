@@ -14,8 +14,8 @@ export const Content = styled.p`
   }
 
   img {
-    width: 64vw;
-    height: 80vh;
+    width: 30vw;
+    height: 45vh;
   }
 
   h1,
@@ -29,7 +29,7 @@ export const Content = styled.p`
 export const NTBox = styled.div`
   display: flex;
   margin-left: 68%;
-  width: 80%;
+  width: 60%;
 `;
 
 export const Date = styled.p`
