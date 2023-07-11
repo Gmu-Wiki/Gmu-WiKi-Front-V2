@@ -24,7 +24,7 @@ function Header() {
 
   const [queryState, setQueryState] = useState({
     url: "",
-    method: "",
+    method: ""
   });
 
   const { fetch: deleteQuery } = useFetch({
@@ -35,13 +35,13 @@ function Header() {
       tokenManager.removeTokens();
 
       navigate("/");
-    },
+    }
   });
 
   const onDelete = ({ url, method }) => {
     setQueryState({
       url,
-      method,
+      method
     });
     setShowLogout(true);
   };
@@ -105,7 +105,7 @@ function Header() {
                       setShowLogout(true);
                       onDelete({
                         url: "/auth",
-                        method: "delete",
+                        method: "delete"
                       });
                     }}
                   >
