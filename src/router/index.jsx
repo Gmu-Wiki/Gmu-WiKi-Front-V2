@@ -18,7 +18,6 @@ export default function Router() {
     <Routes>
       <Route path="/" element={<P.Main />} />
       <Route path="/student" element={<P.Student />} />
-      <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
       <Route path="/teacher" element={<P.Teacher />} />
       <Route path="/club" element={<P.Club />} />
       <Route path="/major" element={<P.Major />} />
@@ -26,8 +25,12 @@ export default function Router() {
       <Route path="/notice" element={<P.Notice />} />
       <Route path="/notice/:id" element={<P.NoticeDetail />} />
       <Route path="/post" element={<P.Post />} />
-      <Route path="/history" element={<P.History />} />
-      <Route path="/historydetail" element={<P.HistoryDetail />} />
+      <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
+      <Route path={`/${roleUrl}/board/:id/record`} element={<P.History />} />
+      <Route
+        path={`/${roleUrl}/board/:id/record/detail`}
+        element={<P.HistoryDetail />}
+      />
       <Route path="/inquiry" element={<P.Inquiry />} />
       <Route path="/inquiryWrite" element={<P.InquiryWrite />} />
       <Route path="/schedule" element={<P.Schedule />} />

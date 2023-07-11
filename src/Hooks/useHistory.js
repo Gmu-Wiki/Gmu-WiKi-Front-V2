@@ -1,28 +1,39 @@
-import { useState, useEffect } from "react";
-import useFetch from "./useFetch";
+import { useEffect, useState } from "react";
+import API from "../apis";
+import { toast } from "react-toastify";
+import GetRole from "../lib/GetRole";
 
-const useHistory = () => {
-  const [historyRecordList, setHistoryRecordList] = useState([]);
+const useHistory = ({ id }) => {
+  const data = GetRole();
 
-  const { fetch } = useFetch({
-    url: "/user/board",
-    method: "get",
-    onSuccess: data => {
-      setHistoryRecordList(data);
-    },
-    errors: {
-      403: "글 목록을 볼 권한이 없습니다.",
-      401: "로그인을 다시 해주세요.",
-      404: "글 역사를 찾을 수 없습니다.",
-      500: "서버에 문제가 생겼습니다.",
-    },
-  });
+  const [roleUrl, setRoleUrl] = useState("");
+  const [recordList, setRecordList] = useState([]);
 
   useEffect(() => {
-    fetch();
-  }, [fetch]);
+    if (data === "관리자") {
+      setRoleUrl("admin");
+    } else if (data === "사용자") {
+      setRoleUrl("user");
+    }
+  }, [data]);
 
-  return { historyRecordList };
+  useEffect(() => {
+    const getRecordList = async () => {
+      if (roleUrl) {
+        try {
+          const { data } = await API.get(`/${roleUrl}/board/${id}/record`);
+
+          setRecordList(data.boardRecordList);
+        } catch (e) {
+          toast.error("목록을 불러오는데 실패했습니다.");
+        }
+      }
+    };
+
+    getRecordList();
+  }, [roleUrl, id]);
+
+  return { recordList };
 };
 
 export default useHistory;

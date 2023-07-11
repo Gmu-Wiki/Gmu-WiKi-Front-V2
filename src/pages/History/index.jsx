@@ -1,16 +1,19 @@
 import React from "react";
 import * as C from "../../components";
 import useHistory from "../../Hooks/useHistory";
+import { useParams } from "react-router-dom";
 
-const History = () => {
-  const { historyRecordList } = useHistory();
+const History = ({ title }) => {
+  const { id } = useParams();
+  const { recordList } = useHistory({ id });
+  console.log(recordList);
 
   return (
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title={"제목이요"} sort="역사">
-        <C.HistoryItem boardRecordList={historyRecordList} />
+      <C.PageContainer title={title} sort="역사">
+        <C.HistoryItem />
       </C.PageContainer>
     </>
   );

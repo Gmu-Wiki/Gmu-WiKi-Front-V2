@@ -49,7 +49,7 @@ const BoardDetail = () => {
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title={state.title} sort="글">
+      <C.PageContainer title={state.title} hasHistoryButton={true} sort="글">
         <C.Explanation>
           <C.BoardDetail
             id={state.id}
