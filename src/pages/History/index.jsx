@@ -15,6 +15,8 @@ const History = ({ title }) => {
       <C.PageContainer title={title} sort="역사">
         <C.HistoryItem />
       </C.PageContainer>
+      <C.ScrollButton />
+      <C.Footer />
     </>
   );
 };
