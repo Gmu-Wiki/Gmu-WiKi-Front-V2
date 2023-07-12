@@ -47,13 +47,12 @@ const EditWrite = ({ title, content, id }) => {
     setPreview(true);
   };
 
-  console.log(id);
-
   const { editUpload } = useEdit({ props: { id, editContent, editTitle } });
 
   const editPost = () => {
     editUpload();
   };
+
   return (
     <>
       <S.WriteOptions>
