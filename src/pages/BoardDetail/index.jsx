@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as C from "../../components";
-import { useFetch } from "../../Hooks";
+import { useContent, useFetch } from "../../Hooks";
 import { useNavigate, useParams } from "react-router-dom";
 import GetRole from "../../lib/GetRole";
 import { useCallback } from "react";
@@ -9,14 +9,6 @@ import { toast } from "react-toastify";
 
 const BoardDetail = () => {
   const data = GetRole();
-
-  const [state, setState] = useState({
-    id: "",
-    content: "",
-    title: "",
-    createdDate: "",
-    editedDate: ""
-  });
 
   let { id } = useParams();
 
@@ -30,23 +22,6 @@ const BoardDetail = () => {
       setRoleUrl("user");
     }
   }, [data]);
-
-  const { fetch } = useFetch({
-    url: `/${roleUrl}/board/${id}`,
-    method: "get",
-    onSuccess: data => {
-      setState(data);
-    },
-    erros: {
-      400: "글을 불러오지 못했습니다."
-    }
-  });
-
-  useEffect(() => {
-    if (roleUrl) {
-      fetch();
-    }
-  }, [roleUrl]);
 
   const boardDelete = useCallback(async () => {
     try {
@@ -67,6 +42,8 @@ const BoardDetail = () => {
       boardDelete();
     }
   };
+
+  const state = useContent({ id });
 
   return (
     <>

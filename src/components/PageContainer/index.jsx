@@ -36,7 +36,7 @@ function PageContainer({
             <S.ContentsButtonContainer>
               <>
                 {hasEditButton && (
-                  <Link to="/edit">
+                  <Link to={`/${roleUrl}/board/edit/${id}`}>
                     <C.ContentsButton>편집</C.ContentsButton>
                   </Link>
                 )}
