@@ -47,6 +47,13 @@ const EditWrite = ({ title, content, id }) => {
     setPreview(true);
   };
 
+  console.log(id);
+
+  const { editUpload } = useEdit({ props: { id, editContent, editTitle } });
+
+  const editPost = () => {
+    editUpload();
+  };
   return (
     <>
       <S.WriteOptions>
@@ -86,7 +93,7 @@ const EditWrite = ({ title, content, id }) => {
         </S.WriteBox>
       )}
       <S.ButtonContainer>
-        <S.RegisterButton>편집하기</S.RegisterButton>
+        <S.RegisterButton onClick={editPost}>편집하기</S.RegisterButton>
       </S.ButtonContainer>
     </>
   );

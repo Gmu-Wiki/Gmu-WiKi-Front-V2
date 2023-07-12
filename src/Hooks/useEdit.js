@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import GetRole from "../lib/GetRole";
 import { useNavigate } from "react-router-dom";
 
-const useUpload = ({ id, editTitle, editContent }) => {
+const useUpload = ({ props }) => {
   const data = GetRole();
   const navigate = useNavigate();
 
@@ -18,11 +18,12 @@ const useUpload = ({ id, editTitle, editContent }) => {
     }
   }, [data]);
 
+  console.log(props.id);
   const editUpload = useCallback(async () => {
     try {
-      await API.patch(`/${roleUrl}/board/${id}`, {
-        title: editTitle,
-        content: editContent
+      await API.patch(`/${roleUrl}/board/${props.id}`, {
+        title: props.editTitle,
+        content: props.editContent
       });
 
       toast.success("편집 되었습니다.");
@@ -30,7 +31,7 @@ const useUpload = ({ id, editTitle, editContent }) => {
     } catch (e) {
       toast.error("편집에 실패하였습니다.");
     }
-  }, [editTitle, editContent, id, roleUrl, navigate]);
+  }, [props.editTitle, props.editContent, props.id, roleUrl, navigate]);
 
   return { editUpload };
 };
