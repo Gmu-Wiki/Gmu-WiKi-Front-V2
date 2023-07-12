@@ -21,6 +21,7 @@ const BoardDetail = () => {
   let { id } = useParams();
 
   const [roleUrl, setRoleUrl] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data === "관리자") {
@@ -46,8 +47,6 @@ const BoardDetail = () => {
       fetch();
     }
   }, [roleUrl]);
-
-  const navigate = useNavigate();
 
   const boardDelete = useCallback(async () => {
     try {
