@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
-const HistoryItem = ({ recordList }) => {
+const HistoryItem = ({ recordList, roleUrl }) => {
   return (
     <>
       {recordList.map(item => {
@@ -26,7 +26,7 @@ const HistoryItem = ({ recordList }) => {
 
         return (
           <React.Fragment key={item.id}>
-            <Link to={`/notice/${item.id}`}>
+            <Link to={`/${roleUrl}/board/${item.id}/record/detail`}>
               <S.Box>
                 <S.Day>{formattedDate}</S.Day>
                 <S.Name>수정자: {item.name}</S.Name>
