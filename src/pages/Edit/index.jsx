@@ -1,19 +1,18 @@
 import React from "react";
 import * as C from "../../components";
-import useHistory from "../../Hooks/useHistory";
+import { useContent } from "../../Hooks";
 import { useParams } from "react-router-dom";
 
-const History = ({ title }) => {
+const Edit = () => {
   const { id } = useParams();
-  const { recordList } = useHistory({ id });
-  console.log(recordList);
+  const state = useContent({ id });
 
   return (
     <>
       <C.RecentModified />
       <C.Header />
-      <C.PageContainer title={title} sort="역사">
-        <C.HistoryItem />
+      <C.PageContainer title={state.title} sort="편집">
+        <C.EditWrite title={state.title} content={state.content} id={id} />
       </C.PageContainer>
       <C.ScrollButton />
       <C.Footer />
@@ -21,4 +20,4 @@ const History = ({ title }) => {
   );
 };
 
-export default History;
+export default Edit;
