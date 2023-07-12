@@ -12,7 +12,7 @@ const Edit = () => {
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title={state.title} sort="편집">
-        <C.EditWrite title={state.title} content={state.content} />
+        <C.EditWrite title={state.title} content={state.content} id={id} />
       </C.PageContainer>
       <C.ScrollButton />
       <C.Footer />
