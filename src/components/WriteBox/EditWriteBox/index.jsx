@@ -1,5 +1,6 @@
 import TextareaAutosize from "react-textarea-autosize";
 import * as S from "./style";
+import {memo} from "react";
 
 function EditWriteBox({
   category,
@@ -115,4 +116,4 @@ function EditWriteBox({
   );
 }
 
-export default EditWriteBox;
+export default memo(EditWriteBox);
