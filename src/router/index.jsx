@@ -19,8 +19,6 @@ export default function Router() {
     }
   }, [role]);
 
-  // if (!hastoken) return <h1>하이</h1>;
-
   return (
     <Routes>
       <Route path="/" element={<P.Main />} />
