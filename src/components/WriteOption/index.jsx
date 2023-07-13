@@ -116,11 +116,11 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         </div>
         <div onClick={() => passOption("b")}>
           <I.BoldIcon />
-          <span>굵게</span>
+          <span>굵은 굴씨</span>
         </div>
         <div onClick={() => passOption("i")}>
           <I.InclineIcon />
-          <span>기울임 꼴로 표시</span>
+          <span>기울임꼴</span>
         </div>
         <div onClick={() => passOption("draw")}>
           <I.DrawIcon />
@@ -131,11 +131,11 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         </div>
         <div onClick={() => passOption("details")}>
           <I.Toggle />
-          <span>토글 세팅</span>
+          <span>토글</span>
         </div>
         <div onClick={() => passOption("quote")}>
           <I.QuoteIcon />
-          <span>인용문으로 표시</span>
+          <span>인용문</span>
         </div>
         <div onClick={() => passOption("a")}>
           <I.LinkIcon />
@@ -153,11 +153,11 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
             ref={fileRef}
             onChange={handleUpload}
             />
-            <span>이미지 표시</span>
+            <span>이미지</span>
         </div>
         <div onClick={() => passOption("code")}>
           <I.CodeIcon />
-          <span>코드로 표시</span>
+          <span style={{width: "80px"}}>코드블럭</span>
         </div>
       </S.OptionContainer>
     </>

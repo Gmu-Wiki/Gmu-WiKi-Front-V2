@@ -10,7 +10,10 @@ export const OptionContainer = styled.div`
   padding: 3px 10px;
 
   div {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     svg {
       margin-left: 12px;
       cursor: pointer;
@@ -22,15 +25,17 @@ export const OptionContainer = styled.div`
     span {
       display: none;
       position: absolute;
+      top: 30px;
       max-width: 150px;
       border: 1px solid;
+      text-align: center;
       border-radius: 5px;
-      padding: 3px;
+      padding: 3px 10px;
       font-size: 0.8em;
       color: #c0c0c0;
       background: #ffffff;
+      margin-left: 9px;
     }
-
     &:hover {
       span {
         display: block;

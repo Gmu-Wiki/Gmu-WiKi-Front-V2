@@ -25,7 +25,7 @@ const useUpload = ({ props }) => {
         title: props.editTitle,
         content: props.editContent
       });
-
+      
       toast.success("편집 되었습니다.");
       navigate("/");
     } catch (e) {
