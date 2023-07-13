@@ -11,11 +11,15 @@ export default function Student() {
 
   if (!boardList) return;
 
-  const general = boardList.filter(item => item.boardDetailType === "GENERAL");
-  const speciality = boardList.filter(
-    item => item.boardDetailType === "SPECIALITY"
-  );
-  const other = boardList.filter(item => item.boardDetailType === "OTHER");
+  const general = boardList
+    .filter(item => item.boardDetailType === "GENERAL")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const speciality = boardList
+    .filter(item => item.boardDetailType === "SPECIALITY")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const other = boardList
+    .filter(item => item.boardDetailType === "OTHER")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
   return (
     <>

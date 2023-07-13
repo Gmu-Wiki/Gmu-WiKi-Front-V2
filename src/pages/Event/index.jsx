@@ -11,12 +11,12 @@ export default function Student() {
 
   if (!boardList) return;
 
-  const twentysecond = boardList.filter(
-    item => item.boardDetailType === "TWENTY_SECOND"
-  );
-  const twentythird = boardList.filter(
-    item => item.boardDetailType === "TWENTY_THIRD"
-  );
+  const twentysecond = boardList
+    .filter(item => item.boardDetailType === "TWENTY_SECOND")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const twentythird = boardList
+    .filter(item => item.boardDetailType === "TWENTY_THIRD")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
   return (
     <>
