@@ -11,11 +11,15 @@ export default function Student() {
 
   if (!boardList) return null;
 
-  const fifthGen = boardList.filter(item => item.boardDetailType === "FIFTH");
-  const sixthGen = boardList.filter(item => item.boardDetailType === "SIXTH");
-  const seventhGen = boardList.filter(
-    item => item.boardDetailType === "SEVENTH"
-  );
+  const fifthGen = boardList
+    .filter(item => item.boardDetailType === "FIFTH")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const sixthGen = boardList
+    .filter(item => item.boardDetailType === "SIXTH")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const seventhGen = boardList
+    .filter(item => item.boardDetailType === "SEVENTH")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
   return (
     <>

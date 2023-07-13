@@ -11,8 +11,12 @@ export default function Student() {
 
   if (!boardList) return;
 
-  const major = boardList.filter(item => item.boardDetailType === "MAJOR");
-  const ca = boardList.filter(item => item.boardDetailType === "CA");
+  const major = boardList
+    .filter(item => item.boardDetailType === "MAJOR")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const ca = boardList
+    .filter(item => item.boardDetailType === "CA")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
   return (
     <>

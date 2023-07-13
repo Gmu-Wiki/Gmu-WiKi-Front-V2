@@ -11,18 +11,42 @@ export default function Student() {
 
   if (!boardList) return;
 
-  const jan = boardList.filter(item => item.boardDetailType === "JAN");
-  const feb = boardList.filter(item => item.boardDetailType === "FEB");
-  const mar = boardList.filter(item => item.boardDetailType === "MAR");
-  const apr = boardList.filter(item => item.boardDetailType === "APR");
-  const may = boardList.filter(item => item.boardDetailType === "MAY");
-  const jun = boardList.filter(item => item.boardDetailType === "JUN");
-  const jul = boardList.filter(item => item.boardDetailType === "JUL");
-  const aug = boardList.filter(item => item.boardDetailType === "AUG");
-  const sept = boardList.filter(item => item.boardDetailType === "SEPT");
-  const oct = boardList.filter(item => item.boardDetailType === "OCT");
-  const nov = boardList.filter(item => item.boardDetailType === "NOV");
-  const dec = boardList.filter(item => item.boardDetailType === "DEC");
+  const jan = boardList
+    .filter(item => item.boardDetailType === "JAN")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const feb = boardList
+    .filter(item => item.boardDetailType === "FEB")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const mar = boardList
+    .filter(item => item.boardDetailType === "MAR")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const apr = boardList
+    .filter(item => item.boardDetailType === "APR")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const may = boardList
+    .filter(item => item.boardDetailType === "MAY")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const jun = boardList
+    .filter(item => item.boardDetailType === "JUN")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const jul = boardList
+    .filter(item => item.boardDetailType === "JUL")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const aug = boardList
+    .filter(item => item.boardDetailType === "AUG")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const sept = boardList
+    .filter(item => item.boardDetailType === "SEPT")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const oct = boardList
+    .filter(item => item.boardDetailType === "OCT")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const nov = boardList
+    .filter(item => item.boardDetailType === "NOV")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+  const dec = boardList
+    .filter(item => item.boardDetailType === "DEC")
+    .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
   return (
     <>
