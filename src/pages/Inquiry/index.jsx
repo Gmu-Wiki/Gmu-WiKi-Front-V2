@@ -13,7 +13,10 @@ export default function Inquiry() {
     url: `/admin/inquiry`,
     method: "get",
     onSuccess: data => {
-      setInquiryList(data.inquiryList);
+      const sortedInquiryList = data.inquiryList.sort((a, b) =>
+        b.createdDate.localeCompare(a.createdDate)
+      );
+      setInquiryList(sortedInquiryList);
     },
     errors: {
       400: "문의 정보를 가져오지 못함"
@@ -46,6 +49,7 @@ export default function Inquiry() {
                 <S.InquiryTitleContainer>
                   <S.StyledTitle>{item.title}</S.StyledTitle>
                   <S.Sort>{item.inquiryType}</S.Sort>
+                  <S.Date>{item.createdDate.substring(0, 10)}</S.Date>
                 </S.InquiryTitleContainer>
               </Link>
             </C.InquiryItem>

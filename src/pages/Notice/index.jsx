@@ -26,7 +26,10 @@ export default function Notice() {
     url: `/${roleUrl}/notice`,
     method: "get",
     onSuccess: data => {
-      setNoticeList(data.noticeList);
+      const sortedList = data.noticeList.sort((a, b) =>
+        b.createdDate.localeCompare(a.createdDate)
+      );
+      setNoticeList(sortedList);
     },
     errors: {
       400: "공지 목록을 불러오지 못함."

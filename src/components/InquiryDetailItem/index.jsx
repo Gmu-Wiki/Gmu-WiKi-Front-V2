@@ -4,7 +4,7 @@ import * as C from "../index";
 import { useMail } from "../../Hooks";
 import useMarkdown from "../../Hooks/useMarkdown";
 
-const InquiryDetailItem = ({ id, content, name, inquiryType }) => {
+const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
   const { postApproveMail } = useMail({ props: { id } });
 
   const [showRefusal, setShowRefusal] = useState(false);
