@@ -2,8 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import * as P from "../pages";
 import GetRole from "../lib/GetRole";
 import { useEffect, useState } from "react";
+import TokenManager from "../apis/TokenManager";
 
 export default function Router() {
+  const tokenManager = new TokenManager();
+
+  const hastoken = tokenManager.accessToken;
   const role = GetRole();
   const [roleUrl, setRoleUrl] = useState("");
 
@@ -14,6 +18,9 @@ export default function Router() {
       setRoleUrl("user");
     }
   }, [role]);
+
+  // if (!hastoken) return <h1>하이</h1>;
+
   return (
     <Routes>
       <Route path="/" element={<P.Main />} />

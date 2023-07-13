@@ -21,10 +21,17 @@ export const Sort = styled.div`
   justify-content: center;
   align-items: center;
   padding: 7px 4px;
+  margin-right: 10px;
+`;
+
+export const Date = styled.p`
+  font-size: 0.8rem;
+  color: #999999;
 `;
 
 export const InquiryTitleContainer = styled.div`
   display: flex;
   gap: 12px;
   max-width: 80%;
+  margin-left: 20px;
 `;
