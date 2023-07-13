@@ -12,6 +12,8 @@ const History = () => {
   const data = GetRole();
   const [roleUrl, setRoleUrl] = useState("");
 
+  console.log(recordList);
+
   useEffect(() => {
     if (data === "관리자") {
       setRoleUrl("admin");
@@ -19,12 +21,13 @@ const History = () => {
       setRoleUrl("user");
     }
   }, [data]);
+
   return (
     <>
       <C.RecentModified />
       <C.Header />
       <C.PageContainer title={title} sort="역사">
-        <C.HistoryItem recordList={recordList} id={id} roleUrl={roleUrl} />
+        <C.HistoryItem recordList={recordList} roleUrl={roleUrl} />
       </C.PageContainer>
       <C.ScrollButton />
       <C.Footer />
