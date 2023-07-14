@@ -31,7 +31,7 @@ const useUpload = ({ props }) => {
     } catch (e) {
       toast.error("편집에 실패하였습니다.");
     }
-  }, [props.editTitle, props.editContent, props.id, roleUrl, navigate]);
+  }, [props, roleUrl, navigate]);
 
   return { editUpload };
 };

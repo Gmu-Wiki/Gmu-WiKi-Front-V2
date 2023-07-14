@@ -45,15 +45,7 @@ const useFetch = options => {
         setIsLoading(false);
       }
     },
-    [
-      options.url,
-      options.method,
-      options.onSuccess,
-      options.onFailure,
-      options.successMessage,
-      options.errors,
-      options.skipIfLoggedIn
-    ]
+    [options]
   );
 
   return { fetch, isLoading, data };

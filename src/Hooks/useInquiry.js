@@ -33,7 +33,7 @@ const useInquiry = ({ props }) => {
       console.log(e);
       toast.error("문의 등록 실패");
     }
-  }, [props.title, props.content, props.category, navigate, roleUrl]);
+  }, [props, navigate, roleUrl]);
 
   return { inquiryUpload };
 };
