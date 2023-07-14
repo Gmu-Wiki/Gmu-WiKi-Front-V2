@@ -17,8 +17,6 @@ function Header() {
   const [search, setSearch] = useState("");
   const searchList = useSearchList({ title: search });
 
-  console.log(searchList);
-
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
   const navigate = useNavigate();

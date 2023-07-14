@@ -1,6 +1,7 @@
 import API from "../apis";
 import { useEffect, useState } from "react";
 import GetRole from "../lib/GetRole";
+import { toast } from "react-toastify";
 
 const useSearchList = ({ title }) => {
   const [searchList, setSearchList] = useState([]);
@@ -23,11 +24,9 @@ const useSearchList = ({ title }) => {
           params: { title }
         });
 
-        console.log(data);
-
         setSearchList(data.boardTitleList);
       } catch (error) {
-        console.log(error);
+        toast.error("해당 목록을 찾을 수 없습니다.");
       }
     };
 
