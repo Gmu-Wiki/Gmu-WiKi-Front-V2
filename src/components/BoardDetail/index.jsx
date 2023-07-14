@@ -1,10 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import useMarkdown from "../../Hooks/useMarkdown";
-import GetRole from "../../lib/GetRole";
-
 const BoardDetailItem = ({ content, createdDate, editedDate }) => {
-  const data = GetRole();
   const { markdownToHtml } = useMarkdown();
 
   const html = markdownToHtml(content);
