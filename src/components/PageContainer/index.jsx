@@ -13,7 +13,8 @@ function PageContainer({
   hasHistoryButton,
   hasDeleteButton,
   url,
-  onClick
+  onClick,
+  editUrl
 }) {
   const { id } = useParams();
   const data = GetRole();
@@ -36,7 +37,7 @@ function PageContainer({
             <S.ContentsButtonContainer>
               <>
                 {hasEditButton && (
-                  <Link to={`/${roleUrl}/board/edit/${id}`}>
+                  <Link to={`/${roleUrl}/${editUrl}/edit/${id}`}>
                     <C.ContentsButton>편집</C.ContentsButton>
                   </Link>
                 )}

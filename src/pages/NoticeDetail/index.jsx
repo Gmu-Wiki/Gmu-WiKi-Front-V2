@@ -1,50 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as C from "../../components";
-import { useFetch, useNotice } from "../../Hooks";
+import { useNotice } from "../../Hooks";
 import { useParams } from "react-router-dom";
 import GetRole from "../../lib/GetRole";
 
 const NoticeDetail = () => {
   const data = GetRole();
 
-  const [state, setState] = useState({
-    id: "",
-    content: "",
-    title: "",
-    createdDate: "",
-    editedDate: ""
-  });
-
   let { id } = useParams();
 
-  const [roleUrl, setRoleUrl] = useState("");
-
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [data]);
-
-  const { fetch } = useFetch({
-    url: `/${roleUrl}/notice/${id}`,
-    method: "get",
-    onSuccess: data => {
-      setState(data);
-    },
-    erros: {
-      400: "글을 불러오지 못했습니다."
-    }
-  });
-
-  useEffect(() => {
-    if (roleUrl) {
-      fetch();
-    }
-  }, [roleUrl]);
-
-  const { deleteNotice } = useNotice({ props: { id } });
+  const { deleteNotice, state } = useNotice({ props: { id } });
 
   const handleDelete = () => {
     const shouldDelete = window.confirm("정말로 삭제하시겠습니까?");
@@ -54,17 +19,20 @@ const NoticeDetail = () => {
     }
   };
 
+  const hasDeleteButton = data === "관리자";
+  const hasEditButton = data === "관리자";
+
   return (
     <>
       <C.RecentModified />
       <C.Header />
       <C.PageContainer
         title={state.title}
-        {...(data === "관리자"
-          ? { hasDeleteButton: true }
-          : { hasDeleteButton: false })}
+        hasDeleteButton={hasDeleteButton}
+        hasEditButton={hasEditButton}
         onClick={handleDelete}
         sort="공지"
+        editUrl="notice"
       >
         <C.Explanation>
           <C.NoticeDetail

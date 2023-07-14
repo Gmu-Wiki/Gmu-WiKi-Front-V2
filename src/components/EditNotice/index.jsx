@@ -3,7 +3,7 @@ import * as S from "./style";
 import * as C from "../index";
 import { useEdit } from "../../Hooks";
 
-const EditWrite = ({ title, content, id }) => {
+const EditNotice = ({ title, content, id }) => {
   const [edit, setEdit] = useState(true);
   const [preview, setPreview] = useState(false);
   const [editContent, setEditContent] = useState("");
@@ -47,12 +47,12 @@ const EditWrite = ({ title, content, id }) => {
     setPreview(true);
   };
 
-  const { editBoardUpload } = useEdit({
+  const { editNoticeUpload } = useEdit({
     props: { id, editContent, editTitle }
   });
 
   const editPost = () => {
-    editBoardUpload();
+    editNoticeUpload();
   };
 
   return (
@@ -100,4 +100,4 @@ const EditWrite = ({ title, content, id }) => {
   );
 };
 
-export default React.memo(EditWrite);
+export default React.memo(EditNotice);
