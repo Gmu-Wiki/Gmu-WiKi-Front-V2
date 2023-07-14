@@ -18,14 +18,13 @@ const useUpload = ({ props }) => {
     }
   }, [data]);
 
-  console.log(props.id);
-  const editUpload = useCallback(async () => {
+  const editBoardUpload = useCallback(async () => {
     try {
       await API.patch(`/${roleUrl}/board/${props.id}`, {
         title: props.editTitle,
         content: props.editContent
       });
-      
+
       toast.success("편집 되었습니다.");
       navigate("/");
     } catch (e) {
@@ -33,7 +32,21 @@ const useUpload = ({ props }) => {
     }
   }, [props, roleUrl, navigate]);
 
-  return { editUpload };
+  const editNoticeUpload = useCallback(async () => {
+    try {
+      await API.patch(`/${roleUrl}/notice/${props.id}`, {
+        title: props.editTitle,
+        content: props.editContent
+      });
+
+      toast.success("편집 되었습니다.");
+      navigate("/");
+    } catch (e) {
+      toast.error("편집에 실패하였습니다.");
+    }
+  }, [props, roleUrl, navigate]);
+
+  return { editBoardUpload, editNoticeUpload };
 };
 
 export default useUpload;

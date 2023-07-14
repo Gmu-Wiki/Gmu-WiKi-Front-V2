@@ -57,6 +57,7 @@ const BoardDetail = () => {
           ? { hasDeleteButton: true }
           : { hasDeleteButton: false })}
         onClick={handleDelete}
+        editUrl="board"
         sort="글"
       >
         <C.Explanation>

@@ -33,6 +33,7 @@ export default function Router() {
       <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
       <Route path={`/${roleUrl}/board/:id/record`} element={<P.History />} />
       <Route path={`/${roleUrl}/board/edit/:id`} element={<P.Edit />} />
+      <Route path={`/${roleUrl}/notice/edit/:id`} element={<P.EditNotice />} />
       <Route
         path={`/${roleUrl}/board/:id/record/detail`}
         element={<P.HistoryDetail />}
