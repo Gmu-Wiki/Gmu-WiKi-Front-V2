@@ -18,10 +18,7 @@ export default function Student() {
       <C.PageContainer
         title="전공"
         sort="전공"
-        hasPostButton
-        {...(data === "관리자"
-          ? { hasPostButton: true }
-          : { hasPostButton: false })}
+        hasPostButton={true}
         url="/post"
       >
         <C.Detail hasNumber={false} title={"전공"}>

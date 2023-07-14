@@ -39,7 +39,7 @@ export default function Student() {
       <C.PageContainer
         title="사건"
         sort="사건"
-        hasPostButton={data === "관리자"}
+        hasPostButton={true}
         url="/post"
       >
         {years.map(year => (
