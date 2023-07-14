@@ -29,7 +29,7 @@ export const OptionContainer = styled.div`
       padding: 5px 10px;
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
-      border-radius: 8px;
+      border-radius: 3px;
       background: #808080;
       color: #fff;
       font-size: 0.8rem;
