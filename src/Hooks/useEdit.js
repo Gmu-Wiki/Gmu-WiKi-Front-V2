@@ -25,13 +25,13 @@ const useUpload = ({ props }) => {
         title: props.editTitle,
         content: props.editContent
       });
-
+      
       toast.success("편집 되었습니다.");
       navigate("/");
     } catch (e) {
       toast.error("편집에 실패하였습니다.");
     }
-  }, [props.editTitle, props.editContent, props.id, roleUrl, navigate]);
+  }, [props, roleUrl, navigate]);
 
   return { editUpload };
 };

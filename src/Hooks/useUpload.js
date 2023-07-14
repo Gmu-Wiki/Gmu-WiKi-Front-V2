@@ -33,10 +33,7 @@ const useUpload = ({ props }) => {
       toast.error("글 등록에 실패하였습니다.");
     }
   }, [
-    props.title,
-    props.content,
-    props.category,
-    props.detailCategory,
+    props,
     roleUrl,
     navigate
   ]);
