@@ -116,7 +116,7 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         </div>
         <div onClick={() => passOption("b")}>
           <I.BoldIcon />
-          <span>굵은 굴씨</span>
+          <span>굵은 글씨</span>
         </div>
         <div onClick={() => passOption("i")}>
           <I.InclineIcon />
