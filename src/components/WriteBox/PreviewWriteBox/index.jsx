@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import * as C from "../../index";
 
 function PreviewWriteBox({ content }) {

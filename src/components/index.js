@@ -25,3 +25,4 @@ export { default as NoticeWrite } from "./NoticeWrite";
 export { default as Refusal } from "./Refusal";
 export { default as NoticeDetail } from "./NoticeDetail";
 export { default as BoardDetail } from "./BoardDetail";
+export { default as EditWrite } from "./EditWrite";
