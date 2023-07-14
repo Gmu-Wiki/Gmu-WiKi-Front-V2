@@ -15,7 +15,9 @@ function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const [search, setSearch] = useState("");
-  useSearchList({ inputValue: search });
+  const searchList = useSearchList({ title: search });
+
+  console.log(searchList);
 
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;

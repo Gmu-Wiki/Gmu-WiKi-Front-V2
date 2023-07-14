@@ -2,7 +2,7 @@ import API from "../apis";
 import { useEffect, useState } from "react";
 import GetRole from "../lib/GetRole";
 
-const useSearchList = ({ inputValue }) => {
+const useSearchList = ({ title }) => {
   const [searchList, setSearchList] = useState([]);
 
   const data = GetRole();
@@ -20,8 +20,10 @@ const useSearchList = ({ inputValue }) => {
     const fetchData = async () => {
       try {
         const { data } = await API.get(`/${roleUrl}/board/search`, {
-          title: inputValue
+          params: { title }
         });
+
+        console.log(data);
 
         setSearchList(data.boardTitleList);
       } catch (error) {
@@ -29,10 +31,10 @@ const useSearchList = ({ inputValue }) => {
       }
     };
 
-    if (typeof inputValue === "string" && inputValue.trim() !== "") {
+    if (typeof inputValue === "string" && title.trim() !== "") {
       fetchData();
     }
-  }, [inputValue, roleUrl]);
+  }, [title, roleUrl]);
 
   return { searchList };
 };
