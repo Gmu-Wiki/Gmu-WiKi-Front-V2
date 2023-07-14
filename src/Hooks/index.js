@@ -6,3 +6,5 @@ export { default as useInquiry } from "./useInquiry";
 export { default as useNotice } from "./useNotice";
 export { default as useMail } from "./useMail";
 export { default as useSearchList } from "./useSearchList";
+export { default as useContent } from "./useContent";
+export { default as useEdit } from "./useEdit";

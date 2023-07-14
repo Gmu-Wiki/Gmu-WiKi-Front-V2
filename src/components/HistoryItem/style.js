@@ -1,21 +1,22 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Box = styled.div`
   display: flex;
   margin-bottom: 16px;
   align-items: center;
-  margin-left: 30px;
+  margin-left: 26px;
 `;
 
-export const SubTitle = styled.div`
+export const Day = styled.p`
   font-size: 1rem;
   font-weight: 600;
   color: #007eff;
+  cursor: pointer;
+  line-height: 40px;
+  margin-right: 20px;
 `;
 
-export const Editor = styled.div`
+export const Name = styled.p`
   font-size: 0.8rem;
-  font-weight: 600;
   color: #999999;
-  margin-left: 20px;
 `;

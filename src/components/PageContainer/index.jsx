@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import * as C from "../../components";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import GetRole from "../../lib/GetRole";
 
 function PageContainer({
   children,
@@ -10,8 +11,23 @@ function PageContainer({
   hasEditButton,
   hasPostButton,
   hasHistoryButton,
-  url
+  hasDeleteButton,
+  url,
+  onClick
 }) {
+  const { id } = useParams();
+  const data = GetRole();
+
+  const [roleUrl, setRoleUrl] = useState("");
+
+  useEffect(() => {
+    if (data === "관리자") {
+      setRoleUrl("admin");
+    } else if (data === "사용자") {
+      setRoleUrl("user");
+    }
+  }, [data]);
+
   return (
     <S.PageCenter>
       <S.PageContainer>
@@ -20,7 +36,7 @@ function PageContainer({
             <S.ContentsButtonContainer>
               <>
                 {hasEditButton && (
-                  <Link to="/edit">
+                  <Link to={`/${roleUrl}/board/edit/${id}`}>
                     <C.ContentsButton>편집</C.ContentsButton>
                   </Link>
                 )}
@@ -30,10 +46,11 @@ function PageContainer({
                   </Link>
                 )}
                 {hasHistoryButton && (
-                  <Link to="/history">
+                  <Link to={`/${roleUrl}/board/${id}/record`}>
                     <C.ContentsButton>역사</C.ContentsButton>
                   </Link>
                 )}
+                {hasDeleteButton && <button onClick={onClick}>삭제</button>}
               </>
             </S.ContentsButtonContainer>
           </C.WhiteContainer>
