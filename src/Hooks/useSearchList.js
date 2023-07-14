@@ -31,7 +31,7 @@ const useSearchList = ({ title }) => {
       }
     };
 
-    if (typeof inputValue === "string" && title.trim() !== "") {
+    if (typeof title === "string" && title.trim() !== "") {
       fetchData();
     }
   }, [title, roleUrl]);
