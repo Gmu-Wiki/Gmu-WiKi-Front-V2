@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as C from "../../components";
-import { useContent, useFetch } from "../../Hooks";
+import { useContent } from "../../Hooks";
 import { useNavigate, useParams } from "react-router-dom";
 import GetRole from "../../lib/GetRole";
 import { useCallback } from "react";

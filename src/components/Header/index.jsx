@@ -122,7 +122,6 @@ function Header() {
                 )}
               </S.searchContent>
             </S.HeaderCenter>
-            {/* 드롭다운 메뉴 */}
             {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
           </S.Header>
         </div>
