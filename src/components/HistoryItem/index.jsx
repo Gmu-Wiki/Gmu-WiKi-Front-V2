@@ -1,10 +1,17 @@
 import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
+
 const HistoryItem = ({ recordList, roleUrl }) => {
+  const sortedRecordList = recordList.sort((a, b) => {
+    const dateA = new Date(a.createdDate);
+    const dateB = new Date(b.createdDate);
+    return dateA - dateB;
+  });
+
   return (
     <>
-      {recordList.map(item => {
+      {sortedRecordList.map(item => {
         const createdDate = new Date(item.createdDate);
         const formattedDate = `${createdDate.getFullYear()}-${(
           createdDate.getMonth() + 1
