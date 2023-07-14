@@ -6,20 +6,19 @@ import * as I from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import DropMenu from "./dropMenu";
-import { useFetch } from "../../Hooks";
+import { useFetch, useSearchList } from "../../Hooks";
 import TokenManager from "../../apis/TokenManager";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  // 드롭다운 메뉴의 상태를 관리하기 위해 useState를 사용합니다.
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
+  const [search, setSearch] = useState("");
+  useSearchList({ inputValue: search });
 
   const tokenManager = new TokenManager();
-
   const accessToken = tokenManager.accessToken;
-
   const navigate = useNavigate();
 
   const [queryState, setQueryState] = useState({
@@ -33,7 +32,6 @@ function Header() {
     onSuccess: () => {
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
-
       navigate("/");
     }
   });
@@ -48,6 +46,10 @@ function Header() {
 
   const onConfirm = () => {
     deleteQuery();
+  };
+
+  const handleSearchChange = e => {
+    setSearch(e.target.value);
   };
 
   return (
@@ -92,7 +94,11 @@ function Header() {
                 </div>
               </S.HeaderCenter>
               <S.searchContent>
-                <S.searchInput placeholder="search" />
+                <S.searchInput
+                  placeholder="search"
+                  value={search}
+                  onChange={handleSearchChange}
+                />
                 <div className="searchIcon">
                   <FontAwesomeIcon
                     icon={faMagnifyingGlass}
@@ -122,7 +128,6 @@ function Header() {
                 )}
               </S.searchContent>
             </S.HeaderCenter>
-            {/* 드롭다운 메뉴 */}
             {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
           </S.Header>
         </div>
