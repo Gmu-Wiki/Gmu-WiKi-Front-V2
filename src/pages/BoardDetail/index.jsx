@@ -30,8 +30,11 @@ const BoardDetail = () => {
 
       navigate("/");
     } catch (e) {
-      console.log(e);
-      toast.error("글 삭제에 실패했습니다.");
+      if (e.response && e.response.status >= 403) {
+        toast.error("자신의 글만 삭제할 수 있습니다.");
+      } else {
+        toast.error("글 삭제에 실패했습니다.");
+      }
     }
   }, [roleUrl, navigate, id]);
 
@@ -53,9 +56,7 @@ const BoardDetail = () => {
         title={state.title}
         hasHistoryButton={true}
         hasEditButton={true}
-        {...(data === "관리자"
-          ? { hasDeleteButton: true }
-          : { hasDeleteButton: false })}
+        hasDeleteButton={true}
         onClick={handleDelete}
         editUrl="board"
         sort="글"
