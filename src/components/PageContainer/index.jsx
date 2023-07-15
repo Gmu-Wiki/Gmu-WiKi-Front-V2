@@ -51,9 +51,7 @@ function PageContainer({
                     <C.ContentsButton>역사</C.ContentsButton>
                   </Link>
                 )}
-                {hasDeleteButton && (
-                  <C.ContentsButton onClick={onClick}>삭제</C.ContentsButton>
-                )}
+                {hasDeleteButton && <button onClick={onClick}>삭제</button>}
               </>
             </S.ContentsButtonContainer>
           </C.WhiteContainer>
