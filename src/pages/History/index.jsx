@@ -6,13 +6,9 @@ const History = () => {
   const { historyRecordList } = useHistory();
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title={"제목이요"} sort="역사">
-        <C.HistoryItem boardRecordList={historyRecordList} />
-      </C.PageContainer>
-    </>
+    <C.PageContainer title={"제목이요"} sort="역사">
+      <C.HistoryItem boardRecordList={historyRecordList} />
+    </C.PageContainer>
   );
 };
 

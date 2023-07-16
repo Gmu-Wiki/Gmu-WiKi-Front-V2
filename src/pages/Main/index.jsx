@@ -3,6 +3,7 @@ import * as C from "../../components";
 import * as S from "./style";
 import * as I from "../../assets";
 import SchoolImg from "../../imgs/SchoolImg.png";
+import SchoolSong from "../../imgs/SchoolSong.png";
 import { schoolGraphData, historyGraphData } from "../../lib/mainPageData";
 import { useLogin } from "../../Hooks";
 
@@ -34,8 +35,6 @@ function Main() {
 
   return (
     <>
-      <C.RecentModified />
-      <C.Header />
       <C.PageContainer title="대문" sort="G무위키">
         <C.Explanation>
           <S.DetailCenter>
@@ -115,7 +114,11 @@ function Main() {
           detailContent={true}
         >
           <S.SchoolSonContainer>
-            <I.SchoolSong />
+            <img
+              src={SchoolSong}
+              alt="광주소프트웨어마이스터고등학교 교가 이미지"
+              loading="lazy"
+            />
           </S.SchoolSonContainer>
         </C.Detail>
         <C.Detail hasNumber={true} number={5} title={"학과운영"}>
@@ -152,8 +155,6 @@ function Main() {
           </S.DepartmentContainer>
         </C.Detail>
       </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
     </>
   );
 }

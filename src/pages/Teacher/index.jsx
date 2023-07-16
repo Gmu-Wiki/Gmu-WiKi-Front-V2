@@ -18,55 +18,48 @@ export default function Student() {
   const other = boardList.filter(item => item.boardDetailType === "OTHER");
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="선생님"
-        sort="선생님"
-        hasPostButton
-        {...(data === "관리자"
-          ? { hasPostButton: true }
-          : { hasPostButton: false })}
-        url="/post"
-      >
-        <C.Detail hasNumber={false} title={"일반 교과 선생님"}>
-          {general.map(item => (
-            <React.Fragment key={item.id}>
-              <S.Box>
-                <Link to={`/${roleUrl}/board/${item.id}`}>
-                  <S.Title>{item.title}</S.Title>
-                </Link>
-              </S.Box>
-            </React.Fragment>
-          ))}
-        </C.Detail>
-        <C.Detail hasNumber={false} title={"전문 교과 선생님"}>
-          {speciality.map(item => (
-            <React.Fragment key={item.id}>
-              <S.Box>
-                <Link to={`/${roleUrl}/board/${item.id}`}>
-                  <S.Title>{item.title}</S.Title>
-                </Link>
-              </S.Box>
-            </React.Fragment>
-          ))}
-        </C.Detail>
-        <C.Detail hasNumber={false} title={"기타 부서 선생님"}>
-          {other.map(item => (
-            <React.Fragment key={item.id}>
-              <S.Box>
-                <Link to={`/${roleUrl}/board/${item.id}`}>
-                  <S.Title>{item.title}</S.Title>
-                </Link>
-              </S.Box>
-            </React.Fragment>
-          ))}
-        </C.Detail>
-      </C.PageContainer>
-
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title="선생님"
+      sort="선생님"
+      hasPostButton
+      {...(data === "관리자"
+        ? { hasPostButton: true }
+        : { hasPostButton: false })}
+      url="/post"
+    >
+      <C.Detail hasNumber={false} title={"일반 교과 선생님"}>
+        {general.map(item => (
+          <React.Fragment key={item.id}>
+            <S.Box>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.Title>{item.title}</S.Title>
+              </Link>
+            </S.Box>
+          </React.Fragment>
+        ))}
+      </C.Detail>
+      <C.Detail hasNumber={false} title={"전문 교과 선생님"}>
+        {speciality.map(item => (
+          <React.Fragment key={item.id}>
+            <S.Box>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.Title>{item.title}</S.Title>
+              </Link>
+            </S.Box>
+          </React.Fragment>
+        ))}
+      </C.Detail>
+      <C.Detail hasNumber={false} title={"기타 부서 선생님"}>
+        {other.map(item => (
+          <React.Fragment key={item.id}>
+            <S.Box>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.Title>{item.title}</S.Title>
+              </Link>
+            </S.Box>
+          </React.Fragment>
+        ))}
+      </C.Detail>
+    </C.PageContainer>
   );
 }

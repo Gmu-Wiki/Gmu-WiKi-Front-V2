@@ -40,30 +40,25 @@ export default function Notice() {
   }, [roleUrl]);
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="공지"
-        sort="공지"
-        {...(data === "관리자"
-          ? { hasPostButton: true }
-          : { hasPostButton: false })}
-        url="/noticeWrite"
-      >
-        <C.ScrollButton />
-        {noticeList.map(item => (
-          <React.Fragment key={item.id}>
-            <Link to={`/notice/${item.id}`}>
-              <S.NoticeBox>
-                <S.NoticeTitle>{item.title}</S.NoticeTitle>
-                <S.NoticeDay>{item.createdDate.substring(0, 10)}</S.NoticeDay>
-              </S.NoticeBox>
-            </Link>
-          </React.Fragment>
-        ))}
-      </C.PageContainer>
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title="공지"
+      sort="공지"
+      {...(data === "관리자"
+        ? { hasPostButton: true }
+        : { hasPostButton: false })}
+      url="/noticeWrite"
+    >
+      <C.ScrollButton />
+      {noticeList.map(item => (
+        <React.Fragment key={item.id}>
+          <Link to={`/notice/${item.id}`}>
+            <S.NoticeBox>
+              <S.NoticeTitle>{item.title}</S.NoticeTitle>
+              <S.NoticeDay>{item.createdDate.substring(0, 10)}</S.NoticeDay>
+            </S.NoticeBox>
+          </Link>
+        </React.Fragment>
+      ))}
+    </C.PageContainer>
   );
 }

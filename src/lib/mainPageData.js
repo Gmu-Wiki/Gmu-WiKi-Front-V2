@@ -171,7 +171,7 @@ export const historyGraphData = [
   },
   {
     titleChild: "2018년 3월 2일",
-    contentChild: "2018힉년도 신입생 입학(총 84명)",
+    contentChild: "2018학년도 신입생 입학(총 84명)",
     backgroundColor: "#123262"
   },
   {

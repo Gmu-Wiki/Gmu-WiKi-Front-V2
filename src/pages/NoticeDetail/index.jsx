@@ -45,21 +45,17 @@ const NoticeDetail = () => {
   }, [roleUrl]);
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title={state.title} sort="공지">
-        <C.Explanation>
-          <C.NoticeDetail
-            id={state.id}
-            title={state.title}
-            createdDate={state.createdDate.substring(0, 10)}
-            editedDate={state.editedDate.substring(0, 10)}
-            content={state.content}
-          />
-        </C.Explanation>
-      </C.PageContainer>
-    </>
+    <C.PageContainer title={state.title} sort="공지">
+      <C.Explanation>
+        <C.NoticeDetail
+          id={state.id}
+          title={state.title}
+          createdDate={state.createdDate.substring(0, 10)}
+          editedDate={state.editedDate.substring(0, 10)}
+          content={state.content}
+        />
+      </C.Explanation>
+    </C.PageContainer>
   );
 };
 

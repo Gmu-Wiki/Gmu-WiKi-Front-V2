@@ -19,44 +19,37 @@ export default function Student() {
   );
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="사건"
-        sort="사건"
-        hasPostButton
-        {...(data === "관리자"
-          ? { hasPostButton: true }
-          : { hasPostButton: false })}
-        url="/post"
-      >
-        <C.Detail hasNumber={false} title={"2023"}>
-          {twentythird.map(item => (
-            <React.Fragment key={item.id}>
-              <S.Box>
-                <Link to={`/${roleUrl}/board/${item.id}`}>
-                  <S.Title>{item.title}</S.Title>
-                </Link>
-              </S.Box>
-            </React.Fragment>
-          ))}
-        </C.Detail>
-        <C.Detail hasNumber={false} title={"2022"}>
-          {twentysecond.map(item => (
-            <React.Fragment key={item.id}>
-              <S.Box>
-                <Link to={`/${roleUrl}/board/${item.id}`}>
-                  <S.Title>{item.title}</S.Title>
-                </Link>
-              </S.Box>
-            </React.Fragment>
-          ))}
-        </C.Detail>
-      </C.PageContainer>
-
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title="사건"
+      sort="사건"
+      hasPostButton
+      {...(data === "관리자"
+        ? { hasPostButton: true }
+        : { hasPostButton: false })}
+      url="/post"
+    >
+      <C.Detail hasNumber={false} title={"2023"}>
+        {twentythird.map(item => (
+          <React.Fragment key={item.id}>
+            <S.Box>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.Title>{item.title}</S.Title>
+              </Link>
+            </S.Box>
+          </React.Fragment>
+        ))}
+      </C.Detail>
+      <C.Detail hasNumber={false} title={"2022"}>
+        {twentysecond.map(item => (
+          <React.Fragment key={item.id}>
+            <S.Box>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.Title>{item.title}</S.Title>
+              </Link>
+            </S.Box>
+          </React.Fragment>
+        ))}
+      </C.Detail>
+    </C.PageContainer>
   );
 }
