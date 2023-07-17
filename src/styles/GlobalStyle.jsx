@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body::-webkit-scrollbar-thumb {
-    height: 20%;
+    height: 30%;
     background: #7f7f7f;
     
     border-radius: 10px;
