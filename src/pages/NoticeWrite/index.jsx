@@ -16,13 +16,9 @@ const NoticeWrite = () => {
   }, [role, navigate]);
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title="공지" sort="공지">
-        <C.NoticeWrite />
-      </C.PageContainer>
-    </>
+    <C.PageContainer title="공지" sort="공지">
+      <C.NoticeWrite />
+    </C.PageContainer>
   );
 };
 

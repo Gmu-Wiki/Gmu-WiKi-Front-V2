@@ -1,17 +1,17 @@
 import React from "react";
 import * as C from "../../components";
-import { useContent } from "../../Hooks";
+import { useNotice } from "../../Hooks";
 import { useParams } from "react-router-dom";
 
-const Edit = () => {
+const EditNotice = () => {
   const { id } = useParams();
-  const state = useContent({ id });
+  const { state } = useNotice({ props: { id } });
 
   return (
     <C.PageContainer title={state.title} sort="편집">
-      <C.EditWrite title={state.title} content={state.content} id={id} />
+      <C.EditNotice title={state.title} content={state.content} id={id} />
     </C.PageContainer>
   );
 };
 
-export default Edit;
+export default EditNotice;

@@ -13,7 +13,10 @@ export default function Inquiry() {
     url: `/admin/inquiry`,
     method: "get",
     onSuccess: data => {
-      setInquiryList(data.inquiryList);
+      const sortedInquiryList = data.inquiryList.sort((a, b) =>
+        b.createdDate.localeCompare(a.createdDate)
+      );
+      setInquiryList(sortedInquiryList);
     },
     errors: {
       400: "문의 정보를 가져오지 못함"
@@ -35,25 +38,20 @@ export default function Inquiry() {
   }, [role, navigate]);
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title="문의" sort="문의">
-        {inquiryList.map(item => (
-          <React.Fragment key={item.id}>
-            <C.InquiryItem>
-              <Link to={`/inquiry/${item.id}`}>
-                <S.InquiryTitleContainer>
-                  <S.StyledTitle>{item.title}</S.StyledTitle>
-                  <S.Sort>{item.inquiryType}</S.Sort>
-                </S.InquiryTitleContainer>
-              </Link>
-            </C.InquiryItem>
-          </React.Fragment>
-        ))}
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer title="문의" sort="문의">
+      {inquiryList.map(item => (
+        <React.Fragment key={item.id}>
+          <C.InquiryItem>
+            <Link to={`/inquiry/${item.id}`}>
+              <S.InquiryTitleContainer>
+                <S.StyledTitle>{item.title}</S.StyledTitle>
+                <S.Sort>{item.inquiryType}</S.Sort>
+                <S.Date>{item.createdDate.substring(0, 10)}</S.Date>
+              </S.InquiryTitleContainer>
+            </Link>
+          </C.InquiryItem>
+        </React.Fragment>
+      ))}
+    </C.PageContainer>
   );
 }

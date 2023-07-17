@@ -4,7 +4,7 @@ import * as C from "../index";
 import { useMail } from "../../Hooks";
 import useMarkdown from "../../Hooks/useMarkdown";
 
-const InquiryDetailItem = ({ id, content, name, inquiryType }) => {
+const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
   const { postApproveMail } = useMail({ props: { id } });
 
   const [showRefusal, setShowRefusal] = useState(false);
@@ -29,6 +29,7 @@ const InquiryDetailItem = ({ id, content, name, inquiryType }) => {
     <>
       <S.NTBox>
         <S.Name>작성자 : {name}</S.Name>
+        <S.CreatedDate>작성 시간 : {createdDate}</S.CreatedDate>
         <S.InquiryType>문의 종류 : {inquiryType}</S.InquiryType>
       </S.NTBox>
       <S.BtnBox>

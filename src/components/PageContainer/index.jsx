@@ -13,7 +13,8 @@ function PageContainer({
   hasHistoryButton,
   hasDeleteButton,
   url,
-  onClick
+  onClick,
+  editUrl
 }) {
   const { id } = useParams();
   const data = GetRole();
@@ -29,14 +30,16 @@ function PageContainer({
   }, [data]);
 
   return (
-    <S.PageCenter>
-      <S.PageContainer>
-        <S.TitleContainer>
-          <C.WhiteContainer title={title} sort={sort}>
+    <>
+      <C.Header />
+      <S.Page>
+        <S.PageContainer>
+          <S.TitleContainer>
+            <span>G무위키:{title}</span>
             <S.ContentsButtonContainer>
               <>
                 {hasEditButton && (
-                  <Link to={`/${roleUrl}/board/edit/${id}`}>
+                  <Link to={`/${roleUrl}/${editUrl}/edit/${id}`}>
                     <C.ContentsButton>편집</C.ContentsButton>
                   </Link>
                 )}
@@ -50,17 +53,27 @@ function PageContainer({
                     <C.ContentsButton>역사</C.ContentsButton>
                   </Link>
                 )}
-                {hasDeleteButton && <button onClick={onClick}>삭제</button>}
+                {hasDeleteButton && (
+                  <Link onClick={onClick}>
+                    <C.ContentsButton>삭제</C.ContentsButton>
+                  </Link>
+                )}
               </>
             </S.ContentsButtonContainer>
-          </C.WhiteContainer>
-        </S.TitleContainer>
-
-        <S.DetailContent>
-          <S.DetailCenter>{children}</S.DetailCenter>
-        </S.DetailContent>
-      </S.PageContainer>
-    </S.PageCenter>
+          </S.TitleContainer>
+          <S.SubTitleContainer>
+            <span>분류: </span>
+            <span>{sort}</span>
+          </S.SubTitleContainer>
+          <div>{children}</div>
+        </S.PageContainer>
+        <C.RecentModified />
+        <C.ScrollButton />
+      </S.Page>
+      <>
+        <C.Footer />
+      </>
+    </>
   );
 }
 
