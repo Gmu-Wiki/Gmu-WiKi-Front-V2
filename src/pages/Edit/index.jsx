@@ -8,15 +8,9 @@ const Edit = () => {
   const state = useContent({ id });
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title={state.title} sort="편집">
-        <C.EditWrite title={state.title} content={state.content} id={id} />
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer title={state.title} sort="편집">
+      <C.EditWrite title={state.title} content={state.content} id={id} />
+    </C.PageContainer>
   );
 };
 

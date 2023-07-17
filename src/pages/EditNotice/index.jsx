@@ -8,15 +8,9 @@ const EditNotice = () => {
   const { state } = useNotice({ props: { id } });
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title={state.title} sort="편집">
-        <C.EditNotice title={state.title} content={state.content} id={id} />
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer title={state.title} sort="편집">
+      <C.EditNotice title={state.title} content={state.content} id={id} />
+    </C.PageContainer>
   );
 };
 
