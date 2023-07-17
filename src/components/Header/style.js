@@ -56,7 +56,7 @@ export const SearchContainer = styled.div`
   border: 1px solid #c0c0c0;
   cursor: pointer;
 
-  @media (max-width: 700px) {
+  @media screen and (max-width: 700px) {
     display: none;
   }
 `;
