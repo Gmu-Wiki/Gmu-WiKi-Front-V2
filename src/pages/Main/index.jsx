@@ -64,7 +64,7 @@ function Main() {
               Gwangju Software Meister High School
             </div>
           </S.SchoolTitleContent>
-          <S.SchoolImg src={SchoolImg} alt="학교 이미지" />
+          <S.SchoolImg src={SchoolImg} alt="학교 이미지" loading="lazy" />
           {schoolGraphs}
         </S.IntroCenter>
         <C.Detail hasNumber={true} number={1} title={"개요"}>

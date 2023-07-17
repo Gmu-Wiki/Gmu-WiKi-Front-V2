@@ -29,7 +29,7 @@ export default function Role() {
 
   return (
     <C.PageContainer title="권한" sort="권한">
-      <img src={RoleImg1} alt="Role이미지1" />
+      <img src={RoleImg1} alt="Role이미지1" loading="lazy" />
       <S.RoleContainer>
         <S.InputContainer>
           <S.RoleTitle>이메일</S.RoleTitle>
@@ -62,7 +62,7 @@ export default function Role() {
           부여하기
         </C.Button>
       </S.RoleContainer>
-      <img src={RoleImg2} alt="Role이미지2" />
+      <img src={RoleImg2} alt="Role이미지2" loading="lazy" />
     </C.PageContainer>
   );
 }
