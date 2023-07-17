@@ -39,8 +39,8 @@ const EditWrite = ({ title, content, id }) => {
 
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
-      setNumArr(save);
     }
+    setNumArr(save);
   };
 
   const handleEdit = () => {
