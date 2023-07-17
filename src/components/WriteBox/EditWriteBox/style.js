@@ -50,11 +50,10 @@ export const TitleInput = styled.div`
 export const ContentInput = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
   margin-top: 10px;
+  align-items: center;
 
   div {
-    width: 1%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,12 +64,14 @@ export const ContentInput = styled.div`
       font-size: 1rem;
       font-weight: 600;
       line-height: 22px;
+      margin: 0 42px 0 20px;
+      
     }
   }
 
   textarea {
     border: 1px solid #dddddd;
-    width: 90.2%;
+    width: 90%;
     padding: 10px;
     outline: 0;
     background-color: none;

@@ -34,7 +34,7 @@ const useUpload = ({ props }) => {
         return;
       }
       if (e.response && e.response.status >= 500) {
-        toast.error("500");
+        toast.error("편집할 수 없습니다.");
       } else if (e.response && e.response.status >= 409) {
         toast.error("이미 존재하는 제목입니다.");
       } else if (e.response && e.response.status >= 400) {

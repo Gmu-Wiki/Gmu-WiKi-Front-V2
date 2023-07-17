@@ -38,8 +38,6 @@ const HistoryDetail = () => {
     }
   });
 
-  console.log(state);
-
   useEffect(() => {
     if (roleUrl) {
       fetch();
