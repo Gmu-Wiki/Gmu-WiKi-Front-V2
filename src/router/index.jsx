@@ -2,8 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import * as P from "../pages";
 import GetRole from "../lib/GetRole";
 import { useEffect, useState } from "react";
+import TokenManager from "../apis/TokenManager";
 
 export default function Router() {
+  const tokenManager = new TokenManager();
+
+  const hastoken = tokenManager.accessToken;
   const role = GetRole();
   const [roleUrl, setRoleUrl] = useState("");
 
@@ -14,11 +18,11 @@ export default function Router() {
       setRoleUrl("user");
     }
   }, [role]);
+
   return (
     <Routes>
       <Route path="/" element={<P.Main />} />
       <Route path="/student" element={<P.Student />} />
-      <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
       <Route path="/teacher" element={<P.Teacher />} />
       <Route path="/club" element={<P.Club />} />
       <Route path="/major" element={<P.Major />} />
@@ -26,8 +30,14 @@ export default function Router() {
       <Route path="/notice" element={<P.Notice />} />
       <Route path="/notice/:id" element={<P.NoticeDetail />} />
       <Route path="/post" element={<P.Post />} />
-      <Route path="/history" element={<P.History />} />
-      <Route path="/historydetail" element={<P.HistoryDetail />} />
+      <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
+      <Route path={`/${roleUrl}/board/:id/record`} element={<P.History />} />
+      <Route path={`/${roleUrl}/board/edit/:id`} element={<P.Edit />} />
+      <Route path={`/${roleUrl}/notice/edit/:id`} element={<P.EditNotice />} />
+      <Route
+        path={`/${roleUrl}/board/:id/record/detail`}
+        element={<P.HistoryDetail />}
+      />
       <Route path="/inquiry" element={<P.Inquiry />} />
       <Route path="/inquiryWrite" element={<P.InquiryWrite />} />
       <Route path="/schedule" element={<P.Schedule />} />

@@ -9,47 +9,36 @@ export default function Student() {
   const data = GetRole();
   const { boardList, roleUrl } = useBoard({ boardType: "INCIDENT" });
 
-  if (!boardList) return;
+  if (!boardList) return null;
 
-  const twentysecond = boardList.filter(
-    item => item.boardDetailType === "TWENTY_SECOND"
-  );
-  const twentythird = boardList.filter(
-    item => item.boardDetailType === "TWENTY_THIRD"
-  );
+  const years = [
+    { title: "2023", type: "TWENTY_THIRD" },
+    { title: "2022", type: "TWENTY_SECOND" }
+  ];
+
+  const renderBoardItems = yearType => {
+    const filteredItems = boardList
+      .filter(item => item.boardDetailType === yearType)
+      .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+
+    return filteredItems.map(item => (
+      <React.Fragment key={item.id}>
+        <S.Box>
+          <Link to={`/${roleUrl}/board/${item.id}`}>
+            <S.Title>{item.title}</S.Title>
+          </Link>
+        </S.Box>
+      </React.Fragment>
+    ));
+  };
 
   return (
-    <C.PageContainer
-      title="사건"
-      sort="사건"
-      hasPostButton
-      {...(data === "관리자"
-        ? { hasPostButton: true }
-        : { hasPostButton: false })}
-      url="/post"
-    >
-      <C.Detail hasNumber={false} title={"2023"}>
-        {twentythird.map(item => (
-          <React.Fragment key={item.id}>
-            <S.Box>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.Title>{item.title}</S.Title>
-              </Link>
-            </S.Box>
-          </React.Fragment>
-        ))}
-      </C.Detail>
-      <C.Detail hasNumber={false} title={"2022"}>
-        {twentysecond.map(item => (
-          <React.Fragment key={item.id}>
-            <S.Box>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.Title>{item.title}</S.Title>
-              </Link>
-            </S.Box>
-          </React.Fragment>
-        ))}
-      </C.Detail>
+    <C.PageContainer title="사건" sort="사건" hasPostButton={true} url="/post">
+      {years.map(year => (
+        <C.Detail hasNumber={false} title={year.title} key={year.type}>
+          {renderBoardItems(year.type)}
+        </C.Detail>
+      ))}
     </C.PageContainer>
   );
 }

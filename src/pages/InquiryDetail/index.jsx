@@ -49,6 +49,7 @@ const InquiryDetail = () => {
           title={state.title}
           name={state.name}
           content={state.content}
+          createdDate={state.createdDate}
           inquiryType={state.inquiryType}
         />
       </C.Explanation>

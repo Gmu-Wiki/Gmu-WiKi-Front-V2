@@ -11,7 +11,7 @@ const API = axios.create({
 
 API.interceptors.request.use(async config => {
   const tokenManager = new TokenManager();
-
+  
   if (
     !tokenManager.validateToken(
       tokenManager.accessExp,

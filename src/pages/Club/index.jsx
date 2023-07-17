@@ -9,43 +9,41 @@ export default function Student() {
   const data = GetRole();
   const { boardList, roleUrl } = useBoard({ boardType: "CLUB" });
 
-  if (!boardList) return;
+  if (!boardList) return null;
 
-  const major = boardList.filter(item => item.boardDetailType === "MAJOR");
-  const ca = boardList.filter(item => item.boardDetailType === "CA");
+  const clubTypes = [
+    { title: "전공 동아리", type: "MAJOR" },
+    { title: "자율 동아리", type: "CA" }
+  ];
+
+  const renderBoardItems = clubType => {
+    const filteredItems = boardList
+      .filter(item => item.boardDetailType === clubType)
+      .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+
+    return filteredItems.map(item => (
+      <React.Fragment key={item.id}>
+        <S.Box>
+          <Link to={`/${roleUrl}/board/${item.id}`}>
+            <S.Title>{item.title}</S.Title>
+          </Link>
+        </S.Box>
+      </React.Fragment>
+    ));
+  };
 
   return (
     <C.PageContainer
       title="동아리"
       sort="동아리"
-      hasPostButton
-      {...(data === "관리자"
-        ? { hasPostButton: true }
-        : { hasPostButton: false })}
+      hasPostButton={data === "관리자"}
       url="/post"
     >
-      <C.Detail hasNumber={false} title={"전공 동아리"}>
-        {major.map(item => (
-          <React.Fragment key={item.id}>
-            <S.Box>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.Title>{item.title}</S.Title>
-              </Link>
-            </S.Box>
-          </React.Fragment>
-        ))}
-      </C.Detail>
-      <C.Detail hasNumber={false} title={"자율 동아리"}>
-        {ca.map(item => (
-          <React.Fragment key={item.id}>
-            <S.Box>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.Title>{item.title}</S.Title>
-              </Link>
-            </S.Box>
-          </React.Fragment>
-        ))}
-      </C.Detail>
+      {clubTypes.map(clubType => (
+        <C.Detail hasNumber={false} title={clubType.title} key={clubType.type}>
+          {renderBoardItems(clubType.type)}
+        </C.Detail>
+      ))}
     </C.PageContainer>
   );
 }

@@ -11,11 +11,27 @@ export default function Student() {
 
   if (!boardList) return null;
 
-  const fifthGen = boardList.filter(item => item.boardDetailType === "FIFTH");
-  const sixthGen = boardList.filter(item => item.boardDetailType === "SIXTH");
-  const seventhGen = boardList.filter(
-    item => item.boardDetailType === "SEVENTH"
-  );
+  const generations = [
+    { title: "5기", type: "FIFTH" },
+    { title: "6기", type: "SIXTH" },
+    { title: "7기", type: "SEVENTH" }
+  ];
+
+  const renderBoardItems = generationType => {
+    const filteredItems = boardList
+      .filter(item => item.boardDetailType === generationType)
+      .sort((a, b) => a.title.localeCompare(b.title, "ko"));
+
+    return filteredItems.map(item => (
+      <React.Fragment key={item.id}>
+        <S.StudentBox>
+          <Link to={`/${roleUrl}/board/${item.id}`}>
+            <S.StudentTitle>{item.title}</S.StudentTitle>
+          </Link>
+        </S.StudentBox>
+      </React.Fragment>
+    ));
+  };
 
   return (
     <C.PageContainer
@@ -24,39 +40,15 @@ export default function Student() {
       hasPostButton={data === "관리자"}
       url="/post"
     >
-      <C.Detail hasNumber={false} title={"5기"}>
-        {fifthGen.map(item => (
-          <React.Fragment key={item.id}>
-            <S.StudentBox>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.StudentTitle>{item.title}</S.StudentTitle>
-              </Link>
-            </S.StudentBox>
-          </React.Fragment>
-        ))}
-      </C.Detail>
-      <C.Detail hasNumber={false} title={"6기"}>
-        {sixthGen.map(item => (
-          <React.Fragment key={item.id}>
-            <S.StudentBox>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.StudentTitle>{item.title}</S.StudentTitle>
-              </Link>
-            </S.StudentBox>
-          </React.Fragment>
-        ))}
-      </C.Detail>
-      <C.Detail hasNumber={false} title={"7기"}>
-        {seventhGen.map(item => (
-          <React.Fragment key={item.id}>
-            <S.StudentBox>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.StudentTitle>{item.title}</S.StudentTitle>
-              </Link>
-            </S.StudentBox>
-          </React.Fragment>
-        ))}
-      </C.Detail>
+      {generations.map(generation => (
+        <C.Detail
+          hasNumber={false}
+          title={generation.title}
+          key={generation.type}
+        >
+          {renderBoardItems(generation.type)}
+        </C.Detail>
+      ))}
     </C.PageContainer>
   );
 }
