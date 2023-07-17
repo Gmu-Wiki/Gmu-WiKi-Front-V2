@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const DropContainer = styled.div`
   width: 100%;
   background-color: #3e9dff;
-  height: 24vh;
+  height: auto;
   color: #fff;
   padding-left: 15vw;
+  padding-bottom: 2vw;
   position: absolute;
   z-index: 999;
 `;
