@@ -42,25 +42,18 @@ const InquiryDetail = () => {
   }, [role, navigate]);
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title={state.title} sort="문의">
-        <C.Explanation>
-          <C.InquiryDetailItem
-            id={state.id}
-            title={state.title}
-            name={state.name}
-            content={state.content}
-            createdDate={state.createdDate}
-            inquiryType={state.inquiryType}
-          />
-        </C.Explanation>
-      </C.PageContainer>
-
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer title={state.title} sort="문의">
+      <C.Explanation>
+        <C.InquiryDetailItem
+          id={state.id}
+          title={state.title}
+          name={state.name}
+          content={state.content}
+          createdDate={state.createdDate}
+          inquiryType={state.inquiryType}
+        />
+      </C.Explanation>
+    </C.PageContainer>
   );
 };
 

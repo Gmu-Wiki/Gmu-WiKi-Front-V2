@@ -19,4 +19,8 @@ export const ScrollButtonContainer = styled.div`
     transform: scaleY(-1);
     margin-left: 8px;
   }
+
+  @media screen and (max-width: 700px) {
+    bottom: 4.5%;
+  }
 `;

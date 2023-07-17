@@ -34,27 +34,21 @@ export default function Student() {
   };
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="학생"
-        sort="학생"
-        hasPostButton={data === "관리자"}
-        url="/post"
-      >
-        {generations.map(generation => (
-          <C.Detail
-            hasNumber={false}
-            title={generation.title}
-            key={generation.type}
-          >
-            {renderBoardItems(generation.type)}
-          </C.Detail>
-        ))}
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title="학생"
+      sort="학생"
+      hasPostButton={data === "관리자"}
+      url="/post"
+    >
+      {generations.map(generation => (
+        <C.Detail
+          hasNumber={false}
+          title={generation.title}
+          key={generation.type}
+        >
+          {renderBoardItems(generation.type)}
+        </C.Detail>
+      ))}
+    </C.PageContainer>
   );
 }

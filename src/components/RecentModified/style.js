@@ -2,31 +2,34 @@ import styled from "styled-components";
 
 export const RecentModifiedContainer = styled.div`
   position: fixed;
-  right: 4.5%;
-  top: 12.5%;
   text-align: center;
   display: flex;
   flex-direction: column;
   font-weight: 700;
+  z-index: -1;
+  top: 16%;
+  right: 4%;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.div`
   color: #ffffff;
   background-color: #007eff;
-  text-align: center;
-  width: 250px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding-left: 28px;
+  line-height: 5vh;
+  width: 15vw;
+  height: 5vh;
   font-size: 1.2rem;
+  text-align: center;
 `;
 
 export const ModifiedContents = styled.div``;
 
 export const ModifiedItem = styled.div`
-  width: 250px;
-  height: 40px;
+  width: 15vw;
+  height: 4.5vh;
   background-color: #ffffff;
   display: flex;
   align-items: center;

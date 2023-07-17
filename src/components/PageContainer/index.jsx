@@ -30,10 +30,12 @@ function PageContainer({
   }, [data]);
 
   return (
-    <S.PageCenter>
-      <S.PageContainer>
-        <S.TitleContainer>
-          <C.WhiteContainer title={title} sort={sort}>
+    <>
+      <C.Header />
+      <S.Page>
+        <S.PageContainer>
+          <S.TitleContainer>
+            <span>G무위키:{title}</span>
             <S.ContentsButtonContainer>
               <>
                 {hasEditButton && (
@@ -54,14 +56,20 @@ function PageContainer({
                 {hasDeleteButton && <button onClick={onClick}>삭제</button>}
               </>
             </S.ContentsButtonContainer>
-          </C.WhiteContainer>
-        </S.TitleContainer>
-
-        <S.DetailContent>
-          <S.DetailCenter>{children}</S.DetailCenter>
-        </S.DetailContent>
-      </S.PageContainer>
-    </S.PageCenter>
+          </S.TitleContainer>
+          <S.SubTitleContainer>
+            <span>분류: </span>
+            <span>{sort}</span>
+          </S.SubTitleContainer>
+          <div>{children}</div>
+        </S.PageContainer>
+        <C.RecentModified />
+        <C.ScrollButton />
+      </S.Page>
+      <>
+        <C.Footer />
+      </>
+    </>
   );
 }
 

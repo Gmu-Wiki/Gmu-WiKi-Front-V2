@@ -12,30 +12,18 @@ export default function Student() {
   if (!boardList) return;
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="전공"
-        sort="전공"
-        hasPostButton={true}
-        url="/post"
-      >
-        <C.Detail hasNumber={false} title={"전공"}>
-          {boardList.map(item => (
-            <React.Fragment key={item.id}>
-              <S.MajorBox>
-                <Link to={`/${roleUrl}/board/${item.id}`}>
-                  <S.MajorTitle>{item.title}</S.MajorTitle>
-                </Link>
-              </S.MajorBox>
-            </React.Fragment>
-          ))}
-        </C.Detail>
-      </C.PageContainer>
-
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer title="전공" sort="전공" hasPostButton={true} url="/post">
+      <C.Detail hasNumber={false} title={"전공"}>
+        {boardList.map(item => (
+          <React.Fragment key={item.id}>
+            <S.MajorBox>
+              <Link to={`/${roleUrl}/board/${item.id}`}>
+                <S.MajorTitle>{item.title}</S.MajorTitle>
+              </Link>
+            </S.MajorBox>
+          </React.Fragment>
+        ))}
+      </C.Detail>
+    </C.PageContainer>
   );
 }

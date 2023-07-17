@@ -43,23 +43,17 @@ export default function Student() {
   };
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="학사일정"
-        sort="학사일정"
-        hasPostButton={data === "관리자"}
-        url="/post"
-      >
-        {months.map((month, index) => (
-          <C.Detail hasNumber={false} title={`${index + 1}월`} key={month}>
-            {renderBoardItems(month)}
-          </C.Detail>
-        ))}
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title="학사일정"
+      sort="학사일정"
+      hasPostButton={data === "관리자"}
+      url="/post"
+    >
+      {months.map((month, index) => (
+        <C.Detail hasNumber={false} title={`${index + 1}월`} key={month}>
+          {renderBoardItems(month)}
+        </C.Detail>
+      ))}
+    </C.PageContainer>
   );
 }

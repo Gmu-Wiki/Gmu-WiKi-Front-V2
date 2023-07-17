@@ -5,13 +5,9 @@ import * as S from "./style";
 
 function NotFound() {
   return (
-    <>
-      <C.Header />
-      <S.NotFoundCotainer>
-        <I.NotFound />
-      </S.NotFoundCotainer>
-      <C.Footer />
-    </>
+    <S.NotFoundCotainer>
+      <I.NotFound />
+    </S.NotFoundCotainer>
   );
 }
 

@@ -33,27 +33,17 @@ export default function Student() {
   };
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="동아리"
-        sort="동아리"
-        hasPostButton={data === "관리자"}
-        url="/post"
-      >
-        {clubTypes.map(clubType => (
-          <C.Detail
-            hasNumber={false}
-            title={clubType.title}
-            key={clubType.type}
-          >
-            {renderBoardItems(clubType.type)}
-          </C.Detail>
-        ))}
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title="동아리"
+      sort="동아리"
+      hasPostButton={data === "관리자"}
+      url="/post"
+    >
+      {clubTypes.map(clubType => (
+        <C.Detail hasNumber={false} title={clubType.title} key={clubType.type}>
+          {renderBoardItems(clubType.type)}
+        </C.Detail>
+      ))}
+    </C.PageContainer>
   );
 }

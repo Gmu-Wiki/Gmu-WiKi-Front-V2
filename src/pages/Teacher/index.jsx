@@ -34,27 +34,21 @@ export default function Student() {
   };
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="선생님"
-        sort="선생님"
-        hasPostButton={data === "관리자"}
-        url="/post"
-      >
-        {boardTypes.map(boardType => (
-          <C.Detail
-            hasNumber={false}
-            title={boardType.title}
-            key={boardType.type}
-          >
-            {renderBoardItems(boardType.type)}
-          </C.Detail>
-        ))}
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title="선생님"
+      sort="선생님"
+      hasPostButton={data === "관리자"}
+      url="/post"
+    >
+      {boardTypes.map(boardType => (
+        <C.Detail
+          hasNumber={false}
+          title={boardType.title}
+          key={boardType.type}
+        >
+          {renderBoardItems(boardType.type)}
+        </C.Detail>
+      ))}
+    </C.PageContainer>
   );
 }

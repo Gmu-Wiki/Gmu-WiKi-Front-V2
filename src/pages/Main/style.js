@@ -65,8 +65,22 @@ export const OutlineContent = styled.div`
 `;
 
 export const SchoolVideoContainer = styled.div`
-  text-align: center;
-  width: 950px;
+  position: relative;
+  padding-top: 56%;
+  width: 100%;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
 `;
 
 export const Lesson = styled.div`
@@ -78,6 +92,9 @@ export const Lesson = styled.div`
 
 export const SchoolSonContainer = styled.div`
   text-align: center;
+  img {
+    object-fit: contain;
+  }
 `;
 
 export const DepartmentContainer = styled.div`
@@ -102,7 +119,7 @@ export const IntroCenter = styled.div`
 `;
 
 export const SchoolTitleContent = styled.div`
-  width: 65%;
+  width: 44vw;
   height: 80px;
   font-weight: 700;
   background-color: #007eff;
@@ -114,13 +131,34 @@ export const SchoolTitleContent = styled.div`
 
   .englishName {
     font-size: 14px;
+    @media screen and (max-width: 1000px) {
+      font-size: 0.8;
+    }
+
+    @media screen and (max-width: 800px) {
+      font-size: 0.4rem;
+    }
   }
   .koreanName {
     font-size: 24px;
     margin-bottom: 5px;
+    @media screen and (max-width: 1000px) {
+      font-size: 1.4rem;
+    }
+    @media screen and (max-width: 800px) {
+      font-size: 0.9rem;
+    }
+  }
+  @media screen and (max-width: 1280px) {
+    width: 100%;
   }
 `;
 
 export const SchoolImg = styled.img`
-  width: 65%;
+  width: 44vw;
+  height: 24vw;
+  @media screen and (max-width: 1280px) {
+    width: 100%;
+    height: 100%;
+  }
 `;

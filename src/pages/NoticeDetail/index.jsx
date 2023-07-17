@@ -23,31 +23,24 @@ const NoticeDetail = () => {
   const hasEditButton = data === "관리자";
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title={state.title}
-        hasDeleteButton={hasDeleteButton}
-        hasEditButton={hasEditButton}
-        onClick={handleDelete}
-        sort="공지"
-        editUrl="notice"
-      >
-        <C.Explanation>
-          <C.NoticeDetail
-            id={state.id}
-            title={state.title}
-            createdDate={state.createdDate.substring(0, 10)}
-            editedDate={state.editedDate.substring(0, 10)}
-            content={state.content}
-          />
-        </C.Explanation>
-      </C.PageContainer>
-
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer
+      title={state.title}
+      hasDeleteButton={hasDeleteButton}
+      hasEditButton={hasEditButton}
+      onClick={handleDelete}
+      sort="공지"
+      editUrl="notice"
+    >
+      <C.Explanation>
+        <C.NoticeDetail
+          id={state.id}
+          title={state.title}
+          createdDate={state.createdDate.substring(0, 10)}
+          editedDate={state.editedDate.substring(0, 10)}
+          content={state.content}
+        />
+      </C.Explanation>
+    </C.PageContainer>
   );
 };
 

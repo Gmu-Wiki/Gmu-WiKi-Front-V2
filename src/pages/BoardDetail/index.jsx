@@ -50,16 +50,14 @@ const BoardDetail = () => {
 
   return (
     <>
-      <C.RecentModified />
-      <C.Header />
       <C.PageContainer
         title={state.title}
+        sort="글"
         hasHistoryButton={true}
         hasEditButton={true}
         hasDeleteButton={true}
         onClick={handleDelete}
         editUrl="board"
-        sort="글"
       >
         <C.Explanation>
           <C.BoardDetail
@@ -71,8 +69,6 @@ const BoardDetail = () => {
           />
         </C.Explanation>
       </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
     </>
   );
 };

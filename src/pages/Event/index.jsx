@@ -33,23 +33,12 @@ export default function Student() {
   };
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer
-        title="사건"
-        sort="사건"
-        hasPostButton={true}
-        url="/post"
-      >
-        {years.map(year => (
-          <C.Detail hasNumber={false} title={year.title} key={year.type}>
-            {renderBoardItems(year.type)}
-          </C.Detail>
-        ))}
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer title="사건" sort="사건" hasPostButton={true} url="/post">
+      {years.map(year => (
+        <C.Detail hasNumber={false} title={year.title} key={year.type}>
+          {renderBoardItems(year.type)}
+        </C.Detail>
+      ))}
+    </C.PageContainer>
   );
 }

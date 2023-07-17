@@ -45,15 +45,11 @@ const HistoryDetail = () => {
   }, [roleUrl]);
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title={state.title} sort="역사">
-        <C.Explanation>
-          <C.HistoryDetail content={state.content} />
-        </C.Explanation>
-      </C.PageContainer>
-    </>
+    <C.PageContainer title={state.title} sort="역사">
+      <C.Explanation>
+        <C.HistoryDetail content={state.content} />
+      </C.Explanation>
+    </C.PageContainer>
   );
 };
 
