@@ -49,27 +49,25 @@ const BoardDetail = () => {
   const state = useContent({ id });
 
   return (
-    <>
-      <C.PageContainer
-        title={state.title}
-        sort="글"
-        hasHistoryButton={true}
-        hasEditButton={true}
-        hasDeleteButton={true}
-        onClick={handleDelete}
-        editUrl="board"
-      >
-        <C.Explanation>
-          <C.BoardDetail
-            id={state.id}
-            title={state.title}
-            createdDate={state.createdDate.substring(0, 10)}
-            editedDate={state.editedDate.substring(0, 10)}
-            content={state.content}
-          />
-        </C.Explanation>
-      </C.PageContainer>
-    </>
+    <C.PageContainer
+      title={state.title}
+      sort="글"
+      hasHistoryButton={true}
+      hasEditButton={true}
+      hasDeleteButton={true}
+      onClick={handleDelete}
+      editUrl="board"
+    >
+      <C.Explanation>
+        <C.BoardDetail
+          id={state.id}
+          title={state.title}
+          createdDate={state.createdDate.substring(0, 10)}
+          editedDate={state.editedDate.substring(0, 10)}
+          content={state.content}
+        />
+      </C.Explanation>
+    </C.PageContainer>
   );
 };
 

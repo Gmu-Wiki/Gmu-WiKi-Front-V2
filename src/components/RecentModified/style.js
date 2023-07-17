@@ -10,7 +10,7 @@ export const RecentModifiedContainer = styled.div`
   top: 16%;
   right: 4%;
 
-  @media (max-width: 1000px) {
+  @media screen and (max-width: 1000px) {
     display: none;
   }
 `;
