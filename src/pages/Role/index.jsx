@@ -24,7 +24,10 @@ export default function Role() {
     url: `/admin/role/${formData.role === "admin" ? "grant" : "revoke"}`,
     method: "patch",
     successMessage: "권한 부여에 성공했습니다.",
-    errors: "권한이 없습니다."
+    errors: {
+      404: "유저를 찾을 수 없습니다.",
+      400: "권한 부여에 실패했습니다."
+    }
   });
 
   return (

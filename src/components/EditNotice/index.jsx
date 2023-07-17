@@ -17,6 +17,11 @@ const EditNotice = ({ title, content, id }) => {
   useEffect(() => {
     setEditContent(content);
     setEditTitle(title);
+
+    for (let i = 1; i <= content.split("\n").length; i++) {
+      save.push(i);
+    }
+    setNumArr(save);
   }, [content, title]);
 
   window.onbeforeunload = () => {
@@ -33,8 +38,8 @@ const EditNotice = ({ title, content, id }) => {
 
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
-      setNumArr(save);
     }
+    setNumArr(save);
   };
 
   const handleEdit = () => {

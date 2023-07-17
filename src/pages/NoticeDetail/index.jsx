@@ -22,6 +22,9 @@ const NoticeDetail = () => {
   const hasDeleteButton = data === "관리자";
   const hasEditButton = data === "관리자";
 
+  const formattedCreatedDate = new Date(state.createdDate).toLocaleString();
+  const formattedEditedDate = new Date(state.editedDate).toLocaleString();
+
   return (
     <C.PageContainer
       title={state.title}
@@ -35,8 +38,8 @@ const NoticeDetail = () => {
         <C.NoticeDetail
           id={state.id}
           title={state.title}
-          createdDate={state.createdDate.substring(0, 10)}
-          editedDate={state.editedDate.substring(0, 10)}
+          createdDate={formattedCreatedDate}
+          editedDate={formattedEditedDate}
           content={state.content}
         />
       </C.Explanation>

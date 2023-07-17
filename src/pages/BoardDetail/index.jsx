@@ -48,6 +48,9 @@ const BoardDetail = () => {
 
   const state = useContent({ id });
 
+  const formattedCreatedDate = new Date(state.createdDate).toLocaleString();
+  const formattedEditedDate = new Date(state.editedDate).toLocaleString();
+
   return (
     <>
       <C.PageContainer
@@ -63,8 +66,8 @@ const BoardDetail = () => {
           <C.BoardDetail
             id={state.id}
             title={state.title}
-            createdDate={state.createdDate.substring(0, 10)}
-            editedDate={state.editedDate.substring(0, 10)}
+            createdDate={formattedCreatedDate}
+            editedDate={formattedEditedDate}
             content={state.content}
           />
         </C.Explanation>

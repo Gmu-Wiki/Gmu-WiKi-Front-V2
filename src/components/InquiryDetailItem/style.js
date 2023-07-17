@@ -13,12 +13,6 @@ export const Content = styled.p`
     color: #007eff;
   }
 
-  img {
-    align-items: center;
-    width: 30vw;
-    height: 45vh;
-  }
-
   h1,
   h2,
   h3,
@@ -29,11 +23,19 @@ export const Content = styled.p`
 
 export const NTBox = styled.div`
   display: flex;
-  margin-left: 70%;
+  margin-left: 40%;
 `;
 
 export const Name = styled.p`
   font-size: 1rem;
+  margin-right: 10px;
+`;
+
+export const CreatedDate = styled.p`
+  text-align: right;
+  font-size: 1rem;
+  color: #636363;
+  font-weight: 400;
 `;
 
 export const InquiryType = styled.p`
