@@ -29,8 +29,13 @@ const useNotice = ({ props }) => {
       toast.success("공지가 성공적으로 지워졌습니다.");
       navigate("/notice");
     } catch (e) {
-      console.log(e);
-      toast.error("공지 제거에 실패했습니다");
+      if (e.response && e.response.status >= 403) {
+        toast.error("권한이 없습니다.");
+      } else if (e.response && e.response.status >= 401) {
+        toast.error("로그인이 필요합니다.");
+      } else {
+        toast.error("문의 글을 작성할 수 없습니다.");
+      }
     }
   }, [props.id, navigate]);
 

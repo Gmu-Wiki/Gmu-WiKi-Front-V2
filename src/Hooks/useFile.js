@@ -22,10 +22,10 @@ const useFile = () => {
 
       return data.awsUrl;
     } catch (e) {
-      toast.error("이미지 업로드에 실패했습니다.");
-
       if (e.response && e.response.status >= 500) {
         toast.error("서버에 문제가 생겼습니다.");
+      } else {
+        toast.error("이미지 업로드에 실패했습니다.");
       }
       setIsLoading(false);
     }
