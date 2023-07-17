@@ -27,7 +27,7 @@ const useUpload = ({ props }) => {
       });
 
       toast.success("편집 되었습니다.");
-      navigate("/");
+      navigate(`/${roleUrl}/board/${props.id}`);
     } catch (e) {
       if (!(e instanceof AxiosError)) {
         toast.error("편집에 실패하였습니다.");
