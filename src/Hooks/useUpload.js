@@ -30,13 +30,13 @@ const useUpload = ({ props }) => {
       toast.success("글 등록에 성공하였습니다.");
       navigate("/");
     } catch (e) {
-      toast.error("글 등록에 실패하였습니다.");
+      if (e.response && e.response.status >= 409) {
+        toast.error("이미 해당하는 글 제목이 있습니다.");
+      } else {
+        toast.error("글 등록에 실패하였습니다.");
+      }
     }
-  }, [
-    props,
-    roleUrl,
-    navigate
-  ]);
+  }, [props, roleUrl, navigate]);
 
   return { uploadHandler };
 };
