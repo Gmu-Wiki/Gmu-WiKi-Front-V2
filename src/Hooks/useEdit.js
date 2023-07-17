@@ -51,7 +51,7 @@ const useUpload = ({ props }) => {
       });
 
       toast.success("편집 되었습니다.");
-      navigate("/");
+      navigate(`/notice/${props.id}`);
     } catch (e) {
       if (!(e instanceof AxiosError)) {
         toast.error("이미 존재하는 제목입니다.");

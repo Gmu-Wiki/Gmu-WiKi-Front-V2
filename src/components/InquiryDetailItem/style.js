@@ -13,12 +13,6 @@ export const Content = styled.p`
     color: #007eff;
   }
 
-  img {
-    align-items: center;
-    width: 30vw;
-    height: 45vh;
-  }
-
   h1,
   h2,
   h3,
