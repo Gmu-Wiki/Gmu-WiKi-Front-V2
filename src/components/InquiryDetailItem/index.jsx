@@ -29,6 +29,7 @@ const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
     <>
       <S.NTBox>
         <S.Name>작성자 : {name}</S.Name>
+        <S.CreatedDate>작성 시간 : {createdDate}</S.CreatedDate>
         <S.InquiryType>문의 종류 : {inquiryType}</S.InquiryType>
       </S.NTBox>
       <S.BtnBox>

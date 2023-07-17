@@ -41,6 +41,8 @@ const InquiryDetail = () => {
     }
   }, [role, navigate]);
 
+  const formattedCreatedDate = new Date(state.createdDate).toLocaleString();
+
   return (
     <C.PageContainer title={state.title} sort="문의">
       <C.Explanation>
@@ -49,7 +51,7 @@ const InquiryDetail = () => {
           title={state.title}
           name={state.name}
           content={state.content}
-          createdDate={state.createdDate}
+          createdDate={formattedCreatedDate}
           inquiryType={state.inquiryType}
         />
       </C.Explanation>
