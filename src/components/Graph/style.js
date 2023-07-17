@@ -21,19 +21,19 @@ export const TitleGraph = styled.div`
   font-size: 0.98rem;
   word-break: break-all;
 
-  @media (max-width: 1300px) {
+  @media screen and (max-width: 1300px) {
     font-size: 0.8rem;
   }
 
-  @media (max-width: 1000px) {
+  @media screen and (max-width: 1000px) {
     font-size: 0.4rem;
   }
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     font-size: 0.2rem;
     height: 100%;
   }
-  @media (max-width: 700px) {
+  @media screen and (max-width: 700px) {
     font-size: 0.1rem;
     width: 35%;
   }

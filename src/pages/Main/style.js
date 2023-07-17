@@ -131,21 +131,21 @@ export const SchoolTitleContent = styled.div`
 
   .englishName {
     font-size: 14px;
-    @media (max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
       font-size: 0.8;
     }
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
       font-size: 0.4rem;
     }
   }
   .koreanName {
     font-size: 24px;
     margin-bottom: 5px;
-    @media (max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
       font-size: 1.4rem;
     }
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
       font-size: 0.9rem;
     }
   }
