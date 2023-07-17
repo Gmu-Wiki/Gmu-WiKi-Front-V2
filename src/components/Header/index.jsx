@@ -26,6 +26,9 @@ function Header() {
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
       navigate("/");
+    },
+    errors: {
+      404: "유저를 찾을 수 없습니다."
     }
   });
   const onDelete = ({ url, method }) => {

@@ -6,18 +6,18 @@ import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 
 const useUpload = ({ props }) => {
-  const data = GetRole();
   const navigate = useNavigate();
+  const role = GetRole();
 
   const [roleUrl, setRoleUrl] = useState("");
 
   useEffect(() => {
-    if (data === "관리자") {
+    if (role === "관리자") {
       setRoleUrl("admin");
-    } else if (data === "사용자") {
+    } else if (role === "사용자") {
       setRoleUrl("user");
     }
-  }, [data]);
+  }, [role]);
 
   const editBoardUpload = useCallback(async () => {
     try {
@@ -27,14 +27,14 @@ const useUpload = ({ props }) => {
       });
 
       toast.success("편집 되었습니다.");
-      navigate(`/${roleUrl}/board/${props.id}`);
+      navigate("/");
     } catch (e) {
       if (!(e instanceof AxiosError)) {
         toast.error("편집에 실패하였습니다.");
         return;
       }
       if (e.response && e.response.status >= 500) {
-        toast.error("편집할 수 없습니다.");
+        toast.error("편집에 실패하였습니다.");
       } else if (e.response && e.response.status >= 409) {
         toast.error("이미 존재하는 제목입니다.");
       } else if (e.response && e.response.status >= 400) {
@@ -51,7 +51,7 @@ const useUpload = ({ props }) => {
       });
 
       toast.success("편집 되었습니다.");
-      navigate(`/${roleUrl}/notice/${props.id}`);
+      navigate("/");
     } catch (e) {
       if (!(e instanceof AxiosError)) {
         toast.error("이미 존재하는 제목입니다.");
