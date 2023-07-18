@@ -52,25 +52,27 @@ const BoardDetail = () => {
   const formattedEditedDate = new Date(state.editedDate).toLocaleString();
 
   return (
-    <C.PageContainer
-      title={state.title}
-      sort="글"
-      hasHistoryButton={true}
-      hasEditButton={true}
-      hasDeleteButton={true}
-      onClick={handleDelete}
-      editUrl="board"
-    >
-      <C.Explanation>
-        <C.BoardDetail
-          id={state.id}
-          title={state.title}
-          createdDate={state.createdDate.substring(0, 10)}
-          editedDate={state.editedDate.substring(0, 10)}
-          content={state.content}
-        />
-      </C.Explanation>
-    </C.PageContainer>
+    <>
+      <C.PageContainer
+        title={state.title}
+        sort="글"
+        hasHistoryButton={true}
+        hasEditButton={true}
+        hasDeleteButton={true}
+        onClick={handleDelete}
+        editUrl="board"
+      >
+        <C.Explanation>
+          <C.BoardDetail
+            id={state.id}
+            title={state.title}
+            createdDate={formattedCreatedDate}
+            editedDate={formattedEditedDate}
+            content={state.content}
+          />
+        </C.Explanation>
+      </C.PageContainer>
+    </>
   );
 };
 
