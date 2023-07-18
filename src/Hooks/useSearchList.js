@@ -23,10 +23,9 @@ const useSearchList = ({ title }) => {
         const { data } = await API.get(`/${roleUrl}/board/search`, {
           params: { title }
         });
-
-        setSearchList(data.boardTitleList);
+        setSearchList(data);
       } catch (error) {
-        toast.error("해당 목록을 찾을 수 없습니다.");
+        console.log("Error");
       }
     };
 

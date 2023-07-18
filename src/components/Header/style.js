@@ -6,6 +6,10 @@ export const DropMenu = styled.div`
   margin: 0px;
   padding: 0px;
   font-size: 18px;
+
+  .autoList {
+    display: flex;
+  }
 `;
 
 export const MenuLi = styled.li`
@@ -31,7 +35,6 @@ export const MenuLi = styled.li`
 `;
 
 export const Header = styled.div`
-  position: fixed;
   z-index: 999;
   left: 0;
   width: 100%;
@@ -91,6 +94,16 @@ export const noticeImg = styled.img`
 
 export const searchContent = styled.div`
   display: flex;
+  align-items: center;
+
+  .autoSort {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputContainer {
+    display: flex;
+  }
 
   .searchIcon {
     display: flex;
@@ -117,6 +130,20 @@ export const searchContent = styled.div`
     font-size: 16px;
     cursor: pointer;
   }
+
+  .boardContainer {
+    display: flex;
+  }
+
+  .inputSort {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .relatedSearchContainer {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const schoolImg = styled.img`
@@ -140,5 +167,19 @@ export const searchInput = styled.input`
 
   &::placeholder {
     color: #c0c0c0;
+  }
+`;
+
+export const RelatedSearch = styled.div`
+  width: 200px;
+  height: 30px;
+  border: 1px solid #c0c0c0;
+  border-top: 0;
+  border-bottom: 0;
+  background-color: white;
+  display: block;
+
+  &:hover {
+    background-color: #e4f1ff;
   }
 `;

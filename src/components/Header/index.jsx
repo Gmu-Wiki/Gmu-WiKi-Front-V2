@@ -15,7 +15,9 @@ function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const [search, setSearch] = useState("");
-  const searchList = useSearchList({ title: search });
+
+  const { searchList } = useSearchList({ title: search });
+  const boardList = searchList; // boardList.id, boardList.title을 사용 가능
 
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
@@ -49,16 +51,28 @@ function Header() {
   };
 
   const handleSearchChange = e => {
-    setSearch(e.target.value);
+    const inputValue = e.target.value;
+    setSearch(inputValue);
   };
+
+  const filteredBoardList =
+    boardList.length > 0
+      ? boardList.filter(item => {
+          return item.title.toLowerCase().includes(search.toLowerCase()); // 대소문자 무시
+        })
+      : [];
 
   return (
     <S.DropMenu>
       <S.MenuLi>
-        <div>
-          <S.Header
-            onMouseLeave={() => {
-              setShowMenu(false);
+        <S.Header
+          onMouseLeave={() => {
+            setShowMenu(false);
+          }}
+        >
+          <S.HeaderCenter
+            onMouseEnter={() => {
+              setShowMenu(true);
             }}
           >
             <S.HeaderCenter
@@ -66,71 +80,75 @@ function Header() {
                 setShowMenu(true);
               }}
             >
-              <S.HeaderCenter
-                onMouseEnter={() => {
-                  setShowMenu(true);
-                }}
-              >
-                <div className="menu">
-                  <div className="logoContent">
-                    <Link to="/">
-                      <I.Logo />
-                    </Link>
+              <div className="menu">
+                <div className="logoContent">
+                  <Link to="/">
+                    <I.Logo />
+                  </Link>
+                </div>
+                <div className="menuContent">
+                  <div className="notice header">
+                    <I.Notice />
+                    <span>공지</span>
                   </div>
-                  <div className="menuContent">
-                    <div className="notice header">
-                      <I.Notice />
-                      <span>공지</span>
-                    </div>
-                    <div className="school header">
-                      <I.School />
-                      <span>학교</span>
-                    </div>
-                    <div className="etc header">
-                      <I.Etc />
-                      <span>기타</span>
-                    </div>
+                  <div className="school header">
+                    <I.School />
+                    <span>학교</span>
+                  </div>
+                  <div className="etc header">
+                    <I.Etc />
+                    <span>기타</span>
                   </div>
                 </div>
-              </S.HeaderCenter>
-              <S.searchContent>
-                <S.searchInput
-                  placeholder="search"
-                  value={search}
-                  onChange={handleSearchChange}
-                />
-                <div className="searchIcon">
-                  <FontAwesomeIcon
-                    icon={faMagnifyingGlass}
-                    className="faMagnifyingGlass"
-                  />
-                </div>
-                {accessToken ? (
-                  <span
-                    onClick={() => {
-                      setShowLogout(true);
-                      onDelete({
-                        url: "/auth",
-                        method: "delete"
-                      });
-                    }}
-                  >
-                    로그아웃
-                  </span>
-                ) : (
-                  <span
-                    onClick={() => {
-                      setShowLogin(true);
-                    }}
-                  >
-                    로그인
-                  </span>
-                )}
-              </S.searchContent>
+              </div>
             </S.HeaderCenter>
-            {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
-          </S.Header>
-        </div>
+            <S.searchContent>
+              <div className="inputSort">
+                <div className="boardContainer">
+                  <S.searchInput
+                    placeholder="search"
+                    value={search}
+                    onChange={handleSearchChange}
+                  />
+
+                  <div className="searchIcon">
+                    <FontAwesomeIcon
+                      icon={faMagnifyingGlass}
+                      className="faMagnifyingGlass"
+                    />
+                  </div>
+                  {accessToken ? (
+                    <span
+                      onClick={() => {
+                        setShowLogout(true);
+                        onDelete({
+                          url: "/auth",
+                          method: "delete"
+                        });
+                      }}
+                    >
+                      로그아웃
+                    </span>
+                  ) : (
+                    <span
+                      onClick={() => {
+                        setShowLogin(true);
+                      }}
+                    >
+                      로그인
+                    </span>
+                  )}
+                </div>
+                <div className="relatedSearchContainer">
+                  <S.RelatedSearch>1</S.RelatedSearch>
+                  <S.RelatedSearch>11</S.RelatedSearch>
+                </div>
+              </div>
+            </S.searchContent>
+          </S.HeaderCenter>
+          {showMenu && <DropMenu onMouseLeave={() => setShowMenu(false)} />}
+        </S.Header>
+
         {showLogin && (
           <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
         )}
@@ -147,3 +165,7 @@ function Header() {
 }
 
 export default Header;
+
+//  {
+//    filteredBoardList.map(item => <div key={item.id}>{item.title}</div>);
+//  }
