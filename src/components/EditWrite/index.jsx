@@ -11,12 +11,18 @@ const EditWrite = ({ title, content, id }) => {
 
   let save = [];
 
-  const [numArr, setNumArr] = useState([1]);
+  const [numArr, setNumArr] = useState([]);
   const textareaRef = useRef(null);
 
   useEffect(() => {
     setEditContent(content);
     setEditTitle(title);
+    
+    for (let i = 1; i <= content.split("\n").length; i++) {
+      save.push(i);
+    }
+    setNumArr(save);
+
   }, [content, title]);
 
   window.onbeforeunload = () => {
@@ -33,8 +39,8 @@ const EditWrite = ({ title, content, id }) => {
 
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
-      setNumArr(save);
     }
+    setNumArr(save);
   };
 
   const handleEdit = () => {

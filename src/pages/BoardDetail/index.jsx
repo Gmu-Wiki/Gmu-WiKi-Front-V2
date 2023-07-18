@@ -48,6 +48,9 @@ const BoardDetail = () => {
 
   const state = useContent({ id });
 
+  const formattedCreatedDate = new Date(state.createdDate).toLocaleString();
+  const formattedEditedDate = new Date(state.editedDate).toLocaleString();
+
   return (
     <C.PageContainer
       title={state.title}
