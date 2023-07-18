@@ -60,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   pre {
+    display: inline-block;
     background-color: #f4f4f4;
     padding: 10px;
     border-radius: 4px;
