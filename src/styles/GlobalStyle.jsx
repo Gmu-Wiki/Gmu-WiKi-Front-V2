@@ -85,9 +85,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   img {
-    align-items: center;
-    width: 30vw;
-    height: 45vh;
+    width: 20vw;
+    object-fit: cover;
   }
 `;
 
