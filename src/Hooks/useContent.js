@@ -38,7 +38,7 @@ const useContent = ({ id }) => {
     if (roleUrl) {
       fetch();
     }
-  }, [roleUrl]);
+  }, [roleUrl, id]);
 
   return state;
 };
