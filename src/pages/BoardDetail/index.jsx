@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as C from "../../components";
-import { useContent, useFetch } from "../../Hooks";
+import { useContent } from "../../Hooks";
 import { useNavigate, useParams } from "react-router-dom";
 import GetRole from "../../lib/GetRole";
 import { useCallback } from "react";
@@ -30,8 +30,11 @@ const BoardDetail = () => {
 
       navigate("/");
     } catch (e) {
-      console.log(e);
-      toast.error("글 삭제에 실패했습니다.");
+      if (e.response && e.response.status >= 403) {
+        toast.error("자신의 글만 삭제할 수 있습니다.");
+      } else {
+        toast.error("글 삭제에 실패했습니다.");
+      }
     }
   }, [roleUrl, navigate, id]);
 
@@ -45,32 +48,30 @@ const BoardDetail = () => {
 
   const state = useContent({ id });
 
+  const formattedCreatedDate = new Date(state.createdDate).toLocaleString();
+  const formattedEditedDate = new Date(state.editedDate).toLocaleString();
+
   return (
     <>
-      <C.RecentModified />
-      <C.Header />
       <C.PageContainer
         title={state.title}
+        sort="글"
         hasHistoryButton={true}
         hasEditButton={true}
-        {...(data === "관리자"
-          ? { hasDeleteButton: true }
-          : { hasDeleteButton: false })}
+        hasDeleteButton={true}
         onClick={handleDelete}
-        sort="글"
+        editUrl="board"
       >
         <C.Explanation>
           <C.BoardDetail
             id={state.id}
             title={state.title}
-            createdDate={state.createdDate.substring(0, 10)}
-            editedDate={state.editedDate.substring(0, 10)}
+            createdDate={formattedCreatedDate}
+            editedDate={formattedEditedDate}
             content={state.content}
           />
         </C.Explanation>
       </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
     </>
   );
 };

@@ -97,39 +97,49 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
       <S.OptionContainer>
         <div onClick={() => passOption("h1")}>
           <I.H1Icon />
+          <span>제목1</span>
         </div>
         <div onClick={() => passOption("h2")}>
           <I.H2Icon />
+          <span>제목2</span>
         </div>
         <div onClick={() => passOption("h3")}>
           <I.H3Icon />
+          <span>제목3</span>
         </div>
         <div onClick={() => passOption("h4")}>
           <I.H4Icon />
+          <span>제목4</span>
         </div>
         <div className="unFunctionIcon">
           <I.DivideLineIcon />
         </div>
         <div onClick={() => passOption("b")}>
           <I.BoldIcon />
+          <span>굵은 글씨</span>
         </div>
         <div onClick={() => passOption("i")}>
           <I.InclineIcon />
+          <span>기울임꼴</span>
         </div>
         <div onClick={() => passOption("draw")}>
           <I.DrawIcon />
+          <span>취소선</span>
         </div>
         <div className="unFunctionIcon">
           <I.DivideLineIcon />
         </div>
         <div onClick={() => passOption("details")}>
           <I.Toggle />
+          <span>토글</span>
         </div>
         <div onClick={() => passOption("quote")}>
           <I.QuoteIcon />
+          <span>인용문</span>
         </div>
         <div onClick={() => passOption("a")}>
           <I.LinkIcon />
+          <span>링크</span>
         </div>
         <div>
           <label htmlFor="file">
@@ -142,10 +152,12 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
             id="file"
             ref={fileRef}
             onChange={handleUpload}
-          />
+            />
+            <span>이미지</span>
         </div>
         <div onClick={() => passOption("code")}>
           <I.CodeIcon />
+          <span style={{width: "80px"}}>코드블럭</span>
         </div>
       </S.OptionContainer>
     </>

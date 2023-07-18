@@ -7,15 +7,15 @@ export default function Detail({
   hasNumber,
   children,
   number,
-  detailContent,
+  detailContent
 }) {
-  const [detailActive, setDetailActice] = useState(true);
+  const [detailActive, setDetailActive] = useState(true);
   return (
     <S.DetailContainer detailActive={detailActive}>
       <S.DetailTitleContainer>
-        <div onClick={() => setDetailActice(prev => !prev)}>
+        <S.ArrowContainer onClick={() => setDetailActive(prev => !prev)}>
           <I.Arrow />
-        </div>
+        </S.ArrowContainer>
         {hasNumber && (
           <S.DetailNumber detailActive={detailActive}>{number}.</S.DetailNumber>
         )}

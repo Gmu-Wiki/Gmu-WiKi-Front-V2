@@ -24,53 +24,48 @@ export default function Role() {
     url: `/admin/role/${formData.role === "admin" ? "grant" : "revoke"}`,
     method: "patch",
     successMessage: "권한 부여에 성공했습니다.",
-    errors: "권한이 없습니다."
+    errors: {
+      404: "유저를 찾을 수 없습니다.",
+      400: "권한 부여에 실패했습니다."
+    }
   });
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title="권한" sort="권한">
-        <img src={RoleImg1} alt="Role이미지1" />
-        <S.RoleContainer>
-          <S.InputContainer>
-            <S.RoleTitle>이메일</S.RoleTitle>
-            <S.RoleInput
-              type="text"
-              onChange={e =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
-            <S.RoleTitle>권한</S.RoleTitle>
-            <S.Select
-              name="role"
-              defaultValue="none"
-              onChange={e => {
-                setFormData({ ...formData, role: e.target.value });
-              }}
-            >
-              <option value="none">선택해주세요</option>
-              <option value="admin">관리자</option>
-              <option value="user">사용자</option>
-            </S.Select>
-          </S.InputContainer>
-          <C.Button
-            width="120"
-            height="40"
-            backgroundColor="#007EFF"
-            color="#fff"
-            onClick={() => {
-              fetch({ email: formData.email });
+    <C.PageContainer title="권한" sort="권한">
+      <img src={RoleImg1} alt="Role이미지1" loading="lazy" />
+      <S.RoleContainer>
+        <S.InputContainer>
+          <S.RoleTitle>이메일</S.RoleTitle>
+          <S.RoleInput
+            type="text"
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
+          />
+          <S.RoleTitle>권한</S.RoleTitle>
+          <S.Select
+            name="role"
+            defaultValue="none"
+            onChange={e => {
+              setFormData({ ...formData, role: e.target.value });
             }}
           >
-            부여하기
-          </C.Button>
-        </S.RoleContainer>
-        <img src={RoleImg2} alt="Role이미지2" />
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+            <option value="none">선택해주세요</option>
+            <option value="admin">관리자</option>
+            <option value="user">사용자</option>
+          </S.Select>
+        </S.InputContainer>
+        <C.Button
+          width="120"
+          height="40"
+          backgroundColor="#007EFF"
+          color="#fff"
+          onClick={() => {
+            fetch({ email: formData.email });
+          }}
+        >
+          부여하기
+        </C.Button>
+      </S.RoleContainer>
+      <img src={RoleImg2} alt="Role이미지2" loading="lazy" />
+    </C.PageContainer>
   );
 }

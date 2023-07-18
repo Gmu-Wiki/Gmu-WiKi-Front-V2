@@ -18,3 +18,4 @@ export { default as HistoryDetail } from "./HistoryDetail";
 export { default as Role } from "./Role";
 export { default as NoticeDetail } from "./NoticeDetail";
 export { default as Edit } from "./Edit";
+export { default as EditNotice } from "./EditNotice";

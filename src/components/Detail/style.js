@@ -24,6 +24,7 @@ export const DetailTitle = styled.span`
 
 export const DetailContent = styled.div`
   margin-top: 28px;
+  margin-left: 8px;
   line-height: 24px;
   display: flex;
   align-items: ${props => (props.detailContent ? "center" : "initial")};
@@ -32,6 +33,10 @@ export const DetailContent = styled.div`
 
 export const DetailTitleContainer = styled.div`
   display: flex;
+`;
+
+export const ArrowContainer = styled.div`
+  margin-right: 8px;
 `;
 
 export const DetailBorder = styled.div`

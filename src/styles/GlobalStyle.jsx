@@ -11,6 +11,17 @@ const GlobalStyle = createGlobalStyle`
     background-color: #F1F1F5;
   }
 
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: #7f7f7f;
+    
+    border-radius: 10px;
+  }
+
   details summary {
     font-weight: 600;
     font-size: 1.5rem;
@@ -74,8 +85,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   img {
-    width: 64vw;
-    height: 80vh;
+    align-items: center;
+    width: 30vw;
+    height: 45vh;
   }
 `;
 

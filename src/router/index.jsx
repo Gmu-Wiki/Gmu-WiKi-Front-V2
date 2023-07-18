@@ -2,8 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import * as P from "../pages";
 import GetRole from "../lib/GetRole";
 import { useEffect, useState } from "react";
+import TokenManager from "../apis/TokenManager";
 
 export default function Router() {
+  const tokenManager = new TokenManager();
+
+  const hastoken = tokenManager.accessToken;
   const role = GetRole();
   const [roleUrl, setRoleUrl] = useState("");
 
@@ -14,6 +18,7 @@ export default function Router() {
       setRoleUrl("user");
     }
   }, [role]);
+
   return (
     <Routes>
       <Route path="/" element={<P.Main />} />
@@ -28,6 +33,7 @@ export default function Router() {
       <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
       <Route path={`/${roleUrl}/board/:id/record`} element={<P.History />} />
       <Route path={`/${roleUrl}/board/edit/:id`} element={<P.Edit />} />
+      <Route path={`/${roleUrl}/notice/edit/:id`} element={<P.EditNotice />} />
       <Route
         path={`/${roleUrl}/board/:id/record/detail`}
         element={<P.HistoryDetail />}

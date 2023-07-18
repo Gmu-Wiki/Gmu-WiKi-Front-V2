@@ -3,6 +3,7 @@ import API from "../apis";
 import { toast } from "react-toastify";
 import GetRole from "../lib/GetRole";
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
 
 const useUpload = ({ props }) => {
   const data = GetRole();
@@ -30,16 +31,20 @@ const useUpload = ({ props }) => {
       toast.success("글 등록에 성공하였습니다.");
       navigate("/");
     } catch (e) {
-      toast.error("글 등록에 실패하였습니다.");
+      if (!(e instanceof AxiosError)) {
+        toast.error("편집에 실패하였습니다.");
+        return;
+      }
+
+      if (e.response && e.response.status >= 500) {
+        toast.error("글 등록에 실패하였습니다.");
+      } else if (e.response && e.response.status >= 409) {
+        toast.error("이미 해당하는 글 제목이 있습니다.");
+      } else {
+        toast.error("글 등록에 실패하였습니다.");
+      }
     }
-  }, [
-    props.title,
-    props.content,
-    props.category,
-    props.detailCategory,
-    roleUrl,
-    navigate
-  ]);
+  }, [props, roleUrl, navigate]);
 
   return { uploadHandler };
 };

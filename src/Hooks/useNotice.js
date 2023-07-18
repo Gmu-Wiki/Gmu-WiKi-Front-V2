@@ -1,7 +1,9 @@
 import API from "../apis";
 import { toast } from "react-toastify";
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import GetRole from "../lib/GetRole";
+import useFetch from "./useFetch";
 
 const useNotice = ({ props }) => {
   const navigate = useNavigate();
@@ -27,12 +29,56 @@ const useNotice = ({ props }) => {
       toast.success("공지가 성공적으로 지워졌습니다.");
       navigate("/notice");
     } catch (e) {
-      console.log(e);
-      toast.error("공지 제거에 실패했습니다");
+      if (e.response && e.response.status >= 403) {
+        toast.error("권한이 없습니다.");
+      } else if (e.response && e.response.status >= 401) {
+        toast.error("로그인이 필요합니다.");
+      } else {
+        toast.error("문의 글을 작성할 수 없습니다.");
+      }
     }
   }, [props.id, navigate]);
 
-  return { uploadNotice, deleteNotice };
+  const data = GetRole();
+
+  const [state, setState] = useState({
+    id: "",
+    content: "",
+    title: "",
+    createdDate: "",
+    editedDate: ""
+  });
+
+  let { id } = useParams();
+
+  const [roleUrl, setRoleUrl] = useState("");
+
+  useEffect(() => {
+    if (data === "관리자") {
+      setRoleUrl("admin");
+    } else if (data === "사용자") {
+      setRoleUrl("user");
+    }
+  }, [data]);
+
+  const { fetch } = useFetch({
+    url: `/${roleUrl}/notice/${id}`,
+    method: "get",
+    onSuccess: data => {
+      setState(data);
+    },
+    erros: {
+      400: "글을 불러오지 못했습니다."
+    }
+  });
+
+  useEffect(() => {
+    if (roleUrl) {
+      fetch();
+    }
+  }, [roleUrl]);
+
+  return { uploadNotice, deleteNotice, state };
 };
 
 export default useNotice;

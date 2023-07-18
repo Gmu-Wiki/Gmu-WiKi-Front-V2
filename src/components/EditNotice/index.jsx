@@ -3,7 +3,7 @@ import * as S from "./style";
 import * as C from "../index";
 import { useEdit } from "../../Hooks";
 
-const EditWrite = ({ title, content, id }) => {
+const EditNotice = ({ title, content, id }) => {
   const [edit, setEdit] = useState(true);
   const [preview, setPreview] = useState(false);
   const [editContent, setEditContent] = useState("");
@@ -11,18 +11,17 @@ const EditWrite = ({ title, content, id }) => {
 
   let save = [];
 
-  const [numArr, setNumArr] = useState([]);
+  const [numArr, setNumArr] = useState([1]);
   const textareaRef = useRef(null);
 
   useEffect(() => {
     setEditContent(content);
     setEditTitle(title);
-    
+
     for (let i = 1; i <= content.split("\n").length; i++) {
       save.push(i);
     }
     setNumArr(save);
-
   }, [content, title]);
 
   window.onbeforeunload = () => {
@@ -53,12 +52,12 @@ const EditWrite = ({ title, content, id }) => {
     setPreview(true);
   };
 
-  const { editBoardUpload } = useEdit({
+  const { editNoticeUpload } = useEdit({
     props: { id, editContent, editTitle }
   });
 
   const editPost = () => {
-    editBoardUpload();
+    editNoticeUpload();
   };
 
   return (
@@ -106,4 +105,4 @@ const EditWrite = ({ title, content, id }) => {
   );
 };
 
-export default React.memo(EditWrite);
+export default React.memo(EditNotice);

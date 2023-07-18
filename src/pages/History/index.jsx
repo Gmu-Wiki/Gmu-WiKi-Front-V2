@@ -23,15 +23,9 @@ const History = () => {
   }, [data]);
 
   return (
-    <>
-      <C.RecentModified />
-      <C.Header />
-      <C.PageContainer title={title} sort="역사">
-        <C.HistoryItem recordList={recordList} roleUrl={roleUrl} />
-      </C.PageContainer>
-      <C.ScrollButton />
-      <C.Footer />
-    </>
+    <C.PageContainer title={title} sort="역사">
+      <C.HistoryItem recordList={recordList} roleUrl={roleUrl} />
+    </C.PageContainer>
   );
 };
 
