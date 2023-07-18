@@ -85,7 +85,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   img {
-    width: 20vw;
+    max-width: 30vw;
+    max-height: 45vh;
     object-fit: cover;
   }
 `;
