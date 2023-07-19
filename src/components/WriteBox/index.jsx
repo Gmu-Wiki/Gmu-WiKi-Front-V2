@@ -35,15 +35,23 @@ function WriteBox() {
   };
 
   const onChangeTextArea = e => {
-    setContent(e.target.value);
     const textarea = textareaRef.current;
 
     for (let i = 1; i <= textarea.value.split("\n").length; i++) {
       save.push(i);
     }
     setNumArr(save);
+
+    setContent(e.target.value);
+
   };
 
+  const handleKeyDown = e => {
+    if(e.key === 'Backspace') {
+      onChangeTextArea();
+    }
+  }
+  
   const handleEdit = () => {
     setEdit(true);
     setPreview(false);

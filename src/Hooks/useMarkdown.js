@@ -26,7 +26,7 @@ function useMarkdown() {
 
     const convertedValue = value
       .replace(/>>/g, `<details>`)
-      .replace(/>==/g, `<summary>`)
+      .replace(/>==/g, `<summary><span></span>`)
       .replace(/==</g, `</summary>`)
       .replace(/<</g, `</details>`);
 

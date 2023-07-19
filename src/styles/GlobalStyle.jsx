@@ -18,36 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body::-webkit-scrollbar-thumb {
     height: 30%;
     background: #7f7f7f;
-    
     border-radius: 10px;
-  }
-
-  details summary {
-    font-weight: 600;
-    font-size: 1.5rem;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    color: #a3a3a3;
-  }
-
-  details[open] summary {
-    font-weight: 600;
-    font-size: 1.5rem;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    color: #191919;
-  }
-
-  details summary::marker {
-    content: url("../imgs/closeToggle.png");
-    font-size: 1.8rem;
-  }
-
-  details[open] summary::marker {
-    content: url("../imgs/openToggle.png");
-    font-size: 1.8rem;
   }
 
   blockquote {
