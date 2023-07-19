@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
   min-height: 90vh;
   height: auto;
   background-color: #fff;
-  margin: 0 0 20px 8vw;
+  margin: 0 4vw 20px 8vw;
   padding: 0 3vw 5vw 3vw;
   @media screen and (max-width: 700px) {
     width: 100%;
@@ -15,7 +15,6 @@ export const PageContainer = styled.div`
 
 export const Page = styled.div`
   display: flex;
-  align-items: center;
 `;
 
 export const TitleContainer = styled.div`

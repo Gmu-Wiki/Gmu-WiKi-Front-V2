@@ -83,11 +83,16 @@ const GlobalStyle = createGlobalStyle`
   li {
     margin-left: 20px;
   }
-
+/* 
   img {
     align-items: center;
     width: 30vw;
     height: 45vh;
+  } */
+
+  img {
+    width: 20vw;
+    object-fit: cover;
   }
 `;
 
