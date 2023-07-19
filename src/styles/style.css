@@ -23,7 +23,7 @@ details summary::marker {
 }
 
 details summary span {
-  content: url("../../../../imgs/closeToggle.png");
+  content: url("../imgs/closeToggle.png");
   font-size: 1.8rem;
   display: flex;
   align-items: center;
@@ -31,6 +31,6 @@ details summary span {
 }
 
 details[open] summary span {
-  content: url("../../../../imgs/openToggle.png");
+  content: url("../imgs/openToggle.png");
   font-size: 1.8rem;
 }

@@ -1,5 +1,5 @@
 import useMarkdown from "../../../../Hooks/useMarkdown";
-import "./style.css";
+import "../../../../styles/style.css";
 
 function MarkDownConverter({ value }) {
   const { markdownToHtml } = useMarkdown();
