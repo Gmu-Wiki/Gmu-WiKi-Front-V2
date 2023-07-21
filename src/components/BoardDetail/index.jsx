@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import useMarkdown from "../../Hooks/useMarkdown";
+
 const BoardDetailItem = ({ content, createdDate, editedDate }) => {
   const { markdownToHtml } = useMarkdown();
 
