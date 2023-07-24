@@ -47,6 +47,7 @@ export default function Inquiry() {
                 <S.StyledTitle>{item.title}</S.StyledTitle>
                 <S.Sort>{item.inquiryType}</S.Sort>
                 <S.Date>{item.createdDate.substring(0, 10)}</S.Date>
+                <S.StyledContents>{item.content}</S.StyledContents>
               </S.InquiryTitleContainer>
             </Link>
           </C.InquiryItem>

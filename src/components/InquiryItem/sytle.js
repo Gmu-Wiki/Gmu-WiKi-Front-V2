@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const InquiryItemWrapper = styled.div`
   width: 98%;
-  height: 50px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   border-left: 4px solid #ddd;
