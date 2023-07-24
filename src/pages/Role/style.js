@@ -43,3 +43,6 @@ export const Select = styled.select`
   color: #999;
   cursor: pointer;
 `;
+export const Img = styled.img`
+  width: 40vw;
+`;

@@ -146,18 +146,18 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
             <I.ImageIcon />
           </label>
           <input
-            accept="image/*"
+            accept="file/*"
             multiple
             type="file"
             id="file"
             ref={fileRef}
             onChange={handleUpload}
-            />
-            <span>이미지</span>
+          />
+          <span>이미지</span>
         </div>
         <div onClick={() => passOption("code")}>
           <I.CodeIcon />
-          <span style={{width: "80px"}}>코드블럭</span>
+          <span style={{ width: "80px" }}>코드블럭</span>
         </div>
       </S.OptionContainer>
     </>
