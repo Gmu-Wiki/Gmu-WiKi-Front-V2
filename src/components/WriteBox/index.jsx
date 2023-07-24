@@ -37,8 +37,13 @@ function WriteBox() {
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
+    const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight);
+    textarea.style.height = `${lineHeight}px`;
+    const numberOfLines = Math.floor(textarea.scrollHeight / lineHeight);
+    textarea.style.height = `${numberOfLines * lineHeight + 20}px`;
 
-    for (let i = 1; i <= textarea.value.split("\n").length; i++) {
+    setNumArr([]);
+    for (let i = 1; i <= numberOfLines; i++) {
       save.push(i);
     }
     setNumArr(save);
