@@ -94,6 +94,7 @@ function Header() {
             <span
               onClick={() => {
                 setShowLogin(true);
+                setShowMenu(false);
               }}
             >
               로그인
