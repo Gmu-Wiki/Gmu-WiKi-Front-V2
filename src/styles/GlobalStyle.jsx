@@ -83,15 +83,10 @@ const GlobalStyle = createGlobalStyle`
   li {
     margin-left: 20px;
   }
-/* 
-  img {
-    align-items: center;
-    width: 30vw;
-    height: 45vh;
-  } */
 
   img {
-    width: 20vw;
+    max-width: 30vw;
+    max-height: 45vh;
     object-fit: cover;
   }
 `;

@@ -3,10 +3,10 @@ import * as S from "./style";
 import { Link } from "react-router-dom";
 
 const HistoryItem = ({ recordList, roleUrl }) => {
-  const sortedRecordList = recordList.sort((a, b) => {
+  const sortedRecordList = [...recordList].sort((a, b) => {
     const dateA = new Date(a.createdDate);
     const dateB = new Date(b.createdDate);
-    return dateA - dateB;
+    return dateB - dateA;
   });
 
   return (
