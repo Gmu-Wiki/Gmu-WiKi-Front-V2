@@ -31,7 +31,9 @@ function PageContainer({
 
   return (
     <>
-      <C.Header />
+      <>
+        <C.Header />
+      </>
       <S.Page>
         <S.PageContainer>
           <S.TitleContainer>
@@ -70,9 +72,7 @@ function PageContainer({
         <C.RecentModified />
         <C.ScrollButton />
       </S.Page>
-      <>
-        <C.Footer />
-      </>
+      <C.Footer />
     </>
   );
 }
