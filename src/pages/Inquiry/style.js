@@ -9,7 +9,6 @@ export const StyledTitle = styled.strong`
 export const StyledContents = styled.p`
   color: #636363;
   font-size: 14px;
-  /* max-width: 80%; */
 `;
 
 export const Sort = styled.div`
@@ -34,7 +33,6 @@ export const InquiryTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 80%;
   margin-left: 8px;
 `;
 
