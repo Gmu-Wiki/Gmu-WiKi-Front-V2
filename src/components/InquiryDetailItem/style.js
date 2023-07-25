@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Content = styled.p`
   width: 42vw;
+  min-height: 30vh;
   margin-left: 20px;
   align-items: center;
   flex-direction: column;
   font-size: 1rem;
   color: #191919;
-  line-height: 20px;
+  /* line-height: 20px; */
 
   a {
     color: #007eff;
@@ -22,6 +23,7 @@ export const Content = styled.p`
 `;
 
 export const NTBox = styled.div`
+  /* min-height: 50vh; */
   display: flex;
   margin-left: 40%;
 `;
@@ -45,33 +47,28 @@ export const InquiryType = styled.p`
 `;
 
 export const BtnBox = styled.div`
+  /* position: absolute; */
   display: flex;
-  margin-left: 84%;
+  right: 0;
+  left: 0;
+  /* margin-left: 84%; */
 `;
 
 export const ApproveBtn = styled.button`
-  color: #999;
-  border: 1px solid #999;
-  background: none;
-  width: 60px;
-  height: 30px;
+  width: 80px;
+  height: 40px;
+  background-color: #007eff;
+  border: none;
+  color: #fff;
   cursor: pointer;
-
-  :hover {
-    border: 1px dotted #999;
-  }
 `;
 
 export const RefusalBtn = styled.button`
-  color: #999;
-  border: 1px solid #999;
+  width: 80px;
+  height: 40px;
+  color: #007eff;
+  border: 1px solid #007eff;
   background: none;
-  width: 60px;
-  height: 30px;
-  margin-left: 5px;
+  margin-left: 12px;
   cursor: pointer;
-
-  :hover {
-    border: 1px dotted #999;
-  }
 `;
