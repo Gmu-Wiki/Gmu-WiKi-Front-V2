@@ -17,12 +17,11 @@ const EditWrite = ({ title, content, id }) => {
   useEffect(() => {
     setEditContent(content);
     setEditTitle(title);
-    
+
     for (let i = 1; i <= content.split("\n").length; i++) {
       save.push(i);
     }
     setNumArr(save);
-
   }, [content, title]);
 
   window.onbeforeunload = () => {
@@ -36,8 +35,13 @@ const EditWrite = ({ title, content, id }) => {
   const onChangeTextArea = e => {
     setEditContent(e.target.value);
     const textarea = textareaRef.current;
+    const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight);
+    textarea.style.height = `${lineHeight}px`;
+    const numberOfLines = Math.floor(textarea.scrollHeight / lineHeight);
+    textarea.style.height = `${numberOfLines * lineHeight + 20}px`;
 
-    for (let i = 1; i <= textarea.value.split("\n").length; i++) {
+    setNumArr([]);
+    for (let i = 1; i <= numberOfLines; i++) {
       save.push(i);
     }
     setNumArr(save);
