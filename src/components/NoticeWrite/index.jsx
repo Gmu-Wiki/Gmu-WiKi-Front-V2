@@ -59,7 +59,10 @@ export default function NoticeWrite() {
   const { uploadNotice } = useNotice({ props: { title, content } });
 
   const handleNotice = () => {
-    uploadNotice();
+    const shouldPost = window.confirm("공지를 등록하시겠습니까?");
+    if (shouldPost) {
+      uploadNotice();
+    }
   };
 
   return (
