@@ -61,7 +61,11 @@ export default function InquiryWrite() {
   const { inquiryUpload } = useInquiry({ props: { title, content, category } });
 
   const postInquiry = () => {
-    inquiryUpload();
+    const shouldPost = window.confirm("문의를 등록하시겠습니까?");
+
+    if (shouldPost) {
+      inquiryUpload();
+    }
   };
 
   return (

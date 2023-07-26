@@ -62,7 +62,10 @@ const EditWrite = ({ title, content, id }) => {
   });
 
   const editPost = () => {
-    editBoardUpload();
+    const shouldPost = window.confirm("이 글을 편집하시겠습니까?");
+    if (shouldPost) {
+      editBoardUpload();
+    }
   };
 
   return (
