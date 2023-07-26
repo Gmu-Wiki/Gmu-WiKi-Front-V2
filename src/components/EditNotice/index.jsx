@@ -57,7 +57,10 @@ const EditNotice = ({ title, content, id }) => {
   });
 
   const editPost = () => {
-    editNoticeUpload();
+    const shouldPost = window.confirm("이 공지를 편집하시겠습니까?");
+    if (shouldPost) {
+      editNoticeUpload();
+    }
   };
 
   return (
