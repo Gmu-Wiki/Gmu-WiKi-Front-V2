@@ -18,7 +18,6 @@ function Header() {
 
   // useSearchList 커스텀 훅을 사용하여 검색 결과 리스트를 받아옵니다.
   const { searchList } = useSearchList({ title: search });
-  const boardList = searchList; // boardList.id, boardList.title을 사용 가능
 
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
