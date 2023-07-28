@@ -8,7 +8,7 @@ export const DropContainer = styled.div`
   padding-left: 15vw;
   padding-bottom: 2vw;
   position: absolute;
-  z-index: 999;
+  z-index: 0;
 `;
 export const DropMenu = styled.div`
   display: flex;

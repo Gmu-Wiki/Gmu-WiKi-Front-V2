@@ -21,7 +21,8 @@ export const MenuContainer = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
   span {
     color: #fff;
     font-weight: 700;
@@ -55,6 +56,7 @@ export const SearchContainer = styled.div`
   display: flex;
   border: 1px solid #c0c0c0;
   cursor: pointer;
+  position: relative;
 
   @media screen and (max-width: 700px) {
     display: none;
@@ -73,6 +75,7 @@ export const SearchInput = styled.input`
     color: #c0c0c0;
   }
 `;
+
 export const SearchIcon = styled.div`
   display: flex;
   align-items: center;
@@ -85,5 +88,32 @@ export const SearchIcon = styled.div`
   svg {
     width: 16px;
     height: 16px;
+  }
+`;
+
+export const SearchItem = styled.ul`
+  background-color: white;
+  width: 10.1vw;
+  height: 30px;
+  border: 1px solid #c0c0c0;
+
+  border-top: 0;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: ${prop => prop.top}px;
+  z-index: 1;
+
+  &:hover {
+    background-color: #e4f1ff;
+  }
+`;
+
+export const FixedInput = styled.div`
+  display: flex;
+
+  span {
+    display: flex;
+    align-items: center;
   }
 `;

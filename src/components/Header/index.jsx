@@ -7,6 +7,7 @@ import DropMenu from "./dropMenu";
 import { useFetch, useSearchList } from "../../Hooks";
 import TokenManager from "../../apis/TokenManager";
 import { useNavigate } from "react-router-dom";
+import { css } from "@emotion/react";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,6 +16,7 @@ function Header() {
 
   const [search, setSearch] = useState("");
 
+  // useSearchList 커스텀 훅을 사용하여 검색 결과 리스트를 받아옵니다.
   const { searchList } = useSearchList({ title: search });
   const boardList = searchList; // boardList.id, boardList.title을 사용 가능
 
@@ -25,6 +27,8 @@ function Header() {
     url: "",
     method: ""
   });
+
+  // useFetch 커스텀 훅을 사용하여 HTTP DELETE 요청을 처리합니다.
   const { fetch: deleteQuery } = useFetch({
     url: queryState.url,
     method: queryState.method,
@@ -37,6 +41,7 @@ function Header() {
       404: "유저를 찾을 수 없습니다."
     }
   });
+
   const onDelete = ({ url, method }) => {
     setQueryState({
       url,
@@ -44,18 +49,20 @@ function Header() {
     });
     setShowLogout(true);
   };
+
   const onConfirm = () => {
     deleteQuery();
   };
 
+  // 검색어가 변경될 때마다 호출되는 함수로 검색어 상태를 업데이트합니다.
   const handleSearchChange = e => {
     const inputValue = e.target.value;
     setSearch(inputValue);
   };
 
   const filteredBoardList =
-    boardList.length > 0
-      ? boardList.filter(item => {
+    searchList.length > 0
+      ? searchList.filter(item => {
           return item.title.toLowerCase().includes(search.toLowerCase()); // 대소문자 무시
         })
       : [];
@@ -90,34 +97,48 @@ function Header() {
           </S.Nav>
         </S.MenuContainer>
         <S.InfoContainer>
-          <S.SearchContainer>
-            <S.SearchInput placeholder="search" onChange={handleSearchChange} />
-            <S.SearchIcon>
-              <I.Search />
-            </S.SearchIcon>
-          </S.SearchContainer>
-          {accessToken ? (
-            <span
-              onClick={() => {
-                setShowLogout(true);
-                setShowMenu(false);
-                onDelete({
-                  url: "/auth",
-                  method: "delete"
-                });
-              }}
+          <S.FixedInput>
+            <S.SearchContainer>
+              <S.SearchInput
+                placeholder="search"
+                onChange={handleSearchChange}
+              />
+              <S.SearchIcon>
+                <I.Search />
+              </S.SearchIcon>
+            </S.SearchContainer>
+            {accessToken ? (
+              <span
+                onClick={() => {
+                  setShowLogout(true);
+                  setShowMenu(false);
+                  onDelete({
+                    url: "/auth",
+                    method: "delete"
+                  });
+                }}
+              >
+                로그아웃
+              </span>
+            ) : (
+              <span
+                onClick={() => {
+                  setShowLogin(true);
+                }}
+              >
+                로그인
+              </span>
+            )}
+          </S.FixedInput>
+          {filteredBoardList.map((item, index) => (
+            <S.SearchItem
+              key={item.id}
+              top={29 * (index + 1) + 17}
+              onMouseEnter={() => setShowMenu(false)}
             >
-              로그아웃
-            </span>
-          ) : (
-            <span
-              onClick={() => {
-                setShowLogin(true);
-              }}
-            >
-              로그인
-            </span>
-          )}
+              {item.title}
+            </S.SearchItem>
+          ))}
         </S.InfoContainer>
         {showLogin && (
           <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
@@ -130,6 +151,7 @@ function Header() {
           />
         )}
       </S.Header>
+
       {showMenu && (
         <DropMenu
           onMouseEnter={() => {
