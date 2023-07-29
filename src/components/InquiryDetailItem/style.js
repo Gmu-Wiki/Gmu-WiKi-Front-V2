@@ -40,12 +40,6 @@ export const CreatedDate = styled.p`
   font-weight: 400;
 `;
 
-export const InquiryType = styled.p`
-  font-size: 0.8rem;
-  margin-left: 20px;
-  color: #999;
-`;
-
 export const BtnBox = styled.div`
   /* position: absolute; */
   display: flex;
