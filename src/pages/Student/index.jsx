@@ -3,11 +3,8 @@ import * as C from "../../components";
 import * as S from "./style";
 import GetRole from "../../lib/GetRole";
 import useBoard from "../../Hooks/useBoard";
-import { useNavigate } from "react-router-dom";
 
 export default function Student() {
-  const navigate = useNavigate();
-
   const data = GetRole();
   const { boardList, roleUrl } = useBoard({ boardType: "STUDENT" });
 

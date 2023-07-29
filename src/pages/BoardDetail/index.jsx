@@ -1,32 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as C from "../../components";
 import { useContent, useDelete } from "../../Hooks";
 import { useParams } from "react-router-dom";
-import GetRole from "../../lib/GetRole";
 
 const BoardDetail = () => {
-  const data = GetRole();
-
   let { id } = useParams();
 
   const state = useContent({ id });
   const { boardDelete } = useDelete({ id });
-
-  const [roleUrl, setRoleUrl] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-    setIsLoading(false);
-  }, [data]);
-
-  if (isLoading) {
-    return <div>로딩중..</div>;
-  }
 
   const handleDelete = () => {
     const shouldDelete = window.confirm("정말로 삭제하시겠습니까?");
