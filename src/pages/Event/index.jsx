@@ -1,12 +1,10 @@
 import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
-import GetRole from "../../lib/GetRole";
 import useBoard from "../../Hooks/useBoard";
 import { Link } from "react-router-dom";
 
 export default function Student() {
-  const data = GetRole();
   const { boardList, roleUrl } = useBoard({ boardType: "INCIDENT" });
 
   if (!boardList) return null;
@@ -21,12 +19,15 @@ export default function Student() {
       .filter(item => item.boardDetailType === yearType)
       .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
+    const handleBoardItemClick = boardId => {
+      const boardUrl = `/${roleUrl}/board/${boardId}`;
+      window.location.href = boardUrl;
+    };
+
     return filteredItems.map(item => (
       <React.Fragment key={item.id}>
-        <S.Box>
-          <Link to={`/${roleUrl}/board/${item.id}`}>
-            <S.Title>{item.title}</S.Title>
-          </Link>
+        <S.Box onClick={() => handleBoardItemClick(item.id)}>
+          <S.Title>{item.title}</S.Title>
         </S.Box>
       </React.Fragment>
     ));
