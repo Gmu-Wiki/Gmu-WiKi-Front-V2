@@ -1,10 +1,50 @@
 import { createGlobalStyle } from "styled-components";
+import closeToggle from "../imgs/closeToggle.svg";
+import openToggle from "../imgs/openToggle.svg";
 const GlobalStyle = createGlobalStyle`
 
   details {
     width: 100%;
     margin: 60px 0;
   }
+
+  details summary {
+  font-weight: 600;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #a3a3a3;
+  display: flex;
+  align-items: center;
+}
+
+details[open] summary {
+  font-weight: 600;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #191919;
+}
+
+details summary::marker {
+  content: none;
+}
+
+details summary span {
+  content: url(${closeToggle});
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+details[open] summary span {
+  content: url(${openToggle});
+  font-size: 1.8rem;
+}
+
 
   *{
     padding: 0;
