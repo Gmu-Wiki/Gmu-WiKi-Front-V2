@@ -20,7 +20,8 @@ export default function Student() {
   ];
 
   const handleBoardItemClick = boardId => {
-    navigate(`/${roleUrl}/board/${boardId}`);
+    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    window.location.href = boardUrl;
   };
 
   const renderBoardItems = generationType => {
