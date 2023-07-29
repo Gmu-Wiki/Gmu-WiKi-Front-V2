@@ -23,14 +23,11 @@ export const Content = styled.p`
 `;
 
 export const NTBox = styled.div`
-  /* min-height: 50vh; */
   display: flex;
-  margin-left: 40%;
 `;
 
 export const Name = styled.p`
   font-size: 1rem;
-  margin-right: 10px;
 `;
 
 export const CreatedDate = styled.p`
@@ -41,16 +38,17 @@ export const CreatedDate = styled.p`
 `;
 
 export const BtnBox = styled.div`
-  /* position: absolute; */
+  position: absolute;
   display: flex;
-  right: 0;
-  left: 0;
-  /* margin-left: 84%; */
+  width: 100%;
+  justify-content: flex-end;
+  right: 40px;
+  bottom: 40px;
 `;
 
 export const ApproveBtn = styled.button`
   width: 80px;
-  height: 40px;
+  height: 35px;
   background-color: #007eff;
   border: none;
   color: #fff;
@@ -59,7 +57,7 @@ export const ApproveBtn = styled.button`
 
 export const RefusalBtn = styled.button`
   width: 80px;
-  height: 40px;
+  height: 35px;
   color: #007eff;
   border: 1px solid #007eff;
   background: none;
