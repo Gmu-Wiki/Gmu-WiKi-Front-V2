@@ -29,7 +29,7 @@ const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
     <>
       <S.NTBox>
         <S.Name>작성자 : {name}</S.Name>
-        <S.CreatedDate>작성 시간 : {createdDate}</S.CreatedDate>
+        <S.CreatedDate>작성일 : {createdDate}</S.CreatedDate>
       </S.NTBox>
       <S.Content dangerouslySetInnerHTML={{ __html: html }} />
       {showRefusal && (

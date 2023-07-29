@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const Content = styled.p`
-  width: 42vw;
+  width: 51vw;
   min-height: 30vh;
-  /* margin-left: 20px; */
   align-items: center;
   flex-direction: column;
   font-size: 1rem;
   color: #191919;
-  /* line-height: 20px; */
 
   a {
     color: #007eff;
@@ -29,14 +27,15 @@ export const NTBox = styled.div`
   align-items: flex-end;
   color: #999;
   margin-right: 3vw;
+  margin-top: 8px;
 `;
 
 export const Name = styled.p`
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;
 
 export const CreatedDate = styled.p`
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 400;
 `;
 
