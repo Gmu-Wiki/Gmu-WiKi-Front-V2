@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 60px 0;
   }
 
+  .markdownConverter details {
+    margin: 0;
+  }
+
   details summary {
   font-weight: 600;
   font-size: 1.5rem;
@@ -28,21 +32,22 @@ details[open] summary {
   color: #191919;
 }
 
-details summary::marker {
-  content: none;
-}
-
-details summary span {
+details summary::before {
   content: url(${closeToggle});
   font-size: 1.8rem;
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-right: 8px;
 }
 
-details[open] summary span {
+details[open] summary::before {
   content: url(${openToggle});
   font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
 }
 
 

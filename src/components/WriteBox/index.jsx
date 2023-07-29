@@ -35,7 +35,6 @@ function WriteBox() {
   };
 
   const onChangeTextArea = e => {
-    setContent(e.target.value);
     const textarea = textareaRef.current;
     const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight);
     textarea.style.height = `${lineHeight}px`;
@@ -47,6 +46,7 @@ function WriteBox() {
       save.push(i);
     }
     setNumArr(save);
+    setContent(e.target.value);
   };
 
   const handleEdit = () => {
