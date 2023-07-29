@@ -28,7 +28,11 @@ const useInquiry = ({ props }) => {
       });
       toast.success("문의 등록 성공");
 
-      navigate("/");
+      if (data === "관리자") {
+        navigate("/inquiry");
+      } else if (data === "사용자") {
+        navigate("/");
+      }
     } catch (e) {
       if (e.response && e.response.status >= 403) {
         toast.error("권한이 없습니다.");
