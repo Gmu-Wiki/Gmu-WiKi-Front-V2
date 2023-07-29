@@ -5,7 +5,7 @@ import GetRole from "../lib/GetRole";
 import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
 
-const useUpload = ({ props }) => {
+const useEdit = ({ props }) => {
   const navigate = useNavigate();
   const role = GetRole();
 
@@ -67,4 +67,4 @@ const useUpload = ({ props }) => {
   return { editBoardUpload, editNoticeUpload };
 };
 
-export default useUpload;
+export default useEdit;
