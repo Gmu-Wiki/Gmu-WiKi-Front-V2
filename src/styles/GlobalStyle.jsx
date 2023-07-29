@@ -94,8 +94,6 @@ details[open] summary span {
 
   hr {
     margin: 20px 0;
-    background-color: #a3a3a3;
-    border: 1px solid #a3a3a3;
     width: 100%;
   }
 

@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Content = styled.p`
-  width: 42vw;
-  margin-left: 20px;
+  width: 51vw;
+  min-height: 30vh;
   align-items: center;
   flex-direction: column;
   font-size: 1rem;
   color: #191919;
-  line-height: 20px;
 
   a {
     color: #007eff;
@@ -22,56 +21,48 @@ export const Content = styled.p`
 `;
 
 export const NTBox = styled.div`
+  width: 100%;
   display: flex;
-  margin-left: 40%;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #999;
+  margin-right: 3vw;
+  margin-top: 8px;
 `;
 
 export const Name = styled.p`
-  font-size: 1rem;
-  margin-right: 10px;
+  font-size: 0.8rem;
 `;
 
 export const CreatedDate = styled.p`
-  text-align: right;
-  font-size: 1rem;
-  color: #636363;
+  font-size: 0.8rem;
   font-weight: 400;
 `;
 
-export const InquiryType = styled.p`
-  font-size: 0.8rem;
-  margin-left: 20px;
-  color: #999;
-`;
-
 export const BtnBox = styled.div`
+  position: absolute;
   display: flex;
-  margin-left: 84%;
+  width: 100%;
+  justify-content: flex-end;
+  right: 40px;
+  bottom: 40px;
 `;
 
 export const ApproveBtn = styled.button`
-  color: #999;
-  border: 1px solid #999;
-  background: none;
-  width: 60px;
-  height: 30px;
+  width: 80px;
+  height: 35px;
+  background-color: #007eff;
+  border: none;
+  color: #fff;
   cursor: pointer;
-
-  :hover {
-    border: 1px dotted #999;
-  }
 `;
 
 export const RefusalBtn = styled.button`
-  color: #999;
-  border: 1px solid #999;
+  width: 80px;
+  height: 35px;
+  color: #007eff;
+  border: 1px solid #007eff;
   background: none;
-  width: 60px;
-  height: 30px;
-  margin-left: 5px;
+  margin-left: 12px;
   cursor: pointer;
-
-  :hover {
-    border: 1px dotted #999;
-  }
 `;

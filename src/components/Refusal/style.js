@@ -20,8 +20,8 @@ export const ModalBox = styled.div`
 `;
 
 export const RefusalContainer = styled.div`
-  width: 320px;
-  height: 440px;
+  width: 400px;
+  height: 520px;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
@@ -29,7 +29,6 @@ export const RefusalContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 50px;
   z-index: 101;
 
   & > svg {
@@ -40,41 +39,38 @@ export const RefusalContainer = styled.div`
   }
 `;
 export const RefusalContent = styled.p`
-  margin-top: 25px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
   font-weight: 600;
+  display: flex;
+  margin-top: 1vw;
 `;
 
 export const InputRefusal = styled.textarea`
-  height: 20%;
+  height: 60%;
   width: 80%;
   outline: none;
-  margin-bottom: 100px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 16px;
+  color: #575757;
   resize: none;
-`;
-
-export const RefusalTitle = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 120px;
-`;
-
-export const BtnContainer = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 38px;
+  background-color: #f1f1f5;
+  margin-top: 1.8vw;
 `;
 
 export const YesButton = styled.button`
   color: #007eff;
   background: none;
   cursor: pointer;
-  width: 16vw;
-  height: 7vh;
-  border-radius: 8px;
-  border: 1px solid #007eff;
-  margin-top: 12px;
+  width: 80%;
+  height: 10%;
+  background-color: #007eff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 2vw;
 `;
