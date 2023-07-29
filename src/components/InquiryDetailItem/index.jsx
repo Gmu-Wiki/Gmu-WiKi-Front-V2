@@ -29,9 +29,16 @@ const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
     <>
       <S.NTBox>
         <S.Name>작성자 : {name}</S.Name>
-        <S.CreatedDate>작성 시간 : {createdDate}</S.CreatedDate>
-        <S.InquiryType>문의 종류 : {inquiryType}</S.InquiryType>
+        <S.CreatedDate>작성일 : {createdDate}</S.CreatedDate>
       </S.NTBox>
+      <S.Content dangerouslySetInnerHTML={{ __html: html }} />
+      {showRefusal && (
+        <C.Refusal
+          id={id}
+          showLogout={showRefusal}
+          setShowLogout={setShowRefusal}
+        />
+      )}
       <S.BtnBox>
         <S.ApproveBtn
           onClick={() => {
@@ -45,17 +52,9 @@ const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
             handleRefusalMail();
           }}
         >
-          거부
+          거절
         </S.RefusalBtn>
       </S.BtnBox>
-      <S.Content dangerouslySetInnerHTML={{ __html: html }} />
-      {showRefusal && (
-        <C.Refusal
-          id={id}
-          showLogout={showRefusal}
-          setShowLogout={setShowRefusal}
-        />
-      )}
     </>
   );
 };

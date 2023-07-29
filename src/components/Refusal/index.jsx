@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import * as I from "../../assets";
+import * as C from "../../components";
 import { useMail } from "../../Hooks";
 
 function Refusal({ showLogout, setShowLogout, id }) {
@@ -30,13 +31,9 @@ function Refusal({ showLogout, setShowLogout, id }) {
       <S.ModalBox>
         <S.RefusalContainer>
           <I.X onClick={showLogoutModal} />
-          <S.RefusalTitle>
-            <S.RefusalContent>거부 사유 입력</S.RefusalContent>
-          </S.RefusalTitle>
+          <S.RefusalContent>거부 사유 입력</S.RefusalContent>
           <S.InputRefusal onChange={changeRefusal} />
-          <S.BtnContainer>
-            <S.YesButton onClick={onClick}>메일 보내기</S.YesButton>
-          </S.BtnContainer>
+          <S.YesButton onClick={onClick}>메일 전송</S.YesButton>
         </S.RefusalContainer>
       </S.ModalBox>
     </>
