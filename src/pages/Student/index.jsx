@@ -3,9 +3,11 @@ import * as C from "../../components";
 import * as S from "./style";
 import GetRole from "../../lib/GetRole";
 import useBoard from "../../Hooks/useBoard";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Student() {
+  const navigate = useNavigate();
+
   const data = GetRole();
   const { boardList, roleUrl } = useBoard({ boardType: "STUDENT" });
 
@@ -17,6 +19,10 @@ export default function Student() {
     { title: "7기", type: "SEVENTH" }
   ];
 
+  const handleBoardItemClick = boardId => {
+    navigate(`/${roleUrl}/board/${boardId}`);
+  };
+
   const renderBoardItems = generationType => {
     const filteredItems = boardList
       .filter(item => item.boardDetailType === generationType)
@@ -24,10 +30,8 @@ export default function Student() {
 
     return filteredItems.map(item => (
       <React.Fragment key={item.id}>
-        <S.StudentBox>
-          <Link to={`/${roleUrl}/board/${item.id}`}>
-            <S.StudentTitle>{item.title}</S.StudentTitle>
-          </Link>
+        <S.StudentBox onClick={() => handleBoardItemClick(item.id)}>
+          <S.StudentTitle>{item.title}</S.StudentTitle>
         </S.StudentBox>
       </React.Fragment>
     ));
