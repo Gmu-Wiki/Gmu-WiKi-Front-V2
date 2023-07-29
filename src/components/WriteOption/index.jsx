@@ -67,17 +67,9 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         numArr.length + 1,
         numArr.length + 2,
         numArr.length + 3,
-        numArr.length + 4,
-        numArr.length + 5,
-        numArr.length + 6
+        numArr.length + 4
       ]);
-      addOption(
-        ">>\n" +
-          ">==제목==<\n" +
-          "\n___\n" +
-          "\n#### 텍스트 (한 줄의 공백을 각 줄마다 적용해주세요!)\n" +
-          "<<"
-      );
+      addOption(">>\n" + ">==제목==<\n" + "\n___\n" + "<<");
     } else if (option === "quote") {
       addOption("> 텍스트");
     } else if (option === "a") {
