@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style.js";
 import * as C from "..";
@@ -59,12 +59,12 @@ function Header() {
     setSearch(inputValue);
   };
 
-  const filteredBoardList =
-    searchList.length > 0
-      ? searchList.filter(item => {
-          return item.title.toLowerCase().includes(search.toLowerCase()); // 대소문자 무시
-        })
-      : [];
+  useEffect(() => {
+    const updatedFilteredList = searchList.filter(item => {
+      return item.title.toLowerCase().includes(search.toLowerCase()); // 대소문자 무시
+    });
+    setFilteredBoardList(updatedFilteredList);
+  }, [searchList, search]);
 
   return (
     <>
