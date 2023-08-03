@@ -18,7 +18,13 @@ const useNotice = ({ props }) => {
       toast.success("공지가 성공적으로 등록되었습니다.");
       navigate("/notice");
     } catch (e) {
-      toast.error("공지글 작성에 실패했습니다.");
+      if (e.response && e.response.status >= 403) {
+        toast.error("권한이 없습니다.");
+      } else if (e.response && e.response.status >= 401) {
+        toast.error("로그인이 필요합니다.");
+      } else {
+        toast.error("공지 글을 작성할 수 없습니다.");
+      }
     }
   }, [props.title, props.content, navigate]);
 
@@ -34,7 +40,7 @@ const useNotice = ({ props }) => {
       } else if (e.response && e.response.status >= 401) {
         toast.error("로그인이 필요합니다.");
       } else {
-        toast.error("문의 글을 작성할 수 없습니다.");
+        toast.error("공지 글을 삭제할 수 없습니다.");
       }
     }
   }, [props.id, navigate]);

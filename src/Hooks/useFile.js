@@ -24,6 +24,8 @@ const useFile = () => {
     } catch (e) {
       if (e.response && e.response.status >= 500) {
         toast.error("서버에 문제가 생겼습니다.");
+      } else if (e.response && e.response.status >= 400) {
+        toast.error("허용되지 않는 파일 형식입니다.");
       } else {
         toast.error("이미지 업로드에 실패했습니다.");
       }

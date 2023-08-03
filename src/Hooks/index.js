@@ -8,3 +8,4 @@ export { default as useMail } from "./useMail";
 export { default as useSearchList } from "./useSearchList";
 export { default as useContent } from "./useContent";
 export { default as useEdit } from "./useEdit";
+export { default as useDelete } from "./useDelete";

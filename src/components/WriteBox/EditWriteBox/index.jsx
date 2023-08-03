@@ -1,6 +1,6 @@
 import TextareaAutosize from "react-textarea-autosize";
 import * as S from "./style";
-import {memo} from "react";
+import { memo } from "react";
 
 function EditWriteBox({
   category,

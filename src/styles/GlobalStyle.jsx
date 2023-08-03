@@ -1,5 +1,56 @@
 import { createGlobalStyle } from "styled-components";
+import closeToggle from "../imgs/closeToggle.svg";
+import openToggle from "../imgs/openToggle.svg";
 const GlobalStyle = createGlobalStyle`
+
+  details {
+    width: 100%;
+    margin: 60px 0;
+  }
+
+  .markdownConverter details {
+    margin: 0;
+  }
+
+  details summary {
+  font-weight: 600;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #a3a3a3;
+  display: flex;
+  align-items: center;
+}
+
+details[open] summary {
+  font-weight: 600;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #191919;
+}
+
+details summary::before {
+  content: url(${closeToggle});
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+details[open] summary::before {
+  content: url(${openToggle});
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+
   *{
     padding: 0;
     margin: 0;
@@ -18,36 +69,7 @@ const GlobalStyle = createGlobalStyle`
   body::-webkit-scrollbar-thumb {
     height: 30%;
     background: #7f7f7f;
-    
     border-radius: 10px;
-  }
-
-  details summary {
-    font-weight: 600;
-    font-size: 1.5rem;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    color: #a3a3a3;
-  }
-
-  details[open] summary {
-    font-weight: 600;
-    font-size: 1.5rem;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    color: #191919;
-  }
-
-  details summary::marker {
-    content: url("../imgs/closeToggle.png");
-    font-size: 1.8rem;
-  }
-
-  details[open] summary::marker {
-    content: url("../imgs/openToggle.png");
-    font-size: 1.8rem;
   }
 
   blockquote {
@@ -60,6 +82,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   pre {
+    display: inline-block;
     background-color: #f4f4f4;
     padding: 10px;
     border-radius: 4px;
@@ -76,8 +99,7 @@ const GlobalStyle = createGlobalStyle`
 
   hr {
     margin: 20px 0;
-    background-color: #a3a3a3;
-    border: 1px solid #a3a3a3;
+    width: 100%;
   }
 
   li {
@@ -85,9 +107,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   img {
-    align-items: center;
-    width: 30vw;
-    height: 45vh;
+    max-width: 100vw;
+    max-height: 80vh;
+    object-fit: cover;
   }
 `;
 

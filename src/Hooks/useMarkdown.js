@@ -25,14 +25,14 @@ function useMarkdown() {
     };
 
     const convertedValue = value
-      .replace(/>>/g, `<details>`)
+      .replace(/>>/g, `<details open>`)
       .replace(/>==/g, `<summary>`)
       .replace(/==</g, `</summary>`)
       .replace(/<</g, `</details>`);
 
-      const html = marked(convertedValue, options);
+    const html = marked(convertedValue, options);
 
-      return html;
+    return html;
   }
 
   return { markdownToHtml };

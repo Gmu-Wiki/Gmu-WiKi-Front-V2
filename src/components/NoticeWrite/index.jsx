@@ -30,12 +30,16 @@ export default function NoticeWrite() {
   const onChangeTextArea = e => {
     setContent(e.target.value);
     const textarea = textareaRef.current;
+    const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight);
+    textarea.style.height = `${lineHeight}px`;
+    const numberOfLines = Math.floor(textarea.scrollHeight / lineHeight);
+    textarea.style.height = `${numberOfLines * lineHeight + 20}px`;
 
     setNumArr([]);
-    for (let i = 1; i <= textarea.value.split("\n").length; i++) {
+    for (let i = 1; i <= numberOfLines; i++) {
       save.push(i);
-      setNumArr(save);
     }
+    setNumArr(save);
   };
 
   const handleEdit = () => {
@@ -55,7 +59,10 @@ export default function NoticeWrite() {
   const { uploadNotice } = useNotice({ props: { title, content } });
 
   const handleNotice = () => {
-    uploadNotice();
+    const shouldPost = window.confirm("공지를 등록하시겠습니까?");
+    if (shouldPost) {
+      uploadNotice();
+    }
   };
 
   return (

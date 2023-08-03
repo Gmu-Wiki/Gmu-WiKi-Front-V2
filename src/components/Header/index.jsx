@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style.js";
 import * as C from "..";
@@ -13,6 +13,8 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
+  const [filteredBoardList, setFilteredBoardList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [search, setSearch] = useState("");
 
@@ -60,11 +62,19 @@ function Header() {
   };
 
   useEffect(() => {
-    const updatedFilteredList = searchList.filter(item => {
-      return item.title.toLowerCase().includes(search.toLowerCase()); // 대소문자 무시
-    });
-    setFilteredBoardList(updatedFilteredList);
-  }, [searchList, search]);
+    console.log("Connect!");
+    // searchList에 데이터가 있으면 실행
+    if (searchList.length > 0) {
+      // 검색 결과를 필터링
+      const updatedFilteredList = searchList.filter(item => {
+        return item.title.toLowerCase().includes(search.toLowerCase());
+      });
+      setFilteredBoardList(updatedFilteredList);
+      setIsLoading(false); // 로딩 상태 변경
+      console.log(searchList);
+      console.log("123123");
+    }
+  }, [searchList, search]); // 검색 결과 데이터와 검색어가 변경될 때 실행
 
   return (
     <>
@@ -150,7 +160,6 @@ function Header() {
           />
         )}
       </S.Header>
-
       {showMenu && (
         <DropMenu
           onMouseEnter={() => {

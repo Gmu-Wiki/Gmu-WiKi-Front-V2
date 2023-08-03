@@ -7,7 +7,10 @@ function MarkDownConverter({ value }) {
 
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        className="markdownConverter"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </>
   );
 }
