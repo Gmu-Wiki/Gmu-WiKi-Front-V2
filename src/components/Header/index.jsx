@@ -8,6 +8,7 @@ import { useFetch, useSearchList } from "../../Hooks";
 import TokenManager from "../../apis/TokenManager";
 import { useNavigate } from "react-router-dom";
 import { css } from "@emotion/react";
+import GetRole from "../../lib/GetRole.js";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,6 +16,7 @@ function Header() {
   const [showLogout, setShowLogout] = useState(false);
   const [filteredBoardList, setFilteredBoardList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [roleUrl, setRoleUrl] = useState("");
 
   const [search, setSearch] = useState("");
 
@@ -72,7 +74,6 @@ function Header() {
       setFilteredBoardList(updatedFilteredList);
       setIsLoading(false); // 로딩 상태 변경
       console.log(searchList);
-      console.log("123123");
     }
   }, [searchList, search]); // 검색 결과 데이터와 검색어가 변경될 때 실행
 
@@ -140,13 +141,15 @@ function Header() {
             )}
           </S.FixedInput>
           {filteredBoardList.map((item, index) => (
-            <S.SearchItem
-              key={item.id}
-              top={29 * (index + 1) + 17}
-              onMouseEnter={() => setShowMenu(false)}
-            >
-              {item.title}
-            </S.SearchItem>
+            <Link key={item.id} to={`/${roleUrl}/board/${item.id}`}>
+              <S.SearchItem
+                key={item.id}
+                top={29 * (index + 1) + 17}
+                onMouseEnter={() => setShowMenu(false)}
+              >
+                {item.title}
+              </S.SearchItem>
+            </Link>
           ))}
         </S.InfoContainer>
         {showLogin && (
