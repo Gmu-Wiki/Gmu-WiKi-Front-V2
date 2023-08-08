@@ -61,19 +61,22 @@ export default function RecentModified() {
     }
   }
 
+  const handleBoardItemClick = boardId => {
+    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    window.location.href = boardUrl;
+  };
+
   return (
     <S.RecentModifiedContainer>
       <S.Title>최근 수정된 글</S.Title>
       {recentList.map(({ id, title, editedDate }) => (
         <React.Fragment key={id}>
-          <Link to={`/${roleUrl}/board/${id}`}>
-            <S.ModifiedItem>
-              <S.ModifiedItemTitle>
-                {title.length > 9 ? title.substr(0, 9) + "..." : title}
-              </S.ModifiedItemTitle>
-              <S.ModifiedItemTime>{formatTime(editedDate)}</S.ModifiedItemTime>
-            </S.ModifiedItem>
-          </Link>
+          <S.ModifiedItem onClick={() => handleBoardItemClick(id)}>
+            <S.ModifiedItemTitle>
+              {title.length > 9 ? title.substr(0, 9) + "..." : title}
+            </S.ModifiedItemTitle>
+            <S.ModifiedItemTime>{formatTime(editedDate)}</S.ModifiedItemTime>
+          </S.ModifiedItem>
         </React.Fragment>
       ))}
     </S.RecentModifiedContainer>
