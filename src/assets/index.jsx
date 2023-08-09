@@ -23,3 +23,4 @@ export { default as Toggle } from "./Toggle";
 export { default as Logout } from "./Logout";
 export { default as ImageIcon } from "./ImageIcon";
 export { default as Search } from "./Search";
+export { default as Cloud } from "./Cloud";
