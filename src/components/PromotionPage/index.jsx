@@ -9,9 +9,10 @@ function PromotionPage() {
     <S.PromotionPageContainer>
       <S.PromotionContentBox>
         <S.PromotionTextBox>
-          <h1>
-            GSM 학생들이 키워나가는 지식의 나무 <I.Cloud />
-          </h1>
+          <S.PromotionTitleBox>
+            <h1>GSM 학생들이 키워나가는 지식의 나무</h1>
+            <I.Cloud />
+          </S.PromotionTitleBox>
           <p>
             G무위키는 앰퍼샌드 팀에서 개발한 GSM만의 나무위키 프로젝트 입니다.{" "}
             <br />
