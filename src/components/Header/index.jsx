@@ -64,7 +64,6 @@ function Header() {
   };
 
   useEffect(() => {
-    console.log("Connect!");
     // searchList에 데이터가 있으면 실행
     if (searchList.length > 0) {
       // 검색 결과를 필터링
