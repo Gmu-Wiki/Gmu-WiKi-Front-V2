@@ -11,5 +11,6 @@ export const Button = styled.button`
   font-weight: ${props => props.fontWeight};
   float: ${props => props.float};
   margin: ${props => props.margin};
+  outline: none;
   cursor: pointer;
 `;

@@ -17,7 +17,8 @@ export default function Router() {
 
   return (
     <Routes>
-      <Route path="/" element={<P.Main />} />
+      <Route path="/" element={<P.Promotion />} />
+      <Route path="/main" element={<P.Main />} />
       <Route path="/student" element={<P.Student />} />
       <Route path="/teacher" element={<P.Teacher />} />
       <Route path="/club" element={<P.Club />} />

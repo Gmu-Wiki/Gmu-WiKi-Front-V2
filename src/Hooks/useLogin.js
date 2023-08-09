@@ -17,10 +17,10 @@ const useLogin = () => {
         const tokenManager = new TokenManager();
         tokenManager.setTokens(data);
       }
-      navigate("/");
+      navigate("/main");
     },
     onFailure: () => {
-      navigate("/");
+      navigate("/main");
     },
   });
 
@@ -31,13 +31,13 @@ const useLogin = () => {
     };
 
     if (checkLoggedIn()) {
-      navigate("/");
+      navigate("/main");
       return;
     }
 
     if (!gauthCode) return;
     fetch({ code: gauthCode });
-  }, [gauthCode]);
+  }, [gauthCode, navigate]);
 };
 
 export default useLogin;

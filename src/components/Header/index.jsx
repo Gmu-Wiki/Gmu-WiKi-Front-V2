@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
@@ -52,7 +51,7 @@ function Header() {
         }}
       >
         <S.MenuContainer>
-          <Link to="/">
+          <Link to="/main">
             <I.Logo />
           </Link>
           <S.Nav>
@@ -77,7 +76,7 @@ function Header() {
               <I.Search />
             </S.SearchIcon>
           </S.SearchContainer>
-          {accessToken ? (
+          {accessToken && (
             <span
               onClick={() => {
                 setShowLogout(true);
@@ -90,20 +89,8 @@ function Header() {
             >
               로그아웃
             </span>
-          ) : (
-            <span
-              onClick={() => {
-                setShowLogin(true);
-                setShowMenu(false);
-              }}
-            >
-              로그인
-            </span>
           )}
         </S.InfoContainer>
-        {showLogin && (
-          <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
-        )}
         {showLogout && (
           <C.Logout
             showLogout={showLogout}
