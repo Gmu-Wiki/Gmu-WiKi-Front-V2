@@ -30,26 +30,25 @@ export const PromotionTextBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   color: #ffffff;
-
-  h1 {
-    font-size: 2.6rem;
-    font-weight: bold;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: flex-start;
-
-    svg {
-      position: absolute;
-      bottom: 92.8%;
-      left: 48%
-    }
-  }
-
+  
   p {
     font-size: 1rem;
     font-weight: 300;
     margin-bottom: 25px;
     line-height: 25px;
+  }
+  `
+
+export const PromotionTitleBox = styled.div`
+  
+  margin-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  h1 {
+    font-size: 2.6rem;
+    font-weight: bold;
   }
 `
 
