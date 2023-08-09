@@ -24,7 +24,7 @@ function Header() {
     onSuccess: () => {
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
-      navigate("/");
+      navigate("/promotion");
     },
     errors: {
       404: "유저를 찾을 수 없습니다."
@@ -51,7 +51,7 @@ function Header() {
         }}
       >
         <S.MenuContainer>
-          <Link to="/main">
+          <Link to="/">
             <I.Logo />
           </Link>
           <S.Nav>

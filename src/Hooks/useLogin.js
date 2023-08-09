@@ -17,11 +17,11 @@ const useLogin = () => {
         const tokenManager = new TokenManager();
         tokenManager.setTokens(data);
       }
-      navigate("/main");
+      window.location.reload();
     },
     onFailure: () => {
-      navigate("/main");
-    },
+      navigate("/promotion");
+    }
   });
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const useLogin = () => {
     };
 
     if (checkLoggedIn()) {
-      navigate("/main");
+      navigate("/");
       return;
     }
 

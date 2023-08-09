@@ -1,7 +1,8 @@
-import { Routes, Route } from "react-router-dom";
-import * as P from "../pages";
-import GetRole from "../lib/GetRole";
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import GetRole from "../lib/GetRole";
+import * as P from "../pages";
+import TokenManager from "../apis/TokenManager";
 
 export default function Router() {
   const role = GetRole();
@@ -15,10 +16,16 @@ export default function Router() {
     }
   }, [role]);
 
+  const tokenManager = new TokenManager();
+  const accessToken = tokenManager.accessToken;
+
+  if (!accessToken) {
+    return <P.Promotion />;
+  }
+
   return (
     <Routes>
-      <Route path="/" element={<P.Promotion />} />
-      <Route path="/main" element={<P.Main />} />
+      <Route path="/" element={<P.Main />} />
       <Route path="/student" element={<P.Student />} />
       <Route path="/teacher" element={<P.Teacher />} />
       <Route path="/club" element={<P.Club />} />
@@ -38,6 +45,7 @@ export default function Router() {
       <Route path="/inquiry" element={<P.Inquiry />} />
       <Route path="/inquiryWrite" element={<P.InquiryWrite />} />
       <Route path="/schedule" element={<P.Schedule />} />
+      <Route path="/promotion" element={<P.Promotion />} />
 
       <Route path="/role" element={<P.Role />} />
       <Route path="/inquiry/:id" element={<P.InquiryDetail />} />
