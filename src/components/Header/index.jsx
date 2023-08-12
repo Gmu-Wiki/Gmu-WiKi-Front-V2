@@ -20,7 +20,6 @@ function Header() {
 
   const [search, setSearch] = useState("");
 
-  // useSearchList 커스텀 훅을 사용하여 검색 결과 리스트를 받아옵니다.
   const { searchList } = useSearchList({ title: search });
 
   const tokenManager = new TokenManager();
@@ -31,7 +30,6 @@ function Header() {
     method: ""
   });
 
-  // useFetch 커스텀 훅을 사용하여 HTTP DELETE 요청을 처리합니다.
   const { fetch: deleteQuery } = useFetch({
     url: queryState.url,
     method: queryState.method,
@@ -60,11 +58,13 @@ function Header() {
   // 검색어가 변경될 때마다 호출되는 함수로 검색어 상태를 업데이트합니다.
   const handleSearchChange = e => {
     const inputValue = e.target.value;
+    console.log(inputValue);
     setSearch(inputValue);
   };
 
   useEffect(() => {
     // searchList에 데이터가 있으면 실행
+    console.log(searchList.length);
     if (searchList.length > 0) {
       // 검색 결과를 필터링
       const updatedFilteredList = searchList.filter(item => {

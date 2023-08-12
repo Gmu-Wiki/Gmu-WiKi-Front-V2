@@ -20,18 +20,25 @@ const useSearchList = ({ title }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await API.get(`/${roleUrl}/board/search`, {
-          params: { title }
-        });
-        setSearchList(data);
+        if (typeof title === "string" && title.trim() !== "") {
+          const { data } = await API.get(
+            `/${roleUrl}/board/search?title=${title}`,
+            {
+              params: { title }
+            }
+          );
+
+          // 가정: 서버 응답 구조에서 boardTitleList를 가져온다고 가정
+          const boardTitleList = data.boardTitleList;
+          console.log(boardTitleList.length);
+          setSearchList(boardTitleList);
+        }
       } catch (error) {
         console.log("Error");
       }
     };
 
-    if (typeof title === "string" && title.trim() !== "") {
-      fetchData();
-    }
+    fetchData();
   }, [title, roleUrl]);
 
   return { searchList };
