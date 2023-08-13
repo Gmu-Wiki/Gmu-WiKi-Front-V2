@@ -50,6 +50,7 @@ export default function Notice() {
         ? { hasPostButton: true }
         : { hasPostButton: false })}
       url="/noticeWrite"
+      hasTitle
     >
       <C.ScrollButton />
       {noticeList.map(item => (

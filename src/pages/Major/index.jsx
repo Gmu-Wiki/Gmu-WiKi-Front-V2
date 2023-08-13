@@ -14,7 +14,13 @@ export default function Student() {
   };
 
   return (
-    <C.PageContainer title="전공" sort="전공" hasPostButton={true} url="/post">
+    <C.PageContainer
+      title="전공"
+      sort="전공"
+      hasPostButton={true}
+      url="/post"
+      hasTitle
+    >
       <C.Detail hasNumber={false} title={"전공"}>
         {boardList.map(item => (
           <React.Fragment key={item.id}>

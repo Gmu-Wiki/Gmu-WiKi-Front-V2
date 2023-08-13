@@ -34,7 +34,13 @@ export default function Student() {
   };
 
   return (
-    <C.PageContainer title="사건" sort="사건" hasPostButton={true} url="/post">
+    <C.PageContainer
+      title="사건"
+      sort="사건"
+      hasPostButton={true}
+      url="/post"
+      hasTitle
+    >
       {years.map(year => (
         <C.Detail hasNumber={false} title={year.title} key={year.type}>
           {renderBoardItems(year.type)}

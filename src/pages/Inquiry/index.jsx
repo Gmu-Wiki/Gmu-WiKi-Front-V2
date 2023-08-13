@@ -38,7 +38,7 @@ export default function Inquiry() {
   }, [role, navigate]);
 
   return (
-    <C.PageContainer title="문의" sort="문의">
+    <C.PageContainer title="문의" sort="문의" hasTitle>
       {inquiryList.map(item => (
         <React.Fragment key={item.id}>
           <Link to={`/inquiry/${item.id}`}>
