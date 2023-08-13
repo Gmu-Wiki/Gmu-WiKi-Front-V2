@@ -8,6 +8,8 @@ export const PageContainer = styled.div`
   background-color: #fff;
   margin: 0 4vw 20px 8vw;
   padding: 0 3vw 5vw 3vw;
+  border-top: none;
+  border: 1px solid #c0c0c0;
   @media screen and (max-width: 700px) {
     width: 100%;
     margin: 0;
