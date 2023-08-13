@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   position: relative;
   width: 70vw;
-  min-height: 90vh;
+  min-height: calc(100vh - 160px);
   height: auto;
   background-color: #fff;
   margin: 0 4vw 20px 8vw;
