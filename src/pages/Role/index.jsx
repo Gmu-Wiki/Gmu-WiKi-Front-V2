@@ -31,7 +31,7 @@ export default function Role() {
   });
 
   return (
-    <C.PageContainer title="권한" sort="권한">
+    <C.PageContainer title="권한" sort="권한" hasTitle>
       <S.Img src={RoleImg1} alt="Role이미지1" loading="lazy" />
       <S.RoleContainer>
         <S.InputContainer>

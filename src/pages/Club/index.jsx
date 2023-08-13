@@ -40,6 +40,7 @@ export default function Student() {
       sort="동아리"
       hasPostButton={data === "관리자"}
       url="/post"
+      hasTitle
     >
       {clubTypes.map(clubType => (
         <C.Detail hasNumber={false} title={clubType.title} key={clubType.type}>
