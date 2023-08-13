@@ -5,7 +5,7 @@ export const RecentModifiedContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-weight: 700;
-  width: 15vw;
+  width: 12vw;
   height: fit-content;
   top: 6vw;
 
