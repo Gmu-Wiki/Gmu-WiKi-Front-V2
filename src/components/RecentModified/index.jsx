@@ -72,9 +72,7 @@ export default function RecentModified() {
       {recentList.map(({ id, title, editedDate }) => (
         <React.Fragment key={id}>
           <S.ModifiedItem onClick={() => handleBoardItemClick(id)}>
-            <S.ModifiedItemTitle>
-              {title.length > 9 ? title.substr(0, 9) + "..." : title}
-            </S.ModifiedItemTitle>
+            <S.ModifiedItemTitle>{title}</S.ModifiedItemTitle>
             <S.ModifiedItemTime>{formatTime(editedDate)}</S.ModifiedItemTime>
           </S.ModifiedItem>
         </React.Fragment>
