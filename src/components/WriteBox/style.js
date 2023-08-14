@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ChangeButtonContainer = styled.div`
   display: flex;
   margin-left: 15px;
-  margin-top: 4px;
+  margin-top: 1px;
 `;
 
 export const EditButton = styled.button`
