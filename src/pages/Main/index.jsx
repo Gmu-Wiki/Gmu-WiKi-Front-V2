@@ -30,7 +30,7 @@ function Main() {
   ));
 
   return (
-    <C.PageContainer title="대문" sort="G무위키">
+    <C.PageContainer title="대문" sort="G무위키" hasTitle>
       <C.Explanation>
         <S.DetailCenter>
           <S.Title>
