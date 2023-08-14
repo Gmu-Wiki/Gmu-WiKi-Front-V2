@@ -1,86 +1,80 @@
 import styled from "styled-components";
 
-export const CategoryInput = styled.div`
-  width: 100%;
-  height: 5vh;
+export const EditWriteBoxContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 
   span {
     color: #999999;
     font-size: 1rem;
-    margin-right: 9px;
-    font-weight: 600;
+    font-weight: 500;
   }
+`
+
+export const CategoryInputBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: ${(props) => props.type === '문의목적' ? '14.8vw' : '26vw'}; 
+  margin-bottom: 10px;
 
   select {
     border: 1px solid #dddddd;
-    width: 139.3px;
-    height: 26px;
-    outline: 0;
+    width: 10vw;
+    height: 25px;
+    outline: none;
     color: #999999;
-    margin-right: 13px;
-    cursor: pointer;
+    font-weight: 300;
   }
-`;
+`
 
-export const TitleInput = styled.div`
-  width: 100%;
-  height: 5vh;
+export const TitleInputBox = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 60vw;
+  margin-bottom: 10px;
+
 
   span {
-    color: #999999;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-right: 40px;
+    margin-left: 12px;
   }
-
+  
   input {
     border: 1px solid #dddddd;
-    width: 90%;
-    height: 26px;
-    padding-left: 10px;
-    outline: 0;
-    background-color: none;
+    width: 55.2vw;
+    height: 25px;
+    padding-left: 8px;
+    outline: none;
+    color: #999999;
   }
-`;
+`
 
-export const ContentInput = styled.div`
-  width: 100%;
+export const ContentInputBox = styled.div`
   display: flex;
-  margin-top: 10px;
   align-items: center;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    span {
-      color: #999999;
-      font-size: 1rem;
-      font-weight: 600;
-      line-height: 22px;
-      margin: 0 42px 0 20px;
-      
-    }
-  }
+  justify-content: space-between;
+  width: 60vw;
 
   textarea {
+    width: 55.2vw;
+    height: auto;
+    padding: 8px;
+    color: #999999;
     border: 1px solid #dddddd;
-    width: 90%;
-    padding: 10px;
-    outline: 0;
-    background-color: none;
+    font-size: 0.8rem;
+    outline: none;
     resize: none;
     line-height: 22px;
     overflow-y: hidden;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
-`;
+`
+
+export const LineNumberBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 22px;
+  margin-left: 20px;
+`
