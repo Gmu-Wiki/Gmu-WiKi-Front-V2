@@ -17,6 +17,7 @@ const useLogin = () => {
         const tokenManager = new TokenManager();
         tokenManager.setTokens(data);
       }
+      navigate("/");
       window.location.reload();
     },
     onFailure: () => {
