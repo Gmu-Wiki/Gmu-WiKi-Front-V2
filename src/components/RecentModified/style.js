@@ -64,4 +64,12 @@ export const ModifiedItemTitle = styled.h3`
 export const ModifiedItemTime = styled.p`
   font-size: 0.8rem;
   color: #999999;
+
+  @media screen and (max-width: 1450px) {
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    font-size: 0.4rem;
+  }
 `;
