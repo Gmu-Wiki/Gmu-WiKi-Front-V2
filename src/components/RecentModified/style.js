@@ -38,7 +38,7 @@ export const ModifiedItem = styled.div`
 `;
 
 export const ModifiedItemTitle = styled.h3`
-  width: 75%;
+  width: 72%;
   font-size: 1rem;
   font-weight: 600;
   padding: 4px;
