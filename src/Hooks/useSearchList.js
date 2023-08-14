@@ -5,9 +5,9 @@ import { toast } from "react-toastify";
 
 const useSearchList = ({ title }) => {
   const [searchList, setSearchList] = useState([]);
+  const [roleUrl, setRoleUrl] = useState(""); // 추가: roleUrl 상태
 
   const data = GetRole();
-  const [roleUrl, setRoleUrl] = useState("");
 
   useEffect(() => {
     if (data === "관리자") {
@@ -28,7 +28,6 @@ const useSearchList = ({ title }) => {
             }
           );
 
-          // 가정: 서버 응답 구조에서 boardTitleList를 가져온다고 가정
           const boardTitleList = data.boardTitleList;
           console.log(boardTitleList);
           setSearchList(boardTitleList);
@@ -41,7 +40,8 @@ const useSearchList = ({ title }) => {
     fetchData();
   }, [title, roleUrl]);
 
-  return { searchList };
+  // 수정: searchList와 roleUrl을 반환
+  return { searchList, roleUrl };
 };
 
 export default useSearchList;

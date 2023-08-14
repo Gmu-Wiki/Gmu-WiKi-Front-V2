@@ -16,10 +16,9 @@ function Header() {
   const [showLogout, setShowLogout] = useState(false);
   const [filteredBoardList, setFilteredBoardList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [roleUrl, setRoleUrl] = useState("");
   const [search, setSearch] = useState("");
 
-  const { searchList } = useSearchList({ title: search });
+  const { searchList, roleUrl } = useSearchList({ title: search });
 
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
