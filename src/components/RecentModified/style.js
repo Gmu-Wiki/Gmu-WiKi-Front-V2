@@ -38,10 +38,15 @@ export const ModifiedItem = styled.div`
 `;
 
 export const ModifiedItemTitle = styled.h3`
+  width: 75%;
   font-size: 1rem;
   font-weight: 600;
   padding: 4px;
   color: #191919;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
 
   @media screen and (max-width: 1600px) {
     font-size: 0.8rem;
