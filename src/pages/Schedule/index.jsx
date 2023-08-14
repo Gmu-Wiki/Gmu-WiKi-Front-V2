@@ -3,7 +3,6 @@ import * as C from "../../components";
 import * as S from "./style";
 import GetRole from "../../lib/GetRole";
 import useBoard from "../../Hooks/useBoard";
-import { Link } from "react-router-dom";
 
 export default function Student() {
   const data = GetRole();
@@ -26,6 +25,11 @@ export default function Student() {
     "DEC"
   ];
 
+  const handleBoardItemClick = boardId => {
+    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    window.location.href = boardUrl;
+  };
+
   const renderBoardItems = month => {
     const filteredItems = boardList
       .filter(item => item.boardDetailType === month)
@@ -33,10 +37,8 @@ export default function Student() {
 
     return filteredItems.map(item => (
       <React.Fragment key={item.id}>
-        <S.Box>
-          <Link to={`/${roleUrl}/board/${item.id}`}>
-            <S.Title>{item.title}</S.Title>
-          </Link>
+        <S.Box onClick={() => handleBoardItemClick(item.id)}>
+          <S.Title>{item.title}</S.Title>
         </S.Box>
       </React.Fragment>
     ));
@@ -48,6 +50,7 @@ export default function Student() {
       sort="학사일정"
       hasPostButton={data === "관리자"}
       url="/post"
+      hasTitle
     >
       {months.map((month, index) => (
         <C.Detail hasNumber={false} title={`${index + 1}월`} key={month}>

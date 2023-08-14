@@ -1,6 +1,5 @@
 export { default as Button } from "./Button";
 export { default as Header } from "./Header";
-export { default as Login } from "./Login";
 export { default as Logout } from "./Logout";
 export { default as PageContainer } from "./PageContainer";
 export { default as Explanation } from "./Explanation";
@@ -26,3 +25,4 @@ export { default as NoticeDetail } from "./NoticeDetail";
 export { default as BoardDetail } from "./BoardDetail";
 export { default as EditWrite } from "./EditWrite";
 export { default as EditNotice } from "./EditNotice";
+export { default as PromotionPage } from "./PromotionPage";

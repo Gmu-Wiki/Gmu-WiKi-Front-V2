@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
@@ -25,7 +24,7 @@ function Header() {
     onSuccess: () => {
       const tokenManager = new TokenManager();
       tokenManager.removeTokens();
-      navigate("/");
+      navigate("/promotion");
     },
     errors: {
       404: "유저를 찾을 수 없습니다."
@@ -77,7 +76,7 @@ function Header() {
               <I.Search />
             </S.SearchIcon>
           </S.SearchContainer>
-          {accessToken ? (
+          {accessToken && (
             <span
               onClick={() => {
                 setShowLogout(true);
@@ -90,19 +89,8 @@ function Header() {
             >
               로그아웃
             </span>
-          ) : (
-            <span
-              onClick={() => {
-                setShowLogin(true);
-              }}
-            >
-              로그인
-            </span>
           )}
         </S.InfoContainer>
-        {showLogin && (
-          <C.Login showLogin={showLogin} setShowLogin={setShowLogin} />
-        )}
         {showLogout && (
           <C.Logout
             showLogout={showLogout}

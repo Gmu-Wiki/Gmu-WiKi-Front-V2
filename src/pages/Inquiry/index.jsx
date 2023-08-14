@@ -38,18 +38,25 @@ export default function Inquiry() {
   }, [role, navigate]);
 
   return (
-    <C.PageContainer title="문의" sort="문의">
+    <C.PageContainer title="문의" sort="문의" hasTitle>
       {inquiryList.map(item => (
         <React.Fragment key={item.id}>
-          <C.InquiryItem>
-            <Link to={`/inquiry/${item.id}`}>
+          <Link to={`/inquiry/${item.id}`}>
+            <C.InquiryItem>
               <S.InquiryTitleContainer>
-                <S.StyledTitle>{item.title}</S.StyledTitle>
-                <S.Sort>{item.inquiryType}</S.Sort>
-                <S.Date>{item.createdDate.substring(0, 10)}</S.Date>
+                <S.StyledTitleContainer>
+                  <S.StyledTitle>{item.title}</S.StyledTitle>
+                  <S.Sort>{item.inquiryType}</S.Sort>
+                  <S.Date>{item.createdDate.substring(0, 10)}</S.Date>
+                </S.StyledTitleContainer>
+                <S.StyledContents>
+                  {item.content.length > 100
+                    ? item.content.substring(0, 120) + "..."
+                    : item.content}
+                </S.StyledContents>
               </S.InquiryTitleContainer>
-            </Link>
-          </C.InquiryItem>
+            </C.InquiryItem>
+          </Link>
         </React.Fragment>
       ))}
     </C.PageContainer>

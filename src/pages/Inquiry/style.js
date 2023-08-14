@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const StyledTitle = styled.strong`
   font-size: 18px;
   max-width: 80%;
+  color: #000;
 `;
 
 export const StyledContents = styled.p`
   color: #636363;
   font-size: 14px;
-  max-width: 80%;
 `;
 
 export const Sort = styled.div`
@@ -31,7 +31,12 @@ export const Date = styled.p`
 
 export const InquiryTitleContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 12px;
-  max-width: 80%;
-  margin-left: 20px;
+  margin-left: 8px;
+`;
+
+export const StyledTitleContainer = styled.div`
+  display: flex;
+  gap: 8px;
 `;

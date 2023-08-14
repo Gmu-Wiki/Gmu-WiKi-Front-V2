@@ -1,25 +1,31 @@
 import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
-import GetRole from "../../lib/GetRole";
 import useBoard from "../../Hooks/useBoard";
-import { Link } from "react-router-dom";
 
 export default function Student() {
-  const data = GetRole();
   const { boardList, roleUrl } = useBoard({ boardType: "MAJOR" });
 
   if (!boardList) return;
 
+  const handleBoardItemClick = boardId => {
+    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    window.location.href = boardUrl;
+  };
+
   return (
-    <C.PageContainer title="전공" sort="전공" hasPostButton={true} url="/post">
+    <C.PageContainer
+      title="전공"
+      sort="전공"
+      hasPostButton={true}
+      url="/post"
+      hasTitle
+    >
       <C.Detail hasNumber={false} title={"전공"}>
         {boardList.map(item => (
           <React.Fragment key={item.id}>
-            <S.MajorBox>
-              <Link to={`/${roleUrl}/board/${item.id}`}>
-                <S.MajorTitle>{item.title}</S.MajorTitle>
-              </Link>
+            <S.MajorBox onClick={() => handleBoardItemClick(item.id)}>
+              <S.MajorTitle>{item.title}</S.MajorTitle>
             </S.MajorBox>
           </React.Fragment>
         ))}

@@ -1,80 +1,82 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useFetch } from "../../Hooks";
 import * as S from "./style";
+import GetRole from "../../lib/GetRole";
+import { Link } from "react-router-dom";
 
 export default function RecentModified() {
-  const [test, setTest] = useState([
-    {
-      id: 1,
-      title: "서주미",
-      latestTime: "1시간",
+  const role = GetRole();
+
+  const [roleUrl, setRoleUrl] = useState("");
+  const [recentList, setRecentList] = useState([]);
+
+  useEffect(() => {
+    if (role === "관리자") {
+      setRoleUrl("admin");
+    } else if (role === "사용자") {
+      setRoleUrl("user");
+    }
+  }, [role]);
+
+  const { fetch } = useFetch({
+    url: `/${roleUrl}/board/recent`,
+    method: "get",
+    onSuccess: data => {
+      console.log(data);
+      setRecentList(data.boardTitleList);
     },
-    {
-      id: 2,
-      title: "서주미",
-      latestTime: "13시간",
-    },
-    {
-      id: 3,
-      title: "서주미",
-      latestTime: "2시간",
-    },
-    {
-      id: 4,
-      title: "서주미",
-      latestTime: "3시간",
-    },
-    {
-      id: 5,
-      title: "서주미",
-      latestTime: "4시간",
-    },
-    {
-      id: 6,
-      title: "서주미",
-      latestTime: "5시간",
-    },
-    {
-      id: 7,
-      title: "서주미",
-      latestTime: "6시간",
-    },
-    {
-      id: 8,
-      title: "이운린",
-      latestTime: "7시간",
-    },
-    {
-      id: 9,
-      title: "이아론",
-      latestTime: "8시간",
-    },
-    {
-      id: 10,
-      title: "한준",
-      latestTime: "9시간",
-    },
-    {
-      id: 11,
-      title: "한준",
-      latestTime: "9시간",
-    },
-    {
-      id: 12,
-      title: "한준",
-      latestTime: "9시간",
-    },
-  ]);
+    errors: {
+      403: "권한이 없습니다.",
+      500: "목록을 불러올 수 없습니다."
+    }
+  });
+
+  useEffect(() => {
+    if (roleUrl) {
+      fetch();
+    }
+  }, [roleUrl]);
+
+  function formatTime(timeString) {
+    const date = new Date(timeString);
+    const now = new Date();
+
+    const elapsedMilliseconds = now - date;
+    const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+    const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+    const elapsedHours = Math.floor(elapsedMinutes / 60);
+    const elapsedDays = Math.floor(elapsedHours / 24);
+    const elapsedMonths = Math.floor(elapsedDays / 30);
+
+    if (elapsedMonths > 0) {
+      return `${elapsedMonths}개월 전`;
+    } else if (elapsedDays > 0) {
+      return `${elapsedDays}일 전`;
+    } else if (elapsedHours > 0) {
+      return `${elapsedHours}시간 전`;
+    } else if (elapsedMinutes > 0) {
+      return `${elapsedMinutes}분 전`;
+    } else {
+      return `방금 전`;
+    }
+  }
+
+  const handleBoardItemClick = boardId => {
+    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    window.location.href = boardUrl;
+  };
+
   return (
     <S.RecentModifiedContainer>
       <S.Title>최근 수정된 글</S.Title>
-      <S.ModifiedContents>
-        {test.map(({ id, title, latestTime }) => (
-          <S.ModifiedItem key={id}>
+      {recentList.map(({ id, title, editedDate }) => (
+        <React.Fragment key={id}>
+          <S.ModifiedItem onClick={() => handleBoardItemClick(id)}>
             <S.ModifiedItemTitle>{title}</S.ModifiedItemTitle>
-            <S.ModifiedItemTime>{latestTime}</S.ModifiedItemTime>
+            <S.ModifiedItemTime>{formatTime(editedDate)}</S.ModifiedItemTime>
           </S.ModifiedItem>
-        ))}
-      </S.ModifiedContents>
+        </React.Fragment>
+      ))}
     </S.RecentModifiedContainer>
   );
 }

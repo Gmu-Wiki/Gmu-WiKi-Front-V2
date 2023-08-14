@@ -11,7 +11,7 @@ const History = () => {
   const { title } = useContent({ id });
   const data = GetRole();
   const [roleUrl, setRoleUrl] = useState("");
-
+  
   console.log(recordList);
 
   useEffect(() => {

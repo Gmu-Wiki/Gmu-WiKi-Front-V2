@@ -18,10 +18,11 @@ const useLogin = () => {
         tokenManager.setTokens(data);
       }
       navigate("/");
+      window.location.reload();
     },
     onFailure: () => {
-      navigate("/");
-    },
+      navigate("/promotion");
+    }
   });
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const useLogin = () => {
 
     if (!gauthCode) return;
     fetch({ code: gauthCode });
-  }, [gauthCode]);
+  }, [gauthCode, navigate]);
 };
 
 export default useLogin;

@@ -7,3 +7,4 @@ export { default as useNotice } from "./useNotice";
 export { default as useMail } from "./useMail";
 export { default as useContent } from "./useContent";
 export { default as useEdit } from "./useEdit";
+export { default as useDelete } from "./useDelete";

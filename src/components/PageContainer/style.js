@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
 export const PageContainer = styled.div`
+  position: relative;
   width: 70vw;
-  min-height: 90vh;
+  min-height: calc(100vh - 150px);
   height: auto;
   background-color: #fff;
-  margin: 0 0 20px 8vw;
+  margin: 0 4vw 20px 8vw;
   padding: 0 3vw 5vw 3vw;
-  @media screen and (max-width: 700px) {
+  border-top: none;
+  border: 1px solid #c0c0c0;
+  @media screen and (max-width: 1000px) {
     width: 100%;
     margin: 0;
+    min-height: calc(100vh - 130px);
   }
 `;
 
 export const Page = styled.div`
   display: flex;
-  align-items: center;
 `;
 
 export const TitleContainer = styled.div`

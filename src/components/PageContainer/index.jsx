@@ -14,7 +14,8 @@ function PageContainer({
   hasDeleteButton,
   url,
   onClick,
-  editUrl
+  editUrl,
+  hasTitle
 }) {
   const { id } = useParams();
   const data = GetRole();
@@ -31,11 +32,16 @@ function PageContainer({
 
   return (
     <>
-      <C.Header />
+      <>
+        <C.Header />
+      </>
       <S.Page>
         <S.PageContainer>
           <S.TitleContainer>
-            <span>G무위키:{title}</span>
+            <div>
+              {hasTitle && <span>G무위키:</span>}
+              <span>{title}</span>
+            </div>
             <S.ContentsButtonContainer>
               <>
                 {hasEditButton && (
@@ -70,9 +76,7 @@ function PageContainer({
         <C.RecentModified />
         <C.ScrollButton />
       </S.Page>
-      <>
-        <C.Footer />
-      </>
+      <C.Footer />
     </>
   );
 }
