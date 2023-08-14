@@ -30,6 +30,7 @@ export const PromotionTextBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   color: #ffffff;
+  margin-top: 1.3rem;
   
   p {
     font-size: 1rem;
