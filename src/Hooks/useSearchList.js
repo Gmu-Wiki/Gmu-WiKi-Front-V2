@@ -30,7 +30,7 @@ const useSearchList = ({ title }) => {
 
           // 가정: 서버 응답 구조에서 boardTitleList를 가져온다고 가정
           const boardTitleList = data.boardTitleList;
-          console.log(boardTitleList.length);
+          console.log(boardTitleList);
           setSearchList(boardTitleList);
         }
       } catch (error) {

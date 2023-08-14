@@ -96,13 +96,15 @@ export const SearchItem = styled.ul`
   width: 10.1vw;
   height: 30px;
   border: 1px solid #c0c0c0;
-
+  color: black;
+  font-size: 12px;
   border-top: 0;
   display: flex;
   align-items: center;
+  text-indent: 12px;
   position: absolute;
   top: ${prop => prop.top}px;
-  z-index: 1;
+  z-index: 3;
 
   &:hover {
     background-color: #e4f1ff;

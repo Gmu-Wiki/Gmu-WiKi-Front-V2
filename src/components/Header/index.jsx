@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style.js";
 import * as C from "..";
@@ -17,7 +17,6 @@ function Header() {
   const [filteredBoardList, setFilteredBoardList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [roleUrl, setRoleUrl] = useState("");
-
   const [search, setSearch] = useState("");
 
   const { searchList } = useSearchList({ title: search });
@@ -55,26 +54,51 @@ function Header() {
     deleteQuery();
   };
 
-  // 검색어가 변경될 때마다 호출되는 함수로 검색어 상태를 업데이트합니다.
   const handleSearchChange = e => {
-    const inputValue = e.target.value;
-    console.log(inputValue);
+    let inputValue = e.target.value;
     setSearch(inputValue);
+
+    if (inputValue.length <= 0) {
+      setFilteredBoardList([]);
+    } else {
+      const updatedFilteredList = searchList.filter(item => {
+        return item.title.toLowerCase().includes(inputValue.toLowerCase());
+      });
+      setFilteredBoardList(updatedFilteredList);
+    }
   };
 
+  const searchInputRef = useRef(null);
+
   useEffect(() => {
-    // searchList에 데이터가 있으면 실행
-    console.log(searchList.length);
+    const handleClickOutside = event => {
+      if (
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target)
+      ) {
+        setSearch("");
+        setFilteredBoardList([]);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
     if (searchList.length > 0) {
-      // 검색 결과를 필터링
       const updatedFilteredList = searchList.filter(item => {
         return item.title.toLowerCase().includes(search.toLowerCase());
       });
       setFilteredBoardList(updatedFilteredList);
-      setIsLoading(false); // 로딩 상태 변경
+      setIsLoading(false);
       console.log(searchList);
+    } else {
+      setFilteredBoardList([]);
     }
-  }, [searchList, search]); // 검색 결과 데이터와 검색어가 변경될 때 실행
+  }, [searchList, search]);
 
   return (
     <>
@@ -109,8 +133,10 @@ function Header() {
           <S.FixedInput>
             <S.SearchContainer>
               <S.SearchInput
+                ref={searchInputRef}
                 placeholder="search"
                 onChange={handleSearchChange}
+                value={search}
               />
               <S.SearchIcon>
                 <I.Search />
@@ -146,7 +172,9 @@ function Header() {
                 top={29 * (index + 1) + 17}
                 onMouseEnter={() => setShowMenu(false)}
               >
-                {item.title}
+                {item.title.length > 13
+                  ? `${item.title.slice(0, 12)}..`
+                  : item.title}
               </S.SearchItem>
             </Link>
           ))}
