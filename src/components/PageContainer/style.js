@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   position: relative;
   width: 70vw;
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 150px);
   height: auto;
   background-color: #fff;
   margin: 0 4vw 20px 8vw;
@@ -13,6 +13,7 @@ export const PageContainer = styled.div`
   @media screen and (max-width: 700px) {
     width: 100%;
     margin: 0;
+    min-height: calc(100vh - 130px);
   }
 `;
 
