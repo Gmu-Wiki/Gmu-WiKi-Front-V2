@@ -191,6 +191,11 @@ details summary::before {
     max-width: 100vw;
     max-height: 80vh;
     object-fit: cover;
+
+    @media screen and (max-width: 1280px) {
+    width: 100%;
+    height: 100%;
+  }
   }
 `;
 
