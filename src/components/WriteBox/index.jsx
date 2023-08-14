@@ -45,6 +45,7 @@ function WriteBox() {
     for (let i = 1; i <= numberOfLines; i++) {
       save.push(i);
     }
+
     setNumArr(save);
     setContent(e.target.value);
   };

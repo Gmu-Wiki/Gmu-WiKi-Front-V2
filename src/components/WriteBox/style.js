@@ -14,7 +14,7 @@ export const EditButton = styled.button`
   border-bottom: ${props => (props.checked ? "none" : "")};
   color: #999999;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
   outline: none;
 `;
 
@@ -26,7 +26,7 @@ export const PreviewButton = styled.button`
   border: ${props => (props.checked ? "1px solid #c0c0c0" : "none")};
   border-bottom: ${props => props.checked && "1px solid #ffffff"};
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 1rem;
   outline: none;
 `;
 
