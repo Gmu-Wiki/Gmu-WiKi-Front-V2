@@ -14,8 +14,8 @@ function EditWriteBox({
   type
 }) {
   return (
-    <>
-      <S.CategoryInput>
+    <S.EditWriteBoxContainer>
+      <S.CategoryInputBox type={type}>
         {type === "문의목적" && (
           <>
             <span>문의목적</span>
@@ -95,24 +95,24 @@ function EditWriteBox({
             </select>
           </>
         )}
-      </S.CategoryInput>
-      <S.TitleInput>
+      </S.CategoryInputBox>
+      <S.TitleInputBox>
         <span>제목</span>
         <input type="text" name="title" value={title} onChange={onChange} />
-      </S.TitleInput>
-      <S.ContentInput>
-        <div>
+      </S.TitleInputBox>
+      <S.ContentInputBox>
+        <S.LineNumberBox>
           {numArr.map((num, idx) => (
             <span key={idx}>{num}</span>
           ))}
-        </div>
+        </S.LineNumberBox>
         <TextareaAutosize
           value={content}
           ref={textareaRef}
           onChange={onChangeTextArea}
         />
-      </S.ContentInput>
-    </>
+      </S.ContentInputBox>
+    </S.EditWriteBoxContainer>
   );
 }
 
