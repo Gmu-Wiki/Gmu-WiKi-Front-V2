@@ -108,9 +108,7 @@ export default function InquiryWrite() {
           <C.PreviewWriteBox content={content} />
         </S.WriteBox>
       )}
-      <S.ButtonContainer>
-        <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
-      </S.ButtonContainer>
+      <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
     </>
   );
 }

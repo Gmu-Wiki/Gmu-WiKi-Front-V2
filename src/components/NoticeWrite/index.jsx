@@ -103,9 +103,7 @@ export default function NoticeWrite() {
           <C.PreviewWriteBox content={content} />
         </S.WriteBox>
       )}
-      <S.ButtonContainer>
-        <S.RegisterButton onClick={handleNotice}>등록하기</S.RegisterButton>
-      </S.ButtonContainer>
+      <S.RegisterButton onClick={handleNotice}>등록하기</S.RegisterButton>
     </>
   );
 }
