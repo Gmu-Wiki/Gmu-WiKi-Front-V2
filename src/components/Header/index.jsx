@@ -171,9 +171,7 @@ function Header() {
                 top={29 * (index + 1) + 17}
                 onMouseEnter={() => setShowMenu(false)}
               >
-                {item.title.length > 13
-                  ? `${item.title.slice(0, 12)}..`
-                  : item.title}
+                {item.title}
               </S.SearchItem>
             </Link>
           ))}

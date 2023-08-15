@@ -101,10 +101,13 @@ export const SearchItem = styled.ul`
   border-top: 0;
   display: flex;
   align-items: center;
-  text-indent: 12px;
+  text-indent: 8px;
   position: absolute;
   top: ${prop => prop.top}px;
   z-index: 3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
     background-color: #e4f1ff;
