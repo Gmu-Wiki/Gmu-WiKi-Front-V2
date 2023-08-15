@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const DetailCenter = styled.div`
   height: auto;
   width: 100%;
-  margin-bottom: 20px;
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 20px;
 
   span {
     color: #636363;

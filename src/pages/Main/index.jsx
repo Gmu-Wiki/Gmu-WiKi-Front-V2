@@ -75,7 +75,7 @@ function Main() {
             <br />
             문의 사항은{" "}
             <S.EmailLink href="mailto:Ampersand.public@gmail.com">
-              Ampersand.public@gmail.com
+              Gmuwiki.public@gmail.com
             </S.EmailLink>
             으로 해 주시기 바랍니다.
           </S.OutlineContent>
