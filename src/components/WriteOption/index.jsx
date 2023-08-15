@@ -53,7 +53,7 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
     } else if (option === "h4") {
       addOption("#### 텍스트");
     } else if (option === "b") {
-      addOption("__텍스트__");
+      addOption("**텍스트**");
     } else if (option === "i") {
       addOption("_텍스트_");
     } else if (option === "draw") {

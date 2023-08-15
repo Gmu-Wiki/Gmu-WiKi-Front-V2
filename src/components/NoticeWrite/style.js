@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
+export const WriteOptions = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 2px;
+`;
+
 export const ChangeButtonContainer = styled.div`
   display: flex;
-  margin-left: 15px;
-  margin-top: 1px;
+  align-items: center;
 `;
 
 export const EditButton = styled.button`
@@ -30,24 +38,15 @@ export const PreviewButton = styled.button`
   outline: none;
 `;
 
-export const WriteOptions = styled.div`
-  position: relative;
-  top: 3px;
-  width: 98.5%;
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const WriteBox = styled.div`
   background-color: none;
   overflow-y: auto;
   border: 1px solid #c0c0c0;
-  width: 97%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  margin-left: 15px;
 `;
 
 export const ButtonContainer = styled.div`
