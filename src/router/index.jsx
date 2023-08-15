@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import TokenManager from "../apis/TokenManager";
 import GetRole from "../lib/GetRole";
 import * as P from "../pages";
-import TokenManager from "../apis/TokenManager";
 
 export default function Router() {
   const role = GetRole();
   const [roleUrl, setRoleUrl] = useState("");
+  const tokenManager = new TokenManager();
+  const accessToken = tokenManager.accessToken;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (role === "관리자") {
@@ -14,14 +17,10 @@ export default function Router() {
     } else if (role === "사용자") {
       setRoleUrl("user");
     }
-  }, [role]);
-
-  const tokenManager = new TokenManager();
-  const accessToken = tokenManager.accessToken;
-
-  if (!accessToken) {
-    return <P.Promotion />;
-  }
+    if (!accessToken) {
+      navigate("/promotion");
+    }
+  }, [role, accessToken, navigate]);
 
   return (
     <Routes>
