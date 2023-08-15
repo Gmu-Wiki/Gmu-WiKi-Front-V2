@@ -88,6 +88,7 @@ export const Lesson = styled.div`
   background-color: #f1f1f5;
   border-left: 8px solid #007eff;
   width: 300px;
+  text-align: center;
 `;
 
 export const SchoolSonContainer = styled.div`
