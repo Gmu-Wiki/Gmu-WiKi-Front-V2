@@ -1,5 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import PromotionBackground from '../../imgs/promotion.png'
+
+const fadeUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 
 export const PromotionPageContainer = styled.div`
   width: 100vw;
@@ -16,6 +28,7 @@ export const PromotionContentBox = styled.div`
   height: 100%;
   display: flex;
   align-items: flex-start;
+  animation: ${fadeUp} 1.2s linear 0s;
 
   img {
     position: absolute;
@@ -31,7 +44,7 @@ export const PromotionTextBox = styled.div`
   align-items: flex-start;
   color: #ffffff;
   margin-top: 1.3rem;
-  
+
   p {
     font-size: 1rem;
     font-weight: 300;
