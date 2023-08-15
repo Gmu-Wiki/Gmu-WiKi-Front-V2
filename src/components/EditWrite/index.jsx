@@ -106,9 +106,7 @@ const EditWrite = ({ title, content, id }) => {
           <C.PreviewWriteBox content={editContent} />
         </S.WriteBox>
       )}
-      <S.ButtonContainer>
-        <S.RegisterButton onClick={editPost}>편집하기</S.RegisterButton>
-      </S.ButtonContainer>
+      <S.RegisterButton onClick={editPost}>편집하기</S.RegisterButton>
     </>
   );
 };
