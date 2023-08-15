@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const useSearchList = ({ title }) => {
   const [searchList, setSearchList] = useState([]);
-  const [roleUrl, setRoleUrl] = useState(""); // 추가: roleUrl 상태
+  const [roleUrl, setRoleUrl] = useState(""); 
 
   const data = GetRole();
 
@@ -40,7 +40,7 @@ const useSearchList = ({ title }) => {
     fetchData();
   }, [title, roleUrl]);
 
-  // 수정: searchList와 roleUrl을 반환
+ 
   return { searchList, roleUrl };
 };
 
