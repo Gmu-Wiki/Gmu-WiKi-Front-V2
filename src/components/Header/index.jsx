@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style.js";
-import * as C from "../";
 import * as I from "../../assets";
 import DropMenu from "./dropMenu";
 import { useFetch, useSearchList } from "../../Hooks";
@@ -93,7 +92,6 @@ function Header() {
       });
       setFilteredBoardList(updatedFilteredList);
       setIsLoading(false);
-      console.log(searchList);
     } else {
       setFilteredBoardList([]);
     }
