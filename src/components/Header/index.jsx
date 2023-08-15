@@ -1,17 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import * as S from "./style.js";
-import * as I from "../../assets";
-import DropMenu from "./dropMenu";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as C from "..";
 import { useFetch, useSearchList } from "../../Hooks";
 import TokenManager from "../../apis/TokenManager";
-import { useNavigate } from "react-router-dom";
-import { css } from "@emotion/react";
-import GetRole from "../../lib/GetRole.js";
+import * as I from "../../assets";
+import DropMenu from "./dropMenu";
+import * as S from "./style.js";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const [filteredBoardList, setFilteredBoardList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -139,7 +136,7 @@ function Header() {
                 <I.Search />
               </S.SearchIcon>
             </S.SearchContainer>
-            {accessToken ? (
+            {accessToken && (
               <span
                 onClick={() => {
                   setShowLogout(true);
@@ -151,14 +148,6 @@ function Header() {
                 }}
               >
                 로그아웃
-              </span>
-            ) : (
-              <span
-                onClick={() => {
-                  setShowLogin(true);
-                }}
-              >
-                로그인
               </span>
             )}
           </S.FixedInput>
@@ -183,6 +172,13 @@ function Header() {
           onMouseLeave={() => {
             setShowMenu(false);
           }}
+        />
+      )}
+      {showLogout && (
+        <C.Logout
+          showLogout={showLogout}
+          setShowLogout={setShowLogout}
+          onConfirm={onConfirm}
         />
       )}
     </>
