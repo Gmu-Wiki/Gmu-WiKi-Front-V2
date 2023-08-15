@@ -18,6 +18,9 @@ export const Content = styled.p`
 `;
 
 export const NTBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   margin-top: 10px;
   margin-left: 68%;
 `;
