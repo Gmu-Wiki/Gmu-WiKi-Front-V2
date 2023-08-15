@@ -44,10 +44,17 @@ const HistoryDetail = () => {
     }
   }, [roleUrl]);
 
+  const formattedCreatedDate = new Date(state.createdDate).toLocaleString();
+  const formattedEditedDate = new Date(state.editedDate).toLocaleString();
+
   return (
     <C.PageContainer title={state.title} sort="역사">
       <C.Explanation>
-        <C.HistoryDetail content={state.content} />
+        <C.HistoryDetail
+          content={state.content}
+          createdDate={formattedCreatedDate}
+          editedDate={formattedEditedDate}
+        />
       </C.Explanation>
     </C.PageContainer>
   );
