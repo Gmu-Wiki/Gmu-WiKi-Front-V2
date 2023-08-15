@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const useSearchList = ({ title }) => {
   const [searchList, setSearchList] = useState([]);
-  const [roleUrl, setRoleUrl] = useState(""); 
+  const [roleUrl, setRoleUrl] = useState("");
 
   const data = GetRole();
 
@@ -29,18 +29,14 @@ const useSearchList = ({ title }) => {
           );
 
           const boardTitleList = data.boardTitleList;
-          console.log(boardTitleList);
           setSearchList(boardTitleList);
         }
-      } catch (error) {
-        console.log("Error");
-      }
+      } catch (error) {}
     };
 
     fetchData();
   }, [title, roleUrl]);
 
- 
   return { searchList, roleUrl };
 };
 

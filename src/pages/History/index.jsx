@@ -12,8 +12,6 @@ const History = () => {
   const data = GetRole();
   const [roleUrl, setRoleUrl] = useState("");
 
-  console.log(recordList);
-
   useEffect(() => {
     if (data === "관리자") {
       setRoleUrl("admin");
