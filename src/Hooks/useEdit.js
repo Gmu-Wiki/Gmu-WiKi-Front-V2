@@ -55,7 +55,6 @@ const useEdit = ({ props }) => {
     } catch (e) {
       if (!(e instanceof AxiosError)) {
         toast.error("이미 존재하는 제목입니다.");
-        console.log(e);
         return;
       }
       if (e.response && e.response.status >= 409) {
