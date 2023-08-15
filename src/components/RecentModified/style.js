@@ -29,8 +29,8 @@ export const ModifiedItem = styled.div`
   height: 4.5vh;
   background-color: #ffffff;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
   padding: 0 22px;
   border: solid 1px #c0c0c0;
   border-top: none;
@@ -38,7 +38,6 @@ export const ModifiedItem = styled.div`
 `;
 
 export const ModifiedItemTitle = styled.h3`
-  width: 72%;
   font-size: 1rem;
   font-weight: 600;
   padding: 4px;
@@ -63,6 +62,7 @@ export const ModifiedItemTitle = styled.h3`
 
 export const ModifiedItemTime = styled.p`
   font-size: 0.8rem;
+  white-space: nowrap;
   color: #999999;
 
   @media screen and (max-width: 1450px) {
