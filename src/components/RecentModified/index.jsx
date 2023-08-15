@@ -22,7 +22,6 @@ export default function RecentModified() {
     url: `/${roleUrl}/board/recent`,
     method: "get",
     onSuccess: data => {
-      console.log(data);
       setRecentList(data.boardTitleList);
     },
     errors: {
