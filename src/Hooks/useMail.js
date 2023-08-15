@@ -13,7 +13,6 @@ const useMail = ({ props }) => {
 
       navigate("/inquiry");
     } catch (e) {
-      console.log(e);
       toast.error("메일 발송 실패");
     }
   }, [props.id, navigate]);
@@ -26,7 +25,6 @@ const useMail = ({ props }) => {
       toast.success("거부 메일 발송 성공");
       navigate("/inquiry");
     } catch (e) {
-      console.log(e);
       toast.error("메일 발송 실패");
     }
   }, [props, navigate]);

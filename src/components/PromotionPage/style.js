@@ -1,5 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import PromotionBackground from '../../imgs/promotion.png'
+
+const fadeUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 
 export const PromotionPageContainer = styled.div`
   width: 100vw;
@@ -7,7 +19,7 @@ export const PromotionPageContainer = styled.div`
   background-image: url(${PromotionBackground});
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 100px 70px 70px 120px;
+  padding: 100px 70px 50px 100px;
 `
 
 export const PromotionContentBox = styled.div`
@@ -16,13 +28,7 @@ export const PromotionContentBox = styled.div`
   height: 100%;
   display: flex;
   align-items: flex-start;
-
-  img {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 74vh;
-  }
+  animation: ${fadeUp} 1.2s linear 0s;
 `
 
 export const PromotionTextBox = styled.div`
@@ -31,7 +37,7 @@ export const PromotionTextBox = styled.div`
   align-items: flex-start;
   color: #ffffff;
   margin-top: 1.3rem;
-  
+
   p {
     font-size: 1rem;
     font-weight: 300;
@@ -71,4 +77,17 @@ export const GauthLoginButton = styled.button`
     font-size: 0.89rem;
     font-weight: 600;
   }
+`
+
+export const PromotionComputerBox = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+
+  /* svg {
+    width: 30vw;
+    height: 40vh;
+  } */
 `
