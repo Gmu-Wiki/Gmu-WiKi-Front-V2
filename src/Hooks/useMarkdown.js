@@ -1,6 +1,9 @@
 import { marked } from 'marked';
 
 function useMarkdown() {
+
+  const initialState = href => (href.includes('gmuwiki') ? false : true);
+
   const markdownToHtml = (value) => {
     const renderer = new marked.Renderer();
 
@@ -14,7 +17,8 @@ function useMarkdown() {
     };
 
     renderer.link = (href, title, text) => {
-      return `<a href=${href} target="_blank"><strong>${text}</strong></a>`;
+      const target = initialState(href)
+      return `<a href=${href} ${target && 'target="_blank"'}><strong>${text}</strong></a>`;
     };
 
     const options = {
