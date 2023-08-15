@@ -19,7 +19,7 @@ export const PromotionPageContainer = styled.div`
   background-image: url(${PromotionBackground});
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 100px 70px 70px 120px;
+  padding: 100px 70px 50px 100px;
 `
 
 export const PromotionContentBox = styled.div`
@@ -29,13 +29,6 @@ export const PromotionContentBox = styled.div`
   display: flex;
   align-items: flex-start;
   animation: ${fadeUp} 1.2s linear 0s;
-
-  img {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 74vh;
-  }
 `
 
 export const PromotionTextBox = styled.div`
@@ -84,4 +77,17 @@ export const GauthLoginButton = styled.button`
     font-size: 0.89rem;
     font-weight: 600;
   }
+`
+
+export const PromotionComputerBox = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+
+  /* svg {
+    width: 30vw;
+    height: 40vh;
+  } */
 `
