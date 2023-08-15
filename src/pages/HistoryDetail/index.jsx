@@ -47,7 +47,11 @@ const HistoryDetail = () => {
   return (
     <C.PageContainer title={state.title} sort="역사">
       <C.Explanation>
-        <C.HistoryDetail content={state.content} />
+        <C.HistoryDetail
+          content={state.content}
+          createdDate={state.createdDate}
+          editedDate={state.editedDate}
+        />
       </C.Explanation>
     </C.PageContainer>
   );

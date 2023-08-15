@@ -20,3 +20,15 @@ export const Content = styled.p`
     margin-bottom: 20px;
   }
 `;
+
+export const NTBox = styled.div`
+  margin-top: 10px;
+  margin-left: 68%;
+`;
+
+export const Date = styled.p`
+  text-align: right;
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 400;
+`;
