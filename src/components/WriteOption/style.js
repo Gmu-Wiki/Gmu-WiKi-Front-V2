@@ -36,6 +36,7 @@ export const OptionContainer = styled.div`
       z-index: 99;
       bottom: 53px;
       margin-left: 10px;
+      text-align: center;
 
       &::after {
         position: absolute;
