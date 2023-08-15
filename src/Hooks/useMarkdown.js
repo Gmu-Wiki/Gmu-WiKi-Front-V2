@@ -14,7 +14,7 @@ function useMarkdown() {
     };
 
     renderer.link = (href, title, text) => {
-      return `<a href=${href} target="_blank"><strong>${text}<strong></a>`;
+      return `<a href=${href} target="_blank"><strong>${text}</strong></a>`;
     };
 
     const options = {
