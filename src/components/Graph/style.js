@@ -20,13 +20,10 @@ export const TitleGraph = styled.div`
   font-weight: bold;
   font-size: 0.98rem;
   word-break: break-all;
+  font-size: 0.9rem;
 
-  @media screen and (max-width: 1300px) {
+  @media screen and (max-width: 1400px) {
     font-size: 0.8rem;
-  }
-
-  @media screen and (max-width: 1000px) {
-    font-size: 0.4rem;
   }
 
   @media screen and (max-width: 800px) {
@@ -50,12 +47,9 @@ export const ContentGraph = styled.div`
   color: ${props => (props.color ? "white" : "black")};
   font-weight: ${props => (props.contentColor ? "700" : true)};
   background-color: ${props => (props.contentColor ? "#007EFF" : "white")};
+
   @media screen and (max-width: 1300px) {
     font-size: 0.8rem;
-  }
-
-  @media screen and (max-width: 1000px) {
-    font-size: 0.4rem;
   }
 
   @media screen and (max-width: 800px) {
