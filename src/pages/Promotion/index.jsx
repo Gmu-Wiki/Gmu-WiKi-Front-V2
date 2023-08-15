@@ -1,9 +1,9 @@
 import { useLogin } from "../../Hooks";
 import * as C from "../../components";
 
-function Promotino() {
+function Promotion() {
   useLogin();
   return <C.PromotionPage />;
 }
 
-export default Promotino;
+export default Promotion;
