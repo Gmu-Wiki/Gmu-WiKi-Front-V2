@@ -5,7 +5,7 @@ export const RecentModifiedContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-weight: 700;
-  width: 15vw;
+  width: 12vw;
   height: fit-content;
   top: 6vw;
 
@@ -38,10 +38,15 @@ export const ModifiedItem = styled.div`
 `;
 
 export const ModifiedItemTitle = styled.h3`
+  width: 72%;
   font-size: 1rem;
   font-weight: 600;
   padding: 4px;
   color: #191919;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
 
   @media screen and (max-width: 1600px) {
     font-size: 0.8rem;
@@ -59,4 +64,12 @@ export const ModifiedItemTitle = styled.h3`
 export const ModifiedItemTime = styled.p`
   font-size: 0.8rem;
   color: #999999;
+
+  @media screen and (max-width: 1450px) {
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    font-size: 0.4rem;
+  }
 `;

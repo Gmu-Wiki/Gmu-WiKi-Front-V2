@@ -1,17 +1,13 @@
 import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
-import * as I from "../../assets";
 import SchoolImg from "../../imgs/SchoolImg.png";
 import SchoolSong from "../../imgs/SchoolSong.png";
 import { schoolGraphData, historyGraphData } from "../../lib/mainPageData";
-import { useLogin } from "../../Hooks";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
 
 function Main() {
-  useLogin();
-
   const schoolGraphs = schoolGraphData.map((data, index) => (
     <C.Graph
       key={index}
@@ -34,7 +30,7 @@ function Main() {
   ));
 
   return (
-    <C.PageContainer title="대문" sort="G무위키">
+    <C.PageContainer title="대문" sort="G무위키" hasTitle>
       <C.Explanation>
         <S.DetailCenter>
           <S.Title>

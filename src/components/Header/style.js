@@ -101,7 +101,7 @@ export const SearchItem = styled.ul`
   border-top: 0;
   display: flex;
   align-items: center;
-  text-indent: 8px;
+  text-indent: 10px;
   position: absolute;
   top: ${prop => prop.top}px;
   z-index: 3;

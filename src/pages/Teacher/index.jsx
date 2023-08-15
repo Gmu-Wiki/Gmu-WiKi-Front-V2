@@ -41,6 +41,7 @@ export default function Student() {
       sort="선생님"
       hasPostButton={data === "관리자"}
       url="/post"
+      hasTitle
     >
       {boardTypes.map(boardType => (
         <C.Detail

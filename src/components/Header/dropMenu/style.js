@@ -5,7 +5,7 @@ export const DropContainer = styled.div`
   background-color: #3e9dff;
   height: auto;
   color: #fff;
-  padding-left: 15vw;
+  padding-left: 16vw;
   padding-bottom: 2vw;
   position: absolute;
   z-index: 2;

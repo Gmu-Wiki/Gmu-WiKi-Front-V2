@@ -41,6 +41,7 @@ export default function Student() {
       sort="학생"
       hasPostButton={data === "관리자"}
       url="/post"
+      hasTitle
     >
       {generations.map(generation => (
         <C.Detail

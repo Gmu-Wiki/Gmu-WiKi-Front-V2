@@ -50,6 +50,7 @@ export default function Student() {
       sort="학사일정"
       hasPostButton={data === "관리자"}
       url="/post"
+      hasTitle
     >
       {months.map((month, index) => (
         <C.Detail hasNumber={false} title={`${index + 1}월`} key={month}>

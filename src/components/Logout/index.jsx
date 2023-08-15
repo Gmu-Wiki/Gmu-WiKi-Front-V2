@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import * as I from "../../assets";
 
-function Logout({ showLogout, setShowLogout, onConfirm }) {
+function Logout({ setShowLogout, onConfirm }) {
   function showLogoutModal() {
     setShowLogout(prev => !prev);
   }
