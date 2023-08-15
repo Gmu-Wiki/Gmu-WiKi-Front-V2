@@ -19,6 +19,8 @@ export default function Router() {
     }
     if (!accessToken) {
       navigate("/promotion");
+    } else if (window.location.pathname === "/promotion") {
+      navigate("/");
     }
   }, [role, accessToken, navigate]);
 
