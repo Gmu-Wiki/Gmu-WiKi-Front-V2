@@ -35,7 +35,7 @@ export const TitleContainer = styled.div`
 `;
 
 export const SubTitleContainer = styled.div`
-  border: 1px solid #c0c0c0;
+  border: 1px solid #d9d9d9;
   height: 5vh;
   line-height: 5vh;
   padding: 0 1vw;

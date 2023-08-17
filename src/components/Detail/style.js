@@ -41,7 +41,7 @@ export const ArrowContainer = styled.div`
 `;
 
 export const DetailBorder = styled.div`
-  border-bottom: 1px solid #c0c0c0;
+  border-bottom: 1px solid #d9d9d9;
 `;
 
 export const DetailLink = styled.span`
