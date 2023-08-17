@@ -14,7 +14,7 @@ function Header() {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  const { searchList, roleUrl } = useSearchList({ title: search });
+  const { searchList } = useSearchList({ title: search });
 
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
@@ -152,7 +152,7 @@ function Header() {
             )}
           </S.FixedInput>
           {filteredBoardList.map((item, index) => (
-            <Link key={item.id} to={`/${roleUrl}/board/${item.id}`}>
+            <Link key={item.id} to={`/board/${item.id}`}>
               <S.SearchItem
                 key={item.id}
                 top={29 * (index + 1) + 17}

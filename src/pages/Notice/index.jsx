@@ -1,11 +1,9 @@
-import React from "react";
-import * as C from "../../components";
-import * as S from "./style";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useFetch } from "../../Hooks";
-import { Link, useNavigate } from "react-router-dom";
+import * as C from "../../components";
 import GetRole from "../../lib/GetRole";
+import * as S from "./style";
 
 export default function Notice() {
   const data = GetRole();
