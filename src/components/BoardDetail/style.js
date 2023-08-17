@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Content = styled.p`
   font-size: 1rem;
   color: #191919;
-  line-height: 20px;
+  line-height: 22px;
   margin-top: -40px;
-
+  
   a {
     color: #007eff;
   }
