@@ -121,6 +121,11 @@ function EditWriteBox({
                   <option value="CA">자율동아리</option>
                 </>
               )}
+              {category === "MAJOR" && (
+                <>
+                  <option value="MAJORS">전공</option>
+                </>
+              )}
               {category === "INCIDENT" && (
                 <>
                   <option value="TWENTY_SECOND">2022</option>

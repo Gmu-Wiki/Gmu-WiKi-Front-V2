@@ -1,11 +1,9 @@
 import React from "react";
+import useBoard from "../../Hooks/useBoard";
 import * as C from "../../components";
 import * as S from "./style";
-import GetRole from "../../lib/GetRole";
-import useBoard from "../../Hooks/useBoard";
 
 export default function Student() {
-  const data = GetRole();
   const { boardList } = useBoard({ boardType: "CLUB" });
 
   if (!boardList) return null;
