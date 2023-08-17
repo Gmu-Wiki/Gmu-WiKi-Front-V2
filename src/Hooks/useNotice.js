@@ -9,7 +9,7 @@ const useNotice = ({ props }) => {
 
   const uploadNotice = useCallback(async () => {
     try {
-      await API.post("/admin/notice", {
+      await API.post("/notice", {
         title: props.title,
         content: props.content
       });
@@ -29,7 +29,7 @@ const useNotice = ({ props }) => {
 
   const deleteNotice = useCallback(async () => {
     try {
-      await API.delete(`/admin/notice/${props.id}`);
+      await API.delete(`/notice/${props.id}`);
 
       toast.success("공지가 성공적으로 지워졌습니다.");
       navigate("/notice");

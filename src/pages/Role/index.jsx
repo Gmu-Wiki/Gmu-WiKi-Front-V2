@@ -21,7 +21,7 @@ export default function Role() {
 
   const [formData, setFormData] = useState({});
   const { fetch } = useFetch({
-    url: `/admin/role/${formData.role === "admin" ? "grant" : "revoke"}`,
+    url: `/role/${formData.role === "admin" ? "grant" : "revoke"}`,
     method: "patch",
     successMessage: "권한 부여에 성공했습니다.",
     errors: {
