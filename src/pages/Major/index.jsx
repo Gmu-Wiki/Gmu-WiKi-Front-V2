@@ -4,12 +4,12 @@ import * as S from "./style";
 import useBoard from "../../Hooks/useBoard";
 
 export default function Student() {
-  const { boardList, roleUrl } = useBoard({ boardType: "MAJOR" });
+  const { boardList } = useBoard({ boardType: "MAJOR" });
 
   if (!boardList) return;
 
   const handleBoardItemClick = boardId => {
-    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    const boardUrl = `/board/${boardId}`;
     window.location.href = boardUrl;
   };
 

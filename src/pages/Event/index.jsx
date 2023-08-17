@@ -1,11 +1,10 @@
 import React from "react";
+import useBoard from "../../Hooks/useBoard";
 import * as C from "../../components";
 import * as S from "./style";
-import useBoard from "../../Hooks/useBoard";
-import { Link } from "react-router-dom";
 
 export default function Student() {
-  const { boardList, roleUrl } = useBoard({ boardType: "INCIDENT" });
+  const { boardList } = useBoard({ boardType: "INCIDENT" });
 
   if (!boardList) return null;
 
@@ -20,7 +19,7 @@ export default function Student() {
       .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
     const handleBoardItemClick = boardId => {
-      const boardUrl = `/${roleUrl}/board/${boardId}`;
+      const boardUrl = `/board/${boardId}`;
       window.location.href = boardUrl;
     };
 

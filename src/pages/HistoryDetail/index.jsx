@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import * as C from "../../components";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../Hooks";
-import GetRole from "../../lib/GetRole";
+import * as C from "../../components";
 
 const HistoryDetail = () => {
-  const data = GetRole();
-
   const [state, setState] = useState({
     id: "",
     content: "",
@@ -17,18 +14,8 @@ const HistoryDetail = () => {
 
   let { id } = useParams();
 
-  const [roleUrl, setRoleUrl] = useState("");
-
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [data]);
-
   const { fetch } = useFetch({
-    url: `/${roleUrl}/board/${id}/record/detail`,
+    url: `/board/${id}/record/detail`,
     method: "get",
     onSuccess: data => {
       setState(data);
@@ -39,10 +26,8 @@ const HistoryDetail = () => {
   });
 
   useEffect(() => {
-    if (roleUrl) {
-      fetch();
-    }
-  }, [roleUrl]);
+    fetch();
+  }, []);
 
   const formattedCreatedDate = new Date(state.createdDate).toLocaleString();
   const formattedEditedDate = new Date(state.editedDate).toLocaleString();

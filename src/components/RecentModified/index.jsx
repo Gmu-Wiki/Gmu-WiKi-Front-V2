@@ -1,25 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useFetch } from "../../Hooks";
 import * as S from "./style";
-import GetRole from "../../lib/GetRole";
-import { Link } from "react-router-dom";
 
 export default function RecentModified() {
-  const role = GetRole();
-
-  const [roleUrl, setRoleUrl] = useState("");
   const [recentList, setRecentList] = useState([]);
 
-  useEffect(() => {
-    if (role === "관리자") {
-      setRoleUrl("admin");
-    } else if (role === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [role]);
-
   const { fetch } = useFetch({
-    url: `/${roleUrl}/board/recent`,
+    url: `/board/recent`,
     method: "get",
     onSuccess: data => {
       setRecentList(data.boardTitleList);
@@ -31,10 +18,8 @@ export default function RecentModified() {
   });
 
   useEffect(() => {
-    if (roleUrl) {
-      fetch();
-    }
-  }, [roleUrl]);
+    fetch();
+  }, []);
 
   function formatTime(timeString) {
     const date = new Date(timeString);
@@ -61,7 +46,7 @@ export default function RecentModified() {
   }
 
   const handleBoardItemClick = boardId => {
-    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    const boardUrl = `/board/${boardId}`;
     window.location.href = boardUrl;
   };
 

@@ -21,13 +21,13 @@ const useEdit = ({ props }) => {
 
   const editBoardUpload = useCallback(async () => {
     try {
-      await API.patch(`/${roleUrl}/board/${props.id}`, {
+      await API.patch(`/board/${props.id}`, {
         title: props.editTitle,
         content: props.editContent
       });
 
       toast.success("편집 되었습니다.");
-      navigate(`/${roleUrl}/board/${props.id}`);
+      navigate(`/board/${props.id}`);
     } catch (e) {
       if (!(e instanceof AxiosError)) {
         toast.error("편집에 실패하였습니다.");
@@ -41,7 +41,7 @@ const useEdit = ({ props }) => {
         toast.error("변경 내용이 없습니다.");
       }
     }
-  }, [props, roleUrl, navigate]);
+  }, [props, navigate]);
 
   const editNoticeUpload = useCallback(async () => {
     try {
