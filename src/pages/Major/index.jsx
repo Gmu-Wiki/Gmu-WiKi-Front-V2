@@ -1,7 +1,7 @@
 import React from "react";
+import useBoard from "../../Hooks/useBoard";
 import * as C from "../../components";
 import * as S from "./style";
-import useBoard from "../../Hooks/useBoard";
 
 export default function Student() {
   const { boardList } = useBoard({ boardType: "MAJOR" });
