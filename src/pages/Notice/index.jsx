@@ -10,18 +10,8 @@ export default function Notice() {
 
   const [noticeList, setNoticeList] = useState([]);
 
-  const [roleUrl, setRoleUrl] = useState("");
-
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [data]);
-
   const { fetch } = useFetch({
-    url: `/${roleUrl}/notice`,
+    url: `/notice`,
     method: "get",
     onSuccess: data => {
       const sortedList = data.noticeList.sort((a, b) =>
@@ -35,10 +25,8 @@ export default function Notice() {
   });
 
   useEffect(() => {
-    if (roleUrl) {
-      fetch();
-    }
-  }, [roleUrl]);
+    fetch();
+  }, []);
 
   return (
     <C.PageContainer
