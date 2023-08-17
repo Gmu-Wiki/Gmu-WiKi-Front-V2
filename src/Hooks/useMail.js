@@ -8,7 +8,7 @@ const useMail = ({ props }) => {
 
   const postApproveMail = useCallback(async () => {
     try {
-      await API.post(`/admin/inquiry/approve/${props.id}`);
+      await API.post(`/inquiry/approve/${props.id}`);
       toast.success("승인 메일 발송 성공");
 
       navigate("/inquiry");
@@ -19,7 +19,7 @@ const useMail = ({ props }) => {
 
   const postRefusalMail = useCallback(async () => {
     try {
-      await API.post(`/admin/inquiry/refusal/${props.id}`, {
+      await API.post(`/inquiry/refusal/${props.id}`, {
         comment: props.refusalReason
       });
       toast.success("거부 메일 발송 성공");

@@ -1,29 +1,17 @@
-import React from "react";
-import * as C from "../../components";
-import * as S from "./style";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useFetch } from "../../Hooks";
-import { Link, useNavigate } from "react-router-dom";
+import * as C from "../../components";
 import GetRole from "../../lib/GetRole";
+import * as S from "./style";
 
 export default function Notice() {
   const data = GetRole();
 
   const [noticeList, setNoticeList] = useState([]);
 
-  const [roleUrl, setRoleUrl] = useState("");
-
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [data]);
-
   const { fetch } = useFetch({
-    url: `/${roleUrl}/notice`,
+    url: `/notice`,
     method: "get",
     onSuccess: data => {
       const sortedList = data.noticeList.sort((a, b) =>
@@ -37,10 +25,8 @@ export default function Notice() {
   });
 
   useEffect(() => {
-    if (roleUrl) {
-      fetch();
-    }
-  }, [roleUrl]);
+    fetch();
+  }, []);
 
   return (
     <C.PageContainer

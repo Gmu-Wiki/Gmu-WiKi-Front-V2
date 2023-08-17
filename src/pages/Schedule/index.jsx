@@ -5,7 +5,7 @@ import GetRole from "../../lib/GetRole";
 import useBoard from "../../Hooks/useBoard";
 
 export default function Student() {
-  const data = GetRole();
+  const role = GetRole();
   const { boardList } = useBoard({ boardType: "SCHEDULE" });
 
   if (!boardList) return null;
@@ -48,7 +48,7 @@ export default function Student() {
     <C.PageContainer
       title="학사일정"
       sort="학사일정"
-      hasPostButton={data === "관리자"}
+      hasPostButton={role === "관리자"}
       url="/post"
       hasTitle
     >
