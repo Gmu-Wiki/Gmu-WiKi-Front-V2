@@ -38,7 +38,7 @@ export default function Student() {
     <C.PageContainer
       title="동아리"
       sort="동아리"
-      hasPostButton={data === "관리자"}
+      hasPostButton={true}
       url="/post"
       hasTitle
     >
