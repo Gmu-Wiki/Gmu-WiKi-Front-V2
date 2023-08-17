@@ -1,28 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TokenManager from "../apis/TokenManager";
-import GetRole from "../lib/GetRole";
 import * as P from "../pages";
 
 export default function Router() {
-  const role = GetRole();
-  const [roleUrl, setRoleUrl] = useState("");
   const tokenManager = new TokenManager();
   const accessToken = tokenManager.accessToken;
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (role === "관리자") {
-      setRoleUrl("admin");
-    } else if (role === "사용자") {
-      setRoleUrl("user");
-    }
     if (!accessToken) {
       navigate("/promotion");
     } else if (window.location.pathname === "/promotion") {
       navigate("/");
     }
-  }, [role, accessToken, navigate]);
+  }, [accessToken, navigate]);
 
   return (
     <Routes>
@@ -35,14 +27,11 @@ export default function Router() {
       <Route path="/notice" element={<P.Notice />} />
       <Route path="/notice/:id" element={<P.NoticeDetail />} />
       <Route path="/post" element={<P.Post />} />
-      <Route path={`/${roleUrl}/board/:id`} element={<P.BoardDetail />} />
-      <Route path={`/${roleUrl}/board/:id/record`} element={<P.History />} />
-      <Route path={`/${roleUrl}/board/edit/:id`} element={<P.Edit />} />
-      <Route path={`/${roleUrl}/notice/edit/:id`} element={<P.EditNotice />} />
-      <Route
-        path={`/${roleUrl}/board/:id/record/detail`}
-        element={<P.HistoryDetail />}
-      />
+      <Route path={`/board/:id`} element={<P.BoardDetail />} />
+      <Route path={`/board/:id/record`} element={<P.History />} />
+      <Route path={`/board/edit/:id`} element={<P.Edit />} />
+      <Route path={`/notice/edit/:id`} element={<P.EditNotice />} />
+      <Route path={`/board/:id/record/detail`} element={<P.HistoryDetail />} />
       <Route path="/inquiry" element={<P.Inquiry />} />
       <Route path="/inquiryWrite" element={<P.InquiryWrite />} />
       <Route path="/schedule" element={<P.Schedule />} />

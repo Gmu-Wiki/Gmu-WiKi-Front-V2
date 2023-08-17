@@ -6,7 +6,7 @@ import useBoard from "../../Hooks/useBoard";
 
 export default function Student() {
   const data = GetRole();
-  const { boardList, roleUrl } = useBoard({ boardType: "STUDENT" });
+  const { boardList } = useBoard({ boardType: "STUDENT" });
 
   if (!boardList) return null;
 
@@ -17,7 +17,7 @@ export default function Student() {
   ];
 
   const handleBoardItemClick = boardId => {
-    const boardUrl = `/${roleUrl}/board/${boardId}`;
+    const boardUrl = `/board/${boardId}`;
     window.location.href = boardUrl;
   };
 
