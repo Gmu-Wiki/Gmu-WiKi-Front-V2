@@ -14,6 +14,7 @@ export const DetailNumber = styled.span`
   color: #007eff;
   opacity: ${props => (!props.detailActive ? 0.5 : 1)};
   font-weight: 600;
+  margin-right: 8px;
 `;
 
 export const DetailTitle = styled.span`

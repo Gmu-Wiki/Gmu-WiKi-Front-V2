@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from "react";
-import * as C from "../../components";
-import useHistory from "../../Hooks/useHistory";
+import React from "react";
 import { useParams } from "react-router-dom";
-import GetRole from "../../lib/GetRole";
 import { useContent } from "../../Hooks";
+import useHistory from "../../Hooks/useHistory";
+import * as C from "../../components";
 
 const History = () => {
   const { id } = useParams();
   const { recordList } = useHistory({ id });
   const { title } = useContent({ id });
-  const data = GetRole();
-  const [roleUrl, setRoleUrl] = useState("");
-
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [data]);
 
   return (
     <C.PageContainer title={title} sort="역사">
-      <C.HistoryItem recordList={recordList} roleUrl={roleUrl} />
+      <C.HistoryItem recordList={recordList} />
     </C.PageContainer>
   );
 };

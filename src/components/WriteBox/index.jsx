@@ -112,9 +112,7 @@ function WriteBox() {
           <C.PreviewWriteBox content={content} />
         </S.WriteBox>
       )}
-      <S.ButtonContainer>
-        <S.RegisterButton onClick={post}>등록하기</S.RegisterButton>
-      </S.ButtonContainer>
+      <S.RegisterButton onClick={post}>등록하기</S.RegisterButton>
     </>
   );
 }

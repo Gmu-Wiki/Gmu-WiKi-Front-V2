@@ -50,14 +50,6 @@ export const WriteBox = styled.div`
   margin-left: 15px;
 `;
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 15px;
-  float: right;
-`;
-
 export const RegisterButton = styled.button`
   border: none;
   outline: none;
@@ -66,9 +58,7 @@ export const RegisterButton = styled.button`
   width: 8vw;
   height: 5vh;
   font-size: 1rem;
-  margin-left: 16px;
-
-  &:hover {
-    cursor: pointer;
-  }
+  margin: 20px 0;
+  float: right;
+  cursor: pointer;
 `;

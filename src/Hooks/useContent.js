@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-import GetRole from "../lib/GetRole";
 import useFetch from "./useFetch";
 
 const useContent = ({ id }) => {
-  const data = GetRole();
-
-  const [roleUrl, setRoleUrl] = useState("");
-
   const [state, setState] = useState({
     id: "",
     content: "",
@@ -15,16 +10,8 @@ const useContent = ({ id }) => {
     editedDate: ""
   });
 
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [data]);
-
   const { fetch } = useFetch({
-    url: `/${roleUrl}/board/${id}`,
+    url: `/board/${id}`,
     method: "get",
     onSuccess: data => {
       setState(data);
@@ -35,10 +22,8 @@ const useContent = ({ id }) => {
   });
 
   useEffect(() => {
-    if (roleUrl) {
-      fetch();
-    }
-  }, [roleUrl, id]);
+    fetch();
+  }, [id]);
 
   return state;
 };

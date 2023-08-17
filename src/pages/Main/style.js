@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const DetailCenter = styled.div`
   height: auto;
   width: 100%;
-  margin-bottom: 20px;
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 20px;
 
   span {
     color: #636363;
@@ -88,6 +89,7 @@ export const Lesson = styled.div`
   background-color: #f1f1f5;
   border-left: 8px solid #007eff;
   width: 300px;
+  text-align: center;
 `;
 
 export const SchoolSonContainer = styled.div`

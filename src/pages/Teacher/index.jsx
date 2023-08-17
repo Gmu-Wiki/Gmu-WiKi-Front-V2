@@ -6,7 +6,7 @@ import useBoard from "../../Hooks/useBoard";
 
 export default function Student() {
   const data = GetRole();
-  const { boardList, roleUrl } = useBoard({ boardType: "TEACHER" });
+  const { boardList } = useBoard({ boardType: "TEACHER" });
 
   if (!boardList) return null;
 
@@ -22,7 +22,7 @@ export default function Student() {
       .sort((a, b) => a.title.localeCompare(b.title, "ko"));
 
     const handleBoardItemClick = boardId => {
-      const boardUrl = `/${roleUrl}/board/${boardId}`;
+      const boardUrl = `/board/${boardId}`;
       window.location.href = boardUrl;
     };
 

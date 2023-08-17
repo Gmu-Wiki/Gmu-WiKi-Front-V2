@@ -1,6 +1,7 @@
 import TextareaAutosize from "react-textarea-autosize";
 import * as S from "./style";
 import { memo } from "react";
+import GetRole from "../../../lib/GetRole";
 
 function EditWriteBox({
   category,
@@ -13,6 +14,10 @@ function EditWriteBox({
   numArr,
   type
 }) {
+  const role = GetRole();
+  const isAdmin = role === "관리자";
+  const isUser = role === "사용자";
+
   return (
     <S.EditWriteBoxContainer>
       <S.CategoryInputBox type={type}>
@@ -27,7 +32,7 @@ function EditWriteBox({
             </select>
           </>
         )}
-        {type === "글쓰기" && (
+        {isAdmin && type === "글쓰기" && (
           <>
             <span>카테고리</span>
             <select name="category" onChange={onChange} value={category}>
@@ -90,6 +95,36 @@ function EditWriteBox({
                   <option value="OCT">10</option>
                   <option value="NOV">11</option>
                   <option value="DEC">12</option>
+                </>
+              )}
+            </select>
+          </>
+        )}
+        {isUser && type === "글쓰기" && (
+          <>
+            <span>카테고리</span>
+            <select name="category" onChange={onChange} value={category}>
+              <option value="select">선택해주세요</option>
+              <option value="CLUB">동아리</option>
+              <option value="INCIDENT">사건</option>
+            </select>
+            <select
+              name="detailCategory"
+              onChange={onChange}
+              value={detailCategory}
+            >
+              <option value="select">선택해주세요</option>
+
+              {category === "CLUB" && (
+                <>
+                  <option value="MAJOR">전공동아리</option>
+                  <option value="CA">자율동아리</option>
+                </>
+              )}
+              {category === "INCIDENT" && (
+                <>
+                  <option value="TWENTY_SECOND">2022</option>
+                  <option value="TWENTY_THIRD">2023</option>
                 </>
               )}
             </select>

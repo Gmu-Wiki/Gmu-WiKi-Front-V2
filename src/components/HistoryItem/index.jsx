@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
 
-const HistoryItem = ({ recordList, roleUrl }) => {
+const HistoryItem = ({ recordList }) => {
   const sortedRecordList = [...recordList].sort((a, b) => {
     const dateA = new Date(a.createdDate);
     const dateB = new Date(b.createdDate);
@@ -33,7 +33,7 @@ const HistoryItem = ({ recordList, roleUrl }) => {
 
         return (
           <React.Fragment key={item.id}>
-            <Link to={`/${roleUrl}/board/${item.id}/record/detail`}>
+            <Link to={`/board/${item.id}/record/detail`}>
               <S.Box>
                 <S.Day>{formattedDate}</S.Day>
                 <S.Name>수정자: {item.name}</S.Name>
