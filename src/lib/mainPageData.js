@@ -31,7 +31,7 @@ export const schoolGraphData = [
   },
   {
     titleChild: "학생 수",
-    contentChild: "215명(2023명 기준)",
+    contentChild: "215명(2023년 기준)",
     backgroundColor: "#62ADE0"
   },
   {
