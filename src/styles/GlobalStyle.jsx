@@ -87,6 +87,10 @@ const GlobalStyle = createGlobalStyle`
   details {
     width: 100%;
     margin: 60px 0;
+
+    p {
+      width: 780px;
+    }
   }
 
   .markdownConverter details {
