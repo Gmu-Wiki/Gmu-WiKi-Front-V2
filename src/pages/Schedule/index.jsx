@@ -37,8 +37,10 @@ export default function Student() {
 
     return filteredItems.map(item => (
       <React.Fragment key={item.id}>
-        <S.Box onClick={() => handleBoardItemClick(item.id)}>
-          <S.Title>{item.title}</S.Title>
+        <S.Box>
+          <S.Title onClick={() => handleBoardItemClick(item.id)}>
+            {item.title}
+          </S.Title>
         </S.Box>
       </React.Fragment>
     ));
