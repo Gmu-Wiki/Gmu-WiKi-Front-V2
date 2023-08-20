@@ -1,23 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
-import API from "../apis";
-import { toast } from "react-toastify";
-import GetRole from "../lib/GetRole";
-import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import API from "../apis";
 
 const useEdit = ({ props }) => {
   const navigate = useNavigate();
-  const role = GetRole();
-
-  const [roleUrl, setRoleUrl] = useState("");
-
-  useEffect(() => {
-    if (role === "관리자") {
-      setRoleUrl("admin");
-    } else if (role === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [role]);
 
   const editBoardUpload = useCallback(async () => {
     try {
@@ -45,7 +33,7 @@ const useEdit = ({ props }) => {
 
   const editNoticeUpload = useCallback(async () => {
     try {
-      await API.patch(`/${roleUrl}/notice/${props.id}`, {
+      await API.patch(`/notice/${props.id}`, {
         title: props.editTitle,
         content: props.editContent
       });
@@ -61,7 +49,7 @@ const useEdit = ({ props }) => {
         toast.error("이미 존재하는 제목입니다.");
       }
     }
-  }, [props, roleUrl, navigate]);
+  }, [props, navigate]);
 
   return { editBoardUpload, editNoticeUpload };
 };

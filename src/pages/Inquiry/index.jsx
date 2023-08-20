@@ -10,7 +10,7 @@ export default function Inquiry() {
   const [inquiryList, setInquiryList] = useState([]);
 
   const { fetch } = useFetch({
-    url: `/admin/inquiry`,
+    url: `/inquiry`,
     method: "get",
     onSuccess: data => {
       const sortedInquiryList = data.inquiryList.sort((a, b) =>

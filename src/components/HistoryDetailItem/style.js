@@ -7,7 +7,8 @@ export const Content = styled.p`
   flex-direction: column;
   font-size: 1rem;
   color: #191919;
-  line-height: 20px;
+  line-height: 22px;
+  letter-spacing: 0.5rem;
 
   a {
     color: #007eff;

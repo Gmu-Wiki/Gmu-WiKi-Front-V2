@@ -52,7 +52,7 @@ export default function RecentModified() {
 
   return (
     <S.RecentModifiedContainer>
-      <S.Title>최근 수정된 글</S.Title>
+      <S.Title>최근 생성 / 수정된 글</S.Title>
       {recentList.map(({ id, title, editedDate }) => (
         <React.Fragment key={id}>
           <S.ModifiedItem onClick={() => handleBoardItemClick(id)}>

@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
-import API from "../apis";
-import { toast } from "react-toastify";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import API from "../apis";
 import GetRole from "../lib/GetRole";
 
 const useInquiry = ({ props }) => {
@@ -9,19 +9,9 @@ const useInquiry = ({ props }) => {
 
   const data = GetRole();
 
-  const [roleUrl, setRoleUrl] = useState("");
-
-  useEffect(() => {
-    if (data === "관리자") {
-      setRoleUrl("admin");
-    } else if (data === "사용자") {
-      setRoleUrl("user");
-    }
-  }, [data]);
-
   const inquiryUpload = useCallback(async () => {
     try {
-      await API.post(`/${roleUrl}/inquiry`, {
+      await API.post(`/inquiry`, {
         title: props.title,
         content: props.content,
         inquiryType: props.category
@@ -42,7 +32,7 @@ const useInquiry = ({ props }) => {
         toast.error("문의 글을 작성할 수 없습니다.");
       }
     }
-  }, [props, navigate, roleUrl]);
+  }, [props, navigate, data]);
 
   return { inquiryUpload };
 };
