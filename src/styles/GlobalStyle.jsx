@@ -190,10 +190,6 @@ details summary::before {
     margin-left: 20px;
   }
 
-  p {
-    width: 780px;
-  }
-
   img {
     max-width: 100vw;
     max-height: 80vh;
