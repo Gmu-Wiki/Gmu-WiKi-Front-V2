@@ -66,6 +66,7 @@ export default function InquiryWrite() {
 
     if (shouldPost) {
       inquiryUpload();
+      setShowModal(true);
     }
   };
 
@@ -109,12 +110,8 @@ export default function InquiryWrite() {
           <C.PreviewWriteBox content={content} />
         </S.WriteBox>
       )}
-      <S.RegisterButton onClick={() => setShowModal(true)}>
-        등록하기
-      </S.RegisterButton>
-      {showModal && (
-        <C.InquiryModal postInquiry={postInquiry} setShowModal={setShowModal} />
-      )}
+      <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
+      {showModal && <C.InquiryModal setShowModal={setShowModal} />}
     </>
   );
 }
