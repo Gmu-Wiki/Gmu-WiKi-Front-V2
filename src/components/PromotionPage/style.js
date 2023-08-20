@@ -29,6 +29,31 @@ export const PromotionContentBox = styled.div`
   display: flex;
   align-items: flex-start;
   animation: ${fadeUp} 1.2s linear 0s;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media screen and (max-width: 1200px) {
+    img {
+      width: 70%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    img {
+      width: 50%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 1080px) {
+    img {
+      display: none;
+    }
+  }
 `;
 
 export const PromotionTextBox = styled.div`
@@ -37,6 +62,7 @@ export const PromotionTextBox = styled.div`
   align-items: flex-start;
   color: #ffffff;
   margin-top: 1.3rem;
+  margin-right: 8vw;
 
   p {
     font-size: 1rem;
