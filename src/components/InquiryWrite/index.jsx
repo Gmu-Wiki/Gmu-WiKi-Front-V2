@@ -17,6 +17,7 @@ export default function InquiryWrite() {
     purpose: "선택해주세요",
     title: ""
   });
+  const [showModal, setShowModal] = useState(false);
 
   let save = [];
 
@@ -65,6 +66,7 @@ export default function InquiryWrite() {
 
     if (shouldPost) {
       inquiryUpload();
+      setShowModal(true);
     }
   };
 
@@ -109,6 +111,7 @@ export default function InquiryWrite() {
         </S.WriteBox>
       )}
       <S.RegisterButton onClick={postInquiry}>등록하기</S.RegisterButton>
+      {showModal && <C.InquiryModal setShowModal={setShowModal} />}
     </>
   );
 }

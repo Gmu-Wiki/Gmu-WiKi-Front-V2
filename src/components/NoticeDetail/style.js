@@ -7,7 +7,7 @@ export const Content = styled.p`
   flex-direction: column;
   font-size: 1rem;
   color: #191919;
-  line-height: 22px;
+  line-height: 26px;
 
   a {
     color: #007eff;
@@ -22,45 +22,16 @@ export const Content = styled.p`
 `;
 
 export const NTBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   margin-top: 10px;
   margin-left: 68%;
 `;
 
 export const Date = styled.p`
   text-align: right;
-  font-size: 1rem;
-  color: #636363;
+  font-size: 0.8rem;
+  color: #999;
   font-weight: 400;
-`;
-
-export const BtnBox = styled.div`
-  display: flex;
-  margin-left: 90%;
-`;
-
-export const DeleteBtn = styled.button`
-  color: #999;
-  border: 1px solid #999;
-  background: none;
-  width: 60px;
-  height: 30px;
-  cursor: pointer;
-
-  :hover {
-    border: 1px dotted #999;
-  }
-`;
-
-export const RefusalBtn = styled.button`
-  color: #999;
-  border: 1px solid #999;
-  background: none;
-  width: 60px;
-  height: 30px;
-  margin-left: 5px;
-  cursor: pointer;
-
-  :hover {
-    border: 1px dotted #999;
-  }
 `;
