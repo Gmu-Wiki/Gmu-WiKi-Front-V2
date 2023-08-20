@@ -8,11 +8,9 @@ export const OptionContainer = styled.div`
   background-color: none;
   margin-bottom: 8px;
   padding: 3px 10px;
-
+  position: relative;
   div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: inline-block;
     width: 100%;
     
     svg {
@@ -26,6 +24,7 @@ export const OptionContainer = styled.div`
     span {
       display: none;
       position: absolute;
+      bottom: 140%;
       max-width: 200px;
       padding: 5px 10px;
       -webkit-border-radius: 8px;
@@ -35,13 +34,11 @@ export const OptionContainer = styled.div`
       color: #fff;
       font-size: 0.8rem;
       z-index: 99;
-      top: 24%;
-      margin-left: 10px;
       text-align: center;
 
       &::after {
         position: absolute;
-        top: 100%;
+        top: 99%;
         left: 50%;
         margin-left: -5px;
         border: solid transparent;
@@ -56,14 +53,20 @@ export const OptionContainer = styled.div`
     
     &:hover {
       span {
-        display: inline;
+        display: block;
       }
     }
-    
-    .imgOption {
-      width: 500px;
+
+      .imgTooltip {
+        width: 200px;
+        left: 63%;
+
+      .codeTooltip {
+        width: 70px;
+        left: 86.7%;
+      }
     }
-}
+  }
 
   .unFunctionIcon {
     svg {
