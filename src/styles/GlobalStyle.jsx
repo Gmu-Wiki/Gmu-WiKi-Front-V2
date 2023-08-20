@@ -92,10 +92,11 @@ const GlobalStyle = createGlobalStyle`
       width: 780px;
     }
   }
-
+  
   .markdownConverter details {
     margin: 0;
-    line-height: 22px;
+    line-height: 26px;
+    
   }
 
   details summary {
