@@ -28,8 +28,10 @@ export default function Student() {
 
     return filteredItems.map(item => (
       <React.Fragment key={item.id}>
-        <S.StudentBox onClick={() => handleBoardItemClick(item.id)}>
-          <S.StudentTitle>{item.title}</S.StudentTitle>
+        <S.StudentBox>
+          <S.StudentTitle onClick={() => handleBoardItemClick(item.id)}>
+            {item.title}
+          </S.StudentTitle>
         </S.StudentBox>
       </React.Fragment>
     ));
