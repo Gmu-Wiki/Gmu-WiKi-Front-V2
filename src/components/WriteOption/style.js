@@ -57,14 +57,14 @@ export const OptionContainer = styled.div`
       }
     }
 
-    .imgTooltip {
-      width: 200px;
-      left: 63%;
-    }
+      .imgTooltip {
+        width: 200px;
+        left: 63%;
 
-    .codeTooltip {
-      width: 70px;
-      left: 86.7%;
+      .codeTooltip {
+        width: 70px;
+        left: 86.7%;
+      }
     }
   }
 
