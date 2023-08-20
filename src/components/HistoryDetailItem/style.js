@@ -8,7 +8,6 @@ export const Content = styled.p`
   font-size: 1rem;
   color: #191919;
   line-height: 26px;
-  letter-spacing: 0.5rem;
 
   a {
     color: #007eff;

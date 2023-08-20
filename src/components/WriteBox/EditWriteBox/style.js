@@ -77,3 +77,16 @@ export const LineNumberBox = styled.div`
   line-height: 22px;
   margin-left: 20px;
 `;
+
+
+export const AlarmBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  width: 18.5vw;
+  margin-left: 75px;
+  margin-top: 15px;
+  color: #636363;
+  font-weight: 300;
+  `
