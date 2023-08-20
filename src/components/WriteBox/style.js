@@ -8,7 +8,7 @@ export const WriteBoxContainer = styled.div`
 export const WriteOptions = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   height: 4.7vh;
 `;
