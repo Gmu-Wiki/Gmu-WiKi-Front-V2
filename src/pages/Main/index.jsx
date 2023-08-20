@@ -43,8 +43,8 @@ function Main() {
           </S.Illusion>
           <S.Content>
             <div>
-              <span className="pointWord">G무위키는&nbsp;</span>
-              <span>GSM 학생들을 위한 위키입니다.</span>
+              <span className="pointWord">G무위키</span>
+              <span>는 GSM 학생들을 위한 위키입니다.</span>
             </div>
             <span className="pointContent">
               검증되지 않았거나 편향된 내용이 있을 수 있습니다.
