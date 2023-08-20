@@ -182,7 +182,7 @@ details summary::before {
   hr {
     margin: 20px 0;
     width: 100%;
-    border: 1px solid #d9d9d9;
+    border: 1px solid #dddddd;
   }
 
   li {

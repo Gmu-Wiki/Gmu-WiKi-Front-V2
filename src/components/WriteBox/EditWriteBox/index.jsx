@@ -1,5 +1,6 @@
 import TextareaAutosize from "react-textarea-autosize";
 import * as S from "./style";
+import * as I from "../../../assets";
 import { memo } from "react";
 import GetRole from "../../../lib/GetRole";
 
@@ -152,6 +153,10 @@ function EditWriteBox({
           onChange={onChangeTextArea}
         />
       </S.ContentInputBox>
+      <S.AlarmBox>
+        <I.AlarmIcon />
+        <p>엔터키 / 스페이스바를 두번 작성해야 줄바꿈이 됩니다.</p>
+      </S.AlarmBox>
     </S.EditWriteBoxContainer>
   );
 }
