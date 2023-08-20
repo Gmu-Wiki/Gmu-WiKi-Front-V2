@@ -72,7 +72,7 @@ function WriteBox() {
   };
 
   return (
-    <>
+    <S.WriteBoxContainer>
       <S.WriteOptions>
         <S.ChangeButtonContainer>
           <S.EditButton checked={edit} onClick={handleEdit}>
@@ -113,7 +113,7 @@ function WriteBox() {
         </S.WriteBox>
       )}
       <S.RegisterButton onClick={post}>등록하기</S.RegisterButton>
-    </>
+    </S.WriteBoxContainer>
   );
 }
 

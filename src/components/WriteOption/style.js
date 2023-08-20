@@ -26,6 +26,7 @@ export const OptionContainer = styled.div`
     span {
       display: none;
       position: absolute;
+      max-width: 100px;
       padding: 5px 10px;
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
@@ -34,7 +35,7 @@ export const OptionContainer = styled.div`
       color: #fff;
       font-size: 0.8rem;
       z-index: 99;
-      bottom: 53px;
+      top: 155px;
       margin-left: 10px;
       text-align: center;
 
@@ -52,13 +53,13 @@ export const OptionContainer = styled.div`
         content: " ";
       }
     }
-  
+    
     &:hover {
       span {
         display: inline;
       }
     }
-
+    
     .imgOption {
       width: 200px;
     }
