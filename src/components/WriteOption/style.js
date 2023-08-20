@@ -14,6 +14,7 @@ export const OptionContainer = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
+    
     svg {
       margin-left: 12px;
       cursor: pointer;
@@ -25,7 +26,7 @@ export const OptionContainer = styled.div`
     span {
       display: none;
       position: absolute;
-      max-width: 200px;
+      max-width: 100px;
       padding: 5px 10px;
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
@@ -55,10 +56,13 @@ export const OptionContainer = styled.div`
     
     &:hover {
       span {
-        display: block;
+        display: inline;
       }
     }
-  
+    
+    .imgOption {
+      width: 200px;
+    }
 }
 
   .unFunctionIcon {

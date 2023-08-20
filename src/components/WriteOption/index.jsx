@@ -146,7 +146,7 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
             ref={fileRef}
             onChange={handleUpload}
           />
-          <span>이미지(png, jpeg, gif, svg+xm)</span>
+          <span className="imgOption">이미지(png, jpeg, gif, svg+xm)</span>
         </div>
         <div onClick={() => passOption("code")}>
           <I.CodeIcon />

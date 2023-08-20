@@ -43,7 +43,7 @@ function Main() {
           </S.Illusion>
           <S.Content>
             <div>
-              <span className="pointWord">G무위키&nbsp;</span>
+              <span className="pointWord">G무위키는&nbsp;</span>
               <span>GSM 학생들을 위한 위키입니다.</span>
             </div>
             <span className="pointContent">
