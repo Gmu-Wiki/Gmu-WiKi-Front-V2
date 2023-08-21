@@ -84,7 +84,7 @@ export const AlarmBox = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  width: 18.5vw;
+  width: 285px;
   margin-left: 75px;
   margin-top: 15px;
   color: #636363;
