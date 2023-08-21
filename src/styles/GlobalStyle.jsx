@@ -91,7 +91,8 @@ const GlobalStyle = createGlobalStyle`
 
   .markdownConverter details {
     margin: 0;
-    line-height: 22px;
+    line-height: 26px;
+    margin-bottom: 60px;
   }
 
   details summary {
