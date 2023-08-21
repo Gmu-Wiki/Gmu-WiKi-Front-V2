@@ -10,7 +10,7 @@ export const WriteOptions = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  height: 4.7vh;
+  height: 4.9vh;
 `;
 
 export const ChangeButtonContainer = styled.div`

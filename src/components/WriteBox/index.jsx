@@ -1,4 +1,4 @@
-import { useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import { useUpload } from "../../Hooks";
@@ -30,9 +30,17 @@ function WriteBox() {
     dispatch(e.target);
   };
 
-  window.onbeforeunload = () => {
-    return "reloadEvent";
-  };
+  useEffect(() => {
+    function handleUnLoad(e) {
+      e.returnValue = "";
+      e.preventDefault();
+    }
+    window.addEventListener("beforeunload", handleUnLoad);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnLoad);
+    };
+  }, []);
 
   const onChangeTextArea = e => {
     const textarea = textareaRef.current;

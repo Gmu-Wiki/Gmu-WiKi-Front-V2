@@ -24,9 +24,17 @@ const EditNotice = ({ title, content, id }) => {
     setNumArr(save);
   }, [content, title]);
 
-  window.onbeforeunload = () => {
-    return "reloadEvent";
-  };
+  useEffect(() => {
+    function handleUnLoad(e) {
+      e.returnValue = "";
+      e.preventDefault();
+    }
+    window.addEventListener("beforeunload", handleUnLoad);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnLoad);
+    };
+  }, []);
 
   const onChange = e => {
     setEditTitle(e.target.value);
