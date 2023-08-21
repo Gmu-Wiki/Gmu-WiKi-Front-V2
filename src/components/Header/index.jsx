@@ -131,6 +131,9 @@ function Header() {
                 placeholder="search"
                 onChange={handleSearchChange}
                 value={search}
+                onMouseEnter={() => {
+                  setShowMenu(false);
+                }}
               />
               <S.SearchIcon>
                 <I.Search />
@@ -152,7 +155,11 @@ function Header() {
             )}
           </S.FixedInput>
           {filteredBoardList.map((item, index) => (
-            <Link key={item.id} to={`/board/${item.id}`}>
+            <Link
+              key={item.id}
+              to={`/board/${item.id}`}
+              onClick={() => setSearch("")}
+            >
               <S.SearchItem
                 key={item.id}
                 top={29 * (index + 1) + 17}

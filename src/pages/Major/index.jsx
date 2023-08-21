@@ -24,8 +24,10 @@ export default function Student() {
       <C.Detail hasNumber={false} title={"전공"}>
         {boardList.map(item => (
           <React.Fragment key={item.id}>
-            <S.MajorBox onClick={() => handleBoardItemClick(item.id)}>
-              <S.MajorTitle>{item.title}</S.MajorTitle>
+            <S.MajorBox>
+              <S.MajorTitle onClick={() => handleBoardItemClick(item.id)}>
+                {item.title}
+              </S.MajorTitle>
             </S.MajorBox>
           </React.Fragment>
         ))}
