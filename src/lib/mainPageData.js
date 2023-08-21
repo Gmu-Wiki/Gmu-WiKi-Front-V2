@@ -1,6 +1,6 @@
 export const schoolGraphData = [
   {
-    titleChild: "성별",
+    titleChild: "개교",
     contentChild: "1954년 6월",
     backgroundColor: "#DFE464"
   },
