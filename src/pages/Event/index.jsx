@@ -9,6 +9,7 @@ export default function Student() {
   if (!boardList) return null;
 
   const years = [
+    { title: "2021", type: "TWENTY_FIRST" },
     { title: "2023", type: "TWENTY_THIRD" },
     { title: "2022", type: "TWENTY_SECOND" }
   ];
