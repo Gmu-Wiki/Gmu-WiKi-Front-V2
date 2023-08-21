@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
+export const WriteOptions = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.7vh;
+`;
+
 export const WriteBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-
-export const WriteOptions = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 4.7vh;
-`;
 
 export const ChangeButtonContainer = styled.div`
   display: flex;

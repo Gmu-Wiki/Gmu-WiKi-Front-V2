@@ -2,6 +2,7 @@ import { useState, useReducer, useRef } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import { useNotice } from "../../Hooks";
+import { useEffect } from "react";
 function reducer(state, action) {
   return {
     ...state,
@@ -52,9 +53,17 @@ export default function NoticeWrite() {
     setPreview(true);
   };
 
-  window.onbeforeunload = () => {
-    return "reloadEvent";
-  };
+  useEffect(() => {
+    function handleUnLoad(e) {
+      e.returnValue = "";
+      e.preventDefault();
+    }
+    window.addEventListener("beforeunload", handleUnLoad);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnLoad);
+    };
+  }, []);
 
   const { uploadNotice } = useNotice({ props: { title, content } });
 

@@ -2,6 +2,7 @@ import { useState, useReducer, useRef } from "react";
 import * as S from "./style";
 import * as C from "../index";
 import { useInquiry } from "../../Hooks";
+import { useEffect } from "react";
 
 function reducer(state, action) {
   return {
@@ -55,9 +56,17 @@ export default function InquiryWrite() {
     setPreview(true);
   };
 
-  window.onbeforeunload = () => {
-    return "reloadEvent";
-  };
+  useEffect(() => {
+    function handleUnLoad(e) {
+      e.returnValue = "";
+      e.preventDefault();
+    }
+    window.addEventListener("beforeunload", handleUnLoad);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnLoad);
+    };
+  }, []);
 
   const { inquiryUpload } = useInquiry({ props: { title, content, category } });
 
