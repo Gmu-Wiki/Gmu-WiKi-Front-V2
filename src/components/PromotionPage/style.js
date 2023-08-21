@@ -79,7 +79,7 @@ export const PromotionTitleBox = styled.div`
   gap: 16px;
 
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     font-weight: bold;
   }
 `;
