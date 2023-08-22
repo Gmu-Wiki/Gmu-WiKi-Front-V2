@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const WriteOptions = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.7vh;
+`;
+
 export const WriteBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,24 +60,15 @@ export const PreviewButton = styled.button`
   }
 `;
 
-export const WriteOptions = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 4.7vh;
-`;
-
 export const WriteBox = styled.div`
   background-color: none;
   overflow-y: auto;
   border: 1px solid #c0c0c0;
-  width: 97%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  margin-left: 15px;
 `;
 
 export const RegisterButton = styled.button`
