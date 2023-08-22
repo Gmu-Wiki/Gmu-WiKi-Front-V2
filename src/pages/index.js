@@ -20,3 +20,4 @@ export { default as NoticeDetail } from "./NoticeDetail";
 export { default as Edit } from "./Edit";
 export { default as EditNotice } from "./EditNotice";
 export { default as Promotion } from "./Promotion";
+export { default as Project } from "./Project";

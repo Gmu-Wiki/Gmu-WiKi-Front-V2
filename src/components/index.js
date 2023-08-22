@@ -27,3 +27,4 @@ export { default as EditWrite } from "./EditWrite";
 export { default as EditNotice } from "./EditNotice";
 export { default as PromotionPage } from "./PromotionPage";
 export { default as InquiryModal } from "./InquiryModal";
+export { default as Project } from "./Project";
