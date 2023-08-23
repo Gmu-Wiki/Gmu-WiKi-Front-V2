@@ -5,7 +5,6 @@ import GetRole from "../../lib/GetRole";
 import useBoard from "../../Hooks/useBoard";
 
 export default function Project() {
-  const role = GetRole();
   const { boardList } = useBoard({ boardType: "PROJECT" });
 
   if (!boardList) return null;
@@ -40,7 +39,7 @@ export default function Project() {
     <C.PageContainer
       title="프로젝트"
       sort="프로젝트"
-      hasPostButton={role === "관리자"}
+      hasPostButton=true
       url="/post"
       hasTitle
     >
