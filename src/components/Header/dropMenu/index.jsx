@@ -48,6 +48,9 @@ function DropMenu({ onMouseEnter, onMouseLeave }) {
           <Link to="/schedule">
             <span>학사일정</span>
           </Link>
+          <Link to="/project">
+            <span>프로젝트</span>
+          </Link>
           <Link to="https://github.com/Team-Ampersand">
             <span>깃허브</span>
           </Link>
