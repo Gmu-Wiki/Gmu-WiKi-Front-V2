@@ -39,7 +39,7 @@ export default function Project() {
     <C.PageContainer
       title="프로젝트"
       sort="프로젝트"
-      hasPostButton=true
+      hasPostButton={true}
       url="/post"
       hasTitle
     >
