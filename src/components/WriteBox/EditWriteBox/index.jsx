@@ -116,6 +116,7 @@ function EditWriteBox({
               <option value="select">선택해주세요</option>
               <option value="CLUB">동아리</option>
               <option value="INCIDENT">사건</option>
+              <option value="PROJECT">프로젝트</option>
             </select>
             <select
               name="detailCategory"
@@ -140,6 +141,12 @@ function EditWriteBox({
                   <option value="TWENTY_FIRST">2021</option>
                   <option value="TWENTY_SECOND">2022</option>
                   <option value="TWENTY_THIRD">2023</option>
+                </>
+              )}
+              {category === "PROJECT" && (
+                <>
+                  <option value="TEAM">팀</option>
+                  <option value="INDIVIDUAL">개인</option>
                 </>
               )}
             </select>
