@@ -13,6 +13,7 @@ function Header() {
   const [filteredBoardList, setFilteredBoardList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [current, setCurrent] = useState(0);
 
   const { searchList } = useSearchList({ title: search });
 
@@ -52,6 +53,7 @@ function Header() {
   const handleSearchChange = e => {
     let inputValue = e.target.value;
     setSearch(inputValue);
+    setCurrent(0);
 
     if (inputValue.length <= 0) {
       setFilteredBoardList([]);
@@ -94,6 +96,24 @@ function Header() {
     }
   }, [searchList, search]);
 
+  const keyArrowUp = () => {
+    if (current >= 0) {
+      setCurrent(current - 1);
+      console.log(current);
+    }
+  };
+
+  const keyArrowDown = () => {
+    if (current < filteredBoardList.length - 1) {
+      setCurrent(current + 1);
+      console.log(current);
+    }
+  };
+
+  const keyEnter = e => {
+    navigate(`/board/${searchList.id}`);
+  };
+
   return (
     <>
       <S.Header
@@ -123,7 +143,17 @@ function Header() {
             </S.HeaderItem>
           </S.Nav>
         </S.MenuContainer>
-        <S.InfoContainer>
+        <S.InfoContainer
+          onKeyDown={e => {
+            if (e.key === "ArrowUp") {
+              keyArrowUp();
+            } else if (e.key === "ArrowDown") {
+              keyArrowDown();
+            } else if (e.key === "Enter") {
+              keyEnter();
+            }
+          }}
+        >
           <S.FixedInput>
             <S.SearchContainer>
               <S.SearchInput
@@ -164,6 +194,7 @@ function Header() {
                 key={item.id}
                 top={29 * (index + 1) + 17}
                 onMouseEnter={() => setShowMenu(false)}
+                current={index === current}
               >
                 {item.title}
               </S.SearchItem>
