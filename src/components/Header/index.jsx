@@ -14,7 +14,6 @@ function Header() {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [current, setCurrent] = useState(0);
-
   const { searchList } = useSearchList({ title: search });
 
   const tokenManager = new TokenManager();
