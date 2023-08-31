@@ -110,8 +110,11 @@ function Header() {
     }
   };
 
-  const keyEnter = e => {
-    navigate(`/board/${searchList.id}`);
+  const keyEnter = () => {
+    if (filteredBoardList[current]) {
+      const itemId = filteredBoardList[current].id;
+      navigate(`/board/${itemId}`);
+    }
   };
 
   return (
