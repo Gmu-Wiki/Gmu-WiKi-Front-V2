@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TokenManager from "../apis/TokenManager";
 import * as P from "../pages";
+import EnvConfig from "../apis/EnvConfig";
 
 export default function Router() {
   const tokenManager = new TokenManager();
@@ -11,6 +12,7 @@ export default function Router() {
   useEffect(() => {
     if (!accessToken) {
       navigate("/promotion");
+      console.log(EnvConfig.GMUWIKI_SERVER_URL);
     } else if (window.location.pathname === "/promotion") {
       navigate("/");
     }
@@ -37,7 +39,6 @@ export default function Router() {
       <Route path="/schedule" element={<P.Schedule />} />
       <Route path="/promotion" element={<P.Promotion />} />
       <Route path="/project" element={<P.Project />} />
-
       <Route path="/role" element={<P.Role />} />
       <Route path="/inquiry/:id" element={<P.InquiryDetail />} />
       <Route path="/noticeWrite" element={<P.NoticeWrite />} />

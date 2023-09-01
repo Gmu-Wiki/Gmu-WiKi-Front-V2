@@ -112,6 +112,8 @@ export const SearchItem = styled.ul`
   &:hover {
     background-color: #e4f1ff;
   }
+
+  background-color: ${({ current }) => current && "#e4f1ff"};
 `;
 
 export const FixedInput = styled.div`
