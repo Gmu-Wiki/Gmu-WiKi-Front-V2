@@ -3,6 +3,7 @@ import * as S from "./style";
 import * as C from "../index";
 import { useMail } from "../../Hooks";
 import useMarkdown from "../../Hooks/useMarkdown";
+import DOMPurify from "dompurify";
 
 const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
   const { postApproveMail } = useMail({ props: { id } });
@@ -25,13 +26,15 @@ const InquiryDetailItem = ({ id, content, name, inquiryType, createdDate }) => {
 
   const html = markdownToHtml(content);
 
+  const cleanHtml = DOMPurify.sanitize(html);
+
   return (
     <>
       <S.NTBox>
         <S.Name>작성자 : {name}</S.Name>
         <S.CreatedDate>작성일 : {createdDate}</S.CreatedDate>
       </S.NTBox>
-      <S.Content dangerouslySetInnerHTML={{ __html: html }} />
+      <S.Content dangerouslySetInnerHTML={{ __html: cleanHtml }} />
       {showRefusal && (
         <C.Refusal
           id={id}
