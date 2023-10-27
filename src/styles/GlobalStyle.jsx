@@ -200,6 +200,10 @@ details summary::before {
       height: 100%;
     }
   }
+
+  iframe {
+    display: none;
+  }
 `;
 
 export default GlobalStyle;
