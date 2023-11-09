@@ -1,6 +1,6 @@
 import * as S from "./style";
 import * as I from "../../assets";
-import PromotionCom from "../../imgs/PromotionCom.png";
+import PromotionCom from "../../imgs/PromotionCom.webp";
 import { gauthLoginUri } from "../../lib/GAuthLoginUrl";
 
 function PromotionPage() {

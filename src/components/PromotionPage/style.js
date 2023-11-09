@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import PromotionBackground from "../../imgs/promotion.png";
+import PromotionBackground from "../../imgs/promotion.webp";
 
 const fadeUp = keyframes`
   0% {
