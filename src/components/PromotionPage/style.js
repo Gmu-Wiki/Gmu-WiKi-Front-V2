@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import PromotionBackground from "../../imgs/promotion.png";
+import PromotionBackground from "../../imgs/promotion.webp";
 
 const fadeUp = keyframes`
   0% {
@@ -110,4 +110,9 @@ export const PromotionComputerBox = styled.div`
   bottom: 0;
   display: flex;
   align-items: flex-end;
+`;
+
+export const Img = styled.img`
+  max-width: 100%;
+  height: 715px;
 `;
