@@ -111,3 +111,8 @@ export const PromotionComputerBox = styled.div`
   display: flex;
   align-items: flex-end;
 `;
+
+export const Img = styled.img`
+  max-width: 100%;
+  height: auto;
+`;

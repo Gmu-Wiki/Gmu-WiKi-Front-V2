@@ -23,7 +23,7 @@ function PromotionPage() {
             <I.GAuthLogo /> <span>Sign in with GAuth</span>
           </S.GauthLoginButton>
         </S.PromotionTextBox>
-        <img src={PromotionCom} alt="프로모션 이미지" />
+        <S.Img src={PromotionCom} alt="프로모션 이미지" />
       </S.PromotionContentBox>
     </S.PromotionPageContainer>
   );
