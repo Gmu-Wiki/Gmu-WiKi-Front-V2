@@ -1,8 +1,8 @@
 import React from "react";
 import * as C from "../../components";
 import * as S from "./style";
-import SchoolImg from "../../imgs/SchoolImg.png";
-import SchoolSong from "../../imgs/SchoolSong.png";
+import SchoolImg from "../../imgs/SchoolImg.webp";
+import SchoolSong from "../../imgs/SchoolSong.webp";
 import { schoolGraphData, historyGraphData } from "../../lib/mainPageData";
 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";

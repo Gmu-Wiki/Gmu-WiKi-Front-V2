@@ -14,6 +14,7 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
     async e => {
       const file = e.currentTarget.files?.item(0);
 
+      console.log(file);
       if (!file) return toast.error("이미지 파일이 아닙니다.");
       const url = await upload([file]);
       if (!url) return;
@@ -66,11 +67,9 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         ...numArr,
         numArr.length + 1,
         numArr.length + 2,
-        numArr.length + 3,
-        numArr.length + 4,
-        numArr.length + 5
+        numArr.length + 3
       ]);
-      addOption(">>\n" + ">==제목==<\n" + "\n___\n" + "(텍스트)\n" + "<<");
+      addOption(">>\n" + ">==제목==<\n" + "(텍스트)\n" + "<<");
     } else if (option === "quote") {
       addOption("> 텍스트");
     } else if (option === "a") {
