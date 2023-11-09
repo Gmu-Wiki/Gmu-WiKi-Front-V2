@@ -114,5 +114,5 @@ export const PromotionComputerBox = styled.div`
 
 export const Img = styled.img`
   max-width: 100%;
-  height: auto;
+  height: 715px;
 `;
