@@ -13,7 +13,8 @@ export default function Student() {
   const generations = [
     { title: "5기", type: "FIFTH" },
     { title: "6기", type: "SIXTH" },
-    { title: "7기", type: "SEVENTH" }
+    { title: "7기", type: "SEVENTH" },
+    { title: "8기", type: "EIGHTH" }
   ];
 
   const handleBoardItemClick = boardId => {

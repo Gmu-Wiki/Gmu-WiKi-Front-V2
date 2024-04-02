@@ -54,6 +54,7 @@ function EditWriteBox({
               <option value="select">선택해주세요</option>
               {category === "STUDENT" && (
                 <>
+                  <option value="EIGHTH">8기</option>
                   <option value="SEVENTH">7기</option>
                   <option value="SIXTH">6기</option>
                   <option value="FIFTH">5기</option>
@@ -82,6 +83,7 @@ function EditWriteBox({
                   <option value="TWENTY_FIRST">2021</option>
                   <option value="TWENTY_SECOND">2022</option>
                   <option value="TWENTY_THIRD">2023</option>
+                  <option value="TWENTY_FOURTH">2024</option>
                 </>
               )}
               {category === "SCHEDULE" && (
