@@ -143,6 +143,7 @@ function EditWriteBox({
                   <option value="TWENTY_FIRST">2021</option>
                   <option value="TWENTY_SECOND">2022</option>
                   <option value="TWENTY_THIRD">2023</option>
+                  <option value="TWENTY_FOURTH">2024</option>
                 </>
               )}
               {category === "PROJECT" && (
