@@ -191,8 +191,9 @@ details summary::before {
   }
 
   img {
-    max-width: 80vw;
-    max-height: 80vh;
+    display: block;
+    max-width: 100%;
+    max-height: 80%;
     object-fit: cover;
 
     @media screen and (max-width: 1280px) {
