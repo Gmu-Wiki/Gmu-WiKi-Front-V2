@@ -69,7 +69,7 @@ function WriteOption({ content, setContent, textareaRef, setNumArr }) {
         numArr.length + 2,
         numArr.length + 3
       ]);
-      addOption(">>\n" + ">==제목==<\n" + "(텍스트)\n" + "<<");
+      addOption(">>\n" + ">==제목==<\n" + "\n___\n\n" + "(텍스트)\n" + "<<");
     } else if (option === "quote") {
       addOption("> 텍스트");
     } else if (option === "a") {
